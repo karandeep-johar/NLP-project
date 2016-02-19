@@ -30,32 +30,39 @@ Output:
 
 AG
 --------
-1. Question Classification - Arvind
-Input:
+##Question Classification - Arvind
+
+###Input:
 - a single question string
-Output:
+
+###Output:
 - type: Y/N, type of entity required as answer.
 - fluency: yes or not
 - hardness: estimate
 
-2. TFIDF sentence matching - Dhruv
-Input:
+##TFIDF sentence matching - Dhruv
+
+###Input:
+
 - Corpus
 - Question String
-Output:
+
+###Output:
 - scored list of sentences from the corpus which most probably can answer the question.
 
 Common
 --------
 Sentence Splitting and Tokenization
 
+## Wordnet integration - Karandeep
 
-1. Wordnet integration - Karandeep
-Input:
+###Input:
+
 - The sentence
 - A word of the sentence
 - Query type:
 	Give homonym
 	Give synonym
-Output:
+
+###Output:
 appropriate query response
