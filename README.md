@@ -13,5 +13,7 @@ https://github.com/piskvorky/gensim - genism
 ## Using NLTK
 
 Installation: sudo pip install -U nltk
+
 Simple Parser: https://github.com/emilmont/pyStatParser
+
 Example code for syntax parsing: nltk_sample.py
