@@ -19,9 +19,10 @@ Simple Parser: https://github.com/emilmont/pyStatParser
 Example code for syntax parsing: nltk_sample.py
 
 COMPONENTS
+----------
 QG
 -------
-1. Question generation - Varshaa
+##Question generation - Varshaa
 Input:
 - Corpus
 Output:
@@ -66,3 +67,14 @@ Sentence Splitting and Tokenization
 
 ###Output:
 appropriate query response
+
+
+
+
+
+
+
+
+##Attributions
+-Gensim tutorial (https://gist.github.com/clemsos/7692685, https://radimrehurek.com/gensim/tutorial.html)
+-CoreNLP in python (https://github.com/dasmith/stanford-corenlp-python,https://github.com/brendano/stanford_corenlp_pywrapper)
