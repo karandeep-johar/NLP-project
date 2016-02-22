@@ -1,7 +1,7 @@
 # SUBJECT: Person - Who, Place - Where, Time - When, Else: - What
 import os
 import sys
-
+from init import *
 '''
 path = os.getcwd()
 corpus = sys.argv[1]
@@ -20,18 +20,18 @@ for s in parsed['sentences']:
     ner = s['ner']
     tokens = s['tokens']
     nounIndices = []
-    for i in range(0,len(pos)):
+    for i in range(0, len(pos)):
         tag = pos[i]
         if tag[0:2] == 'NN':
             nounIndices.append(i)
     for i in nounIndices:
         if ner[i] == 'PERSON':
-            print tokens[i]+"/"+pos[i]+"/WHO?"
+            print tokens[i] + "/" + pos[i] + "/WHO?"
         elif ner[i] == 'LOCATION':
-            print tokens[i]+"/"+pos[i]+"/WHERE?"
+            print tokens[i] + "/" + pos[i] + "/WHERE?"
         elif ner[i] == 'DATE':
-            print tokens[i]+"/"+pos[i]+"/WHEN?"
+            print tokens[i] + "/" + pos[i] + "/WHEN?"
         else:
-            print tokens[i]+"/"+pos[i]+"/WHAT?"
+            print tokens[i] + "/" + pos[i] + "/WHAT?"
 
 # Rule 1: WHAT do/does/did the SUBJECT VERB?

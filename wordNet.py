@@ -1,9 +1,6 @@
 import nltk
 from nltk.corpus import wordnet as wn
-import pprint
-from stanford_corenlp_pywrapper import CoreNLP
-proc = CoreNLP(configfile='config.ini', corenlp_jars=[
-               "./stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*"])
+from init import *
 
 
 def penn_to_wn(tag):
