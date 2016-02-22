@@ -30,6 +30,14 @@ QG
 ###Output:
 - for each sentence a plausible questioning word.
 
+Update: 2/22:
+
+For each noun, look-up NER and formulate question start
+
+Next steps: 
+
+1) Recognizing noun phrases with multiple words 
+2) Using Syntax tree to group words
 
 AG
 --------
@@ -42,6 +50,14 @@ AG
 - type: Y/N, type of entity required as answer.
 - fluency: yes or not
 - hardness: estimate
+- 
+Update: 2/22
+
+Basic version implemented, yes-no or factoid, type of answer etc
+
+Next steps: Parse syntax tree to figure out answer type for 'What' questions?
+Integration with TF-IDF, wordnet
+
 
 ##TFIDF sentence matching - Dhruv
 
@@ -52,6 +68,15 @@ AG
 
 ###Output:
 - scored list of sentences from the corpus which most probably can answer the question.
+
+Update: 2/22
+
+TFIDF implemented
+Potential answer generation by removal of tokens present in the question
+
+Next steps: 
+
+Syntax tree. TFIDF is done Dhruv moves to Answering/questions 
 
 Common
 --------
@@ -70,6 +95,10 @@ Sentence Splitting and Tokenization
 ###Output:
 appropriate query response
 
+Update 2/22:
+
+homonyms generated for wordnet - this can replace the original word in a sentence
+To do: Program wrapper. TBD
 
 ##TODOs
 -Remove heading names from the articles
