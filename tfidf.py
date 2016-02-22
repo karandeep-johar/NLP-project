@@ -39,19 +39,21 @@ sims=[]
 # Similarity computation
 for q in qBOW:
 	sims.append(index[tfidf[q]])
-# pp.pprint(sims)
+
+# Sorting sentences by score
 sortedAnswers=[]
 for answerSentences in sims:
 	answerSentences = sorted(answerSentences, key=lambda tup: tup[1], reverse=True)
 	sortedAnswers.append(answerSentences)
-# print(sortedAnswers)
-# sortedSims.filter(lambda tup:tup[0]<numSentences)
+
+# Printing sentences that potentially answer the question
 for s in sortedAnswers:
 	for x in s:
 		print 'Potential sentence (score:%.2f' % (x[1],),'):',
 		print ' '.join(tokenized['sentences'][x[0]]['tokens'])
 	print '\n'
 
+# Potential Answer Generation
 for i in range(len(sortedAnswers)):
 	s = sortedAnswers[i]
 	x = s[0]
