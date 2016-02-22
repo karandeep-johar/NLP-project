@@ -23,9 +23,11 @@ COMPONENTS
 QG
 -------
 ##Question generation - Varshaa
-Input:
+
+###Input:
 - Corpus
-Output:
+
+###Output:
 - for each sentence a plausible questioning word.
 
 
@@ -69,10 +71,8 @@ Sentence Splitting and Tokenization
 appropriate query response
 
 
-
-
-
-
+##TODOs
+-Remove heading names from the articles
 
 
 ##Attributions
