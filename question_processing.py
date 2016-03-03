@@ -38,7 +38,7 @@ class Question_parser:
                 elif wh_word.lower() == 'where':
                     self.answer_type = "place"
                 elif wh_word.lower() == 'what':
-                    self.answer_type = "unknown"	 				#
+                    self.answer_type = "unknown"
                 else:
                     self.answer_type = "unknown"
             # Find headword in Noun-phrase after Wh word
