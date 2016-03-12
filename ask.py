@@ -1,3 +1,4 @@
+__author__ = 'kjohar'
 # The “asking” program: ./ask article.txt nquestions
 # where article.txt is a text file containing a Wikipedia article and nquestions is an integer
 # > 0 telling how many questions to generate. Output is a sequence of nquestions English

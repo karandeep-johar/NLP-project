@@ -3,10 +3,38 @@ from gensim import corpora, models, similarities
 from stanford_corenlp_pywrapper import CoreNLP
 import sys
 import pprint
+from init import *
 pp = pprint.PrettyPrinter(indent=2)
 # CoreNLP initialization
-proc = CoreNLP(configfile='simple.ini', corenlp_jars=[
-               "./stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*"])
+proc = proc2
+
+
+
+class TF_IDF(object):
+    """docstring for tfidf"""
+    def __init__(self, article,questions):
+        self.article = article
+        self.questions = questions
+        
+        # Tokenization
+        tokenized = proc.parse_doc(article)
+
+        # Extracting tokenized sentences
+        sentenceList = [s['lemmas'] for s in tokenized['sentences']]
+        questionList = [proc.parse_doc(q)['sentences'][0]['lemmas'] for q in questions.split('\n')]
+        numSentences = len(sentenceList)
+
+        # Generating dictionary
+        dictionary = corpora.Dictionary(sentenceList + questionList)
+        # dictionary.save('/tmp/corpDict.dict')
+
+        # Converting corpus and questions to vector representation
+        corpusVectors = [dictionary.doc2bow(c) for c in sentenceList]
+        qBOW = [dictionary.doc2bow(c) for c in questionList]
+
+
+        
+
 # Tokenization
 tokenized = proc.parse_doc(open('wiki.txt').read())
 questionList = [proc.parse_doc(q)['sentences'][0]['lemmas']
