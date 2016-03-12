@@ -12,15 +12,18 @@ def main(args):
         return
     with open(args[0], "r") as article , open(args[1],"r") as questions:
         data = article.read()
-        questionsList = questions.read()
+        questionsList = questions.read().split('\n')
         objTfidf = TF_IDF(data, questionsList)
-
+        # print questionsList
         for question in questionsList:
             #fluency check
             #interestingText can be a list of tuples of (sentence,score)
+            print 'Q: '+question
             interestingText = objTfidf.getInterestingText(question)
-            for answer,score in objTfidf.getAnswer(question, interestingText):
-                print answer,score
+            for it in interestingText:
+                print 'IT: ' + ' '.join(it[1])
+            for answer in objTfidf.getAnswer(question, interestingText):
+                print 'PA: '+answer
             # proc = proc1
             # question1 = "Did United defeat Chelsea"
             # q1_parse = Question_parser(question1)
