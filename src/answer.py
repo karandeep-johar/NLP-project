@@ -7,7 +7,9 @@ import sys
 from init import *
 from question_processing import *
 from tfidf import *
+
 def main(args):
+    logger.critical('This message should go to the log file')
     if len(args)!=2:
         return
     with open(args[0], "r") as article , open(args[1],"r") as questions:
@@ -29,4 +31,8 @@ def main(args):
             # q1_parse = Question_parser(question1)
             # print q1_parse
 if __name__ == '__main__':
+    
+
+
+
     main(sys.argv[1:])

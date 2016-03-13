@@ -11,7 +11,6 @@
 # sudo ldconfig
 
 
-
 import locale
 
 from linkgrammar import Sentence, ParseOptions, Dictionary
