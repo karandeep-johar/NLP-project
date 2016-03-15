@@ -7,7 +7,7 @@ def answerYesNo(question,answerSentences,QPObj):
             for i in range(len(answerSentences)):
                 s = answerSentences[i]
                 lemmas = s[2]
-                posTags = proc.parse_doc(s[3])['sentences'][0]['pos']
+                posTags = s[3]
                 answer = []
                 for j in range(len(lemmas)):
                     w = lemmas[j]

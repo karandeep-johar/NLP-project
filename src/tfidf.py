@@ -44,7 +44,7 @@ class TF_IDF(object):
         answerSentences = [(x[1],\
             self.tokenized['sentences'][x[0]]['tokens'],\
             self.tokenized['sentences'][x[0]]['lemmas'],\
-            self.article[self.tokenized['sentences'][x[0]]['char_offsets'][0][0]:self.tokenized['sentences'][x[0]]['char_offsets'][-1][1]]
+            self.tokenized['sentences'][x[0]]['pos'],\
             ) for x in answerSentences]
         return answerSentences
     
