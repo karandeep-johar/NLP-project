@@ -10,12 +10,13 @@ class Question_parser:
     #     self.difficulty = "NA"
     #     self.question = question
     #     self.parse()
-    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", parse = True):
+    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", answer = "NA", parse = True):
         self.valid = valid
         self.qtype = qtype
         self.answer_type = answer_type
         self.difficulty = difficulty
         self.question = question
+        self.answer = answer
         if parse:
             self.parse()
     def __eq__(self, other): 
@@ -27,6 +28,7 @@ class Question_parser:
             "Validity= " + str(self.valid) + '\n' +\
             "Question Type = " + self.qtype + '\n' +\
             "Answer Type = " + self.answer_type + '\n' +\
+            "Answer = " + self.answer + '\n' +\
             "Difficulty = " + self.difficulty + '\n'
 
     def parse(self):
@@ -36,28 +38,28 @@ class Question_parser:
             self.valid = True
             first_word = parsed['sentences'][0]['lemmas'][0]
             if first_word == 'be' or first_word == 'do' or first_word == "have":
-                self.qtype = 'YesNo'
+                self.qtype = 'BOOLEAN'
                 self.difficulty = 'easy'
-                self.answer_type = "YesNo"
+                self.answer_type = set(["BOOLEAN"])
             else:
                 self.qtype = "Factoid"
                 self.difficulty = 'medium'
                 wh_word = parsed[u'sentences'][0][u'tokens'][0]
                 if wh_word.lower() == 'who' or wh_word.lower() == "whom":
-                    self.answer_type = "person"
+                    self.answer_type = set(["PERSON","ORGANIZATION"])
                 elif wh_word.lower() == 'when':
-                    self.answer_type = "time"
+                    self.answer_type = set(["TIME","DATE"])
                 elif wh_word.lower() == 'where':
-                    self.answer_type = "place"
+                    self.answer_type = set(["LOCATION"])
                 elif wh_word.lower() == 'how':
-                    self.answer_type = "NUMBER"
+                    self.answer_type = set(["NUMBER","MONEY", "TIME","DATE", "PERCENT"])
                 else:
                     self.difficulty = 'Unknown'
                     self.difficulty = 'hard'
                     if wh_word.lower() == 'what':
-                        self.answer_type = "unknown"
+                        self.answer_type = set(["UNKNOWN"])
                     else:
-                        self.answer_type = "unknown"
+                        self.answer_type = set(["UNKNOWN"])
             # Why => reason
             # what => all
             # which =>all
@@ -69,7 +71,7 @@ class Question_parser:
             # print str(parsed[u'sentences'][0][u'parse'])
             #TODO except how followed by is/was/do/does etc usually it is a number
             #Norway LOCATION where
-            #800 NUMBER how
+            #800 NUMBER/Time/Date how
             #Anna PERSON who
             #8:30 TIME/DATE when
             #Location, Person, Organization, Money, Percent, Date, Time, Misc

@@ -48,7 +48,7 @@ class TF_IDF(object):
             ) for x in answerSentences]
         return answerSentences
     
-    def getAnswer(self,question,answerSentences):
+    def getAnswer(self,question,answerSentences, qpobj):
         potAnswers = []
         for i in range(len(answerSentences)):
             s = answerSentences[i]

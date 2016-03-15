@@ -1,8 +1,12 @@
 # content of conftest.py
+# py.test -q test_compute.py -v conftest.py --all >temp2
+
 from collections import defaultdict
 from pprint import pprint
 from src.question_processing import Question_parser
 oldDataHeadings = ["ArticleTitle", "Question", "Answer", "DifficultyFromQuestioner",  "DifficultyFromAnswerer",  "ArticleFile"]
+
+newDataHeadings = ["eam_id","qn_id" ,"article_title","base_path","qn_difficulty_by_questioner", "qn_text" ,"is_disfluent?"  , "is_bad_qn?" , "answer" , "qn_difficulty_by_answerer"]
 dataHeadings = oldDataHeadings
 def pytest_addoption(parser):
     parser.addoption("--all", action="store_true",
@@ -16,9 +20,9 @@ def pytest_generate_tests(metafunc):
             questions = []
 
             for question in questionsDataList:
-                if "NULL" not in question and "too hard" not in question and "too easy" not in question and question[3] != "NA":
+                if "NULL" not in question and "NA" not in question and "too hard" not in question and "too easy" not in question and question[3] != "NA":
                     print question
-                    ques = Question_parser(question[1],difficulty = question[3],parse = False)
+                    ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parse = False)
                     questions.append(ques)
             metafunc.parametrize("param", questions)
         else:
@@ -32,6 +36,8 @@ def pytest_generate_tests(metafunc):
             questions.append(Question_parser("When is the concert?"))
             questions.append(Question_parser("What time is the concert?"))
             metafunc.parametrize("param", questions)
+
+
 
 def gen():
 
