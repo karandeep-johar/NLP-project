@@ -42,9 +42,7 @@ class TF_IDF(object):
         answerSentences = self.index[self.tfidf[newQBOW]]
         answerSentences = sorted(answerSentences, key=lambda tup: tup[1], reverse=True)
         answerSentences = [(x[1],\
-            self.tokenized['sentences'][x[0]]['tokens'],\
-            self.tokenized['sentences'][x[0]]['lemmas'],\
-            self.tokenized['sentences'][x[0]]['pos'],\
+            self.tokenized['sentences'][x[0]]
             ) for x in answerSentences]
         return answerSentences
     
@@ -52,12 +50,12 @@ class TF_IDF(object):
         potAnswers = []
         for i in range(len(answerSentences)):
             s = answerSentences[i]
-            lemmas = s[2]
+            lemmas = s[1]['lemmas']
             answer = ''
             for j in range(len(lemmas)):
                 w = lemmas[j]
                 if w.lower() not in map(lambda x: x.lower(), proc.parse_doc(question)['sentences'][0]['lemmas']):
-                    answer = answer+' '+s[1][j]
+                    answer = answer+' '+s[1]['tokens'][j]
                 else:# Heuristic for score
                     pass
             if len(answer)>0:

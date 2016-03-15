@@ -30,8 +30,6 @@ def main(args):
             #interestingText can be a list of tuples of (sentence,score)
             print 'Q: '+question
             questionParseObj = Question_parser(question)
-
-            
             interestingText = objTfidf.getInterestingText(question)
             for it in interestingText:
 # <<<<<<< Updated upstream
