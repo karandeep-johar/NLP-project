@@ -18,6 +18,8 @@ class TF_IDF(object):
         
         # Tokenization
         self.tokenized = proc.parse_doc(article)
+        # print self.tokenized['sentences'][0]['char_offsets'][0][0]
+        # print self.tokenized['sentences'][0]['char_offsets'][-1][1]
 
         # Extracting tokenized sentences
         sentenceList = [s['lemmas'] for s in self.tokenized['sentences']]
