@@ -12,8 +12,7 @@ def answerYesNo(question,answerSentences,QPObj):
             answer = []
             for j in range(len(lemmas)):
                 w = lemmas[j]
-                if w.lower() not in qLemmas\
-                or posTags[j] not in puncTags:
+                if w.lower() not in qLemmas and posTags[j] not in puncTags:
                     answer.append(s[1][j])
                 else:# Heuristic for score
                     pass
