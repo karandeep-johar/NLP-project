@@ -1,4 +1,5 @@
 import sys
+import os
 sys.path.append("/usr/local/lib/python2.7/site-packages")
 import nltk
 # from stat_parser import Parser
@@ -12,7 +13,7 @@ pp = pprint.PrettyPrinter(indent=2)
 dir = "."
 # dir = os.path.dirname(__file__)
 filename = os.path.join(dir, '../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*')
-configFileLoc = os.path.join(dir, 'config.ini')
+configFileLoc = os.path.join(dir, 'mid.ini')
 proc1 = CoreNLP(configfile=configFileLoc, corenlp_jars=[filename])
 question = "Did Ronaldo score the last goal in the world cup?"
 question_parsed=Question_parser(question,proc)

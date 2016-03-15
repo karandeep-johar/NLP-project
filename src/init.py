@@ -3,8 +3,8 @@ import pprint
 import logging
 from stanford_corenlp_pywrapper import CoreNLP
 import os
-# dir = "."
-dir = os.path.dirname(__file__)
+dir = "."
+# dir = os.path.dirname(__file__)
 filename = os.path.join(dir, '../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*')
 configFileLoc = os.path.join(dir, 'config.ini')
 proc1 = CoreNLP(configfile=configFileLoc, corenlp_jars=[filename])
