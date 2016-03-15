@@ -18,8 +18,6 @@ class TF_IDF(object):
         
         # Tokenization
         self.tokenized = proc.parse_doc(article)
-        # print self.tokenized['sentences'][0]['char_offsets'][0][0]
-        # print self.tokenized['sentences'][0]['char_offsets'][-1][1]
 
         # Extracting tokenized sentences
         sentenceList = [s['lemmas'] for s in self.tokenized['sentences']]
@@ -43,7 +41,11 @@ class TF_IDF(object):
         newQBOW = self.dictionary.doc2bow(proc.parse_doc(question)['sentences'][0]['lemmas'])
         answerSentences = self.index[self.tfidf[newQBOW]]
         answerSentences = sorted(answerSentences, key=lambda tup: tup[1], reverse=True)
-        answerSentences = [(x[1],self.tokenized['sentences'][x[0]]['tokens'],self.tokenized['sentences'][x[0]]['lemmas']) for x in answerSentences]
+        answerSentences = [(x[1],\
+            self.tokenized['sentences'][x[0]]['tokens'],\
+            self.tokenized['sentences'][x[0]]['lemmas'],\
+            self.article[self.tokenized['sentences'][x[0]]['char_offsets'][0][0]:self.tokenized['sentences'][x[0]]['char_offsets'][-1][1]]
+            ) for x in answerSentences]
         return answerSentences
     
     def getAnswer(self,question,answerSentences):

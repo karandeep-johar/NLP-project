@@ -23,7 +23,8 @@ def main(args):
             print 'Q: '+question
             interestingText = objTfidf.getInterestingText(question)
             for it in interestingText:
-                print 'IT: ' + ' '.join(it[1])
+                # print 'IT: ' + ' '.join(it[1])
+                print 'IT: ' +it[3]
             for answer in objTfidf.getAnswer(question, interestingText):
                 print 'PA: '+answer
             # proc = proc1
