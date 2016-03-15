@@ -1,0 +1,4451 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.6 -- pytest-2.5.1
+collected 995 items
+
+test_compute.py ............FFFFFF.............FFFF.............FF................FFFF...................F.F.......F................................................FFFF..........FFFF......F.............FF..FF..............FFF............F...........................F...........FF............FF..FF...............F..............FF....FF..FF.FF..................FF................................F..FF...............................FF..F..........FFFF.............FF.............FF...............FFF...........FF.................................FFFF..FF.......FF......F..............FFFF........FFF..........FF......F..............FF............FFFFFF.....FFF............FFFF........FF.............FFFFFF......FF.................FF............FF................FF................................FF..............FFF.......................FF..FF..............FF.F............FFFF...............................................FF....F............FF..FFFF..F.....FFF................F.............FFF..................
+
+=================================== FAILURES ===================================
+____________________________ test_compute[param12] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d91b8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Alessandro Volta die and retire in the same place?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param13] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d9200>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Alessandro Volta die and retire in the same place?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param14] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d9248>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When did Alessandro Volta improve  and popularize the electrophorus?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param15] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d9290>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When did Alessandro Volta improve  and popularize the electrophorus?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param16] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d92d8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How long was Alessandro Volta a professor at the University of Pavia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param17] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d9320>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How long was Alessandro Volta a professor at the University of Pavia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param31] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d9710>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Volta buried where he died or was he buried someplace else?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param32] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d9758>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Volta buried where he died or was he buried someplace else?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param33] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d97a0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Volta marry before he became professor of experimental physics at the University of Pavia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param34] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d97e8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Volta marry before he became professor of experimental physics at the University of Pavia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param48] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d9bd8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who was Avogadro's wife?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param49] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d9c20>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who was Avogadro's wife?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param66] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dc128>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is Amedeo Avogadro Italian?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param67] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dc170>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is Amedeo Avogadro Italian?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param68] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dc1b8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did he become a professor before the revolutionary movements against the king of Sardinia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param69] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dc200>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did he become a professor before the revolutionary movements against the king of Sardinia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param89] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dc7a0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do ants belong to the same order as bees?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param91] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dc830>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do all ants build nests?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param99] _____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dca70>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many municipalities does Antwerp have?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param148] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547db878>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many occupation zones was Germany divided into after the war?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param149] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547db8c0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where was Popkomm held before moving to Berlin?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param150] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547db908>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'easy'
+E             - medium
+E             + easy
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who was Blaise Pascal's father?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = easy
+
+____________________________ test_compute[param151] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547db950>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'easy'
+E             - medium
+E             + easy
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who was Blaise Pascal's father?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = easy
+
+____________________________ test_compute[param162] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dbc68>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How old was Pascal when he died?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param163] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dbcb0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Pascal write about cycloid before 1658?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param164] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dbcf8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is there a programming language called Pascal?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param165] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dbd40>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is there a programming language called Pascal?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param172] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547dbf38>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do butterflies carry more pollen than Hymenoptera?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param186] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547e43b0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Charles-Augustin de Coulomb come from a poor family?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param187] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547e43f8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Charles-Augustin de Coulomb come from a poor family?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param190] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547e44d0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+>           if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+
+test_compute.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53f16200>
+question = 'Where is Coll\xe8ge des Quatre-Nations located?', valid = False
+qtype = 'NA', answer_type = 'NA', difficulty = 'NA', parse = True
+
+    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", parse = True):
+        self.valid = valid
+        self.qtype = qtype
+        self.answer_type = answer_type
+        self.difficulty = difficulty
+        self.question = question
+        if parse:
+>           self.parse()
+
+../src/question_processing.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53f16200>
+
+    def parse(self):
+        proc = init.proc1
+>       parsed = proc.parse_doc(self.question)
+
+../src/question_processing.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <stanford_corenlp_pywrapper.sockwrap.CoreNLP instance at 0x7feb54f98950>
+text = 'Where is Coll\xe8ge des Quatre-Nations located?', timeout = 300
+raw = False
+
+    def parse_doc(self, text, timeout=PARSEDOC_TIMEOUT_SEC, raw=False):
+>       cmd = "PARSEDOC\t%s" % json.dumps(text)
+
+/usr/local/lib/python2.7/dist-packages/stanford_corenlp_pywrapper/sockwrap.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = 'Where is Coll\xe8ge des Quatre-Nations located?', skipkeys = False
+ensure_ascii = True, check_circular = True, allow_nan = True, cls = None
+indent = None, separators = None, encoding = 'utf-8', default = None
+sort_keys = False, kw = {}
+
+    def dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True,
+            allow_nan=True, cls=None, indent=None, separators=None,
+            encoding='utf-8', default=None, sort_keys=False, **kw):
+        """Serialize ``obj`` to a JSON formatted ``str``.
+    
+        If ``skipkeys`` is false then ``dict`` keys that are not basic types
+        (``str``, ``unicode``, ``int``, ``long``, ``float``, ``bool``, ``None``)
+        will be skipped instead of raising a ``TypeError``.
+    
+        If ``ensure_ascii`` is false, all non-ASCII characters are not escaped, and
+        the return value may be a ``unicode`` instance. See ``dump`` for details.
+    
+        If ``check_circular`` is false, then the circular reference check
+        for container types will be skipped and a circular reference will
+        result in an ``OverflowError`` (or worse).
+    
+        If ``allow_nan`` is false, then it will be a ``ValueError`` to
+        serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in
+        strict compliance of the JSON specification, instead of using the
+        JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).
+    
+        If ``indent`` is a non-negative integer, then JSON array elements and
+        object members will be pretty-printed with that indent level. An indent
+        level of 0 will only insert newlines. ``None`` is the most compact
+        representation.  Since the default item separator is ``', '``,  the
+        output might include trailing whitespace when ``indent`` is specified.
+        You can use ``separators=(',', ': ')`` to avoid this.
+    
+        If ``separators`` is an ``(item_separator, dict_separator)`` tuple
+        then it will be used instead of the default ``(', ', ': ')`` separators.
+        ``(',', ':')`` is the most compact JSON representation.
+    
+        ``encoding`` is the character encoding for str instances, default is UTF-8.
+    
+        ``default(obj)`` is a function that should return a serializable version
+        of obj or raise TypeError. The default simply raises TypeError.
+    
+        If *sort_keys* is ``True`` (default: ``False``), then the output of
+        dictionaries will be sorted by key.
+    
+        To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the
+        ``.default()`` method to serialize additional types), specify it with
+        the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.
+    
+        """
+        # cached encoder
+        if (not skipkeys and ensure_ascii and
+            check_circular and allow_nan and
+            cls is None and indent is None and separators is None and
+            encoding == 'utf-8' and default is None and not sort_keys and not kw):
+>           return _default_encoder.encode(obj)
+
+/usr/lib/python2.7/json/__init__.py:243: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.encoder.JSONEncoder object at 0x7feb54f6a090>
+o = 'Where is Coll\xe8ge des Quatre-Nations located?'
+
+    def encode(self, o):
+        """Return a JSON string representation of a Python data structure.
+    
+            >>> JSONEncoder().encode({"foo": ["bar", "baz"]})
+            '{"foo": ["bar", "baz"]}'
+    
+            """
+        # This is for extremely simple cases and benchmarks.
+        if isinstance(o, basestring):
+            if isinstance(o, str):
+                _encoding = self.encoding
+                if (_encoding is not None
+                        and not (_encoding == 'utf-8')):
+                    o = o.decode(_encoding)
+            if self.ensure_ascii:
+>               return encode_basestring_ascii(o)
+E               UnicodeDecodeError: 'utf8' codec can't decode byte 0xe8 in position 13: invalid continuation byte
+
+/usr/lib/python2.7/json/encoder.py:201: UnicodeDecodeError
+------------------------------- Captured stdout --------------------------------
+\nWhere is Coll\ufffdge des Quatre-Nations located?\nValidity= False\nQuestion Type = NA\nAnswer Type = NA\nDifficulty = hard\n
+____________________________ test_compute[param191] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547e4518>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+>           if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+
+test_compute.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53dd3e18>
+question = 'Where is Coll\xe8ge des Quatre-Nations located?', valid = False
+qtype = 'NA', answer_type = 'NA', difficulty = 'NA', parse = True
+
+    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", parse = True):
+        self.valid = valid
+        self.qtype = qtype
+        self.answer_type = answer_type
+        self.difficulty = difficulty
+        self.question = question
+        if parse:
+>           self.parse()
+
+../src/question_processing.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53dd3e18>
+
+    def parse(self):
+        proc = init.proc1
+>       parsed = proc.parse_doc(self.question)
+
+../src/question_processing.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <stanford_corenlp_pywrapper.sockwrap.CoreNLP instance at 0x7feb54f98950>
+text = 'Where is Coll\xe8ge des Quatre-Nations located?', timeout = 300
+raw = False
+
+    def parse_doc(self, text, timeout=PARSEDOC_TIMEOUT_SEC, raw=False):
+>       cmd = "PARSEDOC\t%s" % json.dumps(text)
+
+/usr/local/lib/python2.7/dist-packages/stanford_corenlp_pywrapper/sockwrap.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = 'Where is Coll\xe8ge des Quatre-Nations located?', skipkeys = False
+ensure_ascii = True, check_circular = True, allow_nan = True, cls = None
+indent = None, separators = None, encoding = 'utf-8', default = None
+sort_keys = False, kw = {}
+
+    def dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True,
+            allow_nan=True, cls=None, indent=None, separators=None,
+            encoding='utf-8', default=None, sort_keys=False, **kw):
+        """Serialize ``obj`` to a JSON formatted ``str``.
+    
+        If ``skipkeys`` is false then ``dict`` keys that are not basic types
+        (``str``, ``unicode``, ``int``, ``long``, ``float``, ``bool``, ``None``)
+        will be skipped instead of raising a ``TypeError``.
+    
+        If ``ensure_ascii`` is false, all non-ASCII characters are not escaped, and
+        the return value may be a ``unicode`` instance. See ``dump`` for details.
+    
+        If ``check_circular`` is false, then the circular reference check
+        for container types will be skipped and a circular reference will
+        result in an ``OverflowError`` (or worse).
+    
+        If ``allow_nan`` is false, then it will be a ``ValueError`` to
+        serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in
+        strict compliance of the JSON specification, instead of using the
+        JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).
+    
+        If ``indent`` is a non-negative integer, then JSON array elements and
+        object members will be pretty-printed with that indent level. An indent
+        level of 0 will only insert newlines. ``None`` is the most compact
+        representation.  Since the default item separator is ``', '``,  the
+        output might include trailing whitespace when ``indent`` is specified.
+        You can use ``separators=(',', ': ')`` to avoid this.
+    
+        If ``separators`` is an ``(item_separator, dict_separator)`` tuple
+        then it will be used instead of the default ``(', ', ': ')`` separators.
+        ``(',', ':')`` is the most compact JSON representation.
+    
+        ``encoding`` is the character encoding for str instances, default is UTF-8.
+    
+        ``default(obj)`` is a function that should return a serializable version
+        of obj or raise TypeError. The default simply raises TypeError.
+    
+        If *sort_keys* is ``True`` (default: ``False``), then the output of
+        dictionaries will be sorted by key.
+    
+        To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the
+        ``.default()`` method to serialize additional types), specify it with
+        the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.
+    
+        """
+        # cached encoder
+        if (not skipkeys and ensure_ascii and
+            check_circular and allow_nan and
+            cls is None and indent is None and separators is None and
+            encoding == 'utf-8' and default is None and not sort_keys and not kw):
+>           return _default_encoder.encode(obj)
+
+/usr/lib/python2.7/json/__init__.py:243: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.encoder.JSONEncoder object at 0x7feb54f6a090>
+o = 'Where is Coll\xe8ge des Quatre-Nations located?'
+
+    def encode(self, o):
+        """Return a JSON string representation of a Python data structure.
+    
+            >>> JSONEncoder().encode({"foo": ["bar", "baz"]})
+            '{"foo": ["bar", "baz"]}'
+    
+            """
+        # This is for extremely simple cases and benchmarks.
+        if isinstance(o, basestring):
+            if isinstance(o, str):
+                _encoding = self.encoding
+                if (_encoding is not None
+                        and not (_encoding == 'utf-8')):
+                    o = o.decode(_encoding)
+            if self.ensure_ascii:
+>               return encode_basestring_ascii(o)
+E               UnicodeDecodeError: 'utf8' codec can't decode byte 0xe8 in position 13: invalid continuation byte
+
+/usr/lib/python2.7/json/encoder.py:201: UnicodeDecodeError
+------------------------------- Captured stdout --------------------------------
+\nWhere is Coll\ufffdge des Quatre-Nations located?\nValidity= False\nQuestion Type = NA\nAnswer Type = NA\nDifficulty = hard\n
+____________________________ test_compute[param206] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547e4908>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How is South China linguistically different from North China?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param207] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547e4950>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+>           if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+
+test_compute.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53e8bc68>
+question = '&#20415;&#24403;/&#20415;&#30070; \x93lunchbox or boxed lunch\x94 (from bento) and &#26009;&#29702; \x93prepared cuisine\x94 are loan words from which language?'
+valid = False, qtype = 'NA', answer_type = 'NA', difficulty = 'NA', parse = True
+
+    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", parse = True):
+        self.valid = valid
+        self.qtype = qtype
+        self.answer_type = answer_type
+        self.difficulty = difficulty
+        self.question = question
+        if parse:
+>           self.parse()
+
+../src/question_processing.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53e8bc68>
+
+    def parse(self):
+        proc = init.proc1
+>       parsed = proc.parse_doc(self.question)
+
+../src/question_processing.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <stanford_corenlp_pywrapper.sockwrap.CoreNLP instance at 0x7feb54f98950>
+text = '&#20415;&#24403;/&#20415;&#30070; \x93lunchbox or boxed lunch\x94 (from bento) and &#26009;&#29702; \x93prepared cuisine\x94 are loan words from which language?'
+timeout = 300, raw = False
+
+    def parse_doc(self, text, timeout=PARSEDOC_TIMEOUT_SEC, raw=False):
+>       cmd = "PARSEDOC\t%s" % json.dumps(text)
+
+/usr/local/lib/python2.7/dist-packages/stanford_corenlp_pywrapper/sockwrap.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = '&#20415;&#24403;/&#20415;&#30070; \x93lunchbox or boxed lunch\x94 (from bento) and &#26009;&#29702; \x93prepared cuisine\x94 are loan words from which language?'
+skipkeys = False, ensure_ascii = True, check_circular = True, allow_nan = True
+cls = None, indent = None, separators = None, encoding = 'utf-8', default = None
+sort_keys = False, kw = {}
+
+    def dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True,
+            allow_nan=True, cls=None, indent=None, separators=None,
+            encoding='utf-8', default=None, sort_keys=False, **kw):
+        """Serialize ``obj`` to a JSON formatted ``str``.
+    
+        If ``skipkeys`` is false then ``dict`` keys that are not basic types
+        (``str``, ``unicode``, ``int``, ``long``, ``float``, ``bool``, ``None``)
+        will be skipped instead of raising a ``TypeError``.
+    
+        If ``ensure_ascii`` is false, all non-ASCII characters are not escaped, and
+        the return value may be a ``unicode`` instance. See ``dump`` for details.
+    
+        If ``check_circular`` is false, then the circular reference check
+        for container types will be skipped and a circular reference will
+        result in an ``OverflowError`` (or worse).
+    
+        If ``allow_nan`` is false, then it will be a ``ValueError`` to
+        serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in
+        strict compliance of the JSON specification, instead of using the
+        JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).
+    
+        If ``indent`` is a non-negative integer, then JSON array elements and
+        object members will be pretty-printed with that indent level. An indent
+        level of 0 will only insert newlines. ``None`` is the most compact
+        representation.  Since the default item separator is ``', '``,  the
+        output might include trailing whitespace when ``indent`` is specified.
+        You can use ``separators=(',', ': ')`` to avoid this.
+    
+        If ``separators`` is an ``(item_separator, dict_separator)`` tuple
+        then it will be used instead of the default ``(', ', ': ')`` separators.
+        ``(',', ':')`` is the most compact JSON representation.
+    
+        ``encoding`` is the character encoding for str instances, default is UTF-8.
+    
+        ``default(obj)`` is a function that should return a serializable version
+        of obj or raise TypeError. The default simply raises TypeError.
+    
+        If *sort_keys* is ``True`` (default: ``False``), then the output of
+        dictionaries will be sorted by key.
+    
+        To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the
+        ``.default()`` method to serialize additional types), specify it with
+        the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.
+    
+        """
+        # cached encoder
+        if (not skipkeys and ensure_ascii and
+            check_circular and allow_nan and
+            cls is None and indent is None and separators is None and
+            encoding == 'utf-8' and default is None and not sort_keys and not kw):
+>           return _default_encoder.encode(obj)
+
+/usr/lib/python2.7/json/__init__.py:243: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.encoder.JSONEncoder object at 0x7feb54f6a090>
+o = '&#20415;&#24403;/&#20415;&#30070; \x93lunchbox or boxed lunch\x94 (from bento) and &#26009;&#29702; \x93prepared cuisine\x94 are loan words from which language?'
+
+    def encode(self, o):
+        """Return a JSON string representation of a Python data structure.
+    
+            >>> JSONEncoder().encode({"foo": ["bar", "baz"]})
+            '{"foo": ["bar", "baz"]}'
+    
+            """
+        # This is for extremely simple cases and benchmarks.
+        if isinstance(o, basestring):
+            if isinstance(o, str):
+                _encoding = self.encoding
+                if (_encoding is not None
+                        and not (_encoding == 'utf-8')):
+                    o = o.decode(_encoding)
+            if self.ensure_ascii:
+>               return encode_basestring_ascii(o)
+E               UnicodeDecodeError: 'utf8' codec can't decode byte 0x93 in position 34: invalid start byte
+
+/usr/lib/python2.7/json/encoder.py:201: UnicodeDecodeError
+------------------------------- Captured stdout --------------------------------
+\n&#20415;&#24403;/&#20415;&#30070; \ufffdlunchbox or boxed lunch\ufffd (from bento) and &#26009;&#29702; \ufffdprepared cuisine\ufffd are loan words from which language?\nValidity= False\nQuestion Type = NA\nAnswer Type = NA\nDifficulty = hard\n
+____________________________ test_compute[param208] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547e4998>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+>           if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+
+test_compute.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53d8e830>
+question = '&#20415;&#24403;/&#20415;&#30070; \x93lunchbox or boxed lunch\x94 (from bento) and &#26009;&#29702; \x93prepared cuisine\x94 are loan words from which language?'
+valid = False, qtype = 'NA', answer_type = 'NA', difficulty = 'NA', parse = True
+
+    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", parse = True):
+        self.valid = valid
+        self.qtype = qtype
+        self.answer_type = answer_type
+        self.difficulty = difficulty
+        self.question = question
+        if parse:
+>           self.parse()
+
+../src/question_processing.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53d8e830>
+
+    def parse(self):
+        proc = init.proc1
+>       parsed = proc.parse_doc(self.question)
+
+../src/question_processing.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <stanford_corenlp_pywrapper.sockwrap.CoreNLP instance at 0x7feb54f98950>
+text = '&#20415;&#24403;/&#20415;&#30070; \x93lunchbox or boxed lunch\x94 (from bento) and &#26009;&#29702; \x93prepared cuisine\x94 are loan words from which language?'
+timeout = 300, raw = False
+
+    def parse_doc(self, text, timeout=PARSEDOC_TIMEOUT_SEC, raw=False):
+>       cmd = "PARSEDOC\t%s" % json.dumps(text)
+
+/usr/local/lib/python2.7/dist-packages/stanford_corenlp_pywrapper/sockwrap.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = '&#20415;&#24403;/&#20415;&#30070; \x93lunchbox or boxed lunch\x94 (from bento) and &#26009;&#29702; \x93prepared cuisine\x94 are loan words from which language?'
+skipkeys = False, ensure_ascii = True, check_circular = True, allow_nan = True
+cls = None, indent = None, separators = None, encoding = 'utf-8', default = None
+sort_keys = False, kw = {}
+
+    def dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True,
+            allow_nan=True, cls=None, indent=None, separators=None,
+            encoding='utf-8', default=None, sort_keys=False, **kw):
+        """Serialize ``obj`` to a JSON formatted ``str``.
+    
+        If ``skipkeys`` is false then ``dict`` keys that are not basic types
+        (``str``, ``unicode``, ``int``, ``long``, ``float``, ``bool``, ``None``)
+        will be skipped instead of raising a ``TypeError``.
+    
+        If ``ensure_ascii`` is false, all non-ASCII characters are not escaped, and
+        the return value may be a ``unicode`` instance. See ``dump`` for details.
+    
+        If ``check_circular`` is false, then the circular reference check
+        for container types will be skipped and a circular reference will
+        result in an ``OverflowError`` (or worse).
+    
+        If ``allow_nan`` is false, then it will be a ``ValueError`` to
+        serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in
+        strict compliance of the JSON specification, instead of using the
+        JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).
+    
+        If ``indent`` is a non-negative integer, then JSON array elements and
+        object members will be pretty-printed with that indent level. An indent
+        level of 0 will only insert newlines. ``None`` is the most compact
+        representation.  Since the default item separator is ``', '``,  the
+        output might include trailing whitespace when ``indent`` is specified.
+        You can use ``separators=(',', ': ')`` to avoid this.
+    
+        If ``separators`` is an ``(item_separator, dict_separator)`` tuple
+        then it will be used instead of the default ``(', ', ': ')`` separators.
+        ``(',', ':')`` is the most compact JSON representation.
+    
+        ``encoding`` is the character encoding for str instances, default is UTF-8.
+    
+        ``default(obj)`` is a function that should return a serializable version
+        of obj or raise TypeError. The default simply raises TypeError.
+    
+        If *sort_keys* is ``True`` (default: ``False``), then the output of
+        dictionaries will be sorted by key.
+    
+        To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the
+        ``.default()`` method to serialize additional types), specify it with
+        the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.
+    
+        """
+        # cached encoder
+        if (not skipkeys and ensure_ascii and
+            check_circular and allow_nan and
+            cls is None and indent is None and separators is None and
+            encoding == 'utf-8' and default is None and not sort_keys and not kw):
+>           return _default_encoder.encode(obj)
+
+/usr/lib/python2.7/json/__init__.py:243: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.encoder.JSONEncoder object at 0x7feb54f6a090>
+o = '&#20415;&#24403;/&#20415;&#30070; \x93lunchbox or boxed lunch\x94 (from bento) and &#26009;&#29702; \x93prepared cuisine\x94 are loan words from which language?'
+
+    def encode(self, o):
+        """Return a JSON string representation of a Python data structure.
+    
+            >>> JSONEncoder().encode({"foo": ["bar", "baz"]})
+            '{"foo": ["bar", "baz"]}'
+    
+            """
+        # This is for extremely simple cases and benchmarks.
+        if isinstance(o, basestring):
+            if isinstance(o, str):
+                _encoding = self.encoding
+                if (_encoding is not None
+                        and not (_encoding == 'utf-8')):
+                    o = o.decode(_encoding)
+            if self.ensure_ascii:
+>               return encode_basestring_ascii(o)
+E               UnicodeDecodeError: 'utf8' codec can't decode byte 0x93 in position 34: invalid start byte
+
+/usr/lib/python2.7/json/encoder.py:201: UnicodeDecodeError
+------------------------------- Captured stdout --------------------------------
+\n&#20415;&#24403;/&#20415;&#30070; \ufffdlunchbox or boxed lunch\ufffd (from bento) and &#26009;&#29702; \ufffdprepared cuisine\ufffd are loan words from which language?\nValidity= False\nQuestion Type = NA\nAnswer Type = NA\nDifficulty = hard\n
+____________________________ test_compute[param221] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547e4d40>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How is the pronunciation of foreign words determined?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param249] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ed560>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many cymbals typically go in a drum kit?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param261] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ed8c0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How do rock and roll drummers like their drumheads?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param262] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ed908>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How do rock and roll drummers like their drumheads?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param275] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547edcb0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Has the design of drums changed recently?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param276] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547edcf8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Has the design of drums changed recently?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param279] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547eddd0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Does every drumhead make the same sound?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param280] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ede18>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Does every drumhead make the same sound?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param296] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f12d8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do all eels live in fresh water?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param311] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f1710>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who wrote the first novel in Finnish?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param312] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f1758>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who wrote the first novel in Finnish?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param317] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f18c0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'easy'
+E             - medium
+E             + easy
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When does a flute produce sound?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = easy
+
+____________________________ test_compute[param318] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f1908>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'easy'
+E             - medium
+E             + easy
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When does a flute produce sound?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = easy
+
+____________________________ test_compute[param321] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f19e0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do open-ended flutes have brighter timbres?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param322] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f1a28>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do open-ended flutes have brighter timbres?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param324] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f1ab8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Are Western flutes simpler than Indian flutes?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param325] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547f1b00>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Are Western flutes simpler than Indian flutes?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param344] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547fa098>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How does a flute player change the pitch of the sound?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param345] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547fa0e0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How does a flute player change the pitch of the sound?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param378] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547faa28>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is the Giant Panda a carnivore?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param381] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547fab00>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is the population of wild Giant  Pandas growing?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param382] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547fab48>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is the population of wild Giant  Pandas growing?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param414] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ff488>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How old is the oldest known representation of a guitar-like intrument being played?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param415] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ff4d0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How old is the oldest known representation of a guitar-like intrument being played?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param418] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ff5a8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+>           if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+
+test_compute.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53e6fef0>
+question = 'Did Becquerel study science at the \xc9cole des Ponts et Chauss\xe9es?'
+valid = False, qtype = 'NA', answer_type = 'NA', difficulty = 'NA', parse = True
+
+    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", parse = True):
+        self.valid = valid
+        self.qtype = qtype
+        self.answer_type = answer_type
+        self.difficulty = difficulty
+        self.question = question
+        if parse:
+>           self.parse()
+
+../src/question_processing.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <src.question_processing.Question_parser instance at 0x7feb53e6fef0>
+
+    def parse(self):
+        proc = init.proc1
+>       parsed = proc.parse_doc(self.question)
+
+../src/question_processing.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <stanford_corenlp_pywrapper.sockwrap.CoreNLP instance at 0x7feb54f98950>
+text = 'Did Becquerel study science at the \xc9cole des Ponts et Chauss\xe9es?'
+timeout = 300, raw = False
+
+    def parse_doc(self, text, timeout=PARSEDOC_TIMEOUT_SEC, raw=False):
+>       cmd = "PARSEDOC\t%s" % json.dumps(text)
+
+/usr/local/lib/python2.7/dist-packages/stanford_corenlp_pywrapper/sockwrap.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = 'Did Becquerel study science at the \xc9cole des Ponts et Chauss\xe9es?'
+skipkeys = False, ensure_ascii = True, check_circular = True, allow_nan = True
+cls = None, indent = None, separators = None, encoding = 'utf-8', default = None
+sort_keys = False, kw = {}
+
+    def dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True,
+            allow_nan=True, cls=None, indent=None, separators=None,
+            encoding='utf-8', default=None, sort_keys=False, **kw):
+        """Serialize ``obj`` to a JSON formatted ``str``.
+    
+        If ``skipkeys`` is false then ``dict`` keys that are not basic types
+        (``str``, ``unicode``, ``int``, ``long``, ``float``, ``bool``, ``None``)
+        will be skipped instead of raising a ``TypeError``.
+    
+        If ``ensure_ascii`` is false, all non-ASCII characters are not escaped, and
+        the return value may be a ``unicode`` instance. See ``dump`` for details.
+    
+        If ``check_circular`` is false, then the circular reference check
+        for container types will be skipped and a circular reference will
+        result in an ``OverflowError`` (or worse).
+    
+        If ``allow_nan`` is false, then it will be a ``ValueError`` to
+        serialize out of range ``float`` values (``nan``, ``inf``, ``-inf``) in
+        strict compliance of the JSON specification, instead of using the
+        JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``).
+    
+        If ``indent`` is a non-negative integer, then JSON array elements and
+        object members will be pretty-printed with that indent level. An indent
+        level of 0 will only insert newlines. ``None`` is the most compact
+        representation.  Since the default item separator is ``', '``,  the
+        output might include trailing whitespace when ``indent`` is specified.
+        You can use ``separators=(',', ': ')`` to avoid this.
+    
+        If ``separators`` is an ``(item_separator, dict_separator)`` tuple
+        then it will be used instead of the default ``(', ', ': ')`` separators.
+        ``(',', ':')`` is the most compact JSON representation.
+    
+        ``encoding`` is the character encoding for str instances, default is UTF-8.
+    
+        ``default(obj)`` is a function that should return a serializable version
+        of obj or raise TypeError. The default simply raises TypeError.
+    
+        If *sort_keys* is ``True`` (default: ``False``), then the output of
+        dictionaries will be sorted by key.
+    
+        To use a custom ``JSONEncoder`` subclass (e.g. one that overrides the
+        ``.default()`` method to serialize additional types), specify it with
+        the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.
+    
+        """
+        # cached encoder
+        if (not skipkeys and ensure_ascii and
+            check_circular and allow_nan and
+            cls is None and indent is None and separators is None and
+            encoding == 'utf-8' and default is None and not sort_keys and not kw):
+>           return _default_encoder.encode(obj)
+
+/usr/lib/python2.7/json/__init__.py:243: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.encoder.JSONEncoder object at 0x7feb54f6a090>
+o = 'Did Becquerel study science at the \xc9cole des Ponts et Chauss\xe9es?'
+
+    def encode(self, o):
+        """Return a JSON string representation of a Python data structure.
+    
+            >>> JSONEncoder().encode({"foo": ["bar", "baz"]})
+            '{"foo": ["bar", "baz"]}'
+    
+            """
+        # This is for extremely simple cases and benchmarks.
+        if isinstance(o, basestring):
+            if isinstance(o, str):
+                _encoding = self.encoding
+                if (_encoding is not None
+                        and not (_encoding == 'utf-8')):
+                    o = o.decode(_encoding)
+            if self.ensure_ascii:
+>               return encode_basestring_ascii(o)
+E               UnicodeDecodeError: 'utf8' codec can't decode byte 0xc9 in position 35: invalid continuation byte
+
+/usr/lib/python2.7/json/encoder.py:201: UnicodeDecodeError
+------------------------------- Captured stdout --------------------------------
+\nDid Becquerel study science at the \ufffdcole des Ponts et Chauss\ufffdes?\nValidity= False\nQuestion Type = NA\nAnswer Type = NA\nDifficulty = easy\n
+____________________________ test_compute[param429] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ff8c0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When Becquerel discovered radioactivity, whose work did he investigate?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param430] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ff908>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When Becquerel discovered radioactivity, whose work did he investigate?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param431] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ff950>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where are there craters named Becquerel?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param432] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ff998>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where are there craters named Becquerel?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param446] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ffd88>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did the Occult influence Newton's theory of gravitation?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param447] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ffdd0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Were Newton's religious views consistent with Anglicanism?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param461] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ad200>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where was Isaac Newton buried?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param462] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ad248>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where was Isaac Newton buried?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param478] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ad6c8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where does the name of the city Jakarta come from?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param479] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ad710>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How is the city's governor chosen?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param480] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547ad758>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How is the city's governor chosen?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param492] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547adab8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do mikrolets travel on the main roads?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param493] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547adb00>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do mikrolets travel on the main roads?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param527] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b24d0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where do the majority of loanwords other than Sino-Korean come from?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param528] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b2518>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where do the majority of loanwords other than Sino-Korean come from?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param529] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b2560>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'easy'
+E             - medium
+E             + easy
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many Korean speakers are there?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = easy
+
+____________________________ test_compute[param530] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b25a8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'easy'
+E             - medium
+E             + easy
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many verb paradigms are there in Korean?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = easy
+
+____________________________ test_compute[param533] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b2680>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is modern Korean written in columns or rows?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param534] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b26c8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do Chinese and Japanese have spaces between words?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param542] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b2908>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How long was Kuala Lumpur occupied by the Japanese?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+------------------------------- Captured stderr --------------------------------
+INFO:CoreNLP_JavaServer: INPUT: 800 documents, 38222 characters, 7444 tokens, 47.8 char/doc, 9.3 tok/doc RATES: 19.558 doc/sec, 182.0 tok/sec
+
+____________________________ test_compute[param543] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b2950>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When were the colonial buildings in Kuala Lumpur constructed?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param550] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b2b48>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is there a more industrialized region in malaysia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param565] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b2f80>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do lobsters feel pain?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param566] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b2fc8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do lobsters feel pain?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param567] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b7050>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did the Moche people worship lobsters?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param568] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b7098>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did the Moche people worship lobsters?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param577] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b7320>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is the foot pedal framework for a piano called a lyre?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param578] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b7368>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where was the deepest note of the classical lyre in relation to the player's body?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param579] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b73b0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Does a standard piano have fewer strings than a harp?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param590] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b76c8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Are there many words in Malay that use natural gender?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param591] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b7710>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How are new words formed in Malay?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param598] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b7908>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do linguists consider Malay to be a single language?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param613] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b7d40>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many domestic tourists visit Melbourne?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param614] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547b7d88>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many domestic tourists visit Melbourne?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param627] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc170>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Faraday discover diamagnetism?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param628] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc1b8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Faraday discover diamagnetism?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param629] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc200>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many siblings did Faraday have?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param630] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc248>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many siblings did Faraday have?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param631] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc290>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where is Michael Faraday buried?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param632] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc2d8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where is Michael Faraday buried?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param638] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc488>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+did he advise the british government on the production of chemical weapons for use in the crimean war?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param639] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc4d0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+did faraday have strong maritime interests?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param640] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc518>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+does the charge reside on the interior of a charged conductor?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param653] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc8c0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where was much of Montreal's industry during the late 19th and early-to-mid 20th century?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param654] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc908>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where was much of Montreal's industry during the late 19th and early-to-mid 20th century?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param655] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc950>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Does Montreal contain the largest church in Canada?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param656] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bc998>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Does Montreal contain the largest church in Canada?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param665] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bcc20>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many civilians died in the 1998 U.S. embassy bombing?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param666] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547bcc68>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many trades can the NSE make per day?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param680] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1098>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Nikola Tesla's mother illiterate?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param681] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c10e0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Nikola Tesla's mother illiterate?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param682] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1128>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many siblings did Nikola Tesla have?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param683] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1170>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many siblings did Nikola Tesla have?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param684] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c11b8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Nikola Tesla a vegetarian?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param685] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1200>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Nikola Tesla a vegetarian?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param692] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c13f8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Tesla win the Nobel Prize?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param693] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1440>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Tesla rich at the time of his death?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param711] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1950>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How can an octopus defend against predators?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param712] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1998>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How can an octopus defend against predators?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param725] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1d40>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where is Irving Berlin's piano located?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param726] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c1d88>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Where is Irving Berlin's piano located?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param743] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c6290>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do older pianos have more keys than modern pianos?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param744] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c62d8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do older pianos have more keys than modern pianos?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param777] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c6c20>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When did the crime level become higher?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param778] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547c6c68>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How to travel to work from the city to Moscow?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param793] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cb0e0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Are more residents employed by small businesses than in 1977?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param794] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cb128>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How does poverty in San Francisco compare to the nation-wide average?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param795] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cb170>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How does poverty in San Francisco compare to the nation-wide average?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param819] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cb830>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is Swahili spoken in Mozambique?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param820] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cb878>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is Swahili spoken in Mozambique?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param823] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cb950>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many noun classes does Swahili have?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param824] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cb998>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many noun classes does Swahili have?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param839] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cbdd0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When did the Soviet military forces occupy Estonia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param840] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cbe18>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When did the Soviet military forces occupy Estonia?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param842] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547cbea8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How does Swedish language counterbalance the absence of cases?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param855] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d0290>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When is the Pacific typhoon season?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param856] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d02d8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+When is the Pacific typhoon season?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param857] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d0320>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who sets up shrines?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param858] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d0368>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who sets up shrines?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param906] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5128>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who were the Orkhon inscriptions built for?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param907] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5170>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'hard'
+E             - medium
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Who were the Orkhon inscriptions built for?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param912] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d52d8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'medium' == 'easy'
+E             - medium
+E             + easy
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+How many people speak Turkish worldwide?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = easy
+
+____________________________ test_compute[param925] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5680>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Vietnamese influenced by Chinese?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param926] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d56c8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Was Vietnamese influenced by Chinese?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param929] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d57a0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Have consonant clusters been lost?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param930] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d57e8>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'medium'
+E             - easy
+E             + medium
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Have consonant clusters been lost?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = medium
+
+____________________________ test_compute[param931] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5830>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is the Red River Delta traditionally poor?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param932] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5878>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is the Red River Delta traditionally poor?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param935] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5950>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is Vietnam independent from France?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param941] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5b00>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Does Vietnamese borrow from Latin and Greek?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param942] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5b48>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did Vietnamese come to predominate politically in 2nd century BC?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param943] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb547d5b90>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Do more northern speakers speak the southern regional dialect than southern speakers speak the northern dialect?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param960] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb5475a098>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Is the violin a percussion instrument?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param974] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb5475a488>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did the golden age of xylophones come before or after the first usage of the European-derived orchestral?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param975] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb5475a4d0>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Did the golden age of xylophones come before or after the first usage of the European-derived orchestral?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+____________________________ test_compute[param976] ____________________________
+
+param = <src.question_processing.Question_parser instance at 0x7feb5475a518>
+
+    def test_compute(param):
+        try:
+            assert Question_parser(param.question).difficulty == param.difficulty
+        except Exception, e:
+            print param
+            if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
+                return
+>           raise e
+E           assert 'easy' == 'hard'
+E             - easy
+E             + hard
+
+test_compute.py:13: AssertionError
+------------------------------- Captured stdout --------------------------------
+
+Does kelon increase or decrease tone quality of the xylophone?
+Validity= False
+Question Type = NA
+Answer Type = NA
+Difficulty = hard
+
+=================== 156 failed, 839 passed in 60.45 seconds ====================
