@@ -22,7 +22,7 @@ Alessandro_Volta	Was Alessandro Volta an Egyptian?	No.	easy	easy	data/set4/a10
 Alessandro_Volta	Was Volta taught in public schools?	yes	easy	easy	data/set4/a10
 Alessandro_Volta	Was Volta taught in public schools?	Yes.	easy	easy	data/set4/a10
 Alessandro_Volta	Was Volta made a count in 1810?	yes	easy	easy	data/set4/a10
-Alessandro_Volta	Was Volta made a count in 1810?	No.	easy	easy	data/set4/a10
+Alessandro_Volta	Was Volta made a count in 1810?	Yes.	easy	easy	data/set4/a10
 Alessandro_Volta	Who made Volta a count?	Napoleon	medium	medium	data/set4/a10
 Alessandro_Volta	Who made Volta a count?	Napoleon	medium	medium	data/set4/a10
 Alessandro_Volta	Where was Volta born?	Como	medium	medium	data/set4/a10
@@ -175,7 +175,7 @@ Berlin	Is Berlin the capital city of Germany?	Berlin is the capital city of Germ
 Berlin	Is Berlin the capital city of Germany?	yes	easy	easy	data/set3/a1
 Berlin	Is Berlin the largest city in Germany?	Berlin is Germany's largest city.	easy	easy	data/set3/a1
 Berlin	Is Berlin the largest city in Germany?	yes	easy	easy	data/set3/a1
-Berlin	Is Schloss Charlottenburg the largest existing palace in Berlin?	Schloss Charlottenburg is the largest existing palace in Berlin. 	easy	easy	data/set3/a1
+Berlin	Is Schloss Charlottenburg the largest existing palace in Berlin?	yes. 	easy	easy	data/set3/a1
 Berlin	Is Schloss Charlottenburg the largest existing palace in Berlin?	yes	easy	easy	data/set3/a1
 Berlin	Which building is the site of the German parliament?	The Reichstag building is the site of the German parliament. 	medium	easy	data/set3/a1
 Berlin	Which building is the site of the German parliament?	The Reichstag building	medium	medium	data/set3/a1
@@ -1172,8 +1172,8 @@ San_Francisco	Is the standard of living in San Franciscio high?	Yes, San Francis
 San_Francisco	Is the standard of living in San Franciscio high?	Yes	easy	easy	data/set3/a8
 San_Francisco	Does San Francisco have a high percentage of gay and lesbian individuals?	Yes, according to the 2005 American Community Survey, San Francisco has the highest percentage of gay and lesbian individuals of any of the 50 largest U.S. cities, at 15.4%.	easy	easy	data/set3/a8
 San_Francisco	Does San Francisco have a high percentage of gay and lesbian individuals?	Yes	easy	easy	data/set3/a8
-San_Francisco	Is San Franscico a popular tourist destination?	Yes. San Francisco is a popular international tourist destination.	easy	easy	data/set3/a8
-San_Francisco	Is San Franscico a popular tourist destination?	Yes	easy	easy	data/set3/a8
+San_Francisco	Is San Francisco a popular tourist destination?	Yes. San Francisco is a popular international tourist destination.	easy	easy	data/set3/a8
+San_Francisco	Is San Francisco a popular tourist destination?	Yes	easy	easy	data/set3/a8
 San_Francisco	How large is the population of San Francisco?	The estimated population of San Francisco in the year 2008 was 808,976.	medium	medium	data/set3/a8
 San_Francisco	How large is the population of San Francisco?	San Francisco has an estimated population of 808,976.	medium	medium	data/set3/a8
 San_Francisco	How many state parks are in San Francisco?	There is only one park managed by the California State Park system: Candlestick Point.	medium	hard	data/set3/a8

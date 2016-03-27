@@ -28,7 +28,7 @@ def pytest_generate_tests(metafunc):
             questionsDataList = filter(filter_useless, questionsDataList)
             article_questions = defaultdict(list)
             for question in questionsDataList:
-                if "easy" in question:
+                if "easy" == question[3]:
                     article_questions[question[5]].append(question)
             article_tfidf = {}
             for article in article_questions:
@@ -38,7 +38,7 @@ def pytest_generate_tests(metafunc):
                     objTfidf = TF_IDF(data, map(lambda x:x[1], article_questions[article]))
                     article_tfidf[article] = objTfidf
             for question in questionsDataList:
-                if "easy" in question:
+                if "easy" == question[3]:
                     print question
                     ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parse = False)
                     questions.append((ques,article_tfidf[question[5]]))

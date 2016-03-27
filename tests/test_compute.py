@@ -1,12 +1,13 @@
 # content of test_compute.py
 import unittest
-
+import traceback
 from src.question_processing import Question_parser
 from src.easy import *
 from src.tfidf import *
 def str2bool(v):
     v = ''.join( c for c in v if  c not in '?:!/;.' )
-    return v.lower().strip() in ("yes", "true", "t", "1","y")
+    # return v.lower().strip()[:2] in ("no", "false", "f", "0","n")
+    return v.lower().strip()[:3] in ("yes", "true", "t", "1","y")
 # def test_compute(param):
 #     try:
 #         assert Question_parser(param.question).difficulty == param.difficulty
@@ -33,6 +34,7 @@ def test_yesno(param):
             assert str2bool(qpobj.answer)== str2bool(ans[0])
             # assert False == True
         except Exception, e:
+            traceback.print_exc()
             print qpobj
             print ans
             raise e
