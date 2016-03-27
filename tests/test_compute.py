@@ -2,6 +2,8 @@
 import unittest
 
 from src.question_processing import Question_parser
+from src.easy import *
+from src.tfidf import *
 def str2bool(v):
     v = ''.join( c for c in v if  c not in '?:!/;.' )
     return v.lower().strip() in ("yes", "true", "t", "1","y")
@@ -17,16 +19,23 @@ def str2bool(v):
 
 
 def test_yesno(param):
-    questionProcess = Question_parser(param.question)
-    if questionProcess.qtype != "BOOLEAN" or questionProcess.difficulty =="NA" or param.difficulty == "NA" or questionProcess.answer_type== "NA":
-        return
-    elif questionProcess.difficulty == "easy" and param.difficulty == "easy":
+    qpobj = param[0]
+    objTfidf = param[1]
+    
+    questionProcess = Question_parser(qpobj.question)
+    # if questionProcess.qtype != "BOOLEAN" or questionProcess.difficulty =="NA" or qpobj.difficulty == "NA" or questionProcess.answer_type== "NA":
+    #     return
+    if questionProcess.valid: #questionProcess.difficulty == "easy" :
         try:
-            assert True == str2bool(param.answer)
+            interestingText = objTfidf.getInterestingText(qpobj.question)
+            ans = answerYesNo(qpobj.question, interestingText, questionProcess)
+            # assert True == str2bool(qpobj.answer)
+            assert str2bool(qpobj.answer)== str2bool(ans[0])
             # assert False == True
         except Exception, e:
-            print param
+            print qpobj
+            print ans
             raise e
-        
+    
     else:
         return

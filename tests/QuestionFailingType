@@ -4434,7 +4434,6 @@ param = <src.question_processing.Question_parser instance at 0x7feb5475a518>
             print param
             if Question_parser(param.question).answer_type=="unknown" or param.difficulty=="NA" or Question_parser(param.question).difficulty == "NA":
                 return
->           raise e
 E           assert 'easy' == 'hard'
 E             - easy
 E             + hard
@@ -4442,10 +4441,11 @@ E             + hard
 test_compute.py:13: AssertionError
 ------------------------------- Captured stdout --------------------------------
 
-Does kelon increase or decrease tone quality of the xylophone?
-Validity= False
-Question Type = NA
-Answer Type = NA
+Is the violin a percussion instrument?
+Validity= True
+Question Type = Boolean
+Answer Type = Boolean
+Answer = Yes
 Difficulty = hard
 
-=================== 156 failed, 839 passed in 60.45 seconds ====================
+=================== Question Classifier 156 classified incorrectly , 839 correctly in 60.45 seconds ====================

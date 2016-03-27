@@ -4,6 +4,11 @@
 from collections import defaultdict
 from pprint import pprint
 from src.question_processing import Question_parser
+from src.tfidf import *
+def filter_useless(question):
+    if "NULL" not in question and "NA" not in question and "too hard" not in question and "too easy" not in question and question[3] != "NA":
+        return True
+    return False
 oldDataHeadings = ["ArticleTitle", "Question", "Answer", "DifficultyFromQuestioner",  "DifficultyFromAnswerer",  "ArticleFile"]
 
 newDataHeadings = ["eam_id","qn_id" ,"article_title","base_path","qn_difficulty_by_questioner", "qn_text" ,"is_disfluent?"  , "is_bad_qn?" , "answer" , "qn_difficulty_by_answerer"]
@@ -18,12 +23,25 @@ def pytest_generate_tests(metafunc):
 
             questionData,questionsDataList = gen()
             questions = []
-
+            # trying to associate articles with questions
+            articleFiles = list(set(questionData["ArticleFile"]))
+            questionsDataList = filter(filter_useless, questionsDataList)
+            article_questions = defaultdict(list)
             for question in questionsDataList:
-                if "NULL" not in question and "NA" not in question and "too hard" not in question and "too easy" not in question and question[3] != "NA":
+                if "easy" in question:
+                    article_questions[question[5]].append(question)
+            article_tfidf = {}
+            for article in article_questions:
+                with open(article,"r") as f:
+                    data = f.read()
+                    data = unicode(data, errors='ignore')   
+                    objTfidf = TF_IDF(data, map(lambda x:x[1], article_questions[article]))
+                    article_tfidf[article] = objTfidf
+            for question in questionsDataList:
+                if "easy" in question:
                     print question
                     ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parse = False)
-                    questions.append(ques)
+                    questions.append((ques,article_tfidf[question[5]]))
             metafunc.parametrize("param", questions)
         else:
             questions = []
@@ -45,15 +63,26 @@ def gen():
     dataHeadings = oldDataHeadings
     questionData = defaultdict(list)
     questionsDataList = []
-    with open('../Question_Answer_Dataset_v1.2/S10/question_answer_pairs.txt','r') as f:    
+    dataset_dir = "../Question_Answer_Dataset_v1.2/S10/"
+    with open(dataset_dir+'question_answer_pairs.txt','r') as f: 
         lines = f.readlines()[1:]
         for line in lines:
-            elements = line.strip().split("\t")
+            elements = unicode(line.strip(), errors='ignore').split("\t")
+            elements[5] = dataset_dir+elements[5]+".txt"
             questionsDataList.append(elements)
             for i in range(len(dataHeadings)):
                 questionData[dataHeadings[i]].append(elements[i])
+            # questionData["ArticleFile"].append(dataset_dir+elements[5]+".txt")
     # pprint(questionsDataList)
     return dict(questionData), questionsDataList
 
 if __name__ == '__main__':
-    gen()
+    questionData,questionsDataList = gen()
+    questions = []
+    # trying to associate articles with questions
+    articleFiles = list(set(questionData["ArticleFile"]))
+    article_questions = defaultdict(list)
+    for question in questionsDataList:
+        article_questions[question[5]].append(question[1])
+    # pprint(articleFiles)
+    # gen()

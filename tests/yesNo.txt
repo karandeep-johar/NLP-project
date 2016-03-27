@@ -1,0 +1,5 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.6 -- pytest-2.5.1
+collected 411 items
+
+test_compute.py ...F.F...FFF.F.F..FFF..FFFFFFFF
