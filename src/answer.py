@@ -42,7 +42,7 @@ def main(args):
                 for it in interestingText:
                     print 'IT: ' + ' '.join(it[1])
                     # print 'IT: ' +it[3]
-                for answer in objTfidf.getAnswer(question, interestingText):
+                for answer in objTfidf.getAnswer(question, interestingText,questionParseObj):
                     print 'PA: '+answer
 if __name__ == '__main__':
     main(sys.argv[1:])
