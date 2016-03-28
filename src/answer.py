@@ -31,29 +31,13 @@ def main(args):
             print 'Q: '+question
             questionParseObj = Question_parser(question)
             interestingText = objTfidf.getInterestingText(question)
-            for it in interestingText:
-# <<<<<<< Updated upstream
-#                 print 'IT: ' + ' '.join(it[1])
-#                 # print 'IT: ' +it[3]
-#             for answer in objTfidf.getAnswer(question, interestingText):
-#                 print 'PA: '+answer
-# =======
-                # print 'IT: ' + ' '.join(it[1])
-                # print 'IT: ' +it[3]
-                print 'IT: ' + ' '.join(it[1])
             if "BOOLEAN" in questionParseObj.answer_type:
                 print answerYesNo(question, interestingText, questionParseObj)
-            # else:
-            #     for answer in objTfidf.getAnswer(question, interestingText):
-            #         print 'PA: '+answer
-# >>>>>>> Stashed changes
-            # proc = proc1
-            # question1 = "Did United defeat Chelsea"
-            # q1_parse = Question_parser(question1)
-            # print q1_parse
+            else:
+                for it in interestingText:
+                    print 'IT: ' + ' '.join(it[1])
+                    # print 'IT: ' +it[3]
+                for answer in objTfidf.getAnswer(question, interestingText):
+                    print 'PA: '+answer
 if __name__ == '__main__':
-    
-
-
-
     main(sys.argv[1:])
