@@ -8,19 +8,24 @@ from init import *
 from question_processing import *
 from tfidf import *
 from easy import *
-minParaSize = 10
+def removeHeadings(article):
+    article = unicode(article, errors='ignore')
+    minParaSize = 10
+    data = article.read()
+    splitData = data.split('\n')
+    finalParas = []
+    for para in splitData:
+        if len(para.split())>minParaSize:
+            finalParas.append(para)
+    data = '\n'.join(finalParas)
+    return data
+
 def main(args):
     logger.critical('This message should go to the log file')
     if len(args)!=2:
         return
     with open(args[0], "r") as article , open(args[1],"r") as questions:
-        data = article.read()
-        splitData = data.split('\n')
-        finalParas = []
-        for para in splitData:
-            if len(para.split())>minParaSize:
-                finalParas.append(para)
-        data = '\n'.join(finalParas)
+        data = removeHeadings(article)
         questionsList = questions.read().split('\n')
         questionsList = [x for x in questionsList if x]
         objTfidf = TF_IDF(data, questionsList)

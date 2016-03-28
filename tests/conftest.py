@@ -5,6 +5,7 @@ from collections import defaultdict
 from pprint import pprint
 from src.question_processing import Question_parser
 from src.tfidf import *
+from src.answer import removeHeadings
 def filter_useless(question):
     if "NULL" not in question and "NA" not in question and "too hard" not in question and "too easy" not in question and question[3] != "NA":
         return True
@@ -33,8 +34,7 @@ def pytest_generate_tests(metafunc):
             article_tfidf = {}
             for article in article_questions:
                 with open(article,"r") as f:
-                    data = f.read()
-                    data = unicode(data, errors='ignore')   
+                    data = removeHeadings(f.read())
                     objTfidf = TF_IDF(data, map(lambda x:x[1], article_questions[article]))
                     article_tfidf[article] = objTfidf
             for question in questionsDataList:
