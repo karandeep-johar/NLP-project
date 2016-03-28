@@ -11,7 +11,7 @@ from easy import *
 def removeHeadings(article):
     minParaSize = 10
     data = article.read()
-    article = unicode(article, errors='ignore')
+    article = unicode(data, errors='ignore')
     splitData = data.split('\n')
     finalParas = []
     for para in splitData:
