@@ -9,9 +9,9 @@ from question_processing import *
 from tfidf import *
 from easy import *
 def removeHeadings(article):
-    article = unicode(article, errors='ignore')
     minParaSize = 10
     data = article.read()
+    article = unicode(article, errors='ignore')
     splitData = data.split('\n')
     finalParas = []
     for para in splitData:

@@ -16,3 +16,23 @@ Installation: sudo pip install -U nltk
 Simple Parser: https://github.com/emilmont/pyStatParser
 
 Example code for syntax parsing: nltk_sample.py
+
+
+## LinkGrammar
+
+#install python-dev
+sudo apt-get install python2.7-dev
+
+wget http://www.abisource.com/downloads/link-grammar/5.3.4/link-grammar-5.3.4.tar.gz
+
+tar -zxvf link-grammar-5.3.4.tar.gz
+
+cd link-grammar-5.3.4/
+
+./configure --enable-python-bindings
+
+make
+
+sudo make install
+
+ldconfig
