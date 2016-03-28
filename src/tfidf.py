@@ -64,6 +64,15 @@ class TF_IDF(object):
                 potAnswers.append('')
         return potAnswers
 
+    def checkAnswer(groundTruth,candidateAnswers):
+        groundTruthBOW = self.dictionary.doc2bow(groundTruth.split())
+        groundTruthTFIDF = self.tfidf[groundTruthBOW]
+        for answer in candidateAnswers:
+            answerBOW = self.dictionary.doc2bow(answer.split())
+            answersTFIDF.append(self.tfidf[answerBOW])
+        answerIndex = similarities.SparseMatrixSimilarity(answersTFIDF, num_features=len(self.dictionary),num_best=len(answersTFIDF))
+        return answerIndex[groundTruthTFIDF]
+
 # # Tokenization
 # tokenized = proc.parse_doc(open('wiki.txt').read())
 # questionList = [proc.parse_doc(q)['sentences'][0]['lemmas']
