@@ -1,5 +1,5 @@
 from subprocess import *
-
+# USE with this http://nlp.stanford.edu:8080/parser/
 def tregex(text):    
     tregex_dir = "../stanford-tregex-2015-12-09/"
     # ROOT < (S < CC=conj)
