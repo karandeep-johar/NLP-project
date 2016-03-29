@@ -6,6 +6,7 @@
 import sys
 from init import *
 from question_processing import *
+from NER_phrase_answer import *
 from tfidf import *
 from easy import *
 def removeHeadings(article):
@@ -44,5 +45,9 @@ def main(args):
                     # print 'IT: ' +it[3]
                 for answer in objTfidf.getAnswer(question, interestingText,questionParseObj):
                     print 'PA: '+answer
+                for answer in NER_phrase_answer(interestingText,questionParseObj.answer_type):
+                    print 'NER: '+ answer
+
+
 if __name__ == '__main__':
     main(sys.argv[1:])
