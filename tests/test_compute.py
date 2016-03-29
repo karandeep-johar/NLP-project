@@ -4,6 +4,7 @@ import traceback
 from src.question_processing import Question_parser
 from src.easy import *
 from src.tfidf import *
+from src.answer import *
 def str2bool(v):
     v = ''.join( c for c in v if  c not in '?:!/;.' )
     # return v.lower().strip()[:2] in ("no", "false", "f", "0","n")
@@ -17,7 +18,6 @@ def str2bool(v):
 #             return
 #         raise e
 #     # assert Question_parser(param.question).difficulty == param.difficulty
-
 
 def test_yesno(param):
     qpobj = param[0]
@@ -39,5 +39,30 @@ def test_yesno(param):
             print ans
             raise e
     
+    else:
+        return
+        
+def test_factoid(param_factoid):
+    qpobj = param_factoid[0]
+    objTfidf = param_factoid[1]
+    print objTfidf
+    questionProcess = Question_parser(qpobj.question)
+    #interestingText = objTfidf.getInterestingText(qpobj.question)
+    # if questionProcess.qtype != "BOOLEAN" or questionProcess.difficulty =="NA" or qpobj.difficulty == "NA" or questionProcess.answer_type== "NA":
+    #     return
+    if questionProcess.valid: #questionProcess.difficulty == "easy" :
+        try:
+            interestingText = objTfidf.getInterestingText(qpobj.question)
+            ans = answerFactoid(qpobj.question, interestingText, questionProcess)
+            #assert True == str2bool(qpobj.answer)
+            print ans
+            #assertIsNotNone(ans)
+            #assert ans != None
+            assert False == True
+        except Exception, e:
+            traceback.print_exc()
+            print qpobj
+            raise e
+            print ans
     else:
         return

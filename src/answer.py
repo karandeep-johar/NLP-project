@@ -21,6 +21,19 @@ def removeHeadings(article):
     data = '\n'.join(finalParas)
     return data
 
+def answerFactoid(question,interestingText,questionParseObj):
+    answers=[]
+    # for it in interestingText:
+    #     print 'IT: ' + ' '.join(it[1])
+    #     # print 'IT: ' +it[3]
+    # for answer in objTfidf.getAnswer(question, interestingText,questionParseObj):
+    #     print 'PA: '+answer
+    #     answers.append(answer)
+    for answer in NER_phrase_answer(interestingText,questionParseObj.answer_type):
+        print 'NER: '+ answer
+        answers.append(answer)
+    return answers
+
 def main(args):
     logger.critical('This message should go to the log file')
     if len(args)!=2:
@@ -40,14 +53,7 @@ def main(args):
             if "BOOLEAN" in questionParseObj.answer_type:
                 print answerYesNo(question, interestingText, questionParseObj)
             else:
-                for it in interestingText:
-                    print 'IT: ' + ' '.join(it[1])
-                    # print 'IT: ' +it[3]
-                for answer in objTfidf.getAnswer(question, interestingText,questionParseObj):
-                    print 'PA: '+answer
-                for answer in NER_phrase_answer(interestingText,questionParseObj.answer_type):
-                    print 'NER: '+ answer
-
+                answerFactoid(question,interestingText,questionParseObj)
 
 if __name__ == '__main__':
     main(sys.argv[1:])
