@@ -1,5 +1,5 @@
 __author__ = 'kjohar'
-# The “asking” program: ./ask article.txt nquestions
+# The asking program: ./ask article.txt nquestions
 # where article.txt is a text file containing a Wikipedia article and nquestions is an integer
 # > 0 telling how many questions to generate. Output is a sequence of nquestions English
 # language questions about the content of the article that a human could answer, given the
@@ -16,6 +16,7 @@ def main(args):
         #TODO FILL ME
         data = file.read()
         nquestions = int(args[1])
+        quesObj = generateQuestions(data,nquestions)
         return 
 if __name__ == '__main__':
-    main(sys.args[1:])
+    main(sys.argv[1:])
