@@ -16,7 +16,7 @@ def main(args):
         #TODO FILL ME
         data = file.read()
         nquestions = int(args[1])
-        quesObj = generateQuestions(data,nquestions)
+        print generateQuestions(data,nquestions)
         return 
 if __name__ == '__main__':
     main(sys.argv[1:])

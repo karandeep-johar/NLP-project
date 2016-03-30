@@ -9,30 +9,17 @@ class generateQuestions:
         self.generate()
 
     def __str__(self):
-        return self.questions
-
-    def getWhoQuestion(self,s,pos):
-        print s
-        # print pos
-        pass
+        return str(self.questions)
     
-    def getWhereQuestion(self,s,pos):
-        pass
-    
-    def getWhenQuestion(self,s,pos):
-        pass
-    
-    def getWhatQuestion(self,s,pos):
+    def rearrangeSentence(self,tokens,pos):
         pass
 
     def getQues(self,parsed):
         questions = []
-        print len(parsed['sentences'])
         for s in parsed['sentences']:
             pos = s['pos']
             ner = s['ner']
             tokens = s['tokens']
-            print tokens
             nounIndices = []
             for i in range(0, len(pos)):
                 tag = pos[i]
@@ -40,13 +27,25 @@ class generateQuestions:
                     nounIndices.append(i)
             for i in nounIndices:
                 if ner[i] == 'PERSON':
-                    questions.append(self.getWhoQuestion(tokens,pos))
+                    if i != 0:
+                        tokens = self.rearrangeSentence(tokens,pos)
+                    else:
+                        questions.append('Who '+' '.join(tokens[1:]))
                 elif ner[i] == 'LOCATION':
-                    questions.append(self.getWhereQuestion(tokens,pos))
+                    if i != 0:
+                        tokens = self.rearrangeSentence(tokens,pos)
+                    else:
+                        questions.append('Where '+' '.join(tokens[1:]))
                 elif ner[i] == 'DATE':
-                    questions.append(self.getWhenQuestion(tokens,pos))
+                    if i != 0:
+                        tokens = self.rearrangeSentence(tokens,pos)
+                    else:
+                        questions.append('When '+' '.join(tokens[1:]))
                 else:
-                    questions.append(self.getWhatQuestion(tokens,pos))
+                    if i != 0:
+                        tokens = self.rearrangeSentence(tokens,pos)
+                    else:
+                        questions.append('What '+' '.join(tokens[1:]))
         return questions
 
     def generate(self):
