@@ -38,9 +38,9 @@ def pytest_generate_tests(metafunc):
             article_tfidf = {}
             for article in article_questions:
                 with open(article,"r") as f:
-                    data = removeHeadings(f)
+                    data,titleLemmasSet = removeHeadings(f)
                     objTfidf = TF_IDF(data, map(lambda x:x[1], article_questions[article]))
-                    article_tfidf[article] = objTfidf
+                    article_tfidf[article] = (objTfidf,titleLemmasSet)
             for question in questionsDataList:
                 if "easy" == question[3]:
                     print question
@@ -61,7 +61,7 @@ def pytest_generate_tests(metafunc):
             article_tfidf = {}
             for article in article_questions:
                 with open(article,"r") as f:
-                    data = removeHeadings(f)
+                    data,titleLemmasSet = removeHeadings(f)
                     objTfidf = TF_IDF(data, map(lambda x:x[1], article_questions[article]))
                     article_tfidf[article] = objTfidf
             for question in questionsDataList:

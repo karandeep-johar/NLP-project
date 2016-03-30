@@ -21,15 +21,14 @@ def str2bool(v):
 
 def test_yesno(param):
     qpobj = param[0]
-    objTfidf = param[1]
-    
+    objTfidf,titleLemmasSet = param[1]
     questionProcess = Question_parser(qpobj.question)
     # if questionProcess.qtype != "BOOLEAN" or questionProcess.difficulty =="NA" or qpobj.difficulty == "NA" or questionProcess.answer_type== "NA":
     #     return
     if questionProcess.valid: #questionProcess.difficulty == "easy" :
         try:
             interestingText = objTfidf.getInterestingText(qpobj.question)
-            ans = answerYesNo(qpobj.question, interestingText, questionProcess)
+            ans = answerYesNo(qpobj.question, interestingText, questionProcess, titleLemmasSet)
             # assert True == str2bool(qpobj.answer)
             assert str2bool(qpobj.answer)== str2bool(ans[0])
             # assert False == True

@@ -14,12 +14,14 @@ def removeHeadings(article):
     data = article.read()
     article = unicode(data, errors='ignore')
     splitData = data.split('\n')
+    title = splitData[0]
     finalParas = []
     for para in splitData:
         if len(para.split())>minParaSize:
             finalParas.append(para)
     data = '\n'.join(finalParas)
-    return data
+    titleLemmasSet = set([w.lower() for w in proc2.parse_doc(title)['sentences'][0]['lemmas']])
+    return data,titleLemmasSet
 
 def answerFactoid(question,interestingText,questionParseObj):
     answers=[]
@@ -39,7 +41,7 @@ def main(args):
     if len(args)!=2:
         return
     with open(args[0], "r") as article , open(args[1],"r") as questions:
-        data = removeHeadings(article)
+        data,titleLemmasSet = removeHeadings(article)
         questionsList = questions.read().split('\n')
         questionsList = [x for x in questionsList if x]
         objTfidf = TF_IDF(data, questionsList)
@@ -51,7 +53,7 @@ def main(args):
             questionParseObj = Question_parser(question)
             interestingText = objTfidf.getInterestingText(question)
             if "BOOLEAN" in questionParseObj.answer_type:
-                print answerYesNo(question, interestingText, questionParseObj)
+                print answerYesNo(question, interestingText, questionParseObj,titleLemmasSet)
             else:
                 answerFactoid(question,interestingText,questionParseObj)
 
