@@ -1,0 +1,4 @@
+(ROOT (S (NP (NNP Star) (NNP Trek)) (VP (VBZ is) (NP (NP (DT a) (ADJP (CD 2009) (JJ American) (NN science)) (NN fiction) (NN adventure) (NN film)) (VP (VBN directed) (PP (IN by) (NP (NP (NNP J.) (NNP J.) (NNP Abrams)) (, ,) (VP (VP (VBN written) (PP (IN by) (NP (NP (NNP Roberto) (NNP Orci)) (CC and) (NP (NNP Alex) (NNP Kurtzman))))) (CC and) (VP (VBN distributed) (PP (IN by) (NP (NNP Paramount) (NNPS Pictures)))))))))) (. .)))
+Star Trek is a 2009 American science fiction adventure film directed by J. J. Abrams.
+J. J. Abrams is written by Roberto Orci and Alex Kurtzman.
+J. J. Abrams is distributed by Paramount Pictures.

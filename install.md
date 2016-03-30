@@ -36,3 +36,7 @@ make
 sudo make install
 
 ldconfig
+
+##supersense
+
+sudo apt-get install python-dev
