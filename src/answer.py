@@ -9,18 +9,23 @@ from question_processing import *
 from NER_phrase_answer import *
 from tfidf import *
 from easy import *
+MIN_PARA_SIZE = 4
 def removeHeadings(article):
-    minParaSize = 10
     data = article.read()
     article = unicode(data, errors='ignore')
     splitData = data.split('\n')
     title = splitData[0]
     finalParas = []
     for para in splitData:
-        if len(para.split())>minParaSize:
+        if len(para.split())>MIN_PARA_SIZE:
             finalParas.append(para)
     data = '\n'.join(finalParas)
-    titleLemmasSet = set([w.lower() for w in proc2.parse_doc(title)['sentences'][0]['lemmas']])
+    titleLemmas = [w.lower() for w in proc2.parse_doc(title)['sentences'][0]['lemmas']]
+    titleLemmasSet = set(titleLemmas)
+    for tL in titleLemmas:
+        parts = tL.split('_')
+        if len(parts)>1:
+            titleLemmasSet|=set(parts)
     return data,titleLemmasSet
 
 def answerFactoid(question,interestingText,questionParseObj):
@@ -36,8 +41,13 @@ def answerFactoid(question,interestingText,questionParseObj):
         answers.append(answer)
     return answers
 
+def getStopLemmas():
+    stopLemmas = open('../data/shortStopLemmas.txt').read().split()
+    return set(stopLemmas)
+
 def main(args):
     logger.critical('This message should go to the log file')
+    stopLemmasSet = getStopLemmas()
     if len(args)!=2:
         return
     with open(args[0], "r") as article , open(args[1],"r") as questions:
@@ -53,7 +63,7 @@ def main(args):
             questionParseObj = Question_parser(question)
             interestingText = objTfidf.getInterestingText(question)
             if "BOOLEAN" in questionParseObj.answer_type:
-                print answerYesNo(question, interestingText, questionParseObj,titleLemmasSet)
+                print answerYesNo(question, interestingText, questionParseObj,titleLemmasSet,stopLemmasSet)
             else:
                 answerFactoid(question,interestingText,questionParseObj)
 
