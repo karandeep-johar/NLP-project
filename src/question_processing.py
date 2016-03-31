@@ -10,14 +10,17 @@ class Question_parser:
     #     self.difficulty = "NA"
     #     self.question = question
     #     self.parse()
-    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", answer = "NA", parse = True):
+    def __init__(self, question, valid=False, qtype= "NA", answer_type ="NA", difficulty = "NA", answer = "NA", parseFlag = True, article_title = "NA", dataset = "NA"):
         self.valid = valid
         self.qtype = qtype
         self.answer_type = answer_type
         self.difficulty = difficulty
         self.question = question
         self.answer = answer
-        if parse:
+        self.parseFlag = parseFlag
+        self.article_title = article_title
+        self.dataset = dataset
+        if self.parseFlag == True:
             self.parse()
     def __eq__(self, other): 
             return self.__dict__ == other.__dict__
@@ -29,7 +32,9 @@ class Question_parser:
             "Question Type = " + self.qtype + '\n' +\
             "Answer Type = " + str(self.answer_type) + '\n' +\
             "Answer = " + self.answer + '\n' +\
-            "Difficulty = " + self.difficulty + '\n'
+            "Difficulty = " + self.difficulty + '\n' +\
+            "Article_Title = " + self.article_title + '\n' +\
+            "Dataset = " + self.dataset + '\n'
 
     def parse(self):
         proc = init.proc1

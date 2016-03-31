@@ -47,9 +47,6 @@ def test_factoid(param_factoid):
     objTfidf = param_factoid[1]
     print objTfidf
     questionProcess = Question_parser(qpobj.question)
-    #interestingText = objTfidf.getInterestingText(qpobj.question)
-    # if questionProcess.qtype != "BOOLEAN" or questionProcess.difficulty =="NA" or qpobj.difficulty == "NA" or questionProcess.answer_type== "NA":
-    #     return
     if questionProcess.valid: #questionProcess.difficulty == "easy" :
         try:
             interestingText = objTfidf.getInterestingText(qpobj.question)

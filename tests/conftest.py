@@ -44,7 +44,7 @@ def pytest_generate_tests(metafunc):
             for question in questionsDataList:
                 if "easy" == question[3]:
                     print question
-                    ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parse = False)
+                    ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parseFlag = False, article_title = question[0], dataset = question[5])
                     questions.append((ques,article_tfidf[question[5]]))
             metafunc.parametrize("param", questions)
     elif 'param_factoid' in metafunc.fixturenames:
@@ -67,7 +67,7 @@ def pytest_generate_tests(metafunc):
             for question in questionsDataList:
                 if "medium" == question[3]:
                     print question
-                    ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parse = False)
+                    ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parseFlag = False, article_title = question[0], dataset = question[5])
                     questions.append((ques,article_tfidf[question[5]]))
             metafunc.parametrize("param_factoid", questions)
     else:
@@ -94,7 +94,7 @@ def gen():
         lines = f.readlines()[1:]
         for line in lines:
             elements = unicode(line.strip(), errors='ignore').split("\t")
-            elements[5] = dataset_dir+elements[5]+".txt.clean"
+            elements[5] = dataset_dir+elements[5]+".txt"
             questionsDataList.append(elements)
             for i in range(len(dataHeadings)):
                 questionData[dataHeadings[i]].append(elements[i])
