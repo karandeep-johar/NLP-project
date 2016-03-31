@@ -42,6 +42,7 @@ def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSe
                     answers.append('No Sure')
                 else:
                     answers.append('Yes')
+        print answers
         if 'No Sure' in answers[:negationCutoff]:
             return 'No'
         elif 'Yes' in answers:
