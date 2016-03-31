@@ -12,7 +12,7 @@ from easy import *
 MIN_PARA_SIZE = 4
 def removeHeadings(article):
     data = article.read()
-    article = unicode(data, errors='ignore')
+    data = str(unicode(data, errors='ignore'))
     splitData = data.split('\n')
     title = splitData[0]
     finalParas = []
