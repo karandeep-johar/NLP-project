@@ -7,6 +7,8 @@ tree = "(ROOT(S(NP (NNP Francium))(VP (VBD was)(VP (VBN discovered)(PP (IN by)(N
 
 
 sentence = "Star Trek is a 2009 American science fiction adventure film directed by J. J. Abrams, written by Roberto Orci and Alex Kurtzman and distributed by Paramount Pictures."
+sentence ="The concept resurfaced temporarily in the late 1980s, when it was postulated by Harve Bennett as a possible plotline for the movie that would become Star Trek VI: The Undiscovered Country, but was rejected in lieu of other projects by Roddenberry."
+sentence ="Principal photography commenced on November 7, 2007 and ended on March 27, 2008."
 parse = autoclass("edu.cmu.ark.AnalysisUtilities").getInstance().parseSentence(sentence).parse
 print parse.toString()
 simp =  autoclass("edu.cmu.ark.SentenceSimplifier")()
