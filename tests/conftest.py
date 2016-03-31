@@ -94,7 +94,7 @@ def gen():
         lines = f.readlines()[1:]
         for line in lines:
             elements = unicode(line.strip(), errors='ignore').split("\t")
-            elements[5] = dataset_dir+elements[5]+".txt"
+            elements[5] = dataset_dir+elements[5]+".txt.clean"
             questionsDataList.append(elements)
             for i in range(len(dataHeadings)):
                 questionData[dataHeadings[i]].append(elements[i])

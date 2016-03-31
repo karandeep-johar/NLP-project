@@ -8,7 +8,7 @@ from src.answer import *
 def str2bool(v):
     v = ''.join( c for c in v if  c not in '?:!/;.' )
     # return v.lower().strip()[:2] in ("no", "false", "f", "0","n")
-    return v.lower().strip()[:3] in ("yes", "true", "t", "1","y")
+    return v.lower().strip()[:3] in ("yes", "true", "t", "1","y","yeah")
 # def test_compute(param):
 #     try:
 #         assert Question_parser(param.question).difficulty == param.difficulty

@@ -3,7 +3,7 @@ platform darwin -- Python 2.7.8, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
 rootdir: /Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests, inifile: 
 collected 341 items
 
-test_compute.py ...FF............................FF..........F.F............F.F....FFFF..FF......F.FF.F.....FFF.................................FF........FF..FF..F.F..........FFFF..FF...................F....FFF......F.F..................F..........F.F..F...FF........FFFFF..F..FFFF....FFFF.......F..FF....F..................FF........FFF.....FF..........FFE
+test_compute.py ...FF.............................F..........F.F............F.F....FFFF..FF......F.FF.F.....FFF.................................FF........FF..FF..F.F..........FFFF..FF...................F....FFF......F.F..................F..........F.F..F.............FFFFF..F..FFFF....FFFF.......F..FF....F..................FF........FFF.....FF..........FFE
 
 ==================================== ERRORS ====================================
 ________________________ ERROR at setup of test_factoid ________________________
@@ -17,7 +17,7 @@ file /Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py, li
 =================================== FAILURES ===================================
 ______________________________ test_yesno[param3] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d14ff80>, (<src.tfidf.TF_IDF object at 0x10a8ffa10>, set(['alessandro', 'alessandro_volta', 'volta'])))
+param = (<src.question_processing.Question_parser instance at 0x1114c4128>, (<src.tfidf.TF_IDF object at 0x10a445d10>, set(['alessandro', 'alessandro_volta', 'volta'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -40,7 +40,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d14ff80>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d14ff80>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114c4128>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -74,19 +74,19 @@ Difficulty = easy
 
 No
 ----------------------------- Captured stderr call -----------------------------
-INFO:CoreNLP_JavaServer: INPUT: 7 documents, 355 characters, 59 tokens, 50.7 char/doc, 8.4 tok/doc RATES: 1.752 doc/sec, 14.8 tok/sec
+INFO:CoreNLP_JavaServer: INPUT: 7 documents, 355 characters, 59 tokens, 50.7 char/doc, 8.4 tok/doc RATES: 3.698 doc/sec, 31.2 tok/sec
 
-INFO:CoreNLP_JavaServer: INPUT: 8 documents, 412 characters, 68 tokens, 51.5 char/doc, 8.5 tok/doc RATES: 1.961 doc/sec, 16.7 tok/sec
+INFO:CoreNLP_JavaServer: INPUT: 8 documents, 412 characters, 68 tokens, 51.5 char/doc, 8.5 tok/doc RATES: 3.895 doc/sec, 33.1 tok/sec
 
 Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d14ff80>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114c4128>.answer
 ______________________________ test_yesno[param4] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d150290>, (<src.tfidf.TF_IDF object at 0x10a8ffa10>, set(['alessandro', 'alessandro_volta', 'volta'])))
+param = (<src.question_processing.Question_parser instance at 0x1114c4368>, (<src.tfidf.TF_IDF object at 0x10a445d10>, set(['alessandro', 'alessandro_volta', 'volta'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -108,7 +108,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d150290>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('Volta was taught in public schools.') == True
-E                +  where 'Volta was taught in public schools.' = <src.question_processing.Question_parser instance at 0x10d150290>.answer
+E                +  where 'Volta was taught in public schools.' = <src.question_processing.Question_parser instance at 0x1114c4368>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -143,84 +143,19 @@ Difficulty = easy
 
 Yes
 ----------------------------- Captured stderr call -----------------------------
-INFO:CoreNLP_JavaServer: INPUT: 9 documents, 458 characters, 76 tokens, 50.9 char/doc, 8.4 tok/doc RATES: 2.182 doc/sec, 18.4 tok/sec
+INFO:CoreNLP_JavaServer: INPUT: 9 documents, 458 characters, 76 tokens, 50.9 char/doc, 8.4 tok/doc RATES: 4.157 doc/sec, 35.1 tok/sec
 
-INFO:CoreNLP_JavaServer: INPUT: 10 documents, 504 characters, 84 tokens, 50.4 char/doc, 8.4 tok/doc RATES: 2.384 doc/sec, 20.0 tok/sec
+INFO:CoreNLP_JavaServer: INPUT: 10 documents, 504 characters, 84 tokens, 50.4 char/doc, 8.4 tok/doc RATES: 4.382 doc/sec, 36.8 tok/sec
 
 Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('Volta was taught in public schools.') == True
- +  where 'Volta was taught in public schools.' = <src.question_processing.Question_parser instance at 0x10d150290>.answer
+ +  where 'Volta was taught in public schools.' = <src.question_processing.Question_parser instance at 0x1114c4368>.answer
  +  and   True = str2bool('Yes')
-_____________________________ test_yesno[param33] ______________________________
-
-param = (<src.question_processing.Question_parser instance at 0x10d1568c0>, (<src.tfidf.TF_IDF object at 0x10a8ff990>, set(['antwerp'])))
-
-    def test_yesno(param):
-        qpobj = param[0]
-        stopLemmasSet = getStopLemmas()
-        objTfidf,titleLemmasSet = param[1]
-        questionProcess = Question_parser(qpobj.question)
-        # if questionProcess.qtype != "BOOLEAN" or questionProcess.difficulty =="NA" or qpobj.difficulty == "NA" or questionProcess.answer_type== "NA":
-        #     return
-        if questionProcess.valid: #questionProcess.difficulty == "easy" :
-            try:
-                interestingText = objTfidf.getInterestingText(qpobj.question)
-                ans = answerYesNo(qpobj.question, interestingText, questionProcess, titleLemmasSet,stopLemmasSet)
-                # assert True == str2bool(qpobj.answer)
-                assert str2bool(qpobj.answer)== str2bool(ans)
-                # assert False == True
-            except Exception, e:
-                traceback.print_exc()
-                print qpobj
-                print ans
->               raise e
-E               assert True == str2bool('No')
-E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1568c0>.answer
-
-test_compute.py:40: AssertionError
------------------------------ Captured stdout call -----------------------------
-candidate Sentence: (0.22776679694652557, {u'tokens': [u'Brussels', u'Airport', u'is', u'about', u'45', u'km', u'from', u'the', u'city', u'of', u'Antwerp', u',', u'and', u'connects', u'the', u'city', u'worldwide', u'.'], u'lemmas': [u'Brussels', u'Airport', u'be', u'about', u'45', u'km', u'from', u'the', u'city', u'of', u'Antwerp', u',', u'and', u'connect', u'the', u'city', u'worldwide', u'.'], u'pos': [u'NNP', u'NNP', u'VBZ', u'IN', u'CD', u'NN', u'IN', u'DT', u'NN', u'IN', u'NNP', u',', u'CC', u'VBZ', u'DT', u'NN', u'RB', u'.'], u'char_offsets': [[18865, 18873], [18874, 18881], [18882, 18884], [18885, 18890], [18891, 18893], [18894, 18896], [18897, 18901], [18902, 18905], [18906, 18910], [18911, 18913], [18914, 18921], [18921, 18922], [18923, 18926], [18927, 18935], [18936, 18939], [18940, 18944], [18945, 18954], [18954, 18955]]}) 
-answer: set([])
-candidate Sentence: (0.21669547259807587, {u'tokens': [u'Antwerp', u'is', u'a', u'rising', u'fashion', u'city', u',', u'and', u'has', u'produced', u'designers', u'such', u'as', u'the', u'Antwerp', u'Six', u'.'], u'lemmas': [u'Antwerp', u'be', u'a', u'rise', u'fashion', u'city', u',', u'and', u'have', u'produce', u'designer', u'such', u'as', u'the', u'Antwerp', u'six', u'.'], u'pos': [u'NNP', u'VBZ', u'DT', u'VBG', u'NN', u'NN', u',', u'CC', u'VBZ', u'VBN', u'NNS', u'JJ', u'IN', u'DT', u'NNP', u'CD', u'.'], u'char_offsets': [[19739, 19746], [19747, 19749], [19750, 19751], [19752, 19758], [19759, 19766], [19767, 19771], [19771, 19772], [19773, 19776], [19777, 19780], [19781, 19789], [19790, 19799], [19800, 19804], [19805, 19807], [19808, 19811], [19812, 19819], [19820, 19823], [19823, 19824]]}) 
-answer: set([])
-candidate Sentence: (0.19512581825256348, {u'tokens': [u'Antwerp', u'was', u'the', u'richest', u'city', u'in', u'Europe', u'at', u'this', u'time', u'.'], u'lemmas': [u'Antwerp', u'be', u'the', u'richest', u'city', u'in', u'Europe', u'at', u'this', u'time', u'.'], u'pos': [u'NNP', u'VBD', u'DT', u'JJS', u'NN', u'IN', u'NNP', u'IN', u'DT', u'NN', u'.'], u'char_offsets': [[4989, 4996], [4997, 5000], [5001, 5004], [5005, 5012], [5013, 5017], [5018, 5020], [5021, 5027], [5028, 5030], [5031, 5035], [5036, 5040], [5040, 5041]]}) 
-answer: set([])
-candidate Sentence: (0.17602947354316711, {u'tokens': [u'After', u'the', u'establishment', u'of', u'Belgian', u'independence', u',', u'Antwerp', u'was', u'defended', u'by', u'the', u'citadel', u'and', u'an', u'enceinte', u'around', u'the', u'city', u'.'], u'lemmas': [u'after', u'the', u'establishment', u'of', u'belgian', u'independence', u',', u'Antwerp', u'be', u'defend', u'by', u'the', u'citadel', u'and', u'a', u'enceinte', u'around', u'the', u'city', u'.'], u'pos': [u'IN', u'DT', u'NN', u'IN', u'JJ', u'NN', u',', u'NNP', u'VBD', u'VBN', u'IN', u'DT', u'NN', u'CC', u'DT', u'FW', u'IN', u'DT', u'NN', u'.'], u'char_offsets': [[13916, 13921], [13922, 13925], [13926, 13939], [13940, 13942], [13943, 13950], [13951, 13963], [13963, 13964], [13965, 13972], [13973, 13976], [13977, 13985], [13986, 13988], [13989, 13992], [13993, 14000], [14001, 14004], [14005, 14007], [14008, 14016], [14017, 14023], [14024, 14027], [14028, 14032], [14032, 14033]]}) 
-answer: set([])
-candidate Sentence: (0.16806694865226746, {u'tokens': [u'The', u'airport', u'is', u'connected', u'by', u'bus', u'and', u'by', u'train', u'to', u'the', u'city', u'centre', u'of', u'Antwerp', u'.'], u'lemmas': [u'the', u'airport', u'be', u'connect', u'by', u'bus', u'and', u'by', u'train', u'to', u'the', u'city', u'centre', u'of', u'Antwerp', u'.'], u'pos': [u'DT', u'NN', u'VBZ', u'VBN', u'IN', u'NN', u'CC', u'IN', u'NN', u'TO', u'DT', u'NN', u'NN', u'IN', u'NNP', u'.'], u'char_offsets': [[18956, 18959], [18960, 18967], [18968, 18970], [18971, 18980], [18981, 18983], [18984, 18987], [18988, 18991], [18992, 18994], [18995, 19000], [19001, 19003], [19004, 19007], [19008, 19012], [19013, 19019], [19020, 19022], [19023, 19030], [19030, 19031]]}) 
-answer: set([])
-candidate Sentence: (0.16713804006576538, {u'tokens': [u'This', u'must', u'have', u'coincided', u'roughly', u'with', u'the', u'current', u'ringway', u'south', u'of', u'the', u'city', u',', u'situating', u'the', u'city', u'within', u'a', u'former', u'curve', u'of', u'the', u'river', u'.'], u'lemmas': [u'this', u'must', u'have', u'coincide', u'roughly', u'with', u'the', u'current', u'ringway', u'south', u'of', u'the', u'city', u',', u'situate', u'the', u'city', u'within', u'a', u'former', u'curve', u'of', u'the', u'river', u'.'], u'pos': [u'DT', u'MD', u'VB', u'VBN', u'RB', u'IN', u'DT', u'JJ', u'NN', u'NN', u'IN', u'DT', u'NN', u',', u'VBG', u'DT', u'NN', u'IN', u'DT', u'JJ', u'NN', u'IN', u'DT', u'NN', u'.'], u'char_offsets': [[3042, 3046], [3047, 3051], [3052, 3056], [3057, 3066], [3067, 3074], [3075, 3079], [3080, 3083], [3084, 3091], [3092, 3099], [3100, 3105], [3106, 3108], [3109, 3112], [3113, 3117], [3117, 3118], [3119, 3128], [3129, 3132], [3133, 3137], [3138, 3144], [3145, 3146], [3147, 3153], [3154, 3159], [3160, 3162], [3163, 3166], [3167, 3172], [3172, 3173]]}) 
-answer: set([])
-candidate Sentence: (0.16589535772800446, {u'tokens': [u'Antwerp', u'-LRB-', u',', u'Dutch', u':', u',', u'-RRB-', u'is', u'a', u'city', u'and', u'municipality', u'in', u'Belgium', u'and', u'the', u'capital', u'of', u'the', u'Antwerp', u'province', u'in', u'Flanders', u',', u'one', u'of', u'Belgium', u"'s", u'three', u'regions', u'.'], u'lemmas': [u'Antwerp', u'-lrb-', u',', u'Dutch', u':', u',', u'-rrb-', u'be', u'a', u'city', u'and', u'municipality', u'in', u'Belgium', u'and', u'the', u'capital', u'of', u'the', u'Antwerp', u'province', u'in', u'Flanders', u',', u'one', u'of', u'Belgium', u"'s", u'three', u'region', u'.'], u'pos': [u'NNP', u'-LRB-', u',', u'NNPS', u':', u',', u'-RRB-', u'VBZ', u'DT', u'NN', u'CC', u'NN', u'IN', u'NNP', u'CC', u'DT', u'NN', u'IN', u'DT', u'NNP', u'NN', u'IN', u'NNP', u',', u'CD', u'IN', u'NNP', u'POS', u'CD', u'NNS', u'.'], u'char_offsets': [[179, 186], [187, 188], [189, 190], [191, 196], [196, 197], [199, 200], [202, 203], [204, 206], [207, 208], [209, 213], [214, 217], [218, 230], [231, 233], [234, 241], [242, 245], [246, 249], [250, 257], [258, 260], [261, 264], [265, 272], [273, 281], [282, 284], [285, 293], [293, 294], [295, 298], [299, 301], [302, 309], [309, 311], [312, 317], [318, 325], [325, 326]]}) 
-answer: set([])
-candidate Sentence: (0.15702682733535767, {u'tokens': [u'The', u'city', u'has', u'a', u'web', u'of', u'tram', u'and', u'bus', u'lines', u'operated', u'by', u'De', u'Lijn', u'and', u'providing', u'access', u'to', u'the', u'city', u'centre', u',', u'suburbs', u'and', u'the', u'Left', u'Bank', u'.'], u'lemmas': [u'the', u'city', u'have', u'a', u'web', u'of', u'tram', u'and', u'bus', u'line', u'operate', u'by', u'De', u'Lijn', u'and', u'provide', u'access', u'to', u'the', u'city', u'centre', u',', u'suburb', u'and', u'the', u'leave', u'Bank', u'.'], u'pos': [u'DT', u'NN', u'VBZ', u'DT', u'NN', u'IN', u'NN', u'CC', u'NN', u'NNS', u'VBN', u'IN', u'NNP', u'NNP', u'CC', u'VBG', u'NN', u'TO', u'DT', u'NN', u'NN', u',', u'NNS', u'CC', u'DT', u'VBN', u'NNP', u'.'], u'char_offsets': [[18326, 18329], [18330, 18334], [18335, 18338], [18339, 18340], [18341, 18344], [18345, 18347], [18348, 18352], [18353, 18356], [18357, 18360], [18361, 18366], [18367, 18375], [18376, 18378], [18379, 18381], [18382, 18386], [18387, 18390], [18391, 18400], [18401, 18407], [18408, 18410], [18411, 18414], [18415, 18419], [18420, 18426], [18426, 18427], [18428, 18435], [18436, 18439], [18440, 18443], [18444, 18448], [18449, 18453], [18453, 18454]]}) 
-answer: set([])
-candidate Sentence: (0.15211641788482666, {u'tokens': [u'Antwerp', u'was', u'not', u'a', u'``', u'free', u"''", u'city', u'though', u',', u'since', u'it', u'had', u'been', u'reabsorbed', u'into', u'the', u'Duchy', u'of', u'Brabant', u'in', u'1406', u'and', u'was', u'controlled', u'from', u'Brussels', u'.'], u'lemmas': [u'Antwerp', u'be', u'not', u'a', u'``', u'free', u"''", u'city', u'though', u',', u'since', u'it', u'have', u'be', u'reabsorb', u'into', u'the', u'Duchy', u'of', u'Brabant', u'in', u'1406', u'and', u'be', u'control', u'from', u'Brussels', u'.'], u'pos': [u'NNP', u'VBD', u'RB', u'DT', u'``', u'JJ', u"''", u'NN', u'RB', u',', u'IN', u'PRP', u'VBD', u'VBN', u'VBN', u'IN', u'DT', u'NNP', u'IN', u'NNP', u'IN', u'CD', u'CC', u'VBD', u'VBN', u'IN', u'NNP', u'.'], u'char_offsets': [[5863, 5870], [5871, 5874], [5875, 5878], [5879, 5880], [5881, 5882], [5882, 5886], [5886, 5887], [5888, 5892], [5893, 5899], [5899, 5900], [5901, 5906], [5907, 5909], [5910, 5913], [5914, 5918], [5919, 5929], [5930, 5934], [5935, 5938], [5939, 5944], [5945, 5947], [5948, 5955], [5956, 5958], [5959, 5963], [5964, 5967], [5968, 5971], [5972, 5982], [5983, 5987], [5988, 5996], [5996, 5997]]}) 
-answer: set([])
-candidate Sentence: (0.15116159617900848, {u'tokens': [u'As', u'a', u'result', u',', u'the', u'city', u'itself', u'was', u'severely', u'damaged', u'and', u'rebuilt', u'after', u'the', u'war', u'in', u'a', u'modern', u'style', u'.'], u'lemmas': [u'as', u'a', u'result', u',', u'the', u'city', u'itself', u'be', u'severely', u'damage', u'and', u'rebuild', u'after', u'the', u'war', u'in', u'a', u'modern', u'style', u'.'], u'pos': [u'IN', u'DT', u'NN', u',', u'DT', u'NN', u'PRP', u'VBD', u'RB', u'VBN', u'CC', u'VBN', u'IN', u'DT', u'NN', u'IN', u'DT', u'JJ', u'NN', u'.'], u'char_offsets': [[9929, 9931], [9932, 9933], [9934, 9940], [9940, 9941], [9942, 9945], [9946, 9950], [9951, 9957], [9958, 9961], [9962, 9970], [9971, 9978], [9979, 9982], [9983, 9990], [9991, 9996], [9997, 10000], [10001, 10004], [10005, 10007], [10008, 10009], [10010, 10016], [10017, 10022], [10022, 10023]]}) 
-answer: set([])
-
-Is Antwerp a city?
-Validity= False
-Question Type = NA
-Answer Type = NA
-Answer = Yes
-Difficulty = easy
-
-No
------------------------------ Captured stderr call -----------------------------
-Traceback (most recent call last):
-  File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
-    assert str2bool(qpobj.answer)== str2bool(ans)
-AssertionError: assert True == str2bool('No')
- +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1568c0>.answer
 _____________________________ test_yesno[param34] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d156908>, (<src.tfidf.TF_IDF object at 0x10a8ff990>, set(['antwerp'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cabd8>, (<src.tfidf.TF_IDF object at 0x10e16fd50>, set(['antwerp'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -243,7 +178,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d156908>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d156908>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114cabd8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -282,10 +217,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d156908>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114cabd8>.answer
 _____________________________ test_yesno[param45] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d156c20>, (<src.tfidf.TF_IDF object at 0x10a8ffe50>, set(['berlin'])))
+param = (<src.question_processing.Question_parser instance at 0x1114caef0>, (<src.tfidf.TF_IDF object at 0x10a4d47d0>, set(['berlin'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -307,7 +242,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d156c20>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('Berlin is the capital city of Germany.') == True
-E                +  where 'Berlin is the capital city of Germany.' = <src.question_processing.Question_parser instance at 0x10d156c20>.answer
+E                +  where 'Berlin is the capital city of Germany.' = <src.question_processing.Question_parser instance at 0x1114caef0>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -346,11 +281,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('Berlin is the capital city of Germany.') == True
- +  where 'Berlin is the capital city of Germany.' = <src.question_processing.Question_parser instance at 0x10d156c20>.answer
+ +  where 'Berlin is the capital city of Germany.' = <src.question_processing.Question_parser instance at 0x1114caef0>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param47] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d156cb0>, (<src.tfidf.TF_IDF object at 0x10a8ffe50>, set(['berlin'])))
+param = (<src.question_processing.Question_parser instance at 0x1114caf80>, (<src.tfidf.TF_IDF object at 0x10a4d47d0>, set(['berlin'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -372,7 +307,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d156cb0>, (<sr
                 print ans
 >               raise e
 E               assert str2bool("Berlin is Germany's largest city.") == True
-E                +  where "Berlin is Germany's largest city." = <src.question_processing.Question_parser instance at 0x10d156cb0>.answer
+E                +  where "Berlin is Germany's largest city." = <src.question_processing.Question_parser instance at 0x1114caf80>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -411,11 +346,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool("Berlin is Germany's largest city.") == True
- +  where "Berlin is Germany's largest city." = <src.question_processing.Question_parser instance at 0x10d156cb0>.answer
+ +  where "Berlin is Germany's largest city." = <src.question_processing.Question_parser instance at 0x1114caf80>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param60] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157098>, (<src.tfidf.TF_IDF object at 0x106214a90>, set(['butterfly'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb368>, (<src.tfidf.TF_IDF object at 0x10a4acb90>, set(['butterfly'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -437,7 +372,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157098>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('Some butterflies make sounds.') == True
-E                +  where 'Some butterflies make sounds.' = <src.question_processing.Question_parser instance at 0x10d157098>.answer
+E                +  where 'Some butterflies make sounds.' = <src.question_processing.Question_parser instance at 0x1114cb368>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -476,11 +411,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('Some butterflies make sounds.') == True
- +  where 'Some butterflies make sounds.' = <src.question_processing.Question_parser instance at 0x10d157098>.answer
+ +  where 'Some butterflies make sounds.' = <src.question_processing.Question_parser instance at 0x1114cb368>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param62] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157128>, (<src.tfidf.TF_IDF object at 0x106214a90>, set(['butterfly'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb3f8>, (<src.tfidf.TF_IDF object at 0x10a4acb90>, set(['butterfly'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -502,7 +437,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157128>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('In the Philippines a black butterfly or moth mean that someone has died.') == True
-E                +  where 'In the Philippines a black butterfly or moth mean that someone has died.' = <src.question_processing.Question_parser instance at 0x10d157128>.answer
+E                +  where 'In the Philippines a black butterfly or moth mean that someone has died.' = <src.question_processing.Question_parser instance at 0x1114cb3f8>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -541,11 +476,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('In the Philippines a black butterfly or moth mean that someone has died.') == True
- +  where 'In the Philippines a black butterfly or moth mean that someone has died.' = <src.question_processing.Question_parser instance at 0x10d157128>.answer
+ +  where 'In the Philippines a black butterfly or moth mean that someone has died.' = <src.question_processing.Question_parser instance at 0x1114cb3f8>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param67] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1572d8>, (<src.tfidf.TF_IDF object at 0x108e038d0>, set(['charles-augustin', 'charles-augustin_de_coulomb', 'coulomb', 'de'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb5a8>, (<src.tfidf.TF_IDF object at 0x10a4ace50>, set(['charles-augustin', 'charles-augustin_de_coulomb', 'coulomb', 'de'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -568,7 +503,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1572d8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes.')
-E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1572d8>.answer
+E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114cb5a8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -602,17 +537,17 @@ Difficulty = easy
 
 No
 ----------------------------- Captured stderr call -----------------------------
-INFO:CoreNLP_JavaServer: INPUT: 500 documents, 1406086 characters, 264619 tokens, 2812.2 char/doc, 529.2 tok/doc RATES: 19.524 doc/sec, 10333.0 tok/sec
+INFO:CoreNLP_JavaServer: INPUT: 500 documents, 1406086 characters, 264619 tokens, 2812.2 char/doc, 529.2 tok/doc RATES: 18.163 doc/sec, 9612.4 tok/sec
 
 Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes.')
- +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1572d8>.answer
+ +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114cb5a8>.answer
 _____________________________ test_yesno[param68] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157320>, (<src.tfidf.TF_IDF object at 0x108e038d0>, set(['charles-augustin', 'charles-augustin_de_coulomb', 'coulomb', 'de'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb5f0>, (<src.tfidf.TF_IDF object at 0x10a4ace50>, set(['charles-augustin', 'charles-augustin_de_coulomb', 'coulomb', 'de'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -635,7 +570,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157320>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, upon his return to France, with the rank of Captain, he was employed at La Rochelle.')
-E                +    where 'Yes, upon his return to France, with the rank of Captain, he was employed at La Rochelle.' = <src.question_processing.Question_parser instance at 0x10d157320>.answer
+E                +    where 'Yes, upon his return to France, with the rank of Captain, he was employed at La Rochelle.' = <src.question_processing.Question_parser instance at 0x1114cb5f0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -674,10 +609,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, upon his return to France, with the rank of Captain, he was employed at La Rochelle.')
- +    where 'Yes, upon his return to France, with the rank of Captain, he was employed at La Rochelle.' = <src.question_processing.Question_parser instance at 0x10d157320>.answer
+ +    where 'Yes, upon his return to France, with the rank of Captain, he was employed at La Rochelle.' = <src.question_processing.Question_parser instance at 0x1114cb5f0>.answer
 _____________________________ test_yesno[param69] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157200>, (<src.tfidf.TF_IDF object at 0x108e03750>, set(['chinese', 'chinese_language', 'language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb4d0>, (<src.tfidf.TF_IDF object at 0x10a4b03d0>, set(['chinese', 'chinese_language', 'language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -700,7 +635,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157200>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157200>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cb4d0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -739,10 +674,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157200>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cb4d0>.answer
 _____________________________ test_yesno[param70] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157368>, (<src.tfidf.TF_IDF object at 0x108e03750>, set(['chinese', 'chinese_language', 'language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb638>, (<src.tfidf.TF_IDF object at 0x10a4b03d0>, set(['chinese', 'chinese_language', 'language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -765,7 +700,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157368>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157368>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cb638>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -804,10 +739,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157368>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cb638>.answer
 _____________________________ test_yesno[param73] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157440>, (<src.tfidf.TF_IDF object at 0x108e03750>, set(['chinese', 'chinese_language', 'language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb710>, (<src.tfidf.TF_IDF object at 0x10a4b03d0>, set(['chinese', 'chinese_language', 'language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -830,7 +765,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157440>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d157440>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114cb710>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -869,10 +804,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d157440>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114cb710>.answer
 _____________________________ test_yesno[param74] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157488>, (<src.tfidf.TF_IDF object at 0x108e03750>, set(['chinese', 'chinese_language', 'language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb758>, (<src.tfidf.TF_IDF object at 0x10a4b03d0>, set(['chinese', 'chinese_language', 'language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -895,7 +830,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157488>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157488>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cb758>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -934,10 +869,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157488>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cb758>.answer
 _____________________________ test_yesno[param81] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157680>, (<src.tfidf.TF_IDF object at 0x10bedd910>, set(['cougar'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb950>, (<src.tfidf.TF_IDF object at 0x10e16f890>, set(['cougar'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -959,7 +894,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157680>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('A cougar is also known as a mountain lion.') == True
-E                +  where 'A cougar is also known as a mountain lion.' = <src.question_processing.Question_parser instance at 0x10d157680>.answer
+E                +  where 'A cougar is also known as a mountain lion.' = <src.question_processing.Question_parser instance at 0x1114cb950>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -998,11 +933,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('A cougar is also known as a mountain lion.') == True
- +  where 'A cougar is also known as a mountain lion.' = <src.question_processing.Question_parser instance at 0x10d157680>.answer
+ +  where 'A cougar is also known as a mountain lion.' = <src.question_processing.Question_parser instance at 0x1114cb950>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param83] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157710>, (<src.tfidf.TF_IDF object at 0x10bedd910>, set(['cougar'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cb9e0>, (<src.tfidf.TF_IDF object at 0x10e16f890>, set(['cougar'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1024,7 +959,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157710>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('Cougars are not larger than jaguars.') == True
-E                +  where 'Cougars are not larger than jaguars.' = <src.question_processing.Question_parser instance at 0x10d157710>.answer
+E                +  where 'Cougars are not larger than jaguars.' = <src.question_processing.Question_parser instance at 0x1114cb9e0>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -1063,11 +998,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('Cougars are not larger than jaguars.') == True
- +  where 'Cougars are not larger than jaguars.' = <src.question_processing.Question_parser instance at 0x10d157710>.answer
+ +  where 'Cougars are not larger than jaguars.' = <src.question_processing.Question_parser instance at 0x1114cb9e0>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param84] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157758>, (<src.tfidf.TF_IDF object at 0x10bedd910>, set(['cougar'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cba28>, (<src.tfidf.TF_IDF object at 0x10e16f890>, set(['cougar'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1089,7 +1024,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157758>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('no') == True
-E                +  where 'no' = <src.question_processing.Question_parser instance at 0x10d157758>.answer
+E                +  where 'no' = <src.question_processing.Question_parser instance at 0x1114cba28>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -1128,11 +1063,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('no') == True
- +  where 'no' = <src.question_processing.Question_parser instance at 0x10d157758>.answer
+ +  where 'no' = <src.question_processing.Question_parser instance at 0x1114cba28>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param86] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1577e8>, (<src.tfidf.TF_IDF object at 0x10bedd910>, set(['cougar'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cbab8>, (<src.tfidf.TF_IDF object at 0x10e16f890>, set(['cougar'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1155,7 +1090,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1577e8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1577e8>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cbab8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1194,10 +1129,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1577e8>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cbab8>.answer
 _____________________________ test_yesno[param92] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157998>, (<src.tfidf.TF_IDF object at 0x10a8ff590>, set(['drum'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cbc68>, (<src.tfidf.TF_IDF object at 0x10a4d48d0>, set(['drum'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1220,7 +1155,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157998>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157998>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cbc68>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1259,10 +1194,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157998>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cbc68>.answer
 _____________________________ test_yesno[param93] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1579e0>, (<src.tfidf.TF_IDF object at 0x10a8ff590>, set(['drum'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cbcb0>, (<src.tfidf.TF_IDF object at 0x10a4d48d0>, set(['drum'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1285,7 +1220,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1579e0>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1579e0>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cbcb0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1324,10 +1259,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1579e0>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cbcb0>.answer
 _____________________________ test_yesno[param94] ______________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d157a28>, (<src.tfidf.TF_IDF object at 0x10a8ff590>, set(['drum'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cbcf8>, (<src.tfidf.TF_IDF object at 0x10a4d48d0>, set(['drum'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1350,7 +1285,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d157a28>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157a28>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cbcf8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1389,10 +1324,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d157a28>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cbcf8>.answer
 _____________________________ test_yesno[param128] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bb3f8>, (<src.tfidf.TF_IDF object at 0x108e03150>, set(['giant', 'giant_panda', 'panda'])))
+param = (<src.question_processing.Question_parser instance at 0x1114ce6c8>, (<src.tfidf.TF_IDF object at 0x10a4b0710>, set(['giant', 'giant_panda', 'panda'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1415,7 +1350,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bb3f8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bb3f8>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114ce6c8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1454,10 +1389,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bb3f8>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114ce6c8>.answer
 _____________________________ test_yesno[param129] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bb440>, (<src.tfidf.TF_IDF object at 0x108e03150>, set(['giant', 'giant_panda', 'panda'])))
+param = (<src.question_processing.Question_parser instance at 0x1114ce710>, (<src.tfidf.TF_IDF object at 0x10a4b0710>, set(['giant', 'giant_panda', 'panda'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1480,7 +1415,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bb440>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1bb440>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114ce710>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1519,10 +1454,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1bb440>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114ce710>.answer
 _____________________________ test_yesno[param138] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bb6c8>, (<src.tfidf.TF_IDF object at 0x108e03a50>, set(['guitar'])))
+param = (<src.question_processing.Question_parser instance at 0x1114ce998>, (<src.tfidf.TF_IDF object at 0x10a4b0850>, set(['guitar'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1545,7 +1480,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bb6c8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1bb6c8>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114ce998>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1584,10 +1519,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1bb6c8>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114ce998>.answer
 _____________________________ test_yesno[param139] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bb710>, (<src.tfidf.TF_IDF object at 0x108e03a50>, set(['guitar'])))
+param = (<src.question_processing.Question_parser instance at 0x1114ce9e0>, (<src.tfidf.TF_IDF object at 0x10a4b0850>, set(['guitar'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1610,7 +1545,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bb710>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes.')
-E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1bb710>.answer
+E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114ce9e0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1649,10 +1584,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes.')
- +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1bb710>.answer
+ +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114ce9e0>.answer
 _____________________________ test_yesno[param142] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bb7e8>, (<src.tfidf.TF_IDF object at 0x108e03a50>, set(['guitar'])))
+param = (<src.question_processing.Question_parser instance at 0x1114ceab8>, (<src.tfidf.TF_IDF object at 0x10a4b0850>, set(['guitar'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1675,7 +1610,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bb7e8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1bb7e8>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114ceab8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1714,10 +1649,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1bb7e8>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114ceab8>.answer
 _____________________________ test_yesno[param143] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bb830>, (<src.tfidf.TF_IDF object at 0x108e03a50>, set(['guitar'])))
+param = (<src.question_processing.Question_parser instance at 0x1114ceb00>, (<src.tfidf.TF_IDF object at 0x10a4b0850>, set(['guitar'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1740,7 +1675,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bb830>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bb830>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114ceb00>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1779,10 +1714,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bb830>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114ceb00>.answer
 _____________________________ test_yesno[param146] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bb908>, (<src.tfidf.TF_IDF object at 0x10a8ffc90>, set(['becquerel', 'henri', 'henri_becquerel'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cebd8>, (<src.tfidf.TF_IDF object at 0x10a4d4990>, set(['becquerel', 'henri', 'henri_becquerel'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1805,7 +1740,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bb908>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1bb908>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114cebd8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1844,10 +1779,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1bb908>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114cebd8>.answer
 _____________________________ test_yesno[param148] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bb998>, (<src.tfidf.TF_IDF object at 0x10a8ffc90>, set(['becquerel', 'henri', 'henri_becquerel'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cec68>, (<src.tfidf.TF_IDF object at 0x10a4d4990>, set(['becquerel', 'henri', 'henri_becquerel'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1870,7 +1805,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bb998>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bb998>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cec68>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1909,10 +1844,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bb998>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cec68>.answer
 _____________________________ test_yesno[param159] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bbcb0>, (<src.tfidf.TF_IDF object at 0x108e03f10>, set(['isaac', 'isaac_newton', 'newton'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cef80>, (<src.tfidf.TF_IDF object at 0x10fd76290>, set(['isaac', 'isaac_newton', 'newton'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -1935,7 +1870,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bbcb0>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bbcb0>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cef80>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1974,10 +1909,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bbcb0>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cef80>.answer
 _____________________________ test_yesno[param160] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bbcf8>, (<src.tfidf.TF_IDF object at 0x108e03f10>, set(['isaac', 'isaac_newton', 'newton'])))
+param = (<src.question_processing.Question_parser instance at 0x1114cefc8>, (<src.tfidf.TF_IDF object at 0x10fd76290>, set(['isaac', 'isaac_newton', 'newton'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2000,7 +1935,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bbcf8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bbcf8>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cefc8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2039,10 +1974,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bbcf8>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114cefc8>.answer
 _____________________________ test_yesno[param161] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bbd40>, (<src.tfidf.TF_IDF object at 0x1061f0710>, set(['jakarta'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d3050>, (<src.tfidf.TF_IDF object at 0x10e16fad0>, set(['jakarta'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2065,7 +2000,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bbd40>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bbd40>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114d3050>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2104,10 +2039,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bbd40>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114d3050>.answer
 _____________________________ test_yesno[param162] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bbd88>, (<src.tfidf.TF_IDF object at 0x1061f0710>, set(['jakarta'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d3098>, (<src.tfidf.TF_IDF object at 0x10e16fad0>, set(['jakarta'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2130,7 +2065,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bbd88>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes,')
-E                +    where 'Yes,' = <src.question_processing.Question_parser instance at 0x10d1bbd88>.answer
+E                +    where 'Yes,' = <src.question_processing.Question_parser instance at 0x1114d3098>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2169,10 +2104,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes,')
- +    where 'Yes,' = <src.question_processing.Question_parser instance at 0x10d1bbd88>.answer
+ +    where 'Yes,' = <src.question_processing.Question_parser instance at 0x1114d3098>.answer
 _____________________________ test_yesno[param165] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bbe60>, (<src.tfidf.TF_IDF object at 0x1061f0710>, set(['jakarta'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d3170>, (<src.tfidf.TF_IDF object at 0x10e16fad0>, set(['jakarta'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2195,7 +2130,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bbe60>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bbe60>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114d3170>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2234,10 +2169,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1bbe60>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114d3170>.answer
 _____________________________ test_yesno[param166] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1bbea8>, (<src.tfidf.TF_IDF object at 0x1061f0710>, set(['jakarta'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d31b8>, (<src.tfidf.TF_IDF object at 0x10e16fad0>, set(['jakarta'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2260,7 +2195,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1bbea8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes.')
-E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1bbea8>.answer
+E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114d31b8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2299,10 +2234,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes.')
- +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1bbea8>.answer
+ +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114d31b8>.answer
 _____________________________ test_yesno[param186] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c0488>, (<src.tfidf.TF_IDF object at 0x1062149d0>, set(['kuala', 'kuala_lumpur', 'lumpur'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d3758>, (<src.tfidf.TF_IDF object at 0x10e16f150>, set(['kuala', 'kuala_lumpur', 'lumpur'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2325,7 +2260,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c0488>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0488>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d3758>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2364,10 +2299,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0488>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d3758>.answer
 _____________________________ test_yesno[param191] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c05f0>, (<src.tfidf.TF_IDF object at 0x1062149d0>, set(['kuala', 'kuala_lumpur', 'lumpur'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d38c0>, (<src.tfidf.TF_IDF object at 0x10e16f150>, set(['kuala', 'kuala_lumpur', 'lumpur'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2390,7 +2325,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c05f0>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c05f0>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d38c0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2429,10 +2364,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c05f0>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d38c0>.answer
 _____________________________ test_yesno[param192] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c0638>, (<src.tfidf.TF_IDF object at 0x108e032d0>, set(['lobster'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d3908>, (<src.tfidf.TF_IDF object at 0x10e16ff50>, set(['lobster'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2455,7 +2390,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c0638>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0638>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d3908>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2494,10 +2429,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0638>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d3908>.answer
 _____________________________ test_yesno[param193] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c0680>, (<src.tfidf.TF_IDF object at 0x108e032d0>, set(['lobster'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d3950>, (<src.tfidf.TF_IDF object at 0x10e16ff50>, set(['lobster'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2520,7 +2455,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c0680>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0680>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d3950>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2559,10 +2494,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0680>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d3950>.answer
 _____________________________ test_yesno[param200] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c0878>, (<src.tfidf.TF_IDF object at 0x1062140d0>, set(['lyre'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d3b48>, (<src.tfidf.TF_IDF object at 0x10a4b0d50>, set(['lyre'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2585,7 +2520,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c0878>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0878>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d3b48>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2624,10 +2559,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0878>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d3b48>.answer
 _____________________________ test_yesno[param202] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c0908>, (<src.tfidf.TF_IDF object at 0x10bedd750>, set(['language', 'malay', 'malay_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d3bd8>, (<src.tfidf.TF_IDF object at 0x10a4d4ed0>, set(['language', 'malay', 'malay_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2650,7 +2585,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c0908>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes.')
-E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1c0908>.answer
+E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114d3bd8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2689,10 +2624,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes.')
- +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1c0908>.answer
+ +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114d3bd8>.answer
 _____________________________ test_yesno[param221] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c0e60>, (<src.tfidf.TF_IDF object at 0x1061f0890>, set(['faraday', 'michael', 'michael_faraday'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8170>, (<src.tfidf.TF_IDF object at 0x10a4b08d0>, set(['faraday', 'michael', 'michael_faraday'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2715,7 +2650,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c0e60>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0e60>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8170>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2754,10 +2689,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c0e60>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8170>.answer
 _____________________________ test_yesno[param232] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c51b8>, (<src.tfidf.TF_IDF object at 0x10bedd9d0>, set(['nikola', 'nikola_tesla', 'tesla'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8488>, (<src.tfidf.TF_IDF object at 0x10e16f950>, set(['nikola', 'nikola_tesla', 'tesla'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2779,7 +2714,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c51b8>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('Nikola Tesla died alone.') == True
-E                +  where 'Nikola Tesla died alone.' = <src.question_processing.Question_parser instance at 0x10d1c51b8>.answer
+E                +  where 'Nikola Tesla died alone.' = <src.question_processing.Question_parser instance at 0x1114d8488>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -2818,11 +2753,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('Nikola Tesla died alone.') == True
- +  where 'Nikola Tesla died alone.' = <src.question_processing.Question_parser instance at 0x10d1c51b8>.answer
+ +  where 'Nikola Tesla died alone.' = <src.question_processing.Question_parser instance at 0x1114d8488>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param234] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5248>, (<src.tfidf.TF_IDF object at 0x10bedd9d0>, set(['nikola', 'nikola_tesla', 'tesla'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8518>, (<src.tfidf.TF_IDF object at 0x10e16f950>, set(['nikola', 'nikola_tesla', 'tesla'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2844,7 +2779,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5248>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('Nikola Tesla was close friends with Mark Twain.') == True
-E                +  where 'Nikola Tesla was close friends with Mark Twain.' = <src.question_processing.Question_parser instance at 0x10d1c5248>.answer
+E                +  where 'Nikola Tesla was close friends with Mark Twain.' = <src.question_processing.Question_parser instance at 0x1114d8518>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -2883,11 +2818,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('Nikola Tesla was close friends with Mark Twain.') == True
- +  where 'Nikola Tesla was close friends with Mark Twain.' = <src.question_processing.Question_parser instance at 0x10d1c5248>.answer
+ +  where 'Nikola Tesla was close friends with Mark Twain.' = <src.question_processing.Question_parser instance at 0x1114d8518>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param237] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5320>, (<src.tfidf.TF_IDF object at 0x10bedd9d0>, set(['nikola', 'nikola_tesla', 'tesla'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d85f0>, (<src.tfidf.TF_IDF object at 0x10e16f950>, set(['nikola', 'nikola_tesla', 'tesla'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -2910,7 +2845,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5320>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5320>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d85f0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -2949,140 +2884,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5320>.answer
-_____________________________ test_yesno[param241] _____________________________
-
-param = (<src.question_processing.Question_parser instance at 0x10d1c5440>, (<src.tfidf.TF_IDF object at 0x10a8ff810>, set(['octopus'])))
-
-    def test_yesno(param):
-        qpobj = param[0]
-        stopLemmasSet = getStopLemmas()
-        objTfidf,titleLemmasSet = param[1]
-        questionProcess = Question_parser(qpobj.question)
-        # if questionProcess.qtype != "BOOLEAN" or questionProcess.difficulty =="NA" or qpobj.difficulty == "NA" or questionProcess.answer_type== "NA":
-        #     return
-        if questionProcess.valid: #questionProcess.difficulty == "easy" :
-            try:
-                interestingText = objTfidf.getInterestingText(qpobj.question)
-                ans = answerYesNo(qpobj.question, interestingText, questionProcess, titleLemmasSet,stopLemmasSet)
-                # assert True == str2bool(qpobj.answer)
-                assert str2bool(qpobj.answer)== str2bool(ans)
-                # assert False == True
-            except Exception, e:
-                traceback.print_exc()
-                print qpobj
-                print ans
->               raise e
-E               assert True == str2bool('No')
-E                +  where True = str2bool('Yes, the octopus is a cephalopod.')
-E                +    where 'Yes, the octopus is a cephalopod.' = <src.question_processing.Question_parser instance at 0x10d1c5440>.answer
-
-test_compute.py:40: AssertionError
------------------------------ Captured stdout call -----------------------------
-candidate Sentence: (0.38476583361625671, {u'tokens': [u'The', u'octopus', u'is', u'a', u'cephalopod', u'of', u'the', u'order', u'Octopoda', u'.'], u'lemmas': [u'the', u'octopus', u'be', u'a', u'cephalopod', u'of', u'the', u'order', u'Octopoda', u'.'], u'pos': [u'DT', u'NN', u'VBZ', u'DT', u'NN', u'IN', u'DT', u'NN', u'NNP', u'.'], u'char_offsets': [[0, 3], [4, 11], [12, 14], [15, 16], [17, 27], [28, 30], [31, 34], [35, 40], [41, 49], [49, 50]]}) 
-answer: set([])
-candidate Sentence: (0.37483182549476624, {u'tokens': [u'What', u'is', u'this', u'octopus', u'thinking', u'?'], u'lemmas': [u'what', u'be', u'this', u'octopus', u'thinking', u'?'], u'pos': [u'WP', u'VBZ', u'DT', u'NN', u'NN', u'.'], u'char_offsets': [[6198, 6202], [6203, 6205], [6206, 6210], [6211, 6218], [6219, 6227], [6227, 6228]]}) 
-answer: set([u'cephalopod'])
-candidate Sentence: (0.28748011589050293, {u'tokens': [u'What', u'behavior', u'can', u'we', u'expect', u'of', u'octopuses', u'?'], u'lemmas': [u'what', u'behavior', u'can', u'we', u'expect', u'of', u'octopus', u'?'], u'pos': [u'WDT', u'NN', u'MD', u'PRP', u'VB', u'IN', u'NNS', u'.'], u'char_offsets': [[6427, 6431], [6432, 6440], [6441, 6444], [6445, 6447], [6448, 6454], [6455, 6457], [6458, 6467], [6467, 6468]]}) 
-answer: set([u'cephalopod'])
-candidate Sentence: (0.21068759262561798, {u'tokens': [u'Octopuses', u',', u'like', u'other', u'cephalopods', u',', u'can', u'distinguish', u'the', u'polarization', u'of', u'light', u'.'], u'lemmas': [u'octopus', u',', u'like', u'other', u'cephalopod', u',', u'can', u'distinguish', u'the', u'polarization', u'of', u'light', u'.'], u'pos': [u'NNS', u',', u'IN', u'JJ', u'NNS', u',', u'MD', u'VB', u'DT', u'NN', u'IN', u'NN', u'.'], u'char_offsets': [[12281, 12290], [12290, 12291], [12292, 12296], [12297, 12302], [12303, 12314], [12314, 12315], [12316, 12319], [12320, 12331], [12332, 12335], [12336, 12348], [12349, 12351], [12352, 12357], [12357, 12358]]}) 
-answer: set([])
-candidate Sentence: (0.18775247037410736, {u'tokens': [u'The', u'exact', u'extent', u'of', u'their', u'intelligence', u'and', u'learning', u'capability', u'is', u'much', u'debated', u'among', u'biologists', u',', u'NFW.org', u'?'], u'lemmas': [u'the', u'exact', u'extent', u'of', u'they', u'intelligence', u'and', u'learn', u'capability', u'be', u'much', u'debate', u'among', u'biologist', u',', u'nfw.org', u'?'], u'pos': [u'DT', u'JJ', u'NN', u'IN', u'PRP$', u'NN', u'CC', u'VBG', u'NN', u'VBZ', u'JJ', u'VBN', u'IN', u'NNS', u',', u'NN', u'.'], u'char_offsets': [[4292, 4295], [4296, 4301], [4302, 4308], [4309, 4311], [4312, 4317], [4318, 4330], [4331, 4334], [4335, 4343], [4344, 4354], [4355, 4357], [4358, 4362], [4363, 4370], [4371, 4376], [4377, 4387], [4387, 4388], [4392, 4399], [4399, 4400]]}) 
-answer: set([u'cephalopod'])
-candidate Sentence: (0.18723711371421814, {u'tokens': [u'Giant', u'Octopus', u'--', u'Mighty', u'but', u'Secretive', u'Denizen', u'of', u'the', u'Deep', u'Slate.com', u',', u'How', u'Smart', u'is', u'the', u'Octopus', u'?'], u'lemmas': [u'Giant', u'Octopus', u'--', u'Mighty', u'but', u'Secretive', u'Denizen', u'of', u'the', u'deep', u'Slate.com', u',', u'how', u'Smart', u'be', u'the', u'Octopus', u'?'], u'pos': [u'NNP', u'NNP', u':', u'NNP', u'CC', u'NNP', u'NNP', u'IN', u'DT', u'JJ', u'NNP', u',', u'WRB', u'NNP', u'VBZ', u'DT', u'NNP', u'.'], u'char_offsets': [[4533, 4538], [4539, 4546], [4546, 4547], [4547, 4553], [4554, 4557], [4558, 4567], [4568, 4575], [4576, 4578], [4579, 4582], [4583, 4587], [4590, 4599], [4599, 4600], [4601, 4604], [4605, 4610], [4611, 4613], [4614, 4617], [4618, 4625], [4625, 4626]]}) 
-answer: set([u'cephalopod'])
-candidate Sentence: (0.17517420649528503, {u'tokens': [u'Octopuses', u'have', u'two', u'eyes', u'and', u'four', u'pairs', u'of', u'arms', u'and', u'like', u'other', u'cephalopods', u'are', u'bilaterally', u'symmetric', u'.'], u'lemmas': [u'octopus', u'have', u'two', u'eye', u'and', u'four', u'pair', u'of', u'arm', u'and', u'like', u'other', u'cephalopod', u'be', u'bilaterally', u'symmetric', u'.'], u'pos': [u'NNS', u'VBP', u'CD', u'NNS', u'CC', u'CD', u'NNS', u'IN', u'NNS', u'CC', u'IN', u'JJ', u'NNS', u'VBP', u'RB', u'JJ', u'.'], u'char_offsets': [[51, 60], [61, 65], [66, 69], [70, 74], [75, 78], [79, 83], [84, 89], [90, 92], [93, 97], [98, 101], [102, 106], [107, 112], [113, 124], [125, 128], [129, 140], [141, 150], [150, 151]]}) 
-answer: set([])
-candidate Sentence: (0.1240299716591835, {u'tokens': [u'Unlike', u'most', u'other', u'cephalopods', u',', u'the', u'majority', u'of', u'octopuses', u'those', u'in', u'the', u'suborder', u'most', u'commonly', u'known', u',', u'Incirrina', u'have', u'almost', u'entirely', u'soft', u'bodies', u'with', u'no', u'internal', u'skeleton', u'.'], u'lemmas': [u'unlike', u'most', u'other', u'cephalopod', u',', u'the', u'majority', u'of', u'octopus', u'those', u'in', u'the', u'suborder', u'most', u'commonly', u'know', u',', u'Incirrina', u'have', u'almost', u'entirely', u'soft', u'body', u'with', u'no', u'internal', u'skeleton', u'.'], u'pos': [u'IN', u'JJS', u'JJ', u'NNS', u',', u'DT', u'NN', u'IN', u'NNS', u'DT', u'IN', u'DT', u'NN', u'RBS', u'RB', u'VBN', u',', u'NNP', u'VBP', u'RB', u'RB', u'JJ', u'NNS', u'IN', u'DT', u'JJ', u'NN', u'.'], u'char_offsets': [[1892, 1898], [1899, 1903], [1904, 1909], [1910, 1921], [1921, 1922], [1923, 1926], [1927, 1935], [1936, 1938], [1939, 1948], [1951, 1956], [1957, 1959], [1960, 1963], [1964, 1972], [1973, 1977], [1978, 1986], [1987, 1992], [1992, 1993], [1994, 2003], [2006, 2010], [2011, 2017], [2018, 2026], [2027, 2031], [2032, 2038], [2039, 2043], [2044, 2046], [2047, 2055], [2056, 2064], [2064, 2065]]}) 
-answer: set([])
-candidate Sentence: (0.10976018011569977, {u'tokens': [u'In', u'the', u'UK', u',', u'cephalopods', u'such', u'as', u'octopuses', u'are', u'regarded', u'as', u'honorary', u'vertebrates', u'under', u'the', u'Animals', u'-LRB-', u'Scientific', u'Procedures', u'-RRB-', u'Act', u'1986', u'and', u'other', u'cruelty', u'to', u'animals', u'legislation', u',', u'extending', u'to', u'them', u'protections', u'not', u'normally', u'afforded', u'to', u'invertebrates', u'.'], u'lemmas': [u'in', u'the', u'UK', u',', u'cephalopod', u'such', u'as', u'octopus', u'be', u'regard', u'as', u'honorary', u'vertebrate', u'under', u'the', u'animal', u'-lrb-', u'Scientific', u'procedure', u'-rrb-', u'Act', u'1986', u'and', u'other', u'cruelty', u'to', u'animal', u'legislation', u',', u'extend', u'to', u'they', u'protection', u'not', u'normally', u'afford', u'to', u'invertebrate', u'.'], u'pos': [u'IN', u'DT', u'NNP', u',', u'NNS', u'JJ', u'IN', u'NNS', u'VBP', u'VBN', u'IN', u'JJ', u'NNS', u'IN', u'DT', u'NNS', u'-LRB-', u'NNP', u'NNS', u'-RRB-', u'NNP', u'CD', u'CC', u'JJ', u'NN', u'TO', u'NNS', u'NN', u',', u'VBG', u'TO', u'PRP', u'NNS', u'RB', u'RB', u'VBN', u'TO', u'NNS', u'.'], u'char_offsets': [[6894, 6896], [6897, 6900], [6901, 6903], [6903, 6904], [6905, 6916], [6917, 6921], [6922, 6924], [6925, 6934], [6935, 6938], [6939, 6947], [6948, 6950], [6951, 6959], [6960, 6971], [6972, 6977], [6978, 6981], [6982, 6989], [6990, 6991], [6991, 7001], [7002, 7012], [7012, 7013], [7014, 7017], [7018, 7022], [7023, 7026], [7027, 7032], [7033, 7040], [7041, 7043], [7044, 7051], [7052, 7063], [7063, 7064], [7065, 7074], [7075, 7077], [7078, 7082], [7083, 7094], [7095, 7098], [7099, 7107], [7108, 7116], [7117, 7119], [7120, 7133], [7133, 7134]]}) 
-answer: set([])
-candidate Sentence: (0.10459750890731812, {u'tokens': [u'Unimelb.edu.au', u',', u'Tentacles', u'of', u'venom', u':', u'new', u'study', u'reveals', u'all', u'octopuses', u'are', u'venomous', u',', u'University', u'of', u'Melbourne', u',', u'Media', u'Release', u',', u'Wednesday', u'15', u'April', u'2009', u'In', u'the', u'larger', u'sense', u',', u'there', u'are', u'around', u'300', u'recognized', u'octopus', u'species', u',', u'which', u'is', u'over', u'one-third', u'of', u'the', u'total', u'number', u'of', u'known', u'cephalopod', u'species', u'.'], u'lemmas': [u'Unimelb.edu.au', u',', u'Tentacles', u'of', u'venom', u':', u'new', u'study', u'reveal', u'all', u'octopus', u'be', u'venomous', u',', u'University', u'of', u'Melbourne', u',', u'Media', u'Release', u',', u'Wednesday', u'15', u'April', u'2009', u'in', u'the', u'larger', u'sense', u',', u'there', u'be', u'around', u'300', u'recognize', u'octopus', u'species', u',', u'which', u'be', u'over', u'one-third', u'of', u'the', u'total', u'number', u'of', u'known', u'cephalopod', u'species', u'.'], u'pos': [u'NNP', u',', u'NNP', u'IN', u'NN', u':', u'JJ', u'NN', u'VBZ', u'DT', u'NNS', u'VBP', u'JJ', u',', u'NNP', u'IN', u'NNP', u',', u'NNP', u'NNP', u',', u'NNP', u'CD', u'NNP', u'CD', u'IN', u'DT', u'JJR', u'NN', u',', u'EX', u'VBP', u'IN', u'CD', u'VBD', u'NN', u'NNS', u',', u'WDT', u'VBZ', u'IN', u'NN', u'IN', u'DT', u'JJ', u'NN', u'IN', u'JJ', u'NN', u'NNS', u'.'], u'char_offsets': [[744, 758], [758, 759], [760, 769], [770, 772], [773, 778], [778, 779], [780, 783], [784, 789], [790, 797], [798, 801], [802, 811], [812, 815], [816, 824], [824, 825], [826, 836], [837, 839], [840, 849], [849, 850], [851, 856], [857, 864], [864, 865], [866, 875], [876, 878], [879, 884], [885, 889], [890, 892], [893, 896], [897, 903], [904, 909], [909, 910], [911, 916], [917, 920], [921, 927], [928, 931], [932, 942], [943, 950], [951, 958], [958, 959], [960, 965], [966, 968], [969, 973], [974, 983], [984, 986], [987, 990], [991, 996], [997, 1003], [1004, 1006], [1007, 1012], [1013, 1023], [1024, 1031], [1031, 1032]]}) 
-answer: set([])
-
-Is the octopus a cephalopod?
-Validity= False
-Question Type = NA
-Answer Type = NA
-Answer = Yes, the octopus is a cephalopod.
-Difficulty = easy
-
-No
------------------------------ Captured stderr call -----------------------------
-Traceback (most recent call last):
-  File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
-    assert str2bool(qpobj.answer)== str2bool(ans)
-AssertionError: assert True == str2bool('No')
- +  where True = str2bool('Yes, the octopus is a cephalopod.')
- +    where 'Yes, the octopus is a cephalopod.' = <src.question_processing.Question_parser instance at 0x10d1c5440>.answer
-_____________________________ test_yesno[param242] _____________________________
-
-param = (<src.question_processing.Question_parser instance at 0x10d1c5488>, (<src.tfidf.TF_IDF object at 0x10a8ff810>, set(['octopus'])))
-
-    def test_yesno(param):
-        qpobj = param[0]
-        stopLemmasSet = getStopLemmas()
-        objTfidf,titleLemmasSet = param[1]
-        questionProcess = Question_parser(qpobj.question)
-        # if questionProcess.qtype != "BOOLEAN" or questionProcess.difficulty =="NA" or qpobj.difficulty == "NA" or questionProcess.answer_type== "NA":
-        #     return
-        if questionProcess.valid: #questionProcess.difficulty == "easy" :
-            try:
-                interestingText = objTfidf.getInterestingText(qpobj.question)
-                ans = answerYesNo(qpobj.question, interestingText, questionProcess, titleLemmasSet,stopLemmasSet)
-                # assert True == str2bool(qpobj.answer)
-                assert str2bool(qpobj.answer)== str2bool(ans)
-                # assert False == True
-            except Exception, e:
-                traceback.print_exc()
-                print qpobj
-                print ans
->               raise e
-E               assert True == str2bool('No')
-E                +  where True = str2bool('Yes, the octopus is a cephalopod.')
-E                +    where 'Yes, the octopus is a cephalopod.' = <src.question_processing.Question_parser instance at 0x10d1c5488>.answer
-
-test_compute.py:40: AssertionError
------------------------------ Captured stdout call -----------------------------
-candidate Sentence: (0.38476583361625671, {u'tokens': [u'The', u'octopus', u'is', u'a', u'cephalopod', u'of', u'the', u'order', u'Octopoda', u'.'], u'lemmas': [u'the', u'octopus', u'be', u'a', u'cephalopod', u'of', u'the', u'order', u'Octopoda', u'.'], u'pos': [u'DT', u'NN', u'VBZ', u'DT', u'NN', u'IN', u'DT', u'NN', u'NNP', u'.'], u'char_offsets': [[0, 3], [4, 11], [12, 14], [15, 16], [17, 27], [28, 30], [31, 34], [35, 40], [41, 49], [49, 50]]}) 
-answer: set([])
-candidate Sentence: (0.37483182549476624, {u'tokens': [u'What', u'is', u'this', u'octopus', u'thinking', u'?'], u'lemmas': [u'what', u'be', u'this', u'octopus', u'thinking', u'?'], u'pos': [u'WP', u'VBZ', u'DT', u'NN', u'NN', u'.'], u'char_offsets': [[6198, 6202], [6203, 6205], [6206, 6210], [6211, 6218], [6219, 6227], [6227, 6228]]}) 
-answer: set([u'cephalopod'])
-candidate Sentence: (0.28748011589050293, {u'tokens': [u'What', u'behavior', u'can', u'we', u'expect', u'of', u'octopuses', u'?'], u'lemmas': [u'what', u'behavior', u'can', u'we', u'expect', u'of', u'octopus', u'?'], u'pos': [u'WDT', u'NN', u'MD', u'PRP', u'VB', u'IN', u'NNS', u'.'], u'char_offsets': [[6427, 6431], [6432, 6440], [6441, 6444], [6445, 6447], [6448, 6454], [6455, 6457], [6458, 6467], [6467, 6468]]}) 
-answer: set([u'cephalopod'])
-candidate Sentence: (0.21068759262561798, {u'tokens': [u'Octopuses', u',', u'like', u'other', u'cephalopods', u',', u'can', u'distinguish', u'the', u'polarization', u'of', u'light', u'.'], u'lemmas': [u'octopus', u',', u'like', u'other', u'cephalopod', u',', u'can', u'distinguish', u'the', u'polarization', u'of', u'light', u'.'], u'pos': [u'NNS', u',', u'IN', u'JJ', u'NNS', u',', u'MD', u'VB', u'DT', u'NN', u'IN', u'NN', u'.'], u'char_offsets': [[12281, 12290], [12290, 12291], [12292, 12296], [12297, 12302], [12303, 12314], [12314, 12315], [12316, 12319], [12320, 12331], [12332, 12335], [12336, 12348], [12349, 12351], [12352, 12357], [12357, 12358]]}) 
-answer: set([])
-candidate Sentence: (0.18775247037410736, {u'tokens': [u'The', u'exact', u'extent', u'of', u'their', u'intelligence', u'and', u'learning', u'capability', u'is', u'much', u'debated', u'among', u'biologists', u',', u'NFW.org', u'?'], u'lemmas': [u'the', u'exact', u'extent', u'of', u'they', u'intelligence', u'and', u'learn', u'capability', u'be', u'much', u'debate', u'among', u'biologist', u',', u'nfw.org', u'?'], u'pos': [u'DT', u'JJ', u'NN', u'IN', u'PRP$', u'NN', u'CC', u'VBG', u'NN', u'VBZ', u'JJ', u'VBN', u'IN', u'NNS', u',', u'NN', u'.'], u'char_offsets': [[4292, 4295], [4296, 4301], [4302, 4308], [4309, 4311], [4312, 4317], [4318, 4330], [4331, 4334], [4335, 4343], [4344, 4354], [4355, 4357], [4358, 4362], [4363, 4370], [4371, 4376], [4377, 4387], [4387, 4388], [4392, 4399], [4399, 4400]]}) 
-answer: set([u'cephalopod'])
-candidate Sentence: (0.18723711371421814, {u'tokens': [u'Giant', u'Octopus', u'--', u'Mighty', u'but', u'Secretive', u'Denizen', u'of', u'the', u'Deep', u'Slate.com', u',', u'How', u'Smart', u'is', u'the', u'Octopus', u'?'], u'lemmas': [u'Giant', u'Octopus', u'--', u'Mighty', u'but', u'Secretive', u'Denizen', u'of', u'the', u'deep', u'Slate.com', u',', u'how', u'Smart', u'be', u'the', u'Octopus', u'?'], u'pos': [u'NNP', u'NNP', u':', u'NNP', u'CC', u'NNP', u'NNP', u'IN', u'DT', u'JJ', u'NNP', u',', u'WRB', u'NNP', u'VBZ', u'DT', u'NNP', u'.'], u'char_offsets': [[4533, 4538], [4539, 4546], [4546, 4547], [4547, 4553], [4554, 4557], [4558, 4567], [4568, 4575], [4576, 4578], [4579, 4582], [4583, 4587], [4590, 4599], [4599, 4600], [4601, 4604], [4605, 4610], [4611, 4613], [4614, 4617], [4618, 4625], [4625, 4626]]}) 
-answer: set([u'cephalopod'])
-candidate Sentence: (0.17517420649528503, {u'tokens': [u'Octopuses', u'have', u'two', u'eyes', u'and', u'four', u'pairs', u'of', u'arms', u'and', u'like', u'other', u'cephalopods', u'are', u'bilaterally', u'symmetric', u'.'], u'lemmas': [u'octopus', u'have', u'two', u'eye', u'and', u'four', u'pair', u'of', u'arm', u'and', u'like', u'other', u'cephalopod', u'be', u'bilaterally', u'symmetric', u'.'], u'pos': [u'NNS', u'VBP', u'CD', u'NNS', u'CC', u'CD', u'NNS', u'IN', u'NNS', u'CC', u'IN', u'JJ', u'NNS', u'VBP', u'RB', u'JJ', u'.'], u'char_offsets': [[51, 60], [61, 65], [66, 69], [70, 74], [75, 78], [79, 83], [84, 89], [90, 92], [93, 97], [98, 101], [102, 106], [107, 112], [113, 124], [125, 128], [129, 140], [141, 150], [150, 151]]}) 
-answer: set([])
-candidate Sentence: (0.1240299716591835, {u'tokens': [u'Unlike', u'most', u'other', u'cephalopods', u',', u'the', u'majority', u'of', u'octopuses', u'those', u'in', u'the', u'suborder', u'most', u'commonly', u'known', u',', u'Incirrina', u'have', u'almost', u'entirely', u'soft', u'bodies', u'with', u'no', u'internal', u'skeleton', u'.'], u'lemmas': [u'unlike', u'most', u'other', u'cephalopod', u',', u'the', u'majority', u'of', u'octopus', u'those', u'in', u'the', u'suborder', u'most', u'commonly', u'know', u',', u'Incirrina', u'have', u'almost', u'entirely', u'soft', u'body', u'with', u'no', u'internal', u'skeleton', u'.'], u'pos': [u'IN', u'JJS', u'JJ', u'NNS', u',', u'DT', u'NN', u'IN', u'NNS', u'DT', u'IN', u'DT', u'NN', u'RBS', u'RB', u'VBN', u',', u'NNP', u'VBP', u'RB', u'RB', u'JJ', u'NNS', u'IN', u'DT', u'JJ', u'NN', u'.'], u'char_offsets': [[1892, 1898], [1899, 1903], [1904, 1909], [1910, 1921], [1921, 1922], [1923, 1926], [1927, 1935], [1936, 1938], [1939, 1948], [1951, 1956], [1957, 1959], [1960, 1963], [1964, 1972], [1973, 1977], [1978, 1986], [1987, 1992], [1992, 1993], [1994, 2003], [2006, 2010], [2011, 2017], [2018, 2026], [2027, 2031], [2032, 2038], [2039, 2043], [2044, 2046], [2047, 2055], [2056, 2064], [2064, 2065]]}) 
-answer: set([])
-candidate Sentence: (0.10976018011569977, {u'tokens': [u'In', u'the', u'UK', u',', u'cephalopods', u'such', u'as', u'octopuses', u'are', u'regarded', u'as', u'honorary', u'vertebrates', u'under', u'the', u'Animals', u'-LRB-', u'Scientific', u'Procedures', u'-RRB-', u'Act', u'1986', u'and', u'other', u'cruelty', u'to', u'animals', u'legislation', u',', u'extending', u'to', u'them', u'protections', u'not', u'normally', u'afforded', u'to', u'invertebrates', u'.'], u'lemmas': [u'in', u'the', u'UK', u',', u'cephalopod', u'such', u'as', u'octopus', u'be', u'regard', u'as', u'honorary', u'vertebrate', u'under', u'the', u'animal', u'-lrb-', u'Scientific', u'procedure', u'-rrb-', u'Act', u'1986', u'and', u'other', u'cruelty', u'to', u'animal', u'legislation', u',', u'extend', u'to', u'they', u'protection', u'not', u'normally', u'afford', u'to', u'invertebrate', u'.'], u'pos': [u'IN', u'DT', u'NNP', u',', u'NNS', u'JJ', u'IN', u'NNS', u'VBP', u'VBN', u'IN', u'JJ', u'NNS', u'IN', u'DT', u'NNS', u'-LRB-', u'NNP', u'NNS', u'-RRB-', u'NNP', u'CD', u'CC', u'JJ', u'NN', u'TO', u'NNS', u'NN', u',', u'VBG', u'TO', u'PRP', u'NNS', u'RB', u'RB', u'VBN', u'TO', u'NNS', u'.'], u'char_offsets': [[6894, 6896], [6897, 6900], [6901, 6903], [6903, 6904], [6905, 6916], [6917, 6921], [6922, 6924], [6925, 6934], [6935, 6938], [6939, 6947], [6948, 6950], [6951, 6959], [6960, 6971], [6972, 6977], [6978, 6981], [6982, 6989], [6990, 6991], [6991, 7001], [7002, 7012], [7012, 7013], [7014, 7017], [7018, 7022], [7023, 7026], [7027, 7032], [7033, 7040], [7041, 7043], [7044, 7051], [7052, 7063], [7063, 7064], [7065, 7074], [7075, 7077], [7078, 7082], [7083, 7094], [7095, 7098], [7099, 7107], [7108, 7116], [7117, 7119], [7120, 7133], [7133, 7134]]}) 
-answer: set([])
-candidate Sentence: (0.10459750890731812, {u'tokens': [u'Unimelb.edu.au', u',', u'Tentacles', u'of', u'venom', u':', u'new', u'study', u'reveals', u'all', u'octopuses', u'are', u'venomous', u',', u'University', u'of', u'Melbourne', u',', u'Media', u'Release', u',', u'Wednesday', u'15', u'April', u'2009', u'In', u'the', u'larger', u'sense', u',', u'there', u'are', u'around', u'300', u'recognized', u'octopus', u'species', u',', u'which', u'is', u'over', u'one-third', u'of', u'the', u'total', u'number', u'of', u'known', u'cephalopod', u'species', u'.'], u'lemmas': [u'Unimelb.edu.au', u',', u'Tentacles', u'of', u'venom', u':', u'new', u'study', u'reveal', u'all', u'octopus', u'be', u'venomous', u',', u'University', u'of', u'Melbourne', u',', u'Media', u'Release', u',', u'Wednesday', u'15', u'April', u'2009', u'in', u'the', u'larger', u'sense', u',', u'there', u'be', u'around', u'300', u'recognize', u'octopus', u'species', u',', u'which', u'be', u'over', u'one-third', u'of', u'the', u'total', u'number', u'of', u'known', u'cephalopod', u'species', u'.'], u'pos': [u'NNP', u',', u'NNP', u'IN', u'NN', u':', u'JJ', u'NN', u'VBZ', u'DT', u'NNS', u'VBP', u'JJ', u',', u'NNP', u'IN', u'NNP', u',', u'NNP', u'NNP', u',', u'NNP', u'CD', u'NNP', u'CD', u'IN', u'DT', u'JJR', u'NN', u',', u'EX', u'VBP', u'IN', u'CD', u'VBD', u'NN', u'NNS', u',', u'WDT', u'VBZ', u'IN', u'NN', u'IN', u'DT', u'JJ', u'NN', u'IN', u'JJ', u'NN', u'NNS', u'.'], u'char_offsets': [[744, 758], [758, 759], [760, 769], [770, 772], [773, 778], [778, 779], [780, 783], [784, 789], [790, 797], [798, 801], [802, 811], [812, 815], [816, 824], [824, 825], [826, 836], [837, 839], [840, 849], [849, 850], [851, 856], [857, 864], [864, 865], [866, 875], [876, 878], [879, 884], [885, 889], [890, 892], [893, 896], [897, 903], [904, 909], [909, 910], [911, 916], [917, 920], [921, 927], [928, 931], [932, 942], [943, 950], [951, 958], [958, 959], [960, 965], [966, 968], [969, 973], [974, 983], [984, 986], [987, 990], [991, 996], [997, 1003], [1004, 1006], [1007, 1012], [1013, 1023], [1024, 1031], [1031, 1032]]}) 
-answer: set([])
-
-Is the octopus a cephalopod?
-Validity= False
-Question Type = NA
-Answer Type = NA
-Answer = Yes, the octopus is a cephalopod.
-Difficulty = easy
-
-No
------------------------------ Captured stderr call -----------------------------
-Traceback (most recent call last):
-  File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
-    assert str2bool(qpobj.answer)== str2bool(ans)
-AssertionError: assert True == str2bool('No')
- +  where True = str2bool('Yes, the octopus is a cephalopod.')
- +    where 'Yes, the octopus is a cephalopod.' = <src.question_processing.Question_parser instance at 0x10d1c5488>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d85f0>.answer
 _____________________________ test_yesno[param251] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5710>, (<src.tfidf.TF_IDF object at 0x106214f90>, set(['piano'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d89e0>, (<src.tfidf.TF_IDF object at 0x10a4d4c10>, set(['piano'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3105,7 +2910,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5710>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes.')
-E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1c5710>.answer
+E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114d89e0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3144,10 +2949,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes.')
- +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1c5710>.answer
+ +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114d89e0>.answer
 _____________________________ test_yesno[param252] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5758>, (<src.tfidf.TF_IDF object at 0x106214f90>, set(['piano'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8a28>, (<src.tfidf.TF_IDF object at 0x10a4d4c10>, set(['piano'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3170,7 +2975,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5758>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5758>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8a28>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3209,10 +3014,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5758>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8a28>.answer
 _____________________________ test_yesno[param253] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c57a0>, (<src.tfidf.TF_IDF object at 0x106214f90>, set(['piano'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8a70>, (<src.tfidf.TF_IDF object at 0x10a4d4c10>, set(['piano'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3235,7 +3040,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c57a0>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1c57a0>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114d8a70>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3274,10 +3079,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1c57a0>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114d8a70>.answer
 _____________________________ test_yesno[param254] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c57e8>, (<src.tfidf.TF_IDF object at 0x106214f90>, set(['piano'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8ab8>, (<src.tfidf.TF_IDF object at 0x10a4d4c10>, set(['piano'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3300,7 +3105,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c57e8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, the left-most pedal on a grand piano is called the una corda.')
-E                +    where 'Yes, the left-most pedal on a grand piano is called the una corda.' = <src.question_processing.Question_parser instance at 0x10d1c57e8>.answer
+E                +    where 'Yes, the left-most pedal on a grand piano is called the una corda.' = <src.question_processing.Question_parser instance at 0x1114d8ab8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3339,10 +3144,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, the left-most pedal on a grand piano is called the una corda.')
- +    where 'Yes, the left-most pedal on a grand piano is called the una corda.' = <src.question_processing.Question_parser instance at 0x10d1c57e8>.answer
+ +    where 'Yes, the left-most pedal on a grand piano is called the una corda.' = <src.question_processing.Question_parser instance at 0x1114d8ab8>.answer
 _____________________________ test_yesno[param255] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5830>, (<src.tfidf.TF_IDF object at 0x106214f90>, set(['piano'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8b00>, (<src.tfidf.TF_IDF object at 0x10a4d4c10>, set(['piano'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3365,7 +3170,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5830>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1c5830>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114d8b00>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3404,10 +3209,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1c5830>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114d8b00>.answer
 _____________________________ test_yesno[param258] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5908>, (<src.tfidf.TF_IDF object at 0x106214f90>, set(['piano'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8bd8>, (<src.tfidf.TF_IDF object at 0x10a4d4c10>, set(['piano'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3429,7 +3234,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5908>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('The mechanism in upright pianos is perpendicular to the keys.') == True
-E                +  where 'The mechanism in upright pianos is perpendicular to the keys.' = <src.question_processing.Question_parser instance at 0x10d1c5908>.answer
+E                +  where 'The mechanism in upright pianos is perpendicular to the keys.' = <src.question_processing.Question_parser instance at 0x1114d8bd8>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -3468,11 +3273,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('The mechanism in upright pianos is perpendicular to the keys.') == True
- +  where 'The mechanism in upright pianos is perpendicular to the keys.' = <src.question_processing.Question_parser instance at 0x10d1c5908>.answer
+ +  where 'The mechanism in upright pianos is perpendicular to the keys.' = <src.question_processing.Question_parser instance at 0x1114d8bd8>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param261] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c59e0>, (<src.tfidf.TF_IDF object at 0x10a8ffdd0>, set(['language', 'portuguese', 'portuguese_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8cb0>, (<src.tfidf.TF_IDF object at 0x10a49f2d0>, set(['language', 'portuguese', 'portuguese_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3495,7 +3300,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c59e0>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c59e0>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8cb0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3534,10 +3339,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c59e0>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8cb0>.answer
 _____________________________ test_yesno[param262] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5a28>, (<src.tfidf.TF_IDF object at 0x10a8ffdd0>, set(['language', 'portuguese', 'portuguese_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8cf8>, (<src.tfidf.TF_IDF object at 0x10a49f2d0>, set(['language', 'portuguese', 'portuguese_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3560,7 +3365,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5a28>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, Portuguese is derived from Latin.')
-E                +    where 'Yes, Portuguese is derived from Latin.' = <src.question_processing.Question_parser instance at 0x10d1c5a28>.answer
+E                +    where 'Yes, Portuguese is derived from Latin.' = <src.question_processing.Question_parser instance at 0x1114d8cf8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3599,10 +3404,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, Portuguese is derived from Latin.')
- +    where 'Yes, Portuguese is derived from Latin.' = <src.question_processing.Question_parser instance at 0x10d1c5a28>.answer
+ +    where 'Yes, Portuguese is derived from Latin.' = <src.question_processing.Question_parser instance at 0x1114d8cf8>.answer
 _____________________________ test_yesno[param263] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5a70>, (<src.tfidf.TF_IDF object at 0x10a8ffdd0>, set(['language', 'portuguese', 'portuguese_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8d40>, (<src.tfidf.TF_IDF object at 0x10a49f2d0>, set(['language', 'portuguese', 'portuguese_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3625,7 +3430,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5a70>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5a70>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8d40>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3664,10 +3469,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5a70>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8d40>.answer
 _____________________________ test_yesno[param264] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5ab8>, (<src.tfidf.TF_IDF object at 0x10a8ffdd0>, set(['language', 'portuguese', 'portuguese_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8d88>, (<src.tfidf.TF_IDF object at 0x10a49f2d0>, set(['language', 'portuguese', 'portuguese_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3690,7 +3495,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5ab8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, Portuguese contains words from the Arabic language.')
-E                +    where 'Yes, Portuguese contains words from the Arabic language.' = <src.question_processing.Question_parser instance at 0x10d1c5ab8>.answer
+E                +    where 'Yes, Portuguese contains words from the Arabic language.' = <src.question_processing.Question_parser instance at 0x1114d8d88>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3729,10 +3534,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, Portuguese contains words from the Arabic language.')
- +    where 'Yes, Portuguese contains words from the Arabic language.' = <src.question_processing.Question_parser instance at 0x10d1c5ab8>.answer
+ +    where 'Yes, Portuguese contains words from the Arabic language.' = <src.question_processing.Question_parser instance at 0x1114d8d88>.answer
 _____________________________ test_yesno[param269] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5c20>, (<src.tfidf.TF_IDF object at 0x1061f0bd0>, set(['francisco', 'san', 'san_francisco'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8ef0>, (<src.tfidf.TF_IDF object at 0x10fd76cd0>, set(['francisco', 'san', 'san_francisco'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3755,7 +3560,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5c20>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, San Francisco is characterized by a high standard of living.')
-E                +    where 'Yes, San Francisco is characterized by a high standard of living.' = <src.question_processing.Question_parser instance at 0x10d1c5c20>.answer
+E                +    where 'Yes, San Francisco is characterized by a high standard of living.' = <src.question_processing.Question_parser instance at 0x1114d8ef0>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3794,10 +3599,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, San Francisco is characterized by a high standard of living.')
- +    where 'Yes, San Francisco is characterized by a high standard of living.' = <src.question_processing.Question_parser instance at 0x10d1c5c20>.answer
+ +    where 'Yes, San Francisco is characterized by a high standard of living.' = <src.question_processing.Question_parser instance at 0x1114d8ef0>.answer
 _____________________________ test_yesno[param270] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5c68>, (<src.tfidf.TF_IDF object at 0x1061f0bd0>, set(['francisco', 'san', 'san_francisco'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8f38>, (<src.tfidf.TF_IDF object at 0x10fd76cd0>, set(['francisco', 'san', 'san_francisco'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3820,7 +3625,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5c68>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5c68>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8f38>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3859,10 +3664,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5c68>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8f38>.answer
 _____________________________ test_yesno[param271] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5cb0>, (<src.tfidf.TF_IDF object at 0x1061f0bd0>, set(['francisco', 'san', 'san_francisco'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8f80>, (<src.tfidf.TF_IDF object at 0x10fd76cd0>, set(['francisco', 'san', 'san_francisco'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3885,7 +3690,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5cb0>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, according to the 2005 American Community Survey, San Francisco has the highest percentage of gay and lesbian individuals of any of the 50 largest U.S. cities, at 15.4%.')
-E                +    where 'Yes, according to the 2005 American Community Survey, San Francisco has the highest percentage of gay and lesbian individuals of any of the 50 largest U.S. cities, at 15.4%.' = <src.question_processing.Question_parser instance at 0x10d1c5cb0>.answer
+E                +    where 'Yes, according to the 2005 American Community Survey, San Francisco has the highest percentage of gay and lesbian individuals of any of the 50 largest U.S. cities, at 15.4%.' = <src.question_processing.Question_parser instance at 0x1114d8f80>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3924,10 +3729,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, according to the 2005 American Community Survey, San Francisco has the highest percentage of gay and lesbian individuals of any of the 50 largest U.S. cities, at 15.4%.')
- +    where 'Yes, according to the 2005 American Community Survey, San Francisco has the highest percentage of gay and lesbian individuals of any of the 50 largest U.S. cities, at 15.4%.' = <src.question_processing.Question_parser instance at 0x10d1c5cb0>.answer
+ +    where 'Yes, according to the 2005 American Community Survey, San Francisco has the highest percentage of gay and lesbian individuals of any of the 50 largest U.S. cities, at 15.4%.' = <src.question_processing.Question_parser instance at 0x1114d8f80>.answer
 _____________________________ test_yesno[param272] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5cf8>, (<src.tfidf.TF_IDF object at 0x1061f0bd0>, set(['francisco', 'san', 'san_francisco'])))
+param = (<src.question_processing.Question_parser instance at 0x1114d8fc8>, (<src.tfidf.TF_IDF object at 0x10fd76cd0>, set(['francisco', 'san', 'san_francisco'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -3950,7 +3755,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5cf8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5cf8>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8fc8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3984,17 +3789,17 @@ Difficulty = easy
 
 No
 ----------------------------- Captured stderr call -----------------------------
-INFO:CoreNLP_JavaServer: INPUT: 700 documents, 1415254 characters, 266429 tokens, 2021.8 char/doc, 380.6 tok/doc RATES: 20.035 doc/sec, 7625.8 tok/sec
+INFO:CoreNLP_JavaServer: INPUT: 700 documents, 1415254 characters, 266429 tokens, 2021.8 char/doc, 380.6 tok/doc RATES: 16.431 doc/sec, 6253.9 tok/sec
 
 Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1c5cf8>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114d8fc8>.answer
 _____________________________ test_yesno[param280] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1c5f38>, (<src.tfidf.TF_IDF object at 0x106214d50>, set(['language', 'swahili', 'swahili_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114dd248>, (<src.tfidf.TF_IDF object at 0x10a4ac9d0>, set(['language', 'swahili', 'swahili_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4017,7 +3822,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1c5f38>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, Swahili has diphthongs. (Typo)')
-E                +    where 'Yes, Swahili has diphthongs. (Typo)' = <src.question_processing.Question_parser instance at 0x10d1c5f38>.answer
+E                +    where 'Yes, Swahili has diphthongs. (Typo)' = <src.question_processing.Question_parser instance at 0x1114dd248>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4056,10 +3861,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, Swahili has diphthongs. (Typo)')
- +    where 'Yes, Swahili has diphthongs. (Typo)' = <src.question_processing.Question_parser instance at 0x10d1c5f38>.answer
+ +    where 'Yes, Swahili has diphthongs. (Typo)' = <src.question_processing.Question_parser instance at 0x1114dd248>.answer
 _____________________________ test_yesno[param283] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1ca128>, (<src.tfidf.TF_IDF object at 0x106214d50>, set(['language', 'swahili', 'swahili_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114dd320>, (<src.tfidf.TF_IDF object at 0x10a4ac9d0>, set(['language', 'swahili', 'swahili_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4082,7 +3887,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1ca128>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, Uganda made Swahili a required subject in primary schools.')
-E                +    where 'Yes, Uganda made Swahili a required subject in primary schools.' = <src.question_processing.Question_parser instance at 0x10d1ca128>.answer
+E                +    where 'Yes, Uganda made Swahili a required subject in primary schools.' = <src.question_processing.Question_parser instance at 0x1114dd320>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4121,10 +3926,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, Uganda made Swahili a required subject in primary schools.')
- +    where 'Yes, Uganda made Swahili a required subject in primary schools.' = <src.question_processing.Question_parser instance at 0x10d1ca128>.answer
+ +    where 'Yes, Uganda made Swahili a required subject in primary schools.' = <src.question_processing.Question_parser instance at 0x1114dd320>.answer
 _____________________________ test_yesno[param284] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1ca1b8>, (<src.tfidf.TF_IDF object at 0x106214d50>, set(['language', 'swahili', 'swahili_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114dd368>, (<src.tfidf.TF_IDF object at 0x10a4ac9d0>, set(['language', 'swahili', 'swahili_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4147,7 +3952,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1ca1b8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1ca1b8>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114dd368>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4186,10 +3991,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1ca1b8>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114dd368>.answer
 _____________________________ test_yesno[param289] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1ca488>, (<src.tfidf.TF_IDF object at 0x10bedd7d0>, set(['taipei'])))
+param = (<src.question_processing.Question_parser instance at 0x1114dd4d0>, (<src.tfidf.TF_IDF object at 0x10a4d4f90>, set(['taipei'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4211,7 +4016,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1ca488>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('Taipei is in the valleys of the Keelung and Xindian Rivers') == True
-E                +  where 'Taipei is in the valleys of the Keelung and Xindian Rivers' = <src.question_processing.Question_parser instance at 0x10d1ca488>.answer
+E                +  where 'Taipei is in the valleys of the Keelung and Xindian Rivers' = <src.question_processing.Question_parser instance at 0x1114dd4d0>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -4250,11 +4055,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('Taipei is in the valleys of the Keelung and Xindian Rivers') == True
- +  where 'Taipei is in the valleys of the Keelung and Xindian Rivers' = <src.question_processing.Question_parser instance at 0x10d1ca488>.answer
+ +  where 'Taipei is in the valleys of the Keelung and Xindian Rivers' = <src.question_processing.Question_parser instance at 0x1114dd4d0>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param308] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1caf38>, (<src.tfidf.TF_IDF object at 0x10bedd250>, set(['language', 'turkish', 'turkish_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114ddf38>, (<src.tfidf.TF_IDF object at 0x10a4ac550>, set(['language', 'turkish', 'turkish_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4276,7 +4081,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1caf38>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('No.') == True
-E                +  where 'No.' = <src.question_processing.Question_parser instance at 0x10d1caf38>.answer
+E                +  where 'No.' = <src.question_processing.Question_parser instance at 0x1114ddf38>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -4315,11 +4120,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('No.') == True
- +  where 'No.' = <src.question_processing.Question_parser instance at 0x10d1caf38>.answer
+ +  where 'No.' = <src.question_processing.Question_parser instance at 0x1114ddf38>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param309] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1cafc8>, (<src.tfidf.TF_IDF object at 0x10bedd250>, set(['language', 'turkish', 'turkish_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114ddfc8>, (<src.tfidf.TF_IDF object at 0x10a4ac550>, set(['language', 'turkish', 'turkish_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4341,7 +4146,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1cafc8>, (<sr
                 print ans
 >               raise e
 E               assert str2bool('No') == True
-E                +  where 'No' = <src.question_processing.Question_parser instance at 0x10d1cafc8>.answer
+E                +  where 'No' = <src.question_processing.Question_parser instance at 0x1114ddfc8>.answer
 E                +  and   True = str2bool('Yes')
 
 test_compute.py:40: AssertionError
@@ -4380,11 +4185,11 @@ Traceback (most recent call last):
   File "/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/tests/test_compute.py", line 34, in test_yesno
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert str2bool('No') == True
- +  where 'No' = <src.question_processing.Question_parser instance at 0x10d1cafc8>.answer
+ +  where 'No' = <src.question_processing.Question_parser instance at 0x1114ddfc8>.answer
  +  and   True = str2bool('Yes')
 _____________________________ test_yesno[param318] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1cd518>, (<src.tfidf.TF_IDF object at 0x106214e10>, set(['language', 'vietnamese', 'vietnamese_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114e1518>, (<src.tfidf.TF_IDF object at 0x10e16f290>, set(['language', 'vietnamese', 'vietnamese_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4407,7 +4212,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1cd518>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1cd518>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114e1518>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4446,10 +4251,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1cd518>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114e1518>.answer
 _____________________________ test_yesno[param319] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1cd5a8>, (<src.tfidf.TF_IDF object at 0x106214e10>, set(['language', 'vietnamese', 'vietnamese_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114e15a8>, (<src.tfidf.TF_IDF object at 0x10e16f290>, set(['language', 'vietnamese', 'vietnamese_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4472,7 +4277,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1cd5a8>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes.')
-E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1cd5a8>.answer
+E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114e15a8>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4511,10 +4316,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes.')
- +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1cd5a8>.answer
+ +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114e15a8>.answer
 _____________________________ test_yesno[param320] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1cd638>, (<src.tfidf.TF_IDF object at 0x106214e10>, set(['language', 'vietnamese', 'vietnamese_language'])))
+param = (<src.question_processing.Question_parser instance at 0x1114e1638>, (<src.tfidf.TF_IDF object at 0x10e16f290>, set(['language', 'vietnamese', 'vietnamese_language'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4537,7 +4342,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1cd638>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes, Vietnamese was *formerly* written using the Chinese writing system.')
-E                +    where 'Yes, Vietnamese was *formerly* written using the Chinese writing system.' = <src.question_processing.Question_parser instance at 0x10d1cd638>.answer
+E                +    where 'Yes, Vietnamese was *formerly* written using the Chinese writing system.' = <src.question_processing.Question_parser instance at 0x1114e1638>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4576,10 +4381,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes, Vietnamese was *formerly* written using the Chinese writing system.')
- +    where 'Yes, Vietnamese was *formerly* written using the Chinese writing system.' = <src.question_processing.Question_parser instance at 0x10d1cd638>.answer
+ +    where 'Yes, Vietnamese was *formerly* written using the Chinese writing system.' = <src.question_processing.Question_parser instance at 0x1114e1638>.answer
 _____________________________ test_yesno[param326] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1cd998>, (<src.tfidf.TF_IDF object at 0x108e03ed0>, set(['violin'])))
+param = (<src.question_processing.Question_parser instance at 0x1114e1998>, (<src.tfidf.TF_IDF object at 0x10a4b01d0>, set(['violin'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4602,7 +4407,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1cd998>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1cd998>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114e1998>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4641,10 +4446,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1cd998>.answer
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114e1998>.answer
 _____________________________ test_yesno[param327] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1cda28>, (<src.tfidf.TF_IDF object at 0x108e03ed0>, set(['violin'])))
+param = (<src.question_processing.Question_parser instance at 0x1114e1a28>, (<src.tfidf.TF_IDF object at 0x10a4b01d0>, set(['violin'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4667,7 +4472,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1cda28>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes.')
-E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1cda28>.answer
+E                +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114e1a28>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4706,10 +4511,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes.')
- +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x10d1cda28>.answer
+ +    where 'Yes.' = <src.question_processing.Question_parser instance at 0x1114e1a28>.answer
 _____________________________ test_yesno[param338] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1d0098>, (<src.tfidf.TF_IDF object at 0x106214550>, set(['zebra'])))
+param = (<src.question_processing.Question_parser instance at 0x1114e4098>, (<src.tfidf.TF_IDF object at 0x10a4b0f10>, set(['zebra'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4732,7 +4537,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1d0098>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('yes')
-E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1d0098>.answer
+E                +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114e4098>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4771,10 +4576,10 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('yes')
- +    where 'yes' = <src.question_processing.Question_parser instance at 0x10d1d0098>.answer
+ +    where 'yes' = <src.question_processing.Question_parser instance at 0x1114e4098>.answer
 _____________________________ test_yesno[param339] _____________________________
 
-param = (<src.question_processing.Question_parser instance at 0x10d1d0128>, (<src.tfidf.TF_IDF object at 0x106214550>, set(['zebra'])))
+param = (<src.question_processing.Question_parser instance at 0x1114e4128>, (<src.tfidf.TF_IDF object at 0x10a4b0f10>, set(['zebra'])))
 
     def test_yesno(param):
         qpobj = param[0]
@@ -4797,7 +4602,7 @@ param = (<src.question_processing.Question_parser instance at 0x10d1d0128>, (<sr
 >               raise e
 E               assert True == str2bool('No')
 E                +  where True = str2bool('Yes')
-E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1d0128>.answer
+E                +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114e4128>.answer
 
 test_compute.py:40: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -4836,5 +4641,5 @@ Traceback (most recent call last):
     assert str2bool(qpobj.answer)== str2bool(ans)
 AssertionError: assert True == str2bool('No')
  +  where True = str2bool('Yes')
- +    where 'Yes' = <src.question_processing.Question_parser instance at 0x10d1d0128>.answer
-=============== 74 failed, 266 passed, 1 error in 37.93 seconds ================
+ +    where 'Yes' = <src.question_processing.Question_parser instance at 0x1114e4128>.answer
+=============== 71 failed, 269 passed, 1 error in 47.79 seconds ================

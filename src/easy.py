@@ -9,7 +9,7 @@ proc = proc1
 def checkDifference(answer):
     return len(answer)>0
 
-
+negationCutoff = 5
 def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSet=set()):
     if 'BOOLEAN' in QPObj.answer_type:
         answers = []
@@ -42,7 +42,7 @@ def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSe
                     answers.append('No Sure')
                 else:
                     answers.append('Yes')
-        if 'No Sure' in answers:
+        if 'No Sure' in answers[:negationCutoff]:
             return 'No'
         elif 'Yes' in answers:
             return 'Yes'
