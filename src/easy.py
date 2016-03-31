@@ -3,10 +3,9 @@ proc = proc1
 # TODO remove unicode like u'&#27713;, 
 # experiment with stemmer 
 # lower the tfidf score for expremely short sentences
-# check low tfidf score of the answer, check if any of the 5 answers return a yes
+# check low tfidf score of the answer
 # to trip people up we can convert numbers to words or vice versa
-#  handle stupid negations
-# remove quotes
+# handle stupid negations
 def checkDifference(answer):
     return len(answer)>0
 
