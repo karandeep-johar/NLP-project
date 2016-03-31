@@ -22,8 +22,12 @@ class TF_IDF(object):
         # Extracting tokenized sentences
         sentenceList = [s['lemmas'] for s in self.tokenized['sentences']]
         questionList = [proc.parse_doc(q)['sentences'][0]['lemmas'] for q in questions]
-        numSentences = len(sentenceList)
-
+        # for i in range(len(questionList)):
+        #     questionList[i] = self.removePuncts(questionList[i])
+        # numSentences = len(sentenceList)
+        # for i in range(len(sentenceList)):
+        #     sentenceList[i] = self.removePuncts(sentenceList[i])
+        
         # Generating dictionary
         self.dictionary = corpora.Dictionary(sentenceList + questionList)
         # dictionary.save('/tmp/corpDict.dict')
@@ -35,9 +39,17 @@ class TF_IDF(object):
         self.tfidf = models.TfidfModel(corpusVectors)
         # Extracting TF-IDF of documents
         self.corpusTfidf = self.tfidf[corpusVectors]
-        self.index = similarities.SparseMatrixSimilarity(self.corpusTfidf, num_features=len(self.dictionary), num_best=5)
+        self.index = similarities.SparseMatrixSimilarity(self.corpusTfidf, num_features=len(self.dictionary), num_best=10)
+
+    def removePuncts(self,sentence):
+        processedS = []
+        for x in sentence:
+            if x not in puncTags:
+                processedS.append(x)
+        return processedS
 
     def getInterestingText(self,question):
+        # punctLessQ = self.removePuncts(proc.parse_doc(question)['sentences'][0]['lemmas'])
         newQBOW = self.dictionary.doc2bow(proc.parse_doc(question)['sentences'][0]['lemmas'])
         answerSentences = self.index[self.tfidf[newQBOW]]
         answerSentences = sorted(answerSentences, key=lambda tup: tup[1], reverse=True)
@@ -54,12 +66,13 @@ class TF_IDF(object):
             answer = ''
             for j in range(len(lemmas)):
                 w = lemmas[j]
+                # punctFreeQs = self.removePuncts(proc.parse_doc(question)['sentences'][0]['lemmas'])
                 if w.lower() not in map(lambda x: x.lower(), proc.parse_doc(question)['sentences'][0]['lemmas']):
                     answer = answer+' '+s[1]['tokens'][j]
                 else:# Heuristic for score
                     pass
             if len(answer)>0:
-                potAnswers.append(answer[1:])
+                potAnswers.append(answer[1:]+'.')
             else:
                 potAnswers.append('')
         return potAnswers

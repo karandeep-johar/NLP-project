@@ -1,34 +1,53 @@
 from init import *
 proc = proc1
-#TODO remove unicode like u'&#27713;, 
+# TODO remove unicode like u'&#27713;, 
+# experiment with stemmer 
 # lower the tfidf score for expremely short sentences
-#check low tfidf score of the answer, check if any of the 5 answers return a yes, remove headings
+# check low tfidf score of the answer, check if any of the 5 answers return a yes
 # to trip people up we can convert numbers to words or vice versa
 #  handle stupid negations
 # remove quotes
+def checkDifference(answer):
+    return len(answer)>0
+
+
 def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSet=set()):
     if 'BOOLEAN' in QPObj.answer_type:
         answers = []
-        puncTags = ['.',',','IN','#','$','CC','SYM','-LRB-','-RRB-']
         qLemmas = [w.lower() for w in proc.parse_doc(question)['sentences'][0]['lemmas']]
         for i in range(len(answerSentences)):
             s = answerSentences[i]
-            lemmas = s[1]['lemmas']
+            answerLemmas = s[1]['lemmas']
             posTags = s[1]['pos']
             answer = []
             # question - answer
-            answer = set(qLemmas) - set(map(lambda x:x.lower(), lemmas)) -set([qLemmas[0],qLemmas[-1]]) - titleLemmasSet - stopLemmasSet
-            # for j in range(len(lemmas)):
-            #     w = lemmas[j]
+            answer = set(qLemmas) - \
+                     set(map(lambda x:x.lower(), answerLemmas)) - \
+                     set(qLemmas[0]) - \
+                     titleLemmasSet - \
+                     stopLemmasSet - \
+                     set(puncTags)
+            # for j in range(len(answerLemmas)):
+            #     w = answerLemmas[j]
             #     if w.lower() not in qLemmas and posTags[j] not in puncTags:
             #         answer.append(s[1]['tokens'][j])
             #     else:# Heuristic for score
             #         pass
             print "candidate Sentence:",s, "\nanswer:", answer
-            if len(answer)>0:
+            if checkDifference(answer):
                 answers.append('No')
             else:
-                answers.append('Yes')
-        return answers
+                # answer - question
+                # TODO: To be improved
+                if 'not' in answerLemmas and 'not' not in qLemmas:
+                    answers.append('No Sure')
+                else:
+                    answers.append('Yes')
+        if 'No Sure' in answers:
+            return 'No'
+        elif 'Yes' in answers:
+            return 'Yes'
+        else:
+            return 'No'
     else:
         return 'INVALID'

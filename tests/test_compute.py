@@ -31,7 +31,7 @@ def test_yesno(param):
             interestingText = objTfidf.getInterestingText(qpobj.question)
             ans = answerYesNo(qpobj.question, interestingText, questionProcess, titleLemmasSet,stopLemmasSet)
             # assert True == str2bool(qpobj.answer)
-            assert str2bool(qpobj.answer)== str2bool(ans[0])
+            assert str2bool(qpobj.answer)== str2bool(ans)
             # assert False == True
         except Exception, e:
             traceback.print_exc()

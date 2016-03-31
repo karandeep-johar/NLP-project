@@ -10,7 +10,7 @@ configFileLoc = os.path.join(dir, 'config.ini')
 proc1 = CoreNLP(configfile=configFileLoc, corenlp_jars=[filename])
 proc2 = CoreNLP(configfile=os.path.join(dir, 'simple.ini'), corenlp_jars=[filename])
 # proc3 = CoreNLP(configfile=os.path.join(dir, 'mid.ini'), corenlp_jars=[filename])
-
+puncTags = ['.',',','IN','#','$','CC','SYM','-LRB-','-RRB-',"''",'``',"'","`",'"',':',';','[',']','{','}','-','_','!','?','~','&','*']
 LOG_FILENAME = 'log.log'
 LEVELS = { 'debug':logging.DEBUG,
             'info':logging.INFO,

@@ -42,6 +42,8 @@ def answerFactoid(question,interestingText,questionParseObj):
     return answers
 
 def getStopLemmas():
+    # For longer stopword list
+    # stopLemmas = open('../data/StopLemmas.txt').read().split()
     stopLemmas = open('../data/shortStopLemmas.txt').read().split()
     return set(stopLemmas)
 
