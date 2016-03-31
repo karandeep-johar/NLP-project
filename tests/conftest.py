@@ -70,17 +70,17 @@ def pytest_generate_tests(metafunc):
                     ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parseFlag = False, article_title = question[0], dataset = question[5])
                     questions.append((ques,article_tfidf[question[5]]))
             metafunc.parametrize("param_factoid", questions)
-    else:
-        questions = []
-        questions.append(Question_parser("Did United defeat Chelsea"))
-        questions.append(Question_parser("Did United defeat Chelsea?"))
-        questions.append(Question_parser("Have you reached home?"))
-        questions.append(Question_parser("Is it raining outside?"))
-        questions.append(Question_parser("Who killed John Lennon?"))
-        questions.append(Question_parser("Where are they giving free food?"))
-        questions.append(Question_parser("When is the concert?"))
-        questions.append(Question_parser("What time is the concert?"))
-        metafunc.parametrize("param", questions)
+    # else:
+    #     questions = []
+    #     questions.append(Question_parser("Did United defeat Chelsea"))
+    #     questions.append(Question_parser("Did United defeat Chelsea?"))
+    #     questions.append(Question_parser("Have you reached home?"))
+    #     questions.append(Question_parser("Is it raining outside?"))
+    #     questions.append(Question_parser("Who killed John Lennon?"))
+    #     questions.append(Question_parser("Where are they giving free food?"))
+    #     questions.append(Question_parser("When is the concert?"))
+    #     questions.append(Question_parser("What time is the concert?"))
+    #     metafunc.parametrize("param", questions)
 
 
 def gen():
