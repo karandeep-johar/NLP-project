@@ -33,12 +33,13 @@ def answerFactoid(question,interestingText,questionParseObj):
     # for it in interestingText:
     #     print 'IT: ' + ' '.join(it[1])
     #     # print 'IT: ' +it[3]
-    # for answer in objTfidf.getAnswer(question, interestingText,questionParseObj):
+    #for answer in objTfidf.getAnswer(question, interestingText,questionParseObj):
     #     print 'PA: '+answer
-    #     answers.append(answer)
-    for answer in NER_phrase_answer(interestingText,questionParseObj.answer_type):
-        print 'NER: '+ answer
-        answers.append(answer)
+         #answers.append(answer)
+    answer = NER_phrase_answer(interestingText,questionParseObj)
+    answers.append(answer)
+    #for answer in NER_phrase_answer(interestingText,questionParseObj):
+        #print 'NER: '+ answer
     return answers
 
 def getStopLemmas():

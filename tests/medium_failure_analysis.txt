@@ -1,0 +1,56 @@
+Medium Questions Failure cases:
+
+Brussels Airport is about 45 km from the city of Antwerp , and connects the city worldwide .
+Where is the city of Antwerp?
+Answer: Brussels Airport
+Reason: Wrong TFIDF
+
+Remove - Remove LRB and RRB before parsing
+
+No. of sentences=10
+set(['DATE', 'MONEY', 'PERCENT', 'NUMBER', 'TIME'])
+Candidate sentence  * Iraqi Arabic , spoken by about 29 million people in Iraq .
+Answer = []
+
+['Pascal', 'Jacqueline', 'Gilberte']
+evaluated condition:  False
+Genereated answer  Pascal
+Ref Answer  Jacqueline
+
+Who was Pascal's younger sister?
+
+Improvements: 
+
+1. Remove all named entities in the quesiton from the competing candidate answer phrases
+2. Can we put adjectives/preposition in the question to find out the right case
+3. Can we handle the question: Who are Pascal's sisters?
+
+#### IN case of competing named entity, select the closest "Keywords"
+#### Question processing does not handle questions starting with "In"
+
+No. of sentences=10
+set(['DATE', 'TIME'])
+Candidate sentence  From 1757 to 1759 he joined his father 's family in Montpellier and took part in the work of the academy of the city , directed by the mathematician Augustin Danyzy .
+[u'O', u'DATE', u'O', u'DATE', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'LOCATION', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'O', u'PERSON', u'PERSON', u'O']
+[]
+[]
+['[]', '[]']
+
+
+Question Processing: How Many - cannot be DATE
+
+src.tfidf.TF_IDF object at 0x118c4c690>
+No. of sentences=10
+set(['DATE', 'MONEY', 'PERCENT', 'NUMBER', 'TIME'])
+Candidate sentence  An adult paw print is approximately 10 cm -LRB- 4 inches -RRB- long .
+[u'O', u'O', u'O', u'O', u'O', u'O', u'NUMBER', u'O', u'O', u'NUMBER', u'O', u'O', u'O', u'O']
+[]
+4 inches
+['[]', '4 inches']
+evaluated condition:  False
+Genereated answer  []
+Ref Answer  An adult cougar's paw print is approximately 10 cm (4 inches) long.
+
+
+
+#### 26-letter - 26 is not NER tagged as Number

@@ -67,8 +67,10 @@ def pytest_generate_tests(metafunc):
             for question in questionsDataList:
                 if "medium" == question[3]:
                     print question
-                    ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parseFlag = False, article_title = question[0], dataset = question[5])
-                    questions.append((ques,article_tfidf[question[5]]))
+                    ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parseFlag = True, article_title = question[0], dataset = question[5])
+                    if ques.answer_type != set(['UNKNOWN']):
+                        questions.append((ques,article_tfidf[question[5]]))
+                    #break
             metafunc.parametrize("param_factoid", questions)
     # else:
     #     questions = []

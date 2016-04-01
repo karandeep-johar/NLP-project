@@ -54,12 +54,18 @@ def test_factoid(param_factoid):
             interestingText = objTfidf.getInterestingText(qpobj.question)
             ans = answerFactoid(qpobj.question, interestingText, questionProcess)
             #assert True == str2bool(qpobj.answer)
-            print ans
             #assertIsNotNone(ans)
             #assert ans != None
-            assert False == True
+            #assert False == True
+            if qpobj.answer_type != set(['UNKNOWN']):
+                condition = ans[0] in qpobj.answer
+                print "evaluated condition: ", ans[0] in qpobj.answer
+                print "Genereated answer ", ans[0]
+                assert condition == True
+
         except Exception, e:
             traceback.print_exc()
+            print "Ref Answer " , qpobj.answer
             print qpobj
             raise e
             print ans
