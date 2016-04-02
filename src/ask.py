@@ -1,3 +1,4 @@
+
 __author__ = 'kjohar'
 # The asking program: ./ask article.txt nquestions
 # where article.txt is a text file containing a Wikipedia article and nquestions is an integer
@@ -6,8 +7,9 @@ __author__ = 'kjohar'
 # article. Each question should be followed by a newline character. Your goal is to generate
 # questions that are fluent and reasonable.
 import sys
-from init import *
+# from init import *
 from question_generation import *
+from sentence_transformation import *
 
 def main(args):
     if len(args)!=2:
@@ -16,7 +18,10 @@ def main(args):
         #TODO FILL ME
         data = file.read()
         nquestions = int(args[1])
-        print generateQuestions(data,nquestions)
+        # TODO: Select questions
+        corpus = transformSentences(data)
+        print corpus
+        print generateQuestions(str(corpus),nquestions)
         return 
 if __name__ == '__main__':
     main(sys.argv[1:])

@@ -10,9 +10,6 @@ class generateQuestions:
 
     def __str__(self):
         return str(self.questions)
-    
-    def rearrangeSentence(self,tokens,pos):
-        pass
 
     def getQues(self,parsed):
         questions = []
@@ -20,32 +17,42 @@ class generateQuestions:
             pos = s['pos']
             ner = s['ner']
             tokens = s['tokens']
+            '''
             nounIndices = []
             for i in range(0, len(pos)):
                 tag = pos[i]
                 if tag[0:2] == 'NN':
                     nounIndices.append(i)
+            '''
+            i = 0
+            tag = pos[i]
+            if tag[0:2] == 'NN':
+                # TODO: Check for What questions first
+                if tokens[i] == "It":
+                    questions.append('What '+' '.join(tokens[1:]))
+                if ner[i] == 'PERSON':
+                    questions.append('Who '+' '.join(tokens[1:]))
+                elif ner[i] == 'LOCATION':
+                    questions.append('Where '+' '.join(tokens[1:]))
+                elif ner[i] == 'DATE':
+                    questions.append('When '+' '.join(tokens[1:]))
+                else:
+                    questions.append('What '+' '.join(tokens[1:]))
+            '''
             for i in nounIndices:
                 if ner[i] == 'PERSON':
-                    if i != 0:
-                        tokens = self.rearrangeSentence(tokens,pos)
-                    else:
+                    if i == 0:
                         questions.append('Who '+' '.join(tokens[1:]))
                 elif ner[i] == 'LOCATION':
-                    if i != 0:
-                        tokens = self.rearrangeSentence(tokens,pos)
-                    else:
+                    if i == 0:
                         questions.append('Where '+' '.join(tokens[1:]))
                 elif ner[i] == 'DATE':
-                    if i != 0:
-                        tokens = self.rearrangeSentence(tokens,pos)
-                    else:
+                    if i == 0:
                         questions.append('When '+' '.join(tokens[1:]))
                 else:
-                    if i != 0:
-                        tokens = self.rearrangeSentence(tokens,pos)
-                    else:
+                    if i == 0:
                         questions.append('What '+' '.join(tokens[1:]))
+            '''
         return questions
 
     def generate(self):
