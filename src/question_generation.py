@@ -24,20 +24,25 @@ class generateQuestions:
                 if tag[0:2] == 'NN':
                     nounIndices.append(i)
             '''
+            for i in range(0,len(pos)):
+                if pos[i][0:2] != 'NN':
+                    k = i
+                    break
             i = 0
             tag = pos[i]
+            if tokens[i] == "It":
+                questions.append('What '+' '.join(tokens[1:]))
             if tag[0:2] == 'NN':
                 # TODO: Check for What questions first
-                if tokens[i] == "It":
-                    questions.append('What '+' '.join(tokens[1:]))
+                # TODO: Replace whole NP, not just the noun
                 if ner[i] == 'PERSON':
-                    questions.append('Who '+' '.join(tokens[1:]))
+                    questions.append('Who '+' '.join(tokens[k:]))
                 elif ner[i] == 'LOCATION':
-                    questions.append('Where '+' '.join(tokens[1:]))
+                    questions.append('Where '+' '.join(tokens[k:]))
                 elif ner[i] == 'DATE':
-                    questions.append('When '+' '.join(tokens[1:]))
+                    questions.append('When '+' '.join(tokens[k:]))
                 else:
-                    questions.append('What '+' '.join(tokens[1:]))
+                    questions.append('What '+' '.join(tokens[k:]))
             '''
             for i in nounIndices:
                 if ner[i] == 'PERSON':
