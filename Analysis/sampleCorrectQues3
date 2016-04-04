@@ -1,0 +1,441 @@
+ACCEPT: What is a 2009 American science fiction adventure film directed by J. J. Abrams ?
+ACCEPT: Who is written by Roberto Orci and Alex Kurtzman ?
+ACCEPT: Who is distributed by Paramount Pictures ?
+ACCEPT: What is the 11th film of the Star Trek film franchise ?
+ACCEPT: What is also a reboot that features the main characters of the original Star Trek television series ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: What for Star Trek originated in 1968 modeled after the television series ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: Who and Kurtzman were approached to write the film ?
+ACCEPT: Who was approached to direct it ?
+ACCEPT: Who and Kurtzman was both fans of the Star Trek series ?
+ACCEPT: Who and Orci used inspiration from novels and graduate school dissertations as well as the series itself ?
+ACCEPT: What commenced on November 7,2007 ?
+ACCEPT: What ended on March 27,2008 ?
+ACCEPT: Who wanted to avoid using bluescreen and greenscreen , opting to use sets and locations instead ?
+REJECT: What & Magic used digital ships for the film ?
+REJECT: What for the film concluded by the end of 2008 ?
+REJECT: What was heavily promoted the months preceding its release ?
+ACCEPT: Who was Texas ?
+ACCEPT: Where was Australia ?
+ACCEPT: Where was Alberta ?
+ACCEPT: What was released in the United States and Canada on May 8 to positive reviews ?
+ACCEPT: What praised the character development as well as the storyline in the film ?
+ACCEPT: What became a box office success ?
+ACCEPT: What grossed over $ 385 ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: What was nominated for several awards , including four Academy Awards at the 82nd Academy Awards , ultimately winning in the category for Best Makeup , making it the first Star Trek film to win an Academy Award ?
+ACCEPT: Whose first officer demands that the Kelvin's Captain Robau come aboard to negotiate a truce ?
+ACCEPT: Whose first officer is Ayel ?
+ACCEPT: Who is questioned about the current stardate and an " Ambassador Spock " ?
+ACCEPT: Whose commander kills him ?
+REJECT: Whose commander resumes attacking the Kelvin ?
+ACCEPT: Whose commander is Nero ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: Who , the Kelvin's first officer , orders the ship's personnel , including his pregnant wife Winona , to abandon ship while he pilots the Kelvin on a collision course with the Narada , as the auto-pilot function is damaged ?
+REJECT: Who sacrifices his life to ensure Winona's survival as she gives birth to James T. Kirk ?
+ACCEPT: Who becomes a reckless but intelligent young adult on Earth ?
+ACCEPT: Who meets Captain Christopher Pike in 2255 after a bar fight with Starfleet cadets accompanying Nyota Uhura ?
+ACCEPT: What encourages him to enlist in Starfleet Academy , where Kirk meets and befriends doctor Leonard McCoy ?
+ACCEPT: What accuses Kirk of cheating during the Kobayashi Maru simulation ?
+ACCEPT: Who argues that cheating was acceptable because the simulation was designed to be unbeatable ?
+ACCEPT: Who and Kirk board Pike's ship ?
+REJECT: Who to convince Pike that the distress signal is a trap ?
+ACCEPT: Who realizes that the " lightning storm " observed near Vulcan is similar to the one that occurred when he was born ?
+ACCEPT: What finds the fleet destroyed and the Narada drilling into Vulcan's core ?
+ACCEPT: Who , Hikaru Sulu and Chief Engineer Olson perform a space jump onto the drilling platform ?
+ACCEPT: Who is killed ?
+REJECT: Who and Sulu disable the drill ?
+ACCEPT: Who launches " red matter " into Vulcan's core despite their efforts ?
+REJECT: What's core forms an artificial black hole that destroys Vulcan ?
+ACCEPT: Who rescues the high council and his father Sarek ?
+ACCEPT: Who dies ?
+ACCEPT: Who tortures Pike to gain access to Earth's defense codes ?
+REJECT: Who on Delta Vega after Kirk attempts mutiny ?
+ACCEPT: Who attempts mutiny ?
+ACCEPT: Who encounters an older Spock ?
+ACCEPT: Who was threatened by a supernova in that future ?
+ACCEPT: Whose attempt to use " red matter " to create an artificial black hole failed ?
+ACCEPT: Whose attempt to use " red matter " to consume the supernova failed ?
+ACCEPT: Whose family perished along with Romulus ?
+ACCEPT: Who and Spock's vessel were caught in the black hole ?
+ACCEPT: Who and Spock's vessel sent them back in time ?
+ACCEPT: Who stranded Spock on Delta Vega to watch Vulcan's destruction ?
+REJECT: Who and the elder Spock meet Montgomery Scott ?
+ACCEPT: Who and the elder Spock reaches a Starfleet outpost ?
+REJECT: Who and Scott beam onto the Enterprise with the elder Spock's help ?
+REJECT: Who provokes younger Spock into attacking him , forcing Spock to recognize he is emotionally compromised ?
+REJECT: Who provokes younger Spock into attacking him , forcing Spock to relinquish command to Kirk ?
+ACCEPT: Who follows the elder Spock's advice ?
+ACCEPT: Who decides to help Kirk ?
+REJECT: Who and Spock beam aboard the Narada ?
+REJECT: Who with Nero and Ayel ?
+ACCEPT: Who uses the elder Spock's ship to destroy the drill ?
+ACCEPT: Who leads the Narada away from Earth ?
+ACCEPT: Who sets his ship to collide with Nero's ship ?
+ACCEPT: What , Pike and Spock aboard ?
+ACCEPT: Who offers Nero help to escape ?
+ACCEPT: Who refuses ?
+ACCEPT: Who prompts Kirk to give the order to fire ?
+ACCEPT: Who doomes Nero and the Narada to be consumed in a black hole ?
+ACCEPT: Who is promoted to Captain ?
+REJECT: Who is given command of the Enterprise while Pike is promoted to Rear Admiral ?
+ACCEPT: Who is promoted to Rear Admiral ?
+ACCEPT: Who encounters his older self ?
+ACCEPT: Who remains in Starfleet ?
+ACCEPT: Who becomes first officer under Kirk's command ?
+REJECT: Who as James T. Kirk Pine described his first audition as " awful " ?
+ACCEPT: Who did not see Pine's first audition ?
+REJECT: What was only after Pine's agent met Abrams ' wife that the director decided to give him another audition opposite Quinto ?
+REJECT: Whose agent met Abrams ' wife that the director decided to give him another audition opposite Quinto ?
+REJECT: Who was supportive of Pine's casting because they knew each other as they worked out at the same gym ?
+ACCEPT: What sent William Shatner a letter ?
+ACCEPT: What received a reply containing Shatner's approval ?
+ACCEPT: What watched classic episodes and read encyclopedias about the Star Trek universe ?
+ACCEPT: What stopped as he felt weighed down by the feeling he had to copy Shatner ?
+ACCEPT: What felt he had to show Kirk's " humor , arrogance and decisiveness , " but not Shatner's speech pattern ?
+ACCEPT: Whose " humor , arrogance and decisiveness , " but not Shatner's speech pattern would have bordered on imitation ?
+REJECT: Who said when watching the original series , he was also struck by how Shatner's performance was characterized by humor ?
+ACCEPT: What chose to incorporate elements of Tom Cruise from Top Gun and Harrison Ford's portrayals of Indiana Jones and Han Solo ?
+ACCEPT: Who auditioned for the role ?
+ACCEPT: Who portrays a younger Kirk ?
+REJECT: Who as Spock The younger alternate timeline Spock ?
+REJECT: What expressed interest in the role because of the duality of Spock's half-human , half-Vulcan heritage , and how he is constantly exploring that notion of how to evolve in a responsible way and how to evolve in a respectful way ?
+ACCEPT: What wore a blue shirt ?
+ACCEPT: What flattened his hair down to feel more like Spock ?
+ACCEPT: Whose attributes were such as his stillness and the way Nimoy would hold his hands behind his back ?
+REJECT: Who commented the physical transformation aided in portraying an alien , joking I just felt like a nerd ?
+ACCEPT: Who had discussed playing the role with the director before Quinto was cast ?
+ACCEPT: What was cast ?
+ACCEPT: Who portrays a younger Spock ?
+REJECT: Who as Captain Nero The film's time-traveling Romulan villain ?
+ACCEPT: Who shot his scenes toward the end of filming ?
+ACCEPT: Who knew Abrams because they coincidentally shared the same agent ?
+ACCEPT: Who improvised the character's speech patterns ?
+REJECT: Who as Spock Prime : Nimoy reprises the role of the older Spock from the original Star Trek timeline ?
+ACCEPT: Who was his main resource in playing Spock ?
+ACCEPT: What watched some episodes of the show during breaks in filming ?
+ACCEPT: Who and the writers met Nimoy at his house ?
+REJECT: What recalled the actor gave a ` Who are you guys ?
+REJECT: What recalled what are you up to ?
+REJECT: What before being told how important he was to them ?
+ACCEPT: Who told the creative team he had remained in his chair after their conversation ?
+ACCEPT: What would have been delayed for it to be rewritten ?
+REJECT: Who later said , " This is the first and only time I ever had a filmmaker say , ` We can not make this film without you and we will not make it without you " ' ?
+ACCEPT: Who said " it was surreal to direct him as Spock " ?
+REJECT: What's like ` I think Spock would ... ' Zoe Saldana as Nyota Uhura Abrams asked her to play the role because he had seen her previous work and liked it ?
+ACCEPT: Who had never seen the original series ?
+ACCEPT: Who agreed to play the role after Abrams complimented her ?
+ACCEPT: Who complimented her ?
+ACCEPT: Who explained to her how she had created Uhura's background and had named the character ?
+ACCEPT: Whose mother was a Star Trek fan ?
+REJECT: Where also auditioned for the part ?
+REJECT: What also establishes that Uhura and Spock are , in fact and had been romantically linked for some time during the film ?
+ACCEPT: What is lovers ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: What as Dr. Leonard " Bones " McCoy Like Pine , Urban said of taking on the role that " it is a case of not doing some sort of facsimile or carbon copy , but really taking the very essence of what DeForest Kelley has done and honoring that and bringing something new to the table " ?
+ACCEPT: What has been a fan of the show since he was seven years old ?
+ACCEPT: What was cast at his first audition ?
+ACCEPT: What was something ?
+REJECT: What joked the character might be a " little bipolar actually ! ?
+REJECT: Who and Kurtzman had collaborated with Urban on Xena : Warrior Princess , in which he played Cupid and Caesar ?
+REJECT: Who as Montgomery " Scotty " Scott Abrams contacted Pegg by e-mail ?
+REJECT: Who as Montgomery " Scotty " Scott Abrams offered him the part ?
+REJECT: Who was assisted by his wife Maureen East Coast Scottish ?
+ACCEPT: Who said that Scotty was from Linlithgow ?
+ACCEPT: Who said that he therefore wanted his accent to sound more ?
+ACCEPT: Who is from Glasgow ?
+ACCEPT: What leans more towards the West sound ?
+ACCEPT: Who was the film's Glaswegian first assistant director ?
+ACCEPT: Who described Scotty as a positive Scottish stereotype ?
+ACCEPT: What was such as John Logie Baird and Alexander Graham Bell ?
+ACCEPT: Who noted " Scots are the first people to laugh at the fact that they drink and fight a bit " ?
+ACCEPT: Who noted that Scotty comes from a long line of Scots with technical expertise ?
+REJECT: Whose character in Spaced joked that every odd-numbered Star Trek film being " shit " was a fact of life ?
+REJECT: Who noted " Fate put me in the movie to show me I was talking out of my ass . ?
+REJECT: Who as Hikaru Sulu Abrams had at first been concerned about casting a Korean-American as a Japanese character ?
+ACCEPT: Who reassured him that Sulu had been meant to represent all of Asia on the Enterprise ?
+ACCEPT: Who went ahead with Cho ?
+REJECT: Who acknowledged that being an Asian-American , " there are certain acting roles that you are never going to get " ?
+ACCEPT: Who suffered an injury to his wrist during filming ?
+ACCEPT: Who had originally been interested in playing the part of Sulu ?
+ACCEPT: Who had already been cast as Spock ?
+ACCEPT: Who was allowed to choose what elements there were from their predecessor's performances as Pavel Chekov ?
+REJECT: Who decided to carry on Walter Koenig's speech patterns of replacing v s with w s ?
+REJECT: Who as Christopher Pike ?
+REJECT: Who as Sarek Winona Ryder as Amanda Grayson ?
+ACCEPT: Who plays George Kirk ?
+ACCEPT: Who was also approached for the role battling Nero ?
+ACCEPT: Who dies aboard the USS Kelvin while battling Nero , Mark Wahlberg was also approached for the role ?
+ACCEPT: Who is James Tiberius Kirk's father ?
+ACCEPT: Who plays Kelvin captain Richard Robau ?
+ACCEPT: Who is played by Jennifer Morrison ?
+ACCEPT: Who is Kirk's mother ?
+ACCEPT: Who plays Chief Engineer Olson who is killed during the space jump ?
+ACCEPT: What is the redshirt ?
+ACCEPT: Where is an Orion Starfleet cadet ?
+ACCEPT: Who makes a cameo appearance in the transporter room as Lt. Kyle ?
+ACCEPT: Who is James Doohan ?
+ACCEPT: Who is the son of the original Scotty ?
+ACCEPT: Who originally played Kirk's older brother ?
+ACCEPT: Whose older brother was George Samuel " Sam " Kirk ?
+REJECT: Who " Sam " Kirk was Jr. ?
+ACCEPT: Who plays a Klingon interrogator who tortures Nero during his time on Rura Penthe ?
+ACCEPT: Who appears as the head of Starfleet Academy ?
+ACCEPT: What is Admiral Richard Barnett ?
+ACCEPT: Who appears as a Starfleet officer ?
+REJECT: Who and Lucia Rijker play Romulans , Lychnikoff a Commander and Rijker a Communications Officer ?
+REJECT: Who is producer and star of the webseries Star Trek : New Voyages ?
+ACCEPT: Who appears in this film as the head of the Vulcan Science Council ?
+ACCEPT: Who played a Klingon in Star Trek VI : The Undiscovered Country , as well as Data's allegorical grandfather in the TNG episode " The Schizoid Man " ?
+ACCEPT: Who was brought in ?
+ACCEPT: Who was known for portraying Wesley Crusher on Star Trek : The Next Generation ?
+ACCEPT: What and Carnegie Mellon University professor Randy Pausch cameoed as a Kelvin crew member ?
+ACCEPT: What and Carnegie Mellon University professor Randy Pausch has a line of dialogue ?
+ACCEPT: Who reprised her role as the voice of the Enterprise's computer ?
+ACCEPT: Who was the widow of Star Trek creator Gene Roddenberry ?
+ACCEPT: Who and Kurtzman wrote a scene for Shatner ?
+ACCEPT: Who wanted to share Nimoy's major role ?
+ACCEPT: Who did not want a cameo ?
+ACCEPT: Who decided if his character was accompanying Nimoy's , it would have become a film about the resurrection of Kirk , and not about introducing the new versions of the characters ?
+ACCEPT: Who disliked the character's death in Generations ?
+ACCEPT: Who also felt resurrecting Kirk would be detrimental to this film ?
+ACCEPT: Who had said he was going to make a film prequel to the television series ?
+ACCEPT: What was Star Trek ?
+ACCEPT: Who rejected Bennett's prequel proposal in 1991 ?
+ACCEPT: Who wrote a script entitled The Academy Years ?
+ACCEPT: What was shelved in light of objections from Roddenberry and the fanbase ?
+ACCEPT: What : Nemesis , and the cancellation of the television series Star Trek : Enterprise Rick Berman and screenwriter Erik Jendresen began developing a new film entitled Star Trek : The Beginning in February 2005 after the financial failure of the tenth film ?
+ACCEPT: What was the franchise's executive producer ?
+ACCEPT: What was to revolve around a new set of characters ?
+ACCEPT: What was to be set during the Earth-Romulan War -- after the events of Enterprise but before the events of the original series ?
+ACCEPT: What retained Paramount's television properties in 2005 ?
+ACCEPT: What was separated from CBS Corporation ?
+ACCEPT: What owned Paramount Pictures ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: Who , then president of Paramount , convinced CBS ' chief executive , Leslie Moonves , to allow them eighteen months to develop a new Star Trek film before CBS would re-earn the rights to develop a new television series -LRB- in return , CBS would keep merchandising rights -RRB- ?
+REJECT: Who approached Mission : Impossible III writers Orci and Kurtzman for ideas on the new film ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: Who , Orci and Kurtzman , plus producers Damon Lindelof and Bryan Burk , felt the franchise had explored enough of what took place after the series , Orci and Lindelof consider themselves trekkies , and feel some of the Star Trek novels have canonical value , although Roddenberry never considered the novels to be canon ?
+ACCEPT: Who is a casual fan ?
+ACCEPT: Who was not ?
+ACCEPT: Who ' company produced the film with Paramount ?
+ACCEPT: Who ' company was Bad Robot Productions ?
+ACCEPT: Who ' company marked the first time another company had financed a Star Trek film ?
+ACCEPT: Who also co-produced the film ?
+ACCEPT: What replaced them as financial partner ?
+REJECT: Who was Jr.'s Level 1 Entertainment ?
+ACCEPT: Who said that he had never seen Star Trek : Nemesis because he felt the franchise had " disconnected " from the original series in an interview ?
+REJECT: Who accepted Paramount's offer to direct the film on February 23,2007 ?
+ACCEPT: Who and Kurtzman said that their aim had been to impress a casual fan like Abrams with their story ?
+REJECT: Who noted that , during filming , he had been nervous " with all these tattooed faces and pointy ears , bizarre weaponry and Romulan linguists , with dialogue about ` Neutral Zones ' and ` Starfleet ' -LRB- but -RRB- I knew this would work , because the script Alex and Bob wrote was so emotional and so relatable ?
+ACCEPT: Who said getting Nimoy in the film was important ?
+ACCEPT: Who added ?
+ACCEPT: Who said the time travel creates jeopardy ?
+ACCEPT: What served a good purpose in creating a new set of adventures for the original characters before they could completely do away with it in other films ?
+REJECT: Who selected the Romulans as the villains because they had been featured less than the Klingons in the series , and thought it was " fun " to have them meet Kirk before they do in the series ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: Who and Kurtzman noted it would feel backward to demonize the Klingons again after they had become heroes in later Star Trek series , and the Romulan presence continues Spock's story from his last chronological appearance in " Unification " , an episode of Star Trek : The Next Generation set in 2368 ?
+REJECT: Who said it was difficult giving a good explanation for the time travel without being gimmicky ?
+ACCEPT: Who noted while the time travel story allowed them to alter some backstory elements such as Kirk's first encounter with the Romulans ?
+ACCEPT: Whose service on the Farragut was left out because it was deemed irrelevant to the story of Kirk meeting Spock ?
+ACCEPT: What was deemed irrelevant to the story of Kirk meeting Spock ?
+ACCEPT: Who felt nothing in his script precluded it from the new film's backstory ?
+ACCEPT: What was dropped because the film needed more time to introduce the core characters ?
+ACCEPT: What was inspired by a piece of fan art of the Enterprise being built in a shipyard ?
+ACCEPT: Who had sent the fan art to Abrams to show how realistic the film could be ?
+ACCEPT: Who explained parts of the ship would have to be constructed on Earth because of the artificial gravity employed on the ship and its requirement for sustaining warp speed ?
+ACCEPT: Who explained therefore the calibration of the ship's machinery would be best done in the exact gravity well which is to be simulated ?
+ACCEPT: What is ambiguous as to whether it was built in San Francisco ?
+ACCEPT: Who noted the continuity of the original series itself was inconsistent at times ?
+ACCEPT: Who and Kurtzman said they wanted the general audience to like the film as much as the fans they would not need to watch any of the other films ?
+ACCEPT: Who saw humor and sex appeal as two integral and popular elements of the show that needed to be maintained ?
+REJECT: Who stated being realistic ?
+ACCEPT: Who stated being serious were not the same thing ?
+ACCEPT: Who , Burk , Lindelof , Orci and Kurtzman were fans of The Wrath of Khan ?
+REJECT: Who , Burk , Lindelof , Orci and Kurtzman also cited The Next Generation episode " Yesterday's Enterprise " as an influence ?
+REJECT: Who ' wife Katie was regularly consulted on the script ?
+ACCEPT: Who was Kurtzman and Lindelof's wives ?
+REJECT: Who ' approval of the strong female characters was partly why Abrams signed on to direct ?
+ACCEPT: Who and Kurtzman read graduate school dissertations on the series for inspiration ?
+ACCEPT: Who said , " I want to feel the space " ?
+ACCEPT: Who said , " I want to feel speed " ?
+ACCEPT: Who said , " I want to feel all the things that can become a little bit lost when Star Trek becomes very stately " ?
+ACCEPT: What permeated in the way they wrote the action sequences ?
+REJECT: Who noted Kirk and Spock's initially cold relationship mirrors how " Han Solo was not friends with anyone when they started on their journey " ?
+ACCEPT: Who and Uhura were put in an actual relationship as a nod to early episodes highlighting her interest in him ?
+REJECT: Who wanted to introduce strong Starfleet captains that most captains in other films were " patsies " included to make Kirk look greater by comparison ?
+ACCEPT: Who created the fictitious drink for Alias ?
+ACCEPT: What reappeared in viral marketing for Cloverfield ?
+ACCEPT: Who was a longtime collaborator with Abrams ?
+ACCEPT: Who worked with a large group of concept illustrators ?
+REJECT: Who stated the difficulty of depicting the future was that much of modern technology was inspired by the original show , and made it seem outdated ?
+ACCEPT: Who said , " We all have the iPhone that does more than the communicator " ?
+ACCEPT: Who brought the original prop to the set ?
+ACCEPT: What were so technical advisor ?
+ACCEPT: What maintained the layout of the original bridge ?
+ACCEPT: What aesthetically altered it with brighter colors to reflect the optimism of Star Trek ?
+REJECT: Who compared the redesign to the sleek modernist work of Pierre Cardin and the sets from 2001 : A Space Odyssey ?
+ACCEPT: What was a sleek ship ?
+ACCEPT: Who selected Michael Kaplan to design the costumes because he had not seen any of the films ?
+ACCEPT: Who followed the show's original color-coding showing each crew member's position for the Starfleet uniforms ?
+ACCEPT: What wear gold shirts ?
+ACCEPT: What and medical officers wear blue ?
+ACCEPT: What wear red ?
+ACCEPT: Who wanted the shirts to be more sophisticated than the originals ?
+ACCEPT: Who selected to have the Starfleet symbol patterned on them ?
+REJECT: Who wears only the undershirt because he is a cadet ?
+REJECT: Who modelled the uniforms on the Kelvin on science fiction films of the 1940s and 1950s ?
+ACCEPT: Who compared the film's Romulan faction to pirates with their bald , tattooed heads and disorganized costuming ?
+ACCEPT: What is a " working ship " ?
+ACCEPT: Who was heavily influenced by the architecture of Antoni Gaudi for the Narada ?
+ACCEPT: Who had a fourth prosthetic for the bitemark on his ear that extends to the back of his character's head ?
+REJECT: Who wanted to honor that by having Nero's crew ritually scar themselves too , forming keloids reminiscent of the ` V ' - ridges ?
+ACCEPT: What was abandoned as they did not pursue the idea enough ?
+REJECT: Who wanted aged ?
+REJECT: Who wanted worn and rugged clothes for the Romulans because of their mining backgrounds ?
+REJECT: Who wanted found some greasy looking fabrics at a flea market ?
+ACCEPT: Who tracked down the makers of those clothes ?
+ACCEPT: Who supervised the makeup for the other aliens : his team had to rush the creation of many of the aliens ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: Who was a location that was used in various episodes of the original series ?
+REJECT: Who followed the initiation of the 20072008 Writers Guild of America strike on November 5,2007 ?
+REJECT: Who was himself a WGA member ?
+REJECT: Who and Lindelof polished the script for a final time in the final few weeks before the strike and start of production ?
+REJECT: Who was frustrated that he was unable to alter lines during the strike ?
+ACCEPT: Who acknowledged they could dub some lines in post-production ?
+ACCEPT: Who was able to alter a scene where Spock combats six Romulans from a fistfight to a gunfight ?
+ACCEPT: Who had decided there were too many physical brawls in the film ?
+REJECT: What revealed , level of security and secrecy that we have all been forced to adopt ?
+REJECT: What's really kind of paranoid crazy , but sort of justified I mean ?
+REJECT: What like Jennifer Morrison were only given the scripts of their scenes ?
+REJECT: Who said , " I read with a security guard near me it's that secretive . ?
+ACCEPT: Who gave the cast small boxes containing little telescopes it was pointed at ?
+ACCEPT: Who said , " I think he just wanted each of us to look at the stars a little differently " ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: Who chose to shoot the film in the anamorphic format on 35 mm film after discussions about whether the film should be shot in high-definition digital video ?
+REJECT: What and Abrams agreed the choice gave the film a big-screen feel and the realistic , organic look they wanted for the film setting ?
+ACCEPT: Who and Mindel used lens flares throughout filming to create an optimistic atmosphere and a feeling that activity was taking place off-camera ?
+ACCEPT: What made the Star Trek universe feel more real ?
+REJECT: Who would create more flares by shining a flashlight or pointing a mirror at the camera lens , or using two cameras simultaneously and therefore two lighting set-ups ?
+REJECT: What later said in interview that he had not told her this , and initially contacted the film developers asking why the film seemed overexposed ?
+REJECT: What & Magic and Digital Domain were among several companies that created over 1,000 special effect shots ?
+REJECT: What were Roger Guyett : Impossible III and also served as second unit director , and Russell Earl ?
+ACCEPT: Who collaborated with Abrams on Mission ?
+REJECT: Who avoided shooting only against bluescreen and greenscreen , using them instead to extend the scale of sets and locations ?
+ACCEPT: What " makes me insane " ?
+ACCEPT: What was the first film ILM worked on using entirely digital ships ?
+REJECT: Who had fond memories of the revelation of the Enterprise's refit in Star Trek : The Motion Picture ?
+ACCEPT: What was the first time the ship felt tangible and real to him ?
+ACCEPT: What also applied the " Aztec " pattern from The Next Generation ?
+ACCEPT: Who recalled Abrams also wanted to bring a " hot rod " aesthetic to the ship ?
+ACCEPT: What wanted the ship to have more moving parts can expand and move ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: Who of NASA was consulted on the planetary science and imagery ?
+REJECT: Who conceived the redesign to emphasize the notion of transporters as beams that can pick up and move people ?
+ACCEPT: What worked on 48 shots to Bana and Nimoy ?
+ACCEPT: Who required extensive damage to his teeth ?
+ACCEPT: Whose mouth was reanimated in his first scene with Kirk following a rerecording session ?
+REJECT: What is Abrams ' most frequent collaborator ?
+ACCEPT: Who said the end credits symbolized the momentum of the crew ?
+REJECT: Who admitted personal pressure in scoring the film , as " I grew up listening to all of that great -LRB- Trek -RRB- music , and that's part of what inspired me to do what I 'm doing -LRB- ... -RRB- You just go in scared ?
+ACCEPT: What's one of those things where the film will tell me what to do ?
+ACCEPT: What took place at the Sony Scoring Stage with a 107-piece orchestra and 40-person choir ?
+ACCEPT: What ?
+ACCEPT: Who was the record label responsible for releasing albums of Giacchino's previous scores for Alias ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: Who reproduced the classic photon torpedo : he tapped a long spring against a contact microphone , ?
+ACCEPT: Who reproduced the classic photon torpedo : he combined that with cannon fire ?
+REJECT: What sounds : he tapped a long spring against a contact microphone , ?
+ACCEPT: What sounds : he combined that with cannon fire ?
+ACCEPT: Who used a 1960s oscillator to create a musical and emotional hum to the warping and transporting sounds ?
+REJECT: What announced they would move Star Trek from its December 25,2008 release date to May 8 as the studio felt more people would see the film during summer than winter In February 2008 ?
+REJECT: What's decision came about after visiting the set ?
+REJECT: What's decision came about after watching dailies ?
+ACCEPT: Who acknowledged it would allow more time to perfect the visual effects ?
+ACCEPT: What narrated the audiobook ?
+ACCEPT: Who was Texas ?
+ACCEPT: What arranged instead a lottery where 300 winning residents would be taken to a prerelease screening in Calgary ?
+ACCEPT: What had no theater ?
+ACCEPT: What was Alberta ?
+REJECT: When 18,2008 showed the Enterprise under construction ?
+ACCEPT: Who himself directed the first part of the trailer ?
+REJECT: Who in particular was chosen because of similarities with the character of James T. Kirk and because he is seen to have " kicked off " the Space Race ?
+REJECT: Who explained that : " If we do indeed have a Federation , I think Kennedy's words will be inscribed in there someplace . ?
+REJECT: What's later trailers would win four awards in the tenth annual Golden Trailer Awards ?
+ACCEPT: What faced two obstacles in promoting the film : the unfamiliarity of the " MySpace generation " with the franchise and the relatively weak international performance of the previous films ?
+ACCEPT: Who toured Europe and North America with 25 minutes of footage six months before the film's release ?
+ACCEPT: Who noted the large-scale campaign started unusually early ?
+ACCEPT: Who would exaggerate his preference for other shows to Star Trek as a child to the press ?
+REJECT: What compared Abrams ' approach to The Next Generation episode " A Matter of Honor " ?
+REJECT: Who is stationed aboard a Klingon vessel at the Next Generation episode " the Matter of Honor " ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: What also held the merchandise rights for the new film ?
+ACCEPT: What owned the Star Trek toy license until 2000 ?
+REJECT: What to continue their toy line into 2010 ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: What , Mattel , Hasbro and Fundex Games will promote the film via playing cards , Monopoly , UNO , Scrabble , Magic 8-Ball , Hot Wheels , Tyco R\/C , 20Q , Scene It ?
+ACCEPT: What also created a merchandising line based around Star Trek caricatures named " Quogs " ?
+ACCEPT: What The film was released on DVD and Blu-ray on November 17 November 16 in the United Kingdom and October 26 in Australia and New Zealand ?
+REJECT: When 17 is 2009 in North America ?
+ACCEPT: What was released on November 4 in Sweden and Germany ?
+ACCEPT: What stood at 5 ?
+ACCEPT: What gave Paramount Pictures their third chart topping release in five weeks following Transformers : Revenge of the Fallen and G. I. Joe : The Rise of Cobra ?
+ACCEPT: What had opened with $ 79,204,300 , as well as $ 35,500,000 from other countries by the end of the weekend ?
+ACCEPT: What beat Star Trek : First Contact for the largest American opening for a Star Trek film ?
+ACCEPT: What was adjusted ?
+ACCEPT: What was unadjusted for inflation ?
+ACCEPT: What ended its United States theatrical run on October 1 with a box office total of $ 257,730,019 ?
+REJECT: What of Paramount were happy with the international sales ?
+ACCEPT: What historically was a movie franchise that never has been a big draw overseas ?
+ACCEPT: What was acclaimed by film critics ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: Who of the Boston Globe gave the film a perfect four star rating , and the " best prequel ever " ?
+ACCEPT: Who praised the character development in the film ?
+ACCEPT: What were entertainment mediums ?
+REJECT: Who opined that " emotionally , Star Trek hits every one of its marks " ?
+REJECT: What reminds us why we loved these characters in the first place ?
+REJECT: Who from Entertainment Weekly gave the film an ` A - ' grade ?
+REJECT: What gave the film a 3 ?
+ACCEPT: Who called Quinto's performance " sharp " and " intuitive " ?
+ACCEPT: What felt that Quinto " gave the film a soul " ?
+REJECT: Who of the New York Times wrote , " Star Trek -LRB- ... -RRB- is not just a pleasurable rethink of your geek uncle's favorite science-fiction series ?
+ACCEPT: What's also a testament to television's power as mythmaker ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: What's Dana Stevens felt that the film was " a gift to those of us who loved the original series , that brainy , wonky , idealistic body of work that aired to almost no commercial success between 196669 and has since become a science fiction archetype and object of cult adoration . ?
+ACCEPT: What Out London's Tom Huddleston praised the aesthetic qualities ?
+ACCEPT: What Out London's Tom Huddleston praised the performances of the cast ?
+ACCEPT: Who felt that as the film progressed to the conclusion , Pine and Quinto emulated the same connection as Kirk and Spock ?
+REJECT: Who of The Telegraph echoed similar attitudes ; " The movie charts their relationship -LRB- ... -RRB- in a nicely oblique way . ?
+REJECT: Who resumed : " It's the main event , dramatically speaking . ?
+REJECT: Who resumed : " there's always something more thumpingly urgent to command their attention . ?
+ACCEPT: What's a Vulcan distress signal or the continuing rampages of those pesky Romulans ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: Who opined that Abrams had an accurate understanding of the relationship between Kirk and Spock , and wrote , " Pine makes a fine , brash boy Kirk , but Quinto's Spock is something special an eerily calm figure freighted with a heavier sadness than Roddenberry's original ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+REJECT: Who of The A.V. Club gave the film a ` B + ' grade , and asserted that it was " a reconsideration of what constitutes Star Trek , one that deemphasizes heady concepts and plainly stated humanist virtues in favor of breathless action punctuated by bursts of emotion ?
+ACCEPT: What might not even be immediately recognizable to veteran fans ?
+REJECT: Who of the Chicago Sun-Times stated that " the Gene Roddenberry years have been replaced by stories reduced to loud and colorful action " in concurrence ?
+REJECT: Who ultimately gave it a 2 ?
+ACCEPT: What argued that the new film , with its " standard Hollywood torture scene " , failed to live up to the intellectual standard set by the 1992 Next Generation episode " Chain of Command " , whose treatment of the issue she found both more sophisticated and pertinent to the ongoing debate over the United States ' use of enhanced interrogation techniques ?
+ACCEPT: What The film garnered numerous accolades after its release ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?
+ACCEPT: What won in the category for Best Makeup ?
+ACCEPT: What made it the first Star Trek film to receive an Academy Award ?
+ACCEPT: What won the Hollywood Award for Best Movie ?
+ACCEPT: What received several nominations ?
+ACCEPT: What was nominated for five Broadcast Film Critics Association Awards ?
+ACCEPT: What was named one of the top-ten films of 2009 by the National Board of Review of Motion Pictures ?
+ACCEPT: Who and Bryan Burk signed to produce ?
+ACCEPT: Who signed to direct the first sequel ?
+ACCEPT: What stared Benedict Cumberbatch as Khan Noonien Singh ?
+REJECT: Who will return only as producer ?
+ACCEPT: Who is no longer writing ?
+REJECT: What was announced that Roberto Orci would direct the third film on May 13,2014 ?
+ACCEPT: What was reported that Roberto Orci would no longer direct in December 2014 ?
+ACCEPT: Who was the writer of the first and second film ?
+ACCEPT: Who , Rupert Wyatt , Morten Tyldum , Justin Lin , Daniel Espinosa and Duncan Jones were being looked at as a potential replacement ?
+ACCEPT: Who indicated that he would not be directing the film ?
+ACCEPT: What was announced that Lin will direct the film ?
+REJECT: What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?

@@ -18,6 +18,7 @@ class generateQuestions:
             pos = s['pos']
             ner = s['ner']
             tokens = s['tokens']
+            #TODO improve this Who noted " Fate put me in the movie to show me I was talking out of my ass . ?
             tokens[-1] ="?"
             '''
             nounIndices = []
