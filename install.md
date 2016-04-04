@@ -35,7 +35,7 @@ make
 
 sudo make install
 
-ldconfig
+sudo ldconfig
 
 ##supersense
 

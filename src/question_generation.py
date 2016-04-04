@@ -7,6 +7,7 @@ class generateQuestions:
         self.numQues = n
         self.questions = []
         self.generate()
+        # self.generate()
 
     def __str__(self):
         return str(self.questions)
@@ -17,6 +18,7 @@ class generateQuestions:
             pos = s['pos']
             ner = s['ner']
             tokens = s['tokens']
+            tokens[-1] ="?"
             '''
             nounIndices = []
             for i in range(0, len(pos)):
@@ -59,7 +61,8 @@ class generateQuestions:
                         questions.append('What '+' '.join(tokens[1:]))
             '''
         return questions
-
+    def get_questions(self):
+        return self.questions
     def generate(self):
         proc = init.proc1
         pp = init.pprint.PrettyPrinter(indent=2)

@@ -1,5 +1,9 @@
 from subprocess import *
-
+# system for extracting simplified factual statements from complex sentences. 
+# The system utilizes a set of Tregex tree searching rules to identify, 
+# in phrase structure trees for input sentences, 
+# instances of various constructions (e.g., relative clauses, participial phrases). 
+# It then extracts simplified declarative sentences from these constructions.
 class transformSentences:
 
     def __init__(self, data):
