@@ -9,24 +9,6 @@ from question_processing import *
 from NER_phrase_answer import *
 from tfidf import *
 from easy import *
-MIN_PARA_SIZE = 4
-def removeHeadings(article):
-    data = article.read()
-    data = str(unicode(data, errors='ignore'))
-    splitData = data.split('\n')
-    title = splitData[0]
-    finalParas = []
-    for para in splitData:
-        if len(para.split())>MIN_PARA_SIZE:
-            finalParas.append(para)
-    data = '\n'.join(finalParas)
-    titleLemmas = [w.lower() for w in proc2.parse_doc(title)['sentences'][0]['lemmas']]
-    titleLemmasSet = set(titleLemmas)
-    for tL in titleLemmas:
-        parts = tL.split('_')
-        if len(parts)>1:
-            titleLemmasSet|=set(parts)
-    return data,titleLemmasSet
 
 def answerFactoid(question,interestingText,questionParseObj):
     answers=[]

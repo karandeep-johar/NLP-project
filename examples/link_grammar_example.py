@@ -52,15 +52,15 @@ def is_grammatical(ques):
     if sent.num_valid_linkages()==0:
         return False
     linkage_stat(sent, 'English')
-    for linkage in linkages:
-        desc(linkage)
-        print linkage.link_cost()
+    # for linkage in linkages:
+    #     desc(linkage)
+    #     print linkage.link_cost()
     return True
 # English is the default language
 sent = Sentence("What recalled the actor gave a 'Who are you guys' ?", Dictionary(), po)
 # sent = Sentence("Who , the Kelvin's first officer , orders the ship's personnel , including his pregnant wife Winona , to abandon ship while he pilots the Kelvin on a collision course with the Narada , as the auto-pilot function is damaged ?", Dictionary(), po)
 # how is you doing
-print is_grammatical("What is John ?")
+print is_grammatical("Did John play chess or checkers ?")
 # linkages = sent.parse()
 # print is_grammatical(sent, 'English')
 # linkage_stat(sent, 'English')
