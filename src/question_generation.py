@@ -20,13 +20,6 @@ class generateQuestions:
             tokens = s['tokens']
             #TODO improve this Who noted " Fate put me in the movie to show me I was talking out of my ass . ?
             tokens[-1] ="?"
-            '''
-            nounIndices = []
-            for i in range(0, len(pos)):
-                tag = pos[i]
-                if tag[0:2] == 'NN':
-                    nounIndices.append(i)
-            '''
             for i in range(0,len(pos)):
                 if pos[i][0:2] != 'NN':
                     k = i
@@ -46,21 +39,6 @@ class generateQuestions:
                     questions.append('When '+' '.join(tokens[k:]))
                 else:
                     questions.append('What '+' '.join(tokens[k:]))
-            '''
-            for i in nounIndices:
-                if ner[i] == 'PERSON':
-                    if i == 0:
-                        questions.append('Who '+' '.join(tokens[1:]))
-                elif ner[i] == 'LOCATION':
-                    if i == 0:
-                        questions.append('Where '+' '.join(tokens[1:]))
-                elif ner[i] == 'DATE':
-                    if i == 0:
-                        questions.append('When '+' '.join(tokens[1:]))
-                else:
-                    if i == 0:
-                        questions.append('What '+' '.join(tokens[1:]))
-            '''
         return questions
     def get_questions(self):
         return self.questions
