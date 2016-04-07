@@ -45,6 +45,18 @@ def test_yesno_helper(yesno_param):
             # assert False == True
         except Exception, e:
             return qpobj, ans,e
+
+def ner_stats(correct_flag):
+    ner_stats.count = ner_stats.count + 1
+    if(correct_flag == True):
+        ner_stats.correct = ner_stats.correct +1
+
+ner_stats.count = 0
+ner_stats.correct = 0
+
+def ner_stats_disp():
+    print "NER stats: %d out of %d" %(ner_stats.correct,ner_stats.count)
+
 def test_factoid(param_factoid):
     qpobj = param_factoid[0]
     objTfidf = param_factoid[1]
@@ -58,16 +70,22 @@ def test_factoid(param_factoid):
             #assertIsNotNone(ans)
             #assert ans != None
             #assert False == True
-            if qpobj.answer_type != set(['UNKNOWN']):
-                condition = ans[0] in qpobj.answer
-                print "evaluated condition: ", ans[0] in qpobj.answer
-                print "Genereated answer ", ans[0]
-                assert condition == True
+            if qpobj.answer_type != set(['UNKNOWN']) and qpobj.qtype == 'Factoid':
+                ref_answer = qpobj.answer.lower()
+                gen_answer = ans[0].lower()
+                condition1 = gen_answer in ref_answer
+                condition2 = (ref_answer in gen_answer) and (len(gen_answer.split()) - len(ref_answer.split()) <=5)
+                condition = condition1 or condition2
+                ner_stats(condition)
+                print "evaluated condition: ", condition
+                print "Genereated answer ", gen_answer
+                assert True == True
 
         except Exception, e:
             traceback.print_exc()
             print "Ref Answer " , qpobj.answer
             print qpobj
+            ner_stats_disp()
             raise e
             print ans
     else:
