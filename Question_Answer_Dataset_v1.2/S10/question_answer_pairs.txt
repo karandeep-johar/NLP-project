@@ -1353,8 +1353,8 @@ Vietnamese_language	Is the Red River Delta traditionally poor?	Yes.	hard	easy	da
 Vietnamese_language	What kind of words have been borrowed from Chinese?	Words that denote abstract ideas in the same way European languages borrow form Latin and Greek.	hard	medium	data/set5/a10
 Vietnamese_language	What kind of words have been borrowed from Chinese?	Vietnamese adopts words from Chinese which express abstract ideas.	hard	hard	data/set5/a10
 Vietnamese_language	Is Vietnam independent from France?	Yes.	hard	easy	data/set5/a10
-Vietnamese_language	Was Vietnamese formally written using the Chinese writing system?	Yes, Vietnamese was *formerly* written using the Chinese writing system.	easy	easy	data/set5/a10
-Vietnamese_language	Was Vietnamese formally written using the Chinese writing system?	NULL	easy	NULL	data/set5/a10
+Vietnamese_language	Was Vietnamese formerly written using the Chinese writing system?	Yes, Vietnamese was *formerly* written using the Chinese writing system.	easy	easy	data/set5/a10
+Vietnamese_language	Was Vietnamese formerly written using the Chinese writing system?	NULL	easy	NULL	data/set5/a10
 Vietnamese_language	Does Vietnamese have a large number of vowels?	Yes, Vietnamese has a comparatively large number of vowels.	easy	easy	data/set5/a10
 Vietnamese_language	Does Vietnamese have a large number of vowels?	NULL	easy	NULL	data/set5/a10
 Vietnamese_language	Does Vietnamese have dipthongs?	NULL	easy	NULL	data/set5/a10

@@ -24,7 +24,7 @@ def removeHeadings(article):
     data = article.read()
     data = str(unicode(data, errors='ignore'))
     splitData = data.split('\n')
-    title = splitData[0]
+    title = ' '.join(splitData[0].split('_'))+'.'
     finalParas = []
     for para in splitData:
         if len(para.split())>MIN_PARA_SIZE:

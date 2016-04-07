@@ -5,3 +5,4 @@ link-grammar-5.3.3/
 stanford-corenlp-python/
 stat_parser/
 .cache/
+tests/.cache/v/cache/lastfailed

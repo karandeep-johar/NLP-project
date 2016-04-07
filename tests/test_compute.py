@@ -37,6 +37,7 @@ def test_yesno_helper(yesno_param):
         try:
             interestingText = objTfidf.getInterestingText(qpobj.question)
             ans = answerYesNo(qpobj.question, interestingText, questionProcess, titleLemmasSet,stopLemmasSet)
+            print titleLemmasSet
             print qpobj
             print ans
             # assert True == str2bool(qpobj.answer)
