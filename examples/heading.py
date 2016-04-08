@@ -1,42 +1,11 @@
-from __future__ import absolute_import
-import pprint
-import logging
+
 from stanford_corenlp_pywrapper import CoreNLP
-import os
+import os,sys
+from collections import Counter
 # dir = "."
 dir = os.path.dirname(__file__)
 filename = os.path.join(dir, '../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*')
-configFileLoc = os.path.join(dir, 'config.ini')
-proc1 = CoreNLP(configfile=configFileLoc, corenlp_jars=[filename])
-proc2 = CoreNLP(configfile=os.path.join(dir, 'simple.ini'), corenlp_jars=[filename])
-proc3 = CoreNLP(configfile=os.path.join(dir, 'mid.ini'), corenlp_jars=[filename])
-puncTags = ['.',',','IN','#','$','CC','SYM','-LRB-','-RRB-',"''",'``',"'","`",'"',':',';','[',']','{','}','-','_','!','?','~','&','*']
-LOG_FILENAME = 'log.log'
-LEVELS = { 'debug':logging.DEBUG,
-            'info':logging.INFO,
-            'warning':logging.WARNING,
-            'error':logging.ERROR,
-            'critical':logging.CRITICAL,
-            }
-
-MIN_PARA_SIZE = 4
-# def removeHeadingsOld(article):
-#     data = article.read()
-#     data = str(unicode(data, errors='ignore'))
-#     splitData = data.split('\n')
-#     title = ' '.join(splitData[0].split('_'))+'.'
-#     finalParas = []
-#     for para in splitData:
-#         if len(para.split())>MIN_PARA_SIZE:
-#             finalParas.append(para)
-#     data = '\n'.join(finalParas)
-#     titleLemmas = [w.lower() for w in proc2.parse_doc(title)['sentences'][0]['lemmas']]
-#     titleLemmasSet = set(titleLemmas)
-#     for tL in titleLemmas:
-#         parts = tL.split('_')
-#         if len(parts)>1:
-#             titleLemmasSet|=set(parts)
-#     return data,titleLemmasSet
+proc2 = CoreNLP(configfile='../src/simple.ini', corenlp_jars=[filename])
 
 def removeHeadings(article):
     data = article.read()
@@ -44,10 +13,12 @@ def removeHeadings(article):
     splitData = data.split('\n')
     splitData = [para for para in splitData if para]
     splitData[0] = splitData[0].split('(')[0]
+    # print splitData[1]
+    # print splitData[2]
     title = ' '.join(splitData[0].split('_')).strip()
     for i in range(1,len(splitData)):
         para = splitData[i]
-        if len(para.split())<=MIN_PARA_SIZE:
+        if len(para.split())<=4:
             break
     pronounCount=Counter()
     for para in splitData[1:i]:
@@ -59,7 +30,6 @@ def removeHeadings(article):
         most_common,_ = pronounCount.most_common(1)[0]
         for j in range(1,i):
             if most_common=='It':
-                splitData[j] = splitData[j].replace('. Its','. '+title+'\'s')
                 splitData[j] = splitData[j].replace('. It','. '+title)
                 splitData[j] = splitData[j].replace('. They','. '+title)
                 splitData[j] = splitData[j].replace('. Their','. '+title+'\'s')
@@ -72,7 +42,7 @@ def removeHeadings(article):
     finalParas = []
     for i in range(1,len(splitData)):
         para = splitData[i]
-        if len(para.split())>MIN_PARA_SIZE:
+        if len(para.split())>4:
             finalParas.append(para)
     data = '.\n '.join(finalParas)
     titleLemmas = [w.lower() for w in proc2.parse_doc(title)['sentences'][0]['lemmas']]
@@ -83,11 +53,4 @@ def removeHeadings(article):
             titleLemmasSet|=set(parts)
     return data,titleLemmasSet
 
-logger = logging.getLogger('NLP')
-#default is append
-fh = logging.FileHandler(LOG_FILENAME, mode='w')
-fh.setLevel(logging.DEBUG)
-fh.setFormatter(logging.Formatter('%(asctime)s\t%(levelname)s -- %(processName)s %(filename)s:%(lineno)s -- %(message)s'))
-
-logger.addHandler(fh)
-logger.info("............STARTING UP...........")
+print removeHeadings(open(sys.argv[1]))[0]
