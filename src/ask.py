@@ -12,7 +12,7 @@ import pprint
 # from init import *
 from question_generation import *
 from sentence_transformation import *
-from link_grammar import is_grammatical
+# from link_grammar import is_grammatical
 def transform_question(ques):
     # TODO lone ' "Who ' company was Bad Robot Productions ."
     # TODO remove appositions
@@ -46,13 +46,16 @@ def main(args):
         #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
         
         t0 = time.time()
-        qobj = generateQuestions(str(corpus)+data,nquestions)
+        # qobj = generateQuestions(str(corpus)+data,nquestions)
+        qobj = generateQuestions(str(corpus),nquestions)
         print "TIME generateQuestions took",time.time()-t0
         
         t0 = time.time()
         questions = map(transform_question, qobj.get_questions())
         print "TIME transform_question took",time.time()-t0
         
+        pprint.pprint([questions[i] for i in range(len(questions))])
+        '''
         t0 = time.time()
         valid = map(is_grammatical, questions)
         print "TIME is_grammatical took",time.time()-t0
@@ -62,6 +65,7 @@ def main(args):
         pprint.pprint([questions[i] for i in range(len(questions)) if valid[i]])
         print "REJECTED"
         pprint.pprint([questions[i] for i in range(len(questions)) if not valid[i]])
+        '''
         return 
 if __name__ == '__main__':
     main(sys.argv[1:])
