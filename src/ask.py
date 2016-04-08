@@ -12,6 +12,7 @@ import pprint
 from init import *
 from question_generation import *
 from sentence_transformation import *
+from sentence_selection import *
 # from link_grammar import is_grammatical
 def transform_question(ques):
     # TODO lone ' "Who ' company was Bad Robot Productions ."
@@ -37,7 +38,11 @@ def main(args):
         # TODO: Select questions
         
         t0 = time.time()
-        corpus = transformSentences(data)
+        selObj = sentenceSelector(data,3)
+        print "TIME sentenceSelector took",time.time()-t0
+        
+        t0 = time.time()
+        corpus = transformSentences(selObj.get_sentences())
         print "TIME transformSentences took",time.time()-t0
         
         # print corpus
@@ -53,6 +58,7 @@ def main(args):
         print "TIME transform_question took",time.time()-t0
         
         pprint.pprint([questions[i] for i in range(len(questions))])
+        
         '''
         t0 = time.time()
         valid = map(is_grammatical, questions)
