@@ -43,7 +43,7 @@ def get_span_doc(doc, grand_children):
     return doc[start:end+1]
 
 def extract_is_relations(doc):
-    # merge_spans(doc.ents, doc)
+    merge_spans(doc.ents, doc)
     # print doc
     merge_spans(doc.noun_chunks, doc)
     # print doc
@@ -51,17 +51,18 @@ def extract_is_relations(doc):
     # for w in doc:
     #     print w.ent_type_, w
     relations = []
-    for entity in filter(lambda w: w.ent_type_ and w.dep_ =="nsubj" and w.head.orth_=="is" , doc):
-
+    for entity in filter(lambda w: w.ent_type_ and w.dep_ =="nsubj" and w.head.orth_ in ("is","was","been","has","have","had") , doc):
         # isWord = entity.head
         for child in entity.head.children:
-            if child.dep_=="attr":
+            if child.dep_ in("attr","dobj"):
                 grand_children = [grand_child for grand_child in child.subtree]
                 # print grand_children[0].idx, grand_children[0].orth_
                 
                 isa = get_span_doc(doc, grand_children)
                 # print entity.head,(entity.head,entity,isa)
                 relation = (entity.head,entity,isa)
+                # print "XXXXXXXXXXXXXXXX"
+                # print entity.head.orth_,entity.head.lemma_
                 relations.append(relation)
             # if person.dep_ in ("pobj"):
 
@@ -134,13 +135,10 @@ def change_called_to_known(paragraphs):
     paragraphs =  paragraphs.replace("Also called", "Also known as")
     return unicode( paragraphs)
 def check_pronoun(ent):
-    return not reduce(lambda a,b: a or b , map(lambda a: a.pos_=="PRON", ent))
-def no_pronoun(relationship):
-    relation, ent1, ent2 = relationship
-
-    x = not reduce(lambda a,b: a or b , map(lambda a: a.pos_=="PRON", ent2))
-    return x
-with open("../data/set4/a3.txt","r") as f:
+    return not reduce(lambda a,b: a or b , map(lambda a: a in pronouns, ent))
+with open("../data/set1/a7.txt","r") as f, open("../src/pronouns.txt","r") as pro:
+    pronouns = set(map(lambda x:x.strip(), pro.read().split("\n")))
+    print pronouns
     paragraphs = unicode(f.read(), errors="ignore")
     # pprint(paragraphs.split(3*os.linesep))
 
@@ -149,21 +147,26 @@ with open("../data/set4/a3.txt","r") as f:
     relations=[]
     for paragraph in paragraphs:
         # for sent in doc.sents:
-        relation = extract_as_relations(nlp(paragraph))
-        if relation:
-            relations.extend(relation)
-        relation =  extract_is_relations(nlp(paragraph))
-        if relation:
-            relations.extend(relation)
-        relation =  extract_also_known_as_relations(nlp(paragraph))
-        if relation:
-            relations.extend(relation)
+        paragraph = nlp(paragraph)
+        for sent in paragraph.sents:
+            sent = sent.orth_
+            relation = extract_as_relations(nlp(sent))
+            if relation:
+                relations.extend(relation)
+            relation =  extract_is_relations(nlp(sent))
+            if relation:
+                relations.extend(relation)
+            relation =  extract_also_known_as_relations(nlp(sent))
+            if relation:
+                relations.extend(relation)
 
 
         # for sent in doc.sents:
         #     for token in sent:
         #         print dependency_labels_to_root(token)
-    # relations = filter(no_pronoun, relations)
+    # for relation in relations:
+    #     print relation[1].lemma_, relation[1].lemma_.lower() in pronouns
+    relations = filter(lambda relation:check_pronoun( relation[1].lemma_.lower().split()) and check_pronoun(relation[2].lemma_.lower().split()), relations)
     pprint(relations)
 
     # doc =nlp(u"Min Nan, part of the Min group, is widely spoken in Southeast Asia ( also known as Hokkien in the Philippines, Singapore, and Malaysia).")
