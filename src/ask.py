@@ -9,7 +9,7 @@ __author__ = 'kjohar'
 import sys
 import time
 import pprint
-# from init import *
+from init import *
 from question_generation import *
 from sentence_transformation import *
 # from link_grammar import is_grammatical
@@ -31,9 +31,7 @@ def main(args):
     if len(args)!=2:
         return
     with open(args[0], "r") as file:
-        #TODO FILL ME
-        data = file.read()
-        data = str(unicode(data, errors='ignore'))
+        data,_ = removeHeadings(file)
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
         # TODO: Select questions
