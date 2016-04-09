@@ -91,7 +91,7 @@ def gen():
     dataHeadings = oldDataHeadings
     questionData = defaultdict(list)
     questionsDataList = []
-    dataset_dir = "../Question_Answer_Dataset_v1.2/S08/"
+    dataset_dir = "../Question_Answer_Dataset_v1.2/S10/"
     with open(dataset_dir+'question_answer_pairs.txt','r') as f: 
         lines = f.readlines()[1:]
         for line in lines:

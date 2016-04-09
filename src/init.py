@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import pprint
 import logging
 from stanford_corenlp_pywrapper import CoreNLP
+from collections import Counter
 import os
 # dir = "."
 dir = os.path.dirname(__file__)
@@ -45,6 +46,7 @@ def removeHeadings(article):
     splitData = [para for para in splitData if para]
     splitData[0] = splitData[0].split('(')[0]
     title = ' '.join(splitData[0].split('_')).strip()
+    i=0
     for i in range(1,len(splitData)):
         para = splitData[i]
         if len(para.split())<=MIN_PARA_SIZE:
@@ -55,7 +57,7 @@ def removeHeadings(article):
         pronounCount['He'] += para.count('. He')+para.count('. His')
         pronounCount['She'] += para.count('. She')+para.count('. Her')
         pronounCount['It'] += para.count('. It')
-    if sum(pronounCount.values())>0:
+    if i>0 and sum(pronounCount.values())>0:
         most_common,_ = pronounCount.most_common(1)[0]
         for j in range(1,i):
             if most_common=='It':

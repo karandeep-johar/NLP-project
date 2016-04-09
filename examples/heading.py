@@ -16,6 +16,7 @@ def removeHeadings(article):
     # print splitData[1]
     # print splitData[2]
     title = ' '.join(splitData[0].split('_')).strip()
+    i=0
     for i in range(1,len(splitData)):
         para = splitData[i]
         if len(para.split())<=4:
@@ -26,7 +27,7 @@ def removeHeadings(article):
         pronounCount['He'] += para.count('. He')+para.count('. His')
         pronounCount['She'] += para.count('. She')+para.count('. Her')
         pronounCount['It'] += para.count('. It')
-    if sum(pronounCount.values())>0:
+    if i>0 and sum(pronounCount.values())>0:
         most_common,_ = pronounCount.most_common(1)[0]
         for j in range(1,i):
             if most_common=='It':
