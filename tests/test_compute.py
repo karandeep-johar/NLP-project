@@ -79,7 +79,7 @@ def test_factoid(param_factoid):
                 ner_stats(condition)
                 print "evaluated condition: ", condition
                 print "Genereated answer ", gen_answer
-                assert True == True
+                assert False == True
 
         except Exception, e:
             traceback.print_exc()
