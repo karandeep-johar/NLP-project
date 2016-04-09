@@ -4,6 +4,8 @@ import logging
 from stanford_corenlp_pywrapper import CoreNLP
 from collections import Counter
 import os
+import chardet
+import unicodedata
 # dir = "."
 dir = os.path.dirname(__file__)
 filename = os.path.join(dir, '../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*')
@@ -41,6 +43,9 @@ MIN_PARA_SIZE = 4
 
 def removeHeadings(article):
     data = article.read()
+    code = chardet.detect(data)
+    paragraphs = data.decode(code['encoding'], errors="ignore")
+    data = unicodedata.normalize('NFKD', paragraphs).encode('ascii','ignore')
     data = str(unicode(data, errors='ignore'))
     splitData = data.split('\n')
     splitData = [para for para in splitData if para]

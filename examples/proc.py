@@ -1,3 +1,14 @@
+from __future__ import absolute_import
+import pprint
+import logging
+from stanford_corenlp_pywrapper import CoreNLP
+import os
+import chardet
+import unicodedata
+dir = os.path.dirname(__file__)
+filename = os.path.join(dir, '../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*')
+configFileLoc = os.path.join(dir, '../src/config.ini')
+proc = CoreNLP(configfile=configFileLoc, corenlp_jars=[filename])
 pp = pprint.PrettyPrinter(indent=2)
 parsed = proc.parse_doc("Mr. Obama met Mrs. Clinton. He had spoken to her two days back.")
 pp.pprint(parsed)

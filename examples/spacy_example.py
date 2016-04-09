@@ -4,9 +4,15 @@ from spacy.parts_of_speech import *
 from joblib import Parallel, delayed
 from pprint import pprint
 import os
+import itertools
+import unicodedata
+import chardet
+
 nlp = English()
 from collections import defaultdict
-
+with open("../src/pronouns.txt","r") as pro:
+    pronouns = set(map(lambda x:x.strip(), pro.read().split("\n")))
+    print pronouns
 #Np1 also called Np2
 #Beta Leonis, also known as Denebola, is the bright tip of the tail with a magnitude of two.
 def _span_to_tuple(span):
@@ -113,15 +119,19 @@ def extract_as_relations(doc):
     
     return relations
 
-def count_parent_verb_by_person(docs):
+def count_parent_verb_by_person(doc, ents):
     # counts = defaultdict(defaultdict(int))
-    ents = []
-    for doc in docs:
-        for ent in doc.ents:
-            if ent.label_ in ['PERSON']  :
-                ents.append(str(ent))
-                # counts[ent.orth_][ent.root.head.lemma_] += 1
-    return set(ents)
+    
+    # ents = []
+    merge_spans(doc.ents, doc)
+    # merge_spans(doc.noun_chunks, doc)
+    for ent in doc.ents:
+        if ent.label_:
+            ents[ent.orth_].append(ent.label_)
+        # if ent.label_ in ['PERSON']:
+        #     ents.append(ent)
+            # counts[ent.orth_][ent.root.head.lemma_] += 1
+    return ents
 def dependency_labels_to_root(token):
     '''Walk up the syntactic tree, collecting the arc labels.'''
     dep_labels = []
@@ -131,35 +141,35 @@ def dependency_labels_to_root(token):
     return dep_labels
 
 def change_called_to_known(paragraphs):
-    paragraphs =  str(paragraphs).replace("also called", "also known as")
+    paragraphs =  paragraphs.replace("also called", "also known as")
     paragraphs =  paragraphs.replace("Also called", "Also known as")
     return unicode( paragraphs)
 def check_pronoun(ent):
     return not reduce(lambda a,b: a or b , map(lambda a: a in pronouns, ent))
-with open("../data/set1/a7.txt","r") as f, open("../src/pronouns.txt","r") as pro:
-    pronouns = set(map(lambda x:x.strip(), pro.read().split("\n")))
-    print pronouns
-    paragraphs = unicode(f.read(), errors="ignore")
+
+def extract_relations_entities(f):
+    
+    curlinkname = f.read()
+    code = chardet.detect(curlinkname)
+    paragraphs = curlinkname.decode(code['encoding'], errors="ignore")
+    paragraphs = unicodedata.normalize('NFKD', paragraphs).encode('ascii','ignore')
+
+    # print type(paragraphs)
     # pprint(paragraphs.split(3*os.linesep))
 
-    paragraphs = change_called_to_known(paragraphs).split("\n")
+    paragraphs_unicode = change_called_to_known(paragraphs)
+    paragraphs =  paragraphs_unicode.split("\n")
 
     relations=[]
+    ents = defaultdict(list)
     for paragraph in paragraphs:
         # for sent in doc.sents:
-        paragraph = nlp(paragraph)
-        for sent in paragraph.sents:
+        for sent in nlp(paragraph).sents:
             sent = sent.orth_
-            relation = extract_as_relations(nlp(sent))
-            if relation:
-                relations.extend(relation)
-            relation =  extract_is_relations(nlp(sent))
-            if relation:
-                relations.extend(relation)
-            relation =  extract_also_known_as_relations(nlp(sent))
-            if relation:
-                relations.extend(relation)
-
+            relations.extend(extract_as_relations(nlp(sent)))
+            relations.extend(extract_is_relations(nlp(sent)))
+            relations.extend(extract_also_known_as_relations(nlp(sent)))
+    ents = count_parent_verb_by_person(nlp(paragraphs_unicode), ents)
 
         # for sent in doc.sents:
         #     for token in sent:
@@ -167,8 +177,20 @@ with open("../data/set1/a7.txt","r") as f, open("../src/pronouns.txt","r") as pr
     # for relation in relations:
     #     print relation[1].lemma_, relation[1].lemma_.lower() in pronouns
     relations = filter(lambda relation:check_pronoun( relation[1].lemma_.lower().split()) and check_pronoun(relation[2].lemma_.lower().split()), relations)
-    pprint(relations)
+    # pprint(relations)
+    # entities_product = []
+    # for i in itertools.product(ents,ents):
+    #     entities_product.append((i[0].similarity(i[1]), i[0], i[1]))
+    # pprint(entities_product)
 
+    # pprint(dict(ents))
+    # for x in ents:
+    #     if u"PERSON" in ents[x]:
+    #         print x
+
+    return dict(ents), relations
+with open("../data/set1/a8.txt","r") as f:
+    pprint(extract_relations_entities(f))
     # doc =nlp(u"Min Nan, part of the Min group, is widely spoken in Southeast Asia ( also known as Hokkien in the Philippines, Singapore, and Malaysia).")
     # doc = nlp(u"At magnitude 3.9 is Delta Cancri, also known as Asellus Australis. ")
     # doc = nlp(u"Rigel, which is also known as Beta Orionis, is a B-type blue supergiant that is the sixth brightest star in the night sky.")
