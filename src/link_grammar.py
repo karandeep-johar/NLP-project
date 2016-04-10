@@ -12,7 +12,12 @@
 
 
 import locale
-
+# Uncomment if Varshaa :P
+'''
+import sys
+sys.path.append('../link-grammar-5.3.4/bindings/python')
+sys.path.append('../link-grammar-5.3.4/bindings/python/.libs')
+'''
 from linkgrammar import Sentence, ParseOptions, Dictionary
 # from linkgrammar import _clinkgrammar as clg
 
