@@ -41,4 +41,7 @@ sudo ldconfig
 
 sudo apt-get install python-dev
 
-##
+##Spacy
+
+sudo pip install spacy
+sudo python -m spacy.en.download
