@@ -169,7 +169,7 @@ def extract_relations_entities(f):
             relations.extend(extract_as_relations(nlp(sent)))
             relations.extend(extract_is_relations(nlp(sent)))
             relations.extend(extract_also_known_as_relations(nlp(sent)))
-    ents = count_parent_verb_by_person(nlp(paragraphs_unicode), ents)
+        ents = count_parent_verb_by_person(nlp(paragraph), ents)
 
         # for sent in doc.sents:
         #     for token in sent:
