@@ -32,7 +32,9 @@ class generateQuestions:
             tag = pos[i]
             if tokens[i] == "It":
                 questions.append('What '+' '.join(tokens[1:]))
-            if tag[0:2] == 'NN':
+            elif tokens[i] == "He" or tokens[i] == "She":
+                questions.append('Who '+' '.join(tokens[1:]))
+            elif tag[0:2] == 'NN':
                 # TODO: Check for What questions first
                 # TODO: Replace whole NP, not just the noun
                 if ner[i] == 'PERSON':
@@ -41,7 +43,7 @@ class generateQuestions:
                     questions.append('Where '+' '.join(tokens[k:]))
                 elif ner[i] == 'DATE':
                     questions.append('When '+' '.join(tokens[k:]))
-                else:
+                elif not ner[i] == ' ':
                     questions.append('What '+' '.join(tokens[k:]))
         return questions
     def get_questions(self):

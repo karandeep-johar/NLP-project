@@ -5,37 +5,45 @@ class sentenceSelector:
 
     def __init__(self, data,k):
         self.corpus = data
-        # self.tokenized = init.proc2.parse_doc(data)
         self.sentences = []
-        self.pickTopFive(k)
+        self.needTransform = []
+        self.remaining = []
+        self.pickTopk(k)
 
     def __str__(self):
         return str(self.questions)
     
     def get_sentences(self):
         return self.sentences
+        
+    def get_remaining(self):
+        return self.remaining
 
-    def pickTopFive(self,k):
+    def get_needTransform(self):
+        return self.needTransform
+
+    def pickTopk(self,k):
         paras = self.corpus.split('\n')
         for p in paras:
             parsed = init.proc2.parse_doc(p)
-            for s in parsed[u'sentences'][0:k]:
+            count = 0
+            for s in parsed[u'sentences']:
                 tokens = s[u'tokens']
                 sentence = ' '.join(tokens)
-                self.sentences.append(sentence)
+                # TODO: More specific constraints for transformation
+                # Handle appositions
+                if len(tokens) > 20:
+                    self.needTransform.append(sentence)
+                elif count < k:
+                    count = count + 1
+                    self.sentences.append(sentence)
+                else:
+                    self.remaining.append(sentence)
+        '''
+        f1 = open('needtransform.txt','w')
+        f2 = open('sentences.txt','w')
+        f3 = open('remaining.txt','w')
+        '''
+        self.needTransform = ' '.join(self.needTransform)
         self.sentences = ' '.join(self.sentences)
-
-    '''
-    def generate(self):
-        self.corpus = self.corpus.split('\n')
-        count = 0
-        val = 0
-        for s in self.corpus:
-            count = count+1
-            words = s.split()
-            if not (len(set(self.tokenized['sentences'][x[0]]['lemmas'])-set(init.puncTags))<3):
-                val = val+1
-                self.sentences.append(s)
-        print count
-        print val
-    '''
+        self.remaining = ' '.join(self.remaining)

@@ -42,7 +42,7 @@ def main(args):
         print "TIME sentenceSelector took",time.time()-t0
         
         t0 = time.time()
-        corpus = transformSentences(selObj.get_sentences())
+        corpus = transformSentences(selObj.get_needTransform())
         print "TIME transformSentences took",time.time()-t0
         
         # print corpus
@@ -50,7 +50,7 @@ def main(args):
         
         t0 = time.time()
         # qobj = generateQuestions(str(corpus)+data,nquestions)
-        qobj = generateQuestions(str(corpus),nquestions)
+        qobj = generateQuestions(str(corpus)+selObj.get_sentences(),nquestions)
         print "TIME generateQuestions took",time.time()-t0
         
         t0 = time.time()
