@@ -8,6 +8,8 @@ class sentenceSelector:
         self.sentences = []
         self.needTransform = []
         self.remaining = []
+        with open("pronouns.txt","r") as f:
+            self.pronouns = set(f.read().split())
         self.pickTopk(k)
 
     def __str__(self):
@@ -34,8 +36,12 @@ class sentenceSelector:
                     continue
                 tokens = s[u'tokens']
                 sentence = ' '.join(tokens)
-                # TODO: Better pruning for detecting sentences that need transformation
-                if len(tokens) > 20:
+                # Handle appositions
+                if any(token in self.pronouns for token in tokens):
+                    pass
+                    # self.sentences.append(sentence)  
+                elif len(tokens) > 20:
+
                     self.needTransform.append(sentence)
                 else:
                     self.sentences.append(sentence)
