@@ -28,12 +28,13 @@ class sentenceSelector:
             parsed = init.proc2.parse_doc(p)
             count = 0
             for s in parsed[u'sentences']:
+                print s[u'pos']
                 # Prune sentences with very less information
                 if (len(set(s[u'lemmas'])-set(init.puncTags))<3):
                     continue
                 tokens = s[u'tokens']
                 sentence = ' '.join(tokens)
-                # Handle appositions
+                # TODO: Better pruning for detecting sentences that need transformation
                 if len(tokens) > 20:
                     self.needTransform.append(sentence)
                 else:

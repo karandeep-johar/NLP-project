@@ -36,11 +36,11 @@ def main(args):
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
         # TODO: Select questions
-        
+        '''
         t0 = time.time()
         selObj1 = sentenceSelector(data,3)
         print "TIME sentenceSelector took",time.time()-t0
-        
+
         t0 = time.time()
         # corpus = transformSentences(data)
         corpus = transformSentences(selObj1.get_needTransform())
@@ -49,12 +49,12 @@ def main(args):
         t0 = time.time()
         selObj2 = sentenceSelector(str(corpus),3)
         print "TIME sentenceSelector took",time.time()-t0
-        
+        '''
         #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
         
         t0 = time.time()
-        # qobj = generateQuestions(str(corpus)+data,nquestions)
-        qobj = generateQuestions(selObj2.get_sentences()+selObj1.get_sentences(),nquestions)
+        qobj = generateQuestions(data,nquestions)
+        # qobj = generateQuestions(selObj2.get_sentences()+selObj1.get_sentences(),nquestions)
         print "TIME generateQuestions took",time.time()-t0
         
         t0 = time.time()

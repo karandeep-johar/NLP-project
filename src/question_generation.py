@@ -21,10 +21,35 @@ class generateQuestions:
             # Prune trees that are too shallow
             if parse_tree.height() < 4:
                 continue
-            for sub_tree in parse_tree.subtrees():
-                if sub_tree.label() == 'NP':
-                    k = len(sub_tree.leaves())
-                    break
+            # Left-most child should be NP
+            sub_tree = parse_tree[0,0]
+            k = 1
+            if sub_tree.label() == 'NP':
+                k = len(sub_tree.leaves())
+            else:
+                continue
+            # Checking for apposition
+            prev = -1
+            for i in range(0, len(parse_tree[0])):
+                if parse_tree[0,i].label() == 'NP':
+                    prev = -1
+                    for j in range(0, len(parse_tree[0,i])):
+                        if parse_tree[0,i,j].label() == 'NP':
+                            prev = 0
+                        elif prev == 0:
+                            if parse_tree[0,i,j].label() == ',':
+                                prev = 1
+                            else:
+                                prev = -1
+                        elif prev == 1:
+                            if parse_tree[0,i,j].label() == 'NP':
+                                break
+                            else:
+                                prev = -1
+                    if prev == 1:
+                        break
+            if prev == 1:
+                continue
             pos = s[u'pos']
             ner = s[u'ner']
             parse = s[u'parse']
