@@ -7,7 +7,7 @@ class sentenceSelector:
         self.corpus = data
         self.sentences = []
         self.needTransform = []
-        self.remaining = []
+        self.withPronouns = []
         with open("pronouns.txt","r") as f:
             self.pronouns = set(f.read().split())
         self.pickTopk(k)
@@ -18,8 +18,8 @@ class sentenceSelector:
     def get_sentences(self):
         return self.sentences
         
-    def get_remaining(self):
-        return self.remaining
+    def get_withPronouns(self):
+        return self.withPronouns
 
     def get_needTransform(self):
         return self.needTransform
@@ -30,18 +30,14 @@ class sentenceSelector:
             parsed = init.proc2.parse_doc(p)
             count = 0
             for s in parsed[u'sentences']:
-                print s[u'pos']
                 # Prune sentences with very less information
                 if (len(set(s[u'lemmas'])-set(init.puncTags))<3):
                     continue
                 tokens = s[u'tokens']
                 sentence = ' '.join(tokens)
-                # Handle appositions
                 if any(token in self.pronouns for token in tokens):
-                    pass
-                    # self.sentences.append(sentence)  
+                    self.withPronouns.append(sentence)
                 elif len(tokens) > 20:
-
                     self.needTransform.append(sentence)
                 else:
                     self.sentences.append(sentence)
@@ -59,4 +55,4 @@ class sentenceSelector:
         '''
         self.needTransform = ' '.join(self.needTransform)
         self.sentences = ' '.join(self.sentences)
-        # self.remaining = ' '.join(self.remaining)
+        self.withPronouns = ' '.join(self.withPronouns)

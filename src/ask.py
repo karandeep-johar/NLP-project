@@ -36,27 +36,16 @@ def main(args):
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
         # TODO: Select questions
-        '''
+        
         t0 = time.time()
         selObj1 = sentenceSelector(data,3)
         print "TIME sentenceSelector took",time.time()-t0
-
-        t0 = time.time()
-        # corpus = transformSentences(data)
-        corpus = transformSentences(selObj1.get_needTransform())
-        print "TIME transformSentences took",time.time()-t0
         
         t0 = time.time()
-        selObj2 = sentenceSelector(str(corpus),3)
-        print "TIME sentenceSelector took",time.time()-t0
-        '''
-        #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
-        
-        t0 = time.time()
-        qobj = generateQuestions(data,nquestions)
-        # qobj = generateQuestions(selObj2.get_sentences()+selObj1.get_sentences(),nquestions)
+        # qobj = generateQuestions(data,nquestions)
+        qobj = generateQuestions(selObj1.get_sentences(),nquestions)
         print "TIME generateQuestions took",time.time()-t0
-        
+
         t0 = time.time()
         questions = map(transform_question, qobj.get_questions())
         print "TIME transform_question took",time.time()-t0
@@ -71,10 +60,51 @@ def main(args):
         
         #TODO Also print the original sentence from which the Question was made
         print "ACCEPTED"
+        accepted_questions = [questions[i] for i in range(len(questions)) if valid[i]]
         pprint.pprint([questions[i] for i in range(len(questions)) if valid[i]])
         print "REJECTED"
         pprint.pprint([questions[i] for i in range(len(questions)) if not valid[i]])
+
+        k = nquestions - len(accepted_questions)
+        if k > 0:
+
+            t0 = time.time()
+            # corpus = transformSentences(data)
+            corpus = transformSentences(selObj1.get_needTransform())
+            print "TIME transformSentences took",time.time()-t0
         
+            t0 = time.time()
+            selObj2 = sentenceSelector(str(corpus),3)
+            print "TIME sentenceSelector took",time.time()-t0
+        
+            #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
+        
+            t0 = time.time()
+            # qobj = generateQuestions(data,nquestions)
+            qobj = generateQuestions(selObj2.get_sentences(),nquestions)
+            print "TIME generateQuestions took",time.time()-t0
+        
+            t0 = time.time()
+            questions = map(transform_question, qobj.get_questions())
+            print "TIME transform_question took",time.time()-t0
+        
+            #pprint.pprint([questions[i] for i in range(len(questions))])
+        
+            questions = [questions[i] for i in range(len(questions)) if len(questions[i].split()) > 4]
+        
+            t0 = time.time()
+            valid = map(is_grammatical, questions)
+            print "TIME is_grammatical took",time.time()-t0
+        
+            #TODO Also print the original sentence from which the Question was made
+            print "ACCEPTED"
+            accepted_questions2 = [questions[i] for i in range(len(questions)) if valid[i]]
+            pprint.pprint([questions[i] for i in range(len(questions)) if valid[i]])
+            print "REJECTED"
+            pprint.pprint([questions[i] for i in range(len(questions)) if not valid[i]])
+
+            accepted_questions.append(accepted_questions2[:k])
+    
         return 
 if __name__ == '__main__':
     main(sys.argv[1:])

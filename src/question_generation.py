@@ -60,8 +60,6 @@ class generateQuestions:
             tag = pos[i]
             if tokens[i] == "It":
                 questions.append('What '+' '.join(tokens[1:]))
-            elif tokens[i] == "He" or tokens[i] == "She":
-                questions.append('Who '+' '.join(tokens[1:]))
             elif tag[0:2] == 'NN':
                 # TODO: Check for What questions first
                 # TODO: Replace whole NP, not just the noun
