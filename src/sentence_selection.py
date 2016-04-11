@@ -28,17 +28,23 @@ class sentenceSelector:
             parsed = init.proc2.parse_doc(p)
             count = 0
             for s in parsed[u'sentences']:
+                # Prune sentences with very less information
+                if (len(set(s[u'lemmas'])-set(init.puncTags))<3):
+                    continue
                 tokens = s[u'tokens']
                 sentence = ' '.join(tokens)
-                # TODO: More specific constraints for transformation
                 # Handle appositions
                 if len(tokens) > 20:
                     self.needTransform.append(sentence)
+                else:
+                    self.sentences.append(sentence)
+                '''
                 elif count < k:
                     count = count + 1
                     self.sentences.append(sentence)
                 else:
                     self.remaining.append(sentence)
+                '''
         '''
         f1 = open('needtransform.txt','w')
         f2 = open('sentences.txt','w')
@@ -46,4 +52,4 @@ class sentenceSelector:
         '''
         self.needTransform = ' '.join(self.needTransform)
         self.sentences = ' '.join(self.sentences)
-        self.remaining = ' '.join(self.remaining)
+        # self.remaining = ' '.join(self.remaining)

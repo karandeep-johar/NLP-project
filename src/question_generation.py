@@ -18,14 +18,17 @@ class generateQuestions:
         for s in parsed[u'sentences']:
             syn_tree=s[u'parse']
             parse_tree=nltk.Tree.fromstring(syn_tree)
+            # Prune trees that are too shallow
+            if parse_tree.height() < 4:
+                continue
             for sub_tree in parse_tree.subtrees():
                 if sub_tree.label() == 'NP':
                     k = len(sub_tree.leaves())
                     break
-            pos = s['pos']
-            ner = s['ner']
-            parse = s['parse']
-            tokens = s['tokens']
+            pos = s[u'pos']
+            ner = s[u'ner']
+            parse = s[u'parse']
+            tokens = s[u'tokens']
             #TODO improve this Who noted " Fate put me in the movie to show me I was talking out of my ass . ?
             tokens[-1] ="?"
             i = 0

@@ -38,19 +38,23 @@ def main(args):
         # TODO: Select questions
         
         t0 = time.time()
-        selObj = sentenceSelector(data,3)
+        selObj1 = sentenceSelector(data,3)
         print "TIME sentenceSelector took",time.time()-t0
         
         t0 = time.time()
-        corpus = transformSentences(selObj.get_needTransform())
+        # corpus = transformSentences(data)
+        corpus = transformSentences(selObj1.get_needTransform())
         print "TIME transformSentences took",time.time()-t0
         
-        # print corpus
+        t0 = time.time()
+        selObj2 = sentenceSelector(str(corpus),3)
+        print "TIME sentenceSelector took",time.time()-t0
+        
         #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
         
         t0 = time.time()
         # qobj = generateQuestions(str(corpus)+data,nquestions)
-        qobj = generateQuestions(str(corpus)+selObj.get_sentences(),nquestions)
+        qobj = generateQuestions(selObj2.get_sentences()+selObj1.get_sentences(),nquestions)
         print "TIME generateQuestions took",time.time()-t0
         
         t0 = time.time()
@@ -59,6 +63,7 @@ def main(args):
         
         #pprint.pprint([questions[i] for i in range(len(questions))])
         
+        questions = [questions[i] for i in range(len(questions)) if len(questions[i].split()) > 4]
         
         t0 = time.time()
         valid = map(is_grammatical, questions)
