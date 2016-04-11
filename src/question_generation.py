@@ -11,6 +11,29 @@ class generateQuestions:
 
     def __str__(self):
         return str(self.questions)
+    
+    def dealWithApposition(self, parse_tree):
+        prev = -1
+        for i in range(0, len(parse_tree[0])):
+            if parse_tree[0,i].label() == 'NP':
+                prev = -1
+                for j in range(0, len(parse_tree[0,i])):
+                    if prev == -1:
+                        if parse_tree[0,i,j].label() == 'NP':
+                            prev = 0
+                    elif prev == 0:
+                        if parse_tree[0,i,j].label() == ',':
+                            prev = 1
+                        else:
+                            prev = -1
+                    elif prev == 1:
+                        if parse_tree[0,i,j].label() == 'NP':
+                            break
+                        else:
+                            prev = -1
+                if prev == 1:
+                    break
+        return prev
 
     def getQues(self,parsed):
         questions = []
@@ -29,26 +52,7 @@ class generateQuestions:
             else:
                 continue
             # Checking for apposition
-            prev = -1
-            for i in range(0, len(parse_tree[0])):
-                if parse_tree[0,i].label() == 'NP':
-                    prev = -1
-                    for j in range(0, len(parse_tree[0,i])):
-                        if parse_tree[0,i,j].label() == 'NP':
-                            prev = 0
-                        elif prev == 0:
-                            if parse_tree[0,i,j].label() == ',':
-                                prev = 1
-                            else:
-                                prev = -1
-                        elif prev == 1:
-                            if parse_tree[0,i,j].label() == 'NP':
-                                break
-                            else:
-                                prev = -1
-                    if prev == 1:
-                        break
-            if prev == 1:
+            if self.dealWithApposition(parse_tree) == 1:
                 continue
             pos = s[u'pos']
             ner = s[u'ner']
