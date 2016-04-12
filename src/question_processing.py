@@ -37,6 +37,7 @@ class Question_parser:
             'Dataset = ' + self.dataset + '\n'
 
     def parse(self):
+        # What can be followed by a time reference. Like on what/which date/place/person
         AUX_QWORDS = set(['be', 'do','does','have','can','could', 'will', 'would'])
         OTHER_QWORDS = set(['who','whom','when','where','how'])
         proc = init.proc1

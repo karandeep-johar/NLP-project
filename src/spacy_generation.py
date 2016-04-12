@@ -183,7 +183,7 @@ def extract_relations_entities(f):
         #         print dependency_labels_to_root(token)
     # for relation in relations:
     #     print relation[1].lemma_, relation[1].lemma_.lower() in pronouns
-    relations = filter(lambda relation:check_pronoun( relation[1].lemma_.lower().split()) and check_pronoun(relation[2][0].lemma_.lower().split()), relations)
+    relations = filter(lambda relation:check_pronoun( relation[1].lemma_.lower().split()) and check_pronoun([relation[2].lemma_.lower().split()[0]]), relations)
     # for relation in relations:
     #     print relation, relation[1].ent_type_
     # pprint(relations)
@@ -216,7 +216,7 @@ def make_questions_relations(relations):
 #TODO remove punctuation errors, look at why 2014-15 becomes 201415 and make tougher questions?
 # choose one of who/what/where etc.
 # make questions by replacing people, dates
-with open("../data/set1/a8.txt","r") as f:
+with open("../data/set4/a3.txt","r") as f:
     x = extract_relations_entities(f)
     pprint(x[1])
     pprint(make_questions_relations(x[1]))
