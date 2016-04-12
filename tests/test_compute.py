@@ -65,12 +65,13 @@ def test_factoid(param_factoid):
     if questionProcess.valid: #questionProcess.difficulty == "easy" :
         try:
             interestingText = objTfidf.getInterestingText(qpobj.question)
-            ans = answerFactoid(qpobj.question, interestingText, questionProcess)
+            ans = answerFactoid(qpobj.question, interestingText, questionProcess,objTfidf)
             #assert True == str2bool(qpobj.answer)
             #assertIsNotNone(ans)
             #assert ans != None
             #assert False == True
-            if qpobj.answer_type != set(['UNKNOWN']) and qpobj.qtype == 'Factoid':
+            #if qpobj.answer_type == set(['UNKNOWN']) and qpobj.qtype == 'Factoid':
+            if qpobj.qtype == 'Factoid':
                 ref_answer = qpobj.answer.lower()
                 gen_answer = ans[0].lower()
                 condition1 = gen_answer in ref_answer

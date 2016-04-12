@@ -56,7 +56,7 @@ def pytest_generate_tests(metafunc):
             questionsDataList = filter(filter_useless, questionsDataList)
             article_questions = defaultdict(list)
             for question in questionsDataList:
-                if "medium" == question[3]:
+                if "medium" == question[3] or "hard" == question[3]:
                     article_questions[question[5]].append(question)
             article_tfidf = {}
             for article in article_questions:
@@ -65,12 +65,13 @@ def pytest_generate_tests(metafunc):
                     objTfidf = TF_IDF(data, map(lambda x:x[1], article_questions[article]))
                     article_tfidf[article] = objTfidf
             for question in questionsDataList:
-                if "medium" == question[3]:
+                if "medium" == question[3] or "hard" == question[3]:
                     print question
                     ques = Question_parser(question[1],difficulty = question[3], answer = question[2],parseFlag = True, article_title = question[0], dataset = question[5])
-                    if ques.answer_type != set(['UNKNOWN']):
-                        questions.append((ques,article_tfidf[question[5]]))
-                    #break
+                    questions.append((ques,article_tfidf[question[5]]))
+                    #if ques.answer_type == set(['UNKNOWN']):
+                        #questions.append((ques,article_tfidf[question[5]]))
+
             metafunc.parametrize("param_factoid", questions)
     # else:
     #     questions = []
