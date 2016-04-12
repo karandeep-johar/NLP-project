@@ -32,8 +32,7 @@ def find_phrase(parse_tree,candidate_token):
 			if (sub_tree.height()==min_depth) and sub_tree.label()=='NP' and (set(candidate_token) <= set(sub_tree.leaves())):
 				return " ".join(sub_tree.leaves())
 
-
-	return []
+	return None
 
 # Returns all depth 3 NP's encompassing Input_tags as a list
 def NER_phrase_answer(Interesting_Text,questionParseObj):
@@ -42,58 +41,75 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 	question = preprocess_text(question)
 	question_parsed=proc1.parse_doc(question)
 	question_lemmas = question_parsed['sentences'][0]['lemmas']
+	question_pos = question_parsed['sentences'][0]['pos']
+	question_keywords = []
+	pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+	for i in range(len(question_pos)):
+		if question_pos[i] in pos_list and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+		    question_keywords.append(question_lemmas[i])
+
 	scored_answers = []
 	print "No. of sentences=" + str(len(Interesting_Text))
+	for i in range(len(Interesting_Text)):
+		s = Interesting_Text[i]
+		candidate_sentence = s[1]['tokens']
+		candidate_sentence = " ".join(candidate_sentence)
+		print candidate_sentence
+	for i in range(len(Interesting_Text)):
+		s = Interesting_Text[i]
+		candidate_sentence = s[1]['tokens']
+		candidate_sentence = " ".join(candidate_sentence)
+		candidate_sentence = preprocess_text(candidate_sentence)
+		parsed=proc1.parse_doc(candidate_sentence)
+		ner=parsed['sentences'][0]['ner']
+		tokens=parsed['sentences'][0]['tokens']
+		candidate_pos=parsed['sentences'][0]['pos']
+		candidate_lemmas=parsed['sentences'][0]['lemmas']
+		candidate_keywords = []
+		for i in range(len(candidate_pos)):
+			if candidate_pos[i] in pos_list and candidate_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+			    candidate_keywords.append(candidate_lemmas[i])
+		if(len(set(candidate_keywords)&set(question_keywords)) >=1):
+			sentence_found = True
+			break;
+	if sentence_found == False:
+		return None
+	print "Selected sentence is"
+	print candidate_sentence 
 	print Input_tag
 	#print "Person" in Input_tag
 	results=[]
-	for i in range(1):
-	#for i in range(len(Interesting_Text)):
-		s = Interesting_Text[i]
-		score = s[0]
-		lemmas = s[1]['lemmas']
-		posTags = s[1]['pos']
-		candidate_sentence = s[1]['tokens']
-		candidate_sentence = " ".join(candidate_sentence)
-		#print candidate_sentence
-		candidate_sentence = preprocess_text(candidate_sentence)
-		parsed=proc1.parse_doc(candidate_sentence)
-		print "Candidate sentence " , candidate_sentence
-		# print parsed
-		ner=parsed['sentences'][0]['ner']
-		print ner
-		tokens=parsed['sentences'][0]['tokens']
-		candidate_token=[]
-		candidate_tokens=[]
-		i=0;
-		while i < len(ner):
-			tag = ner[i]
-			if tag in Input_tag:
-				candidate_token.append(tokens[i])
-				for j in range(i+1,len(ner)):
-					if ner[j] in Input_tag:
-						candidate_token.append(tokens[j])
-					else:
-						break
-				candidate_tokens.append(candidate_token)
-				candidate_token = []
-				i=j
-				if(j==len(ner)-1):
+	candidate_token=[]
+	candidate_tokens=[]
+	i=0;
+	while i < len(ner):
+		tag = ner[i]
+		if tag in Input_tag:
+			candidate_token.append(tokens[i])
+			for j in range(i+1,len(ner)):
+				if ner[j] in Input_tag:
+					candidate_token.append(tokens[j])
+				else:
 					break
-			else:
-				i = i+1
-		if not candidate_tokens:
-			continue
-		syn_tree=parsed[u'sentences'][0][u'parse']
-		parse_tree=nltk.Tree.fromstring(syn_tree)
-		#parse_tree.pretty_print()
-		for candidate_token in candidate_tokens:
-			#print candidate_token
-			result=find_phrase(parse_tree,candidate_token)
-			print result
-			#Exclude phrases that are included in the question
-			#scored_answers.append((score,filtered_answers))
-			results.append(result)
+			candidate_tokens.append(candidate_token)
+			candidate_token = []
+			i=j
+			if(j==len(ner)-1):
+				break
+		else:
+			i = i+1
+	if not candidate_tokens:
+		return None
+	syn_tree=parsed[u'sentences'][0][u'parse']
+	parse_tree=nltk.Tree.fromstring(syn_tree)
+	#parse_tree.pretty_print()
+	for candidate_token in candidate_tokens:
+		#print candidate_token
+		result=find_phrase(parse_tree,candidate_token)
+		print result
+		#Exclude phrases that are included in the question
+		#scored_answers.append((score,filtered_answers))
+		results.append(result)
 		#return results
 		#scored_answers.append((score,results))
 	#print results
@@ -105,7 +121,7 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 	if len(filtered_answers) > 0:
 		return filtered_answers[0]
 	else: 
-		return []
+		return None
 
 def preprocess_text(text):
 	text=text.replace("-LRB-","(")
@@ -116,6 +132,17 @@ def preprocess_text(text):
 def NER_phrase_utest(Interesting_Text,questionParseObj):
 	Input_tag = questionParseObj.answer_type
 	question = questionParseObj.question
+	question = preprocess_text(question)
+	question_parsed=proc1.parse_doc(question)
+	question_lemmas = question_parsed['sentences'][0]['lemmas']
+	question_pos = question_parsed['sentences'][0]['pos']
+	question_keywords = []
+	pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+	print question_pos
+	for i in range(len(question_pos)):
+		if question_pos[i] in pos_list and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+		    question_keywords.append(question_lemmas[i])
+	print question_keywords            
 	scored_answers = []
 	print Input_tag
 	#print "Person" in Input_tag
@@ -128,11 +155,20 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	ner=parsed['sentences'][0]['ner']
 	print ner
 	tokens=parsed['sentences'][0]['tokens']
+	candidate_pos=parsed['sentences'][0]['pos']
+	candidate_lemmas=parsed['sentences'][0]['lemmas']
+	candidate_keywords = []
+	for i in range(len(candidate_pos)):
+		if candidate_pos[i] in pos_list and candidate_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+		    candidate_keywords.append(candidate_lemmas[i])
+	print candidate_keywords
+	if(len(set(candidate_keywords)&set(question_keywords)) < 2):
+		print "Wrong TFIDF sentence"
+		return []
 	candidate_token=[]
 	candidate_tokens=[]
-	question = preprocess_text(question)
-	question_parsed=proc1.parse_doc(question)
-	question_lemmas = question_parsed['sentences'][0]['lemmas']
+
+
 	print question_lemmas
 	i=0;
 	while i < len(ner):
@@ -152,7 +188,7 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 		else:
 			i = i+1
 	if not candidate_tokens:
-		return []
+		return None
 	syn_tree=parsed[u'sentences'][0][u'parse']
 	parse_tree=nltk.Tree.fromstring(syn_tree)
 	parse_tree.pretty_print()
@@ -174,7 +210,7 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	if len(filtered_answers) > 0:
 		return filtered_answers[0]
 	else: 
-		return []
+		return None
 
 
 #Unit test
@@ -189,10 +225,21 @@ if __name__ == '__main__':
 	#question = "How long is an adult cougar's paw print?"
 	#Int_text = "The pan flute was used in Greece from the 7th century BC , and spread to other parts of Europe ."
 	#question = "When was the pan flute used in Greece?"
-	Int_text = "Watt retired in 1800 , the same year that his fundamental patent and partnership with Boulton expired"
-	question = "When did Watt retire?"
-	#Int_text = preprocess_text(Int_text)
-	print Int_text
+	#Int_text = "Watt retired in 1800 , the same year that his fundamental patent and partnership with Boulton expired"
+	#question = "When did Watt retire?"
+	#Int_text1 = "The copper does not react , functioning as an electrode for the reaction ."
+	#Int_text1 = "In 1794 , Volta married Teresa Peregrini , with whom he raised three sons , Giovanni , Flaminio and Zanino ."
+	#question = "Who did Alessandro Volta marry?"
+	question = "When did Alessandro Volta improve  and popularize the electrophorus?"
+	Int_text = "A year later , he improved and popularized the electrophorus , a device that produces a static electric charge ."
+	Int_text = preprocess_text(Int_text)
 	questionParseObj = Question_parser(question,parseFlag = True)
 	res=NER_phrase_utest(Int_text,questionParseObj)
+	print type(res)
+	if res and res != 'None':
+	    print "NER accepted"
+	    print "NER answer: "
+	    print res
+	else:
+		print "NER failed: Fallback to Set-diff"
 	print res

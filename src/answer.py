@@ -36,7 +36,7 @@ def find_phrase_diff(parse_tree,candidate_token):
         for sub_tree in parse_tree.subtrees():
             if (sub_tree.height()==min_depth) and (sub_tree.label()=='NP' or sub_tree.label()=='VP' or sub_tree.label()=='S') and (set(candidate_token) <= set(sub_tree.leaves())):
                 return " ".join(sub_tree.leaves())
-    return []
+    return None
 
 
 def Refine_TFIDF_answer(diff_answer,candidate_sentence_struct):
@@ -69,13 +69,21 @@ def Refine_TFIDF_answer(diff_answer,candidate_sentence_struct):
 
 def answerFactoid(question,interestingText,questionParseObj,objTfidf):
     answers=[]
-    if(questionParseObj.answer_type == set(['UNKNOWN'])):
-        answerlist=objTfidf.getAnswer(question, interestingText,questionParseObj)
-        answer_processed = Refine_TFIDF_answer(answerlist[0],interestingText[0][1])
-        answers.append(answer_processed)
-    else:
+    if(questionParseObj.answer_type != set(['UNKNOWN'])):
         answer = NER_phrase_answer(interestingText,questionParseObj)
-        answers.append(answer)
+        if answer and answer != 'None':
+            print "NER accepted"
+            print "NER answer: "
+            print answer
+            answers.append(answer)
+            return answers[0]
+        else:
+            print "NER failed: Fallback to Set-diff"
+    # If NER approach fails or NER tag is not avaialable, resort to set difference method
+    answerlist=objTfidf.getAnswer(question, interestingText,questionParseObj)
+    answer_processed = Refine_TFIDF_answer(answerlist[0],interestingText[0][1])
+    print "Set diff answer: " + str(answer_processed)
+    answers.append(answer_processed)  
     return answers[0]
 
 def getStopLemmas():

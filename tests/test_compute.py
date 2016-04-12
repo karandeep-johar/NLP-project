@@ -73,7 +73,7 @@ def test_factoid(param_factoid):
             #if qpobj.answer_type == set(['UNKNOWN']) and qpobj.qtype == 'Factoid':
             if qpobj.qtype == 'Factoid':
                 ref_answer = qpobj.answer.lower()
-                gen_answer = ans[0].lower()
+                gen_answer = ans.lower()
                 condition1 = gen_answer in ref_answer
                 condition2 = (ref_answer in gen_answer) and (len(gen_answer.split()) - len(ref_answer.split()) <=5)
                 condition = condition1 or condition2
