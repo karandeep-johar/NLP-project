@@ -15,39 +15,62 @@ class generateQuestions:
     
     def dealWithApposition(self, parse_tree):
         prev = -1
+        s1 = []
+        s2 = []
+        found = 0
         for i in range(0, len(parse_tree[0])):
-            if parse_tree[0,i].label() == 'NP':
+            if parse_tree[0,i].label() == 'NP' and found == 0:
                 prev = -1
                 for j in range(0, len(parse_tree[0,i])):
+                    if found == 1:
+                        s1.append(parse_tree[0,i,j].leaves())
+                        s2.append(parse_tree[0,i,j].leaves())
                     if prev == -1:
                         if parse_tree[0,i,j].label() == 'NP':
                             prev = 0
+                        else:
+                            s1.append(parse_tree[0,i,j].leaves())
+                            s2.append(parse_tree[0,i,j].leaves())
                     elif prev == 0:
                         if parse_tree[0,i,j].label() == ',':
                             prev = 1
                         else:
+                            s1.append(parse_tree[0,i,j-1].leaves())
+                            s1.append(parse_tree[0,i,j].leaves())
+                            s2.append(parse_tree[0,i,j-1].leaves())
+                            s2.append(parse_tree[0,i,j].leaves())
                             prev = -1
-                    elif prev == 1:
+                    elif prev == 1 and found != 1:
                         if parse_tree[0,i,j].label() == 'NP':
-                            phrase1 = parse_tree[0,i,j-2].leaves()
-                            phrase2 = parse_tree[0,i,j].leaves()
-                            self.apposSentences.append([parse_tree[0].leaves(),phrase1,phrase2])
-                            break
+                            s1.append(parse_tree[0,i,j-2].leaves())
+                            s2.append(parse_tree[0,i,j].leaves())
+                            found = 1
                         else:
+                            s1.append(parse_tree[0,i,j-2].leaves())
+                            s1.append(parse_tree[0,i,j-1].leaves())
+                            s1.append(parse_tree[0,i,j].leaves())
+                            s2.append(parse_tree[0,i,j-2].leaves())
+                            s2.append(parse_tree[0,i,j-1].leaves())
+                            s2.append(parse_tree[0,i,j].leaves())
                             prev = -1
-                if prev == 1:
-                    break
-        return prev
-
-    def getApposSentences():
-        pass
+            else:
+                s1.append(parse_tree[0,i].leaves())
+                s2.append(parse_tree[0,i].leaves())
+        s1 = [str(item) for sublist in s1 for item in sublist]
+        s2 = [str(item) for sublist in s2 for item in sublist]
+        s1 = ' '.join(s1)
+        s2 = ' '.join(s2)
+        if found == 1:
+            self.apposSentences.append(s1)
+            self.apposSentences.append(s2)
+        return found
 
     def getQues(self):
         proc = init.proc1
-        pp = init.pprint.PrettyPrinter(indent=2)
+        # pp = init.pprint.PrettyPrinter(indent=2)
         parsed = proc.parse_doc(self.corpus)
         questions = []
-        #print len(sub_tree.leaves())
+        # print len(sub_tree.leaves())
         for s in parsed[u'sentences']:
             syn_tree=s[u'parse']
             parse_tree=nltk.Tree.fromstring(syn_tree)
@@ -83,7 +106,7 @@ class generateQuestions:
                     questions.append('Where '+' '.join(tokens[k:]))
                 elif ner[i] == 'DATE':
                     questions.append('When '+' '.join(tokens[k:]))
-                elif not ner[i] == ' ':
+                else:
                     questions.append('What '+' '.join(tokens[k:]))
         return questions
             
@@ -91,10 +114,10 @@ class generateQuestions:
         return self.questions
     
     def generate(self):
-        # pp.pprint(parsed)
         self.questions = self.getQues()
-        '''
         while len(self.apposSentences) > 0:
-            self.corpus = self.getApposSentences()
-            self.questions.append(getQues())
-        '''
+            self.corpus = ' '. join(self.apposSentences)
+            self.apposSentences = []
+            ques = self.getQues()
+            for q in ques:
+                self.questions.append(q)
