@@ -7,6 +7,7 @@ class generateQuestions:
         self.corpus = data
         self.numQues = n
         self.questions = []
+        self.apposSentences = []
         self.generate()
 
     def __str__(self):
@@ -28,6 +29,9 @@ class generateQuestions:
                             prev = -1
                     elif prev == 1:
                         if parse_tree[0,i,j].label() == 'NP':
+                            phrase1 = parse_tree[0,i,j-2].leaves()
+                            phrase2 = parse_tree[0,i,j].leaves()
+                            self.apposSentences.append([parse_tree[0].leaves(),phrase1,phrase2])
                             break
                         else:
                             prev = -1
@@ -35,7 +39,13 @@ class generateQuestions:
                     break
         return prev
 
-    def getQues(self,parsed):
+    def getApposSentences():
+        pass
+
+    def getQues(self):
+        proc = init.proc1
+        pp = init.pprint.PrettyPrinter(indent=2)
+        parsed = proc.parse_doc(self.corpus)
         questions = []
         #print len(sub_tree.leaves())
         for s in parsed[u'sentences']:
@@ -76,11 +86,15 @@ class generateQuestions:
                 elif not ner[i] == ' ':
                     questions.append('What '+' '.join(tokens[k:]))
         return questions
+            
     def get_questions(self):
         return self.questions
+    
     def generate(self):
-        proc = init.proc1
-        pp = init.pprint.PrettyPrinter(indent=2)
-        parsed = proc.parse_doc(self.corpus)
         # pp.pprint(parsed)
-        self.questions = self.getQues(parsed)
+        self.questions = self.getQues()
+        '''
+        while len(self.apposSentences) > 0:
+            self.corpus = self.getApposSentences()
+            self.questions.append(getQues())
+        '''
