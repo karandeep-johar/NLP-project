@@ -53,7 +53,8 @@ def main(args):
         #pprint.pprint([questions[i] for i in range(len(questions))])
         
         questions = [questions[i] for i in range(len(questions)) if len(questions[i].split()) > 4]
-        
+
+        # TODO: Check for <Question Word> , rest of question ? cases and remove comma
         t0 = time.time()
         valid = map(is_grammatical, questions)
         print "TIME is_grammatical took",time.time()-t0

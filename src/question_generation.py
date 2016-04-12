@@ -99,7 +99,6 @@ class generateQuestions:
                 questions.append('What '+' '.join(tokens[1:]))
             elif tag[0:2] == 'NN':
                 # TODO: Check for What questions first
-                # TODO: Replace whole NP, not just the noun
                 if ner[i] == 'PERSON':
                     questions.append('Who '+' '.join(tokens[k:]))
                 elif ner[i] == 'LOCATION':
