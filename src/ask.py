@@ -25,6 +25,45 @@ def transform_question(ques):
     ques = ques.replace("Who's","Whose")
     return ques
 
+def run_pipeline(sentences, nquestions,  pickTopk, pruneSmall):
+    
+    t0 = time.time()
+    # qobj = generateQuestions(data,nquestions)
+    qobj = generateQuestions(sentences,nquestions)
+    print "TIME generateQuestions took",time.time()-t0
+
+    t0 = time.time()
+    questions = map(transform_question, qobj.get_questions())
+    print "TIME transform_question took",time.time()-t0
+    print questions
+
+    t0 = time.time()
+    questions = map(formGrammaticalSentence, questions)
+    print "TIME formGrammaticalSentence took",time.time()-t0
+    print questions
+
+    print "XXXXXXXXXXxxx"
+    #pprint.pprint([questions[i] for i in range(len(questions))])
+    questions = filter(lambda question: len(question.split())>pruneSmall, questions)
+
+    questions = map(str, questions)
+    print questions
+    valid = questions
+    # TODO: Check for <Question Word> , rest of question ? cases and remove comma
+    t0 = time.time()
+    valid = map(is_grammatical, questions)
+    print "TIME is_grammatical took",time.time()-t0
+    
+    print "YYYYYYYYYYYYYYY"
+    #TODO Also print the original sentence from which the Question was made
+    print "ACCEPTED"
+    accepted_questions_indices = filter(lambda i: valid[i], range(len(questions)))
+    accepted_questions = map(lambda idx: questions[idx], accepted_questions_indices)
+    pprint.pprint(accepted_questions)
+    print "REJECTED"
+    pprint.pprint(filter(lambda question: question not in accepted_questions, questions))
+    return accepted_questions
+
 # TODO look ata this issue "What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?"
 # print transform_question("Who 's commander is Nero  ?")
 # this whole thing takes really long on my machine. Maybe we should try a streaming model? Parallelism may help here too.
@@ -36,35 +75,11 @@ def main(args):
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
         # TODO: Select questions
-        
         t0 = time.time()
         selObj1 = sentenceSelector(data,3)
         print "TIME sentenceSelector took",time.time()-t0
+        accepted_questions = run_pipeline(selObj1.get_sentences(), nquestions ,pickTopk = 3,pruneSmall = 4)
         
-        t0 = time.time()
-        # qobj = generateQuestions(data,nquestions)
-        qobj = generateQuestions(selObj1.get_sentences(),nquestions)
-        print "TIME generateQuestions took",time.time()-t0
-
-        t0 = time.time()
-        questions = map(transform_question, qobj.get_questions())
-        print "TIME transform_question took",time.time()-t0
-        
-        #pprint.pprint([questions[i] for i in range(len(questions))])
-        
-        questions = [questions[i] for i in range(len(questions)) if len(questions[i].split()) > 4]
-
-        # TODO: Check for <Question Word> , rest of question ? cases and remove comma
-        t0 = time.time()
-        valid = map(is_grammatical, questions)
-        print "TIME is_grammatical took",time.time()-t0
-        
-        #TODO Also print the original sentence from which the Question was made
-        print "ACCEPTED"
-        accepted_questions = [questions[i] for i in range(len(questions)) if valid[i]]
-        pprint.pprint([questions[i] for i in range(len(questions)) if valid[i]])
-        print "REJECTED"
-        pprint.pprint([questions[i] for i in range(len(questions)) if not valid[i]])
 
         k = nquestions - len(accepted_questions)
         if k > 0:
@@ -79,31 +94,7 @@ def main(args):
             print "TIME sentenceSelector took",time.time()-t0
         
             #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
-        
-            t0 = time.time()
-            # qobj = generateQuestions(data,nquestions)
-            qobj = generateQuestions(selObj2.get_sentences(),nquestions)
-            print "TIME generateQuestions took",time.time()-t0
-        
-            t0 = time.time()
-            questions = map(transform_question, qobj.get_questions())
-            print "TIME transform_question took",time.time()-t0
-        
-            #pprint.pprint([questions[i] for i in range(len(questions))])
-        
-            questions = [questions[i] for i in range(len(questions)) if len(questions[i].split()) > 4]
-        
-            t0 = time.time()
-            valid = map(is_grammatical, questions)
-            print "TIME is_grammatical took",time.time()-t0
-        
-            #TODO Also print the original sentence from which the Question was made
-            print "ACCEPTED"
-            accepted_questions2 = [questions[i] for i in range(len(questions)) if valid[i]]
-            pprint.pprint([questions[i] for i in range(len(questions)) if valid[i]])
-            print "REJECTED"
-            pprint.pprint([questions[i] for i in range(len(questions)) if not valid[i]])
-
+            accepted_questions2 = run_pipeline(selObj2.get_sentences(), nquestions ,pickTopk = 3,pruneSmall = 4)
             accepted_questions.append(accepted_questions2[:k])
     
         return 
