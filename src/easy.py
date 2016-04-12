@@ -1,7 +1,7 @@
 from init import *
 from nltk.stem.porter import *
 ps = PorterStemmer()
-proc = proc1
+proc = proc2
 # TODO remove unicode like u'&#27713;, 
 # experiment with stemmer 
 # lower the tfidf score for expremely short sentences
@@ -57,10 +57,10 @@ def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSe
                     answers.append('Yes')
         print answers
         if 'No Sure' in answers[:negationCutoff]:
-            return 'No'
+            return 'No.'
         elif 'Yes' in answers:
-            return 'Yes'
+            return 'Yes.'
         else:
-            return 'No'
+            return 'No.'
     else:
         return 'INVALID'

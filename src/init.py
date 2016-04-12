@@ -23,23 +23,30 @@ LEVELS = { 'debug':logging.DEBUG,
             }
 
 MIN_PARA_SIZE = 4
-# def removeHeadingsOld(article):
-#     data = article.read()
-#     data = str(unicode(data, errors='ignore'))
-#     splitData = data.split('\n')
-#     title = ' '.join(splitData[0].split('_'))+'.'
-#     finalParas = []
-#     for para in splitData:
-#         if len(para.split())>MIN_PARA_SIZE:
-#             finalParas.append(para)
-#     data = '\n'.join(finalParas)
-#     titleLemmas = [w.lower() for w in proc2.parse_doc(title)['sentences'][0]['lemmas']]
-#     titleLemmasSet = set(titleLemmas)
-#     for tL in titleLemmas:
-#         parts = tL.split('_')
-#         if len(parts)>1:
-#             titleLemmasSet|=set(parts)
-#     return data,titleLemmasSet
+def formGrammaticalSentence(sentence):
+    charType=[]
+    if type(sentence) is str:
+        sentence=sentence.split()
+    for word in sentence:
+        if word.isalpha():
+            charType.append('ALPH')
+        elif '\'s' in word:
+            charType.append('APOS')
+        elif '\'' in word:
+            charType.append('APO')
+        elif len(set(puncTags) and set(word))>0:
+            charType.append('PUNC')
+    formedSent = ''
+    for i in range(len(sentence)):
+        word = sentence[i]
+        if charType[i]=='PUNC' or charType[i]=='APO' or charType[i]=='APOS':
+            formedSent+=word
+        elif charType[i]=='ALPH':
+            formedSent+=' '+word
+    formedSent = formedSent.strip()
+    if formedSent[-1]!='.' or formedSent[-1]!='?' or formedSent[-1]!='!':
+        formedSent+='.'
+    return formedSent
 
 def removeHeadings(article):
     data = article.read()
