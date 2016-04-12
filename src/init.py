@@ -28,7 +28,6 @@ def formGrammaticalSentence(sentence):
     charType=[]
     if type(sentence) is str:
         sentence=proc2.parse_doc(sentence)['sentences'][0]['tokens']
-    print sentence[-1]
     if sentence[-1]=='?':
         if sentence[1]==',':
             del sentence[1]
@@ -64,7 +63,8 @@ def formGrammaticalSentence(sentence):
     if formedSent[-1]!='.' and formedSent[-1]!='?' and formedSent[-1]!='!':
         formedSent+='.'
     return formedSent
-
+    
+# print formGrammaticalSentence('was The film shot in various locations around California and Utah ?')
 def removeHeadings(article):
     data = article.read()
     code = chardet.detect(data)
