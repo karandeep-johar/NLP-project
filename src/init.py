@@ -37,6 +37,7 @@ def formGrammaticalSentence(sentence):
         elif len(set(puncTags) and set(word))>0:
             charType.append('PUNC')
     formedSent = ''
+    sentence[0]=sentence[0][0].upper()+sentence[0][1:]
     for i in range(len(sentence)):
         word = sentence[i]
         if charType[i]=='PUNC' or charType[i]=='APO' or charType[i]=='APOS':
@@ -44,7 +45,7 @@ def formGrammaticalSentence(sentence):
         elif charType[i]=='ALPH':
             formedSent+=' '+word
     formedSent = formedSent.strip()
-    if formedSent[-1]!='.' or formedSent[-1]!='?' or formedSent[-1]!='!':
+    if formedSent[-1]!='.' and formedSent[-1]!='?' and formedSent[-1]!='!':
         formedSent+='.'
     return formedSent
 

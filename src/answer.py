@@ -104,7 +104,7 @@ def main(args):
             if "BOOLEAN" in questionParseObj.answer_type:
                 print answerYesNo(question, interestingText, questionParseObj,titleLemmasSet,stopLemmasSet)
             else:
-                answerFactoid(question,interestingText,questionParseObj,objTfidf)
+                print formGrammaticalSentence(answerFactoid(question,interestingText,questionParseObj,objTfidf)[0])
 
 if __name__ == '__main__':
     main(sys.argv[1:])
