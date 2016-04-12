@@ -76,7 +76,7 @@ def answerFactoid(question,interestingText,questionParseObj,objTfidf):
     else:
         answer = NER_phrase_answer(interestingText,questionParseObj)
         answers.append(answer)
-    return answers
+    return answers[0]
 
 def getStopLemmas():
     # For longer stopword list
