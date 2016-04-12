@@ -27,12 +27,12 @@ MIN_PARA_SIZE = 4
 def formGrammaticalSentence(sentence):
     charType=[]
     if type(sentence) is str:
-        sentence=sentence.split()
+        sentence=proc2.parse_doc(sentence)['sentences'][0]['tokens']
     print sentence[-1]
     if sentence[-1]=='?':
         if sentence[1]==',':
             del sentence[1]
-        while sentence[-2]=='and' or sentence[-2]==',' or sentence[-2]=='.':
+        while sentence[-2]=='and' or sentence[-2]==',' or sentence[-2]=='.' or sentence[-2]=='..':
             del sentence[-2]
     for word in sentence:
         if word.isalpha():
