@@ -46,13 +46,13 @@ class Question_parser:
             self.valid = True
             # pprint(parsed)
             wh_word=''
-            for i in len(parsed['sentences'][0]['lemmas']):
-                if parsed['sentences'][0]['lemmas'][i] in (AUX_QWORDS|OTHER_QWORDS):
-                    wh_word = parsed['sentences'][0]['lemmas'][i]
-                    break
+            lemmas =parsed['sentences'][0]['lemmas']
+            wh_words = filter(lambda lemma: lemma in (AUX_QWORDS|OTHER_QWORDS), lemmas)
+            wh_word = wh_words[0] if wh_words else ''
             if wh_word=='':
                 self.valid = False
                 return
+            i = wh_words.index(wh_word)
             wh_wordL = wh_word.lower()
             if wh_wordL in AUX_QWORDS:
                 self.qtype = 'BOOLEAN'

@@ -25,6 +25,8 @@ LEVELS = { 'debug':logging.DEBUG,
 
 MIN_PARA_SIZE = 4
 def formGrammaticalSentence(sentence):
+    if not sentence:
+        return ""
     charType=[]
     if type(sentence) is str:
         sentence=proc2.parse_doc(sentence)['sentences'][0]['tokens']
@@ -62,7 +64,7 @@ def formGrammaticalSentence(sentence):
     formedSent = formedSent.strip()
     if formedSent[-1]!='.' and formedSent[-1]!='?' and formedSent[-1]!='!':
         formedSent+='.'
-    return formedSent
+    return str(formedSent)
     
 # print formGrammaticalSentence('was The film shot in various locations around California and Utah ?')
 def removeHeadings(article):

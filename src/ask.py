@@ -90,7 +90,8 @@ def main(args):
             #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
             accepted_questions2 = run_pipeline(selObj2.get_sentences(), nquestions ,pickTopk = 3,pruneSmall = 4)
             accepted_questions.append(accepted_questions2[:k])
-    
+        with open("generated_questions.txt", "w") as file:
+            file.write("\n".join(accepted_questions))
         return 
 if __name__ == '__main__':
     main(sys.argv[1:])

@@ -13,6 +13,9 @@ def easy_generation(sentence):
             tokens = proc3.parse_doc(ques)['sentences'][0]['tokens']
             #TODO improve capitalization
             tokens[-1] = "?"
+            print "easy_generation", tokens
+            if tokens[1] in ["A", "An", "The"]:
+                tokens[1] = tokens[1].lower()
             return " ".join(tokens)
             
 
