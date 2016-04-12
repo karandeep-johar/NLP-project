@@ -125,11 +125,11 @@ class generateQuestions:
                 questions.append('What '+' '.join(tokens[1:]))
             elif tag[0:2] == 'NN':
                 # TODO: Check for What questions first
-                if ner[i] == 'PERSON':
+                if ner[i] == 'PERSON' or ner[i] == 'ORGANIZATION':
                     questions.append('Who '+' '.join(tokens[k:]))
                 elif ner[i] == 'LOCATION':
                     questions.append('Where '+' '.join(tokens[k:]))
-                elif ner[i] == 'DATE':
+                elif ner[i] == 'DATE' or ner[i] == 'TIME':
                     questions.append('When '+' '.join(tokens[k:]))
                 else:
                     questions.append('What '+' '.join(tokens[k:]))
