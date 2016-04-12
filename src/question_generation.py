@@ -25,6 +25,9 @@ class generateQuestions:
                 ques = word+' '+' '.join(parse_tree.leaves())
                 ques = ques.split()
                 ques[-1] = '?'
+                print "easy_generation", ques
+                if ques[1] in ["A", "An", "The"]:
+                    ques[1] = ques[1].lower()
                 ques = ' ' .join(ques)
                 return ques
         except Exception, e:

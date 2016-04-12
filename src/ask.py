@@ -35,30 +35,24 @@ def run_pipeline(sentences, nquestions,  pickTopk, pruneSmall):
     t0 = time.time()
     questions = map(transform_question, qobj.get_questions())
     print "TIME transform_question took",time.time()-t0
-    print questions
 
     t0 = time.time()
     questions = map(formGrammaticalSentence, questions)
     print "TIME formGrammaticalSentence took",time.time()-t0
-    print questions
 
-    print "XXXXXXXXXXxxx"
     #pprint.pprint([questions[i] for i in range(len(questions))])
     questions = filter(lambda question: len(question.split())>pruneSmall, questions)
 
     questions = map(str, questions)
-    print questions
     valid = questions
     # TODO: Check for <Question Word> , rest of question ? cases and remove comma
     t0 = time.time()
     valid = map(is_grammatical, questions)
     print "TIME is_grammatical took",time.time()-t0
     
-    print "YYYYYYYYYYYYYYY"
     #TODO Also print the original sentence from which the Question was made
     print "ACCEPTED"
-    accepted_questions_indices = filter(lambda i: valid[i], range(len(questions)))
-    accepted_questions = map(lambda idx: questions[idx], accepted_questions_indices)
+    accepted_questions = map(lambda idx: questions[idx], filter(lambda i: valid[i], range(len(questions))))
     pprint.pprint(accepted_questions)
     print "REJECTED"
     pprint.pprint(filter(lambda question: question not in accepted_questions, questions))
