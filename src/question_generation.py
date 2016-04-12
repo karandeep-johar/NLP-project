@@ -1,5 +1,6 @@
 import init
 import nltk
+# from easy_generation import *
 
 class generateQuestions:
 
@@ -13,6 +14,23 @@ class generateQuestions:
     def __str__(self):
         return str(self.questions)
     
+    def easy_generation(self, parse_tree):
+        sentence = parse_tree[0].leaves()
+        sentence = [str(item) for sublist in sentence for item in sublist]
+        sentence = ' '.join(sentence)
+        try:
+            if parse_tree[0,0].label()=='NP' and parse_tree[0,1].label()=='VP' and (parse_tree[0,1,0,0] in set(['is', 'was','does','has','can','could', 'will', 'would'])):
+                word = parse_tree[0,1,0,0]
+                parse_tree[0,1].remove(parse_tree[0,1,0])
+                ques = word+' '+' '.join(parse_tree.leaves())
+                ques = ques.split()
+                ques[-1] = '?'
+                ques = ' ' .join(ques)
+                return ques
+        except Exception, e:
+            return None
+
+    
     def dealWithApposition(self, parse_tree):
         prev = -1
         s1 = []
@@ -23,6 +41,11 @@ class generateQuestions:
                 prev = -1
                 for j in range(0, len(parse_tree[0,i])):
                     if found == 1:
+                        found = 2
+                        if not parse_tree[0,i,j].label() == ',':
+                            s1.append(parse_tree[0,i,j].leaves())
+                            s2.append(parse_tree[0,i,j].leaves())
+                    elif found == 2:
                         s1.append(parse_tree[0,i,j].leaves())
                         s2.append(parse_tree[0,i,j].leaves())
                     if prev == -1:
@@ -40,7 +63,7 @@ class generateQuestions:
                             s2.append(parse_tree[0,i,j-1].leaves())
                             s2.append(parse_tree[0,i,j].leaves())
                             prev = -1
-                    elif prev == 1 and found != 1:
+                    elif prev == 1 and found == 0:
                         if parse_tree[0,i,j].label() == 'NP':
                             s1.append(parse_tree[0,i,j-2].leaves())
                             s2.append(parse_tree[0,i,j].leaves())
@@ -60,7 +83,7 @@ class generateQuestions:
         s2 = [str(item) for sublist in s2 for item in sublist]
         s1 = ' '.join(s1)
         s2 = ' '.join(s2)
-        if found == 1:
+        if found != 0:
             self.apposSentences.append(s1)
             self.apposSentences.append(s2)
         return found
@@ -70,7 +93,6 @@ class generateQuestions:
         # pp = init.pprint.PrettyPrinter(indent=2)
         parsed = proc.parse_doc(self.corpus)
         questions = []
-        # print len(sub_tree.leaves())
         for s in parsed[u'sentences']:
             syn_tree=s[u'parse']
             parse_tree=nltk.Tree.fromstring(syn_tree)
@@ -91,6 +113,10 @@ class generateQuestions:
             ner = s[u'ner']
             parse = s[u'parse']
             tokens = s[u'tokens']
+            sent_easy = ' '.join(tokens)
+            q = self.easy_generation(parse_tree)
+            if not q is None:
+                questions.append(q)
             #TODO improve this Who noted " Fate put me in the movie to show me I was talking out of my ass . ?
             tokens[-1] ="?"
             i = 0
