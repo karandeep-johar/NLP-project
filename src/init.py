@@ -24,9 +24,12 @@ LEVELS = { 'debug':logging.DEBUG,
 
 MIN_PARA_SIZE = 4
 def formGrammaticalSentence(sentence):
+    QWORDS = set(['is','have','who','whom','when','where','how'])
     charType=[]
     if type(sentence) is str:
         sentence=sentence.split()
+    if (sentence[0].lower() in QWORDS) and sentence[1]==',':
+        sentence.remove(',')
     for word in sentence:
         if word.isalpha():
             charType.append('ALPH')
@@ -36,13 +39,21 @@ def formGrammaticalSentence(sentence):
             charType.append('APO')
         elif len(set(puncTags) and set(word))>0:
             charType.append('PUNC')
+        else:
+            charType.append('OTHER')
     formedSent = ''
     sentence[0]=sentence[0][0].upper()+sentence[0][1:]
     for i in range(len(sentence)):
         word = sentence[i]
+        word=word.replace("-LRB-","(")
+        word=word.replace("-RRB-",")")
+        word=word.replace("``",'"')
+        word=word.replace("''",'"')
         if charType[i]=='PUNC' or charType[i]=='APO' or charType[i]=='APOS':
             formedSent+=word
         elif charType[i]=='ALPH':
+            formedSent+=' '+word
+        elif charType[i]=='OTHER':
             formedSent+=' '+word
     formedSent = formedSent.strip()
     if formedSent[-1]!='.' and formedSent[-1]!='?' and formedSent[-1]!='!':
