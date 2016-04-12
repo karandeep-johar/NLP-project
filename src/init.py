@@ -6,6 +6,10 @@ from collections import Counter
 import os
 import chardet
 import unicodedata
+from spacy.en import English
+from spacy.attrs import *
+from spacy.parts_of_speech import *
+nlp = English()
 # dir = "."
 dir = os.path.dirname(__file__)
 filename = os.path.join(dir, '../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*')

@@ -1,19 +1,14 @@
-from spacy.en import English
-from spacy.attrs import *
-from spacy.parts_of_speech import *
 from joblib import Parallel, delayed
-from pprint import pprint
 import os
 import itertools
 import unicodedata
 import chardet
-from init import removeHeadings
+from init import *
 
-nlp = English()
 from collections import defaultdict
 with open("../src/pronouns.txt","r") as pro:
     pronouns = set(map(lambda x:x.strip(), pro.read().split("\n")))
-    print pronouns
+# print pronouns
 #Np1 also called Np2
 #Beta Leonis, also known as Denebola, is the bright tip of the tail with a magnitude of two.
 def _span_to_tuple(span):
@@ -151,7 +146,7 @@ def change_called_to_known(paragraphs):
 def check_pronoun(ent):
     return not reduce(lambda a,b: a or b , map(lambda a: a in pronouns, ent))
 
-def extract_relations_entities(f):
+def extract_relations_entities(paragraph):
     
     # curlinkname = f.read()
     # code = chardet.detect(curlinkname)
@@ -162,7 +157,7 @@ def extract_relations_entities(f):
     # # pprint(paragraphs.split(3*os.linesep))
 
     # paragraphs_unicode = change_called_to_known(paragraphs)
-    paragraph,_ = removeHeadings(f)
+    # paragraph,_ = removeHeadings(f)
     paragraphs_unicode = unicode(paragraph)
     paragraphs =  paragraphs_unicode.split("\n")
 
@@ -216,10 +211,12 @@ def make_questions_relations(relations):
 #TODO remove punctuation errors, look at why 2014-15 becomes 201415 and make tougher questions?
 # choose one of who/what/where etc.
 # make questions by replacing people, dates
+'''
 with open("../data/set4/a3.txt","r") as f:
     x = extract_relations_entities(f)
     pprint(x[1])
     pprint(make_questions_relations(x[1]))
+'''
     # doc =nlp(u"Min Nan, part of the Min group, is widely spoken in Southeast Asia ( also known as Hokkien in the Philippines, Singapore, and Malaysia).")
     # doc = nlp(u"At magnitude 3.9 is Delta Cancri, also known as Asellus Australis. ")
     # doc = nlp(u"Rigel, which is also known as Beta Orionis, is a B-type blue supergiant that is the sixth brightest star in the night sky.")

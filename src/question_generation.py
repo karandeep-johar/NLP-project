@@ -8,6 +8,7 @@ class generateQuestions:
         self.corpus = data
         self.numQues = n
         self.questions = []
+        self.easy_questions = []
         self.apposSentences = []
         self.generate()
 
@@ -25,7 +26,7 @@ class generateQuestions:
                 ques = word+' '+' '.join(parse_tree.leaves())
                 ques = ques.split()
                 ques[-1] = '?'
-                print "easy_generation", ques
+                # print "easy_generation", ques
                 if ques[1] in ["A", "An", "The"]:
                     ques[1] = ques[1].lower()
                 ques = ' ' .join(ques)
@@ -119,7 +120,7 @@ class generateQuestions:
             sent_easy = ' '.join(tokens)
             q = self.easy_generation(parse_tree)
             if not q is None:
-                questions.append(q)
+                self.easy_questions.append(q)
             #TODO improve this Who noted " Fate put me in the movie to show me I was talking out of my ass . ?
             tokens[-1] ="?"
             i = 0
@@ -142,6 +143,9 @@ class generateQuestions:
     def get_questions(self):
         return self.questions
     
+    def get_easy_questions(self):
+        return self.easy_questions
+    
     def generate(self):
         self.questions = self.getQues()
         while len(self.apposSentences) > 0:
@@ -150,3 +154,5 @@ class generateQuestions:
             ques = self.getQues()
             for q in ques:
                 self.questions.append(q)
+        print "GENERATION"
+        print self.questions
