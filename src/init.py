@@ -18,6 +18,7 @@ proc1 = CoreNLP(configfile=configFileLoc, corenlp_jars=[filename])
 proc2 = CoreNLP(configfile=os.path.join(dir, 'simple.ini'), corenlp_jars=[filename])
 proc3 = CoreNLP(configfile=os.path.join(dir, 'mid.ini'), corenlp_jars=[filename])
 puncTags = ['.',',','IN','#','$','CC','SYM','-LRB-','-RRB-',"''",'``',"'","`",'"',':',';','[',']','{','}','-','_','!','?','~','&','*']
+specialPuncTags = [".","?","?","!", ","]
 LOG_FILENAME = 'log.log'
 LEVELS = { 'debug':logging.DEBUG,
             'info':logging.INFO,
@@ -35,7 +36,7 @@ def formGrammaticalSentence(sentence):
     if type(sentence) is str:
         sentence =  sentence.strip()
         ls = list(sentence)
-        while ls[-2] in puncTags and ls[-1] == "?":
+        while len(ls)>2 and ls[-2] in specialPuncTags and ls[-1] == "?":
             del ls[-2]
         sentence = "".join(ls)
         sentence=proc2.parse_doc(sentence)['sentences'][0]['tokens']
@@ -43,7 +44,7 @@ def formGrammaticalSentence(sentence):
     if sentence[-1]=='?':
         if sentence[1]==',':
             del sentence[1]
-        while sentence[-2]=='and' or sentence[-2]==',' or sentence[-2]=='.' or sentence[-2]=='..':
+        while len(sentence)>2 and (sentence[-2]=='and' or sentence[-2]==',' or sentence[-2]=='.' or sentence[-2]=='..'):
             del sentence[-2]
     for word in sentence:
         if word.isalpha():
