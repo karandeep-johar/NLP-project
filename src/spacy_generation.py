@@ -1,4 +1,3 @@
-from joblib import Parallel, delayed
 import os
 import itertools
 import unicodedata
@@ -6,7 +5,7 @@ import chardet
 from init import *
 from collections import defaultdict
 from question_processing import *
-with open("../src/pronouns.txt","r") as pro:
+with open("pronouns.txt","r") as pro:
     pronouns = set(map(lambda x:x.strip(), pro.read().split("\n")))
 # print pronouns
 #Np1 also called Np2
