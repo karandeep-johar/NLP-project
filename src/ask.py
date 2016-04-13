@@ -15,6 +15,9 @@ from spacy_generation import *
 from sentence_transformation import *
 from sentence_selection import *
 from link_grammar import is_grammatical
+PICKTOPK = 3
+PRUNESMALL = 4
+
 def transform_question(ques):
     # TODO lone ' "Who ' company was Bad Robot Productions ."
 
@@ -25,46 +28,49 @@ def transform_question(ques):
     ques = ques.replace("Who's","Whose")
     return ques
 
-def run_pipeline(sentences, spacy_questions, nquestions,  pickTopk, pruneSmall):
+def prune_questions(questions):
+
+    t0 = time.time()
+    questions = map(transform_question, questions)
+    print "TIME transform_question took",time.time()-t0
+
+    t0 = time.time()
+    questions = map(formGrammaticalSentence, questions)
+    print "TIME formGrammaticalSentence took",time.time()-t0
+    
+    #pprint.pprint([questions[i] for i in range(len(questions))])
+    questions = filter(lambda question: len(question.split())>PRUNESMALL, questions)
+    
+    questions = map(str, questions)
+    
+    t0 = time.time()
+    valid_questions = filter(is_grammatical, questions)
+    print "TIME is_grammatical took",time.time()-t0
+    
+    #TODO Also print the original sentence from which the Question was made
+    print "ACCEPTED"
+    accepted_questions = valid_questions
+    pprint.pprint(accepted_questions)
+    print "REJECTED"
+    valid_questions_set = set(valid_questions)
+    rejected_questions = filter(lambda question: question not in valid_questions_set, questions)
+    pprint.pprint(rejected_questions)
+
+    return accepted_questions, rejected_questions
+
+def run_pipeline(sentences, nquestions ):
     
     t0 = time.time()
     qobj = generateQuestions(sentences,nquestions)
     print "TIME generateQuestions took",time.time()-t0
 
     t0 = time.time()
-    questions = map(transform_question, qobj.get_questions())
-    easy_questions = map(transform_question, qobj.get_easy_questions())
-    spacy_questions = map(transform_question, spacy_questions)
+    questions = qobj.get_questions()
+    questions.extend(qobj.get_easy_questions())
     print "TIME transform_question took",time.time()-t0
 
-    t0 = time.time()
-    questions = map(formGrammaticalSentence, questions)
-    easy_questions = map(formGrammaticalSentence, easy_questions)
-    spacy_questions = map(formGrammaticalSentence, spacy_questions)
-    print "TIME formGrammaticalSentence took",time.time()-t0
+    return prune_questions(questions)
 
-    #pprint.pprint([questions[i] for i in range(len(questions))])
-    questions = filter(lambda question: len(question.split())>pruneSmall, questions)
-    easy_questions = filter(lambda question: len(question.split())>pruneSmall, easy_questions)
-    spacy_questions = filter(lambda question: len(question.split())>pruneSmall, spacy_questions)
-
-    questions = map(str, questions)
-    easy_questions = map(str, easy_questions)
-    spacy_questions = map(str, spacy_questions)
-    
-    t0 = time.time()
-    valid = map(is_grammatical, questions)
-    valid_easy = map(is_grammatical, easy_questions)
-    valid_spacy = map(is_grammatical, spacy_questions)
-    print "TIME is_grammatical took",time.time()-t0
-    
-    #TODO Also print the original sentence from which the Question was made
-    print "ACCEPTED"
-    accepted_questions = map(lambda idx: questions[idx], filter(lambda i: valid[i], range(len(questions))))
-    pprint.pprint(accepted_questions)
-    print "REJECTED"
-    pprint.pprint(filter(lambda question: question not in accepted_questions, questions))
-    return accepted_questions
 
 # TODO look ata this issue "What : exceeded MAX_ITEMS work limit -LSB- 200000 items -RSB- ; aborting ?"
 # print transform_question("Who 's commander is Nero  ?")
@@ -76,19 +82,24 @@ def main(args):
         data,_ = removeHeadings(file)
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
-        
+        accepted = {}
+        rejected = {}
+
+        accepted_questions = []
         t0 = time.time()
         x = extract_relations_entities(data)
         spacy_questions = make_questions_relations(x[1])
-        print "TIME spacyQuestions took",time.time()-t0
         spacy_questions = [str(q) for q in spacy_questions]
-        
+        print "TIME spacyQuestions took",time.time()-t0
+        accepted["spacy"], rejected["spacy"] = prune_questions(spacy_questions)
+        accepted_questions.extend(accepted["spacy"])
+
         # TODO: Select questions
         t0 = time.time()
         selObj1 = sentenceSelector(data,3)
         print "TIME sentenceSelector took",time.time()-t0
-        accepted_questions = run_pipeline(selObj1.get_sentences(), spacy_questions, nquestions ,pickTopk = 3,pruneSmall = 4)
-        
+        accepted["normal"], rejected ["normal"] = run_pipeline(selObj1.get_sentences(),nquestions)
+        accepted_questions.extend(accepted["normal"])        
         k = nquestions - len(accepted_questions)
         if k > 0:
 
@@ -102,8 +113,14 @@ def main(args):
             print "TIME sentenceSelector took",time.time()-t0
         
             #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
-            accepted_questions2 = run_pipeline(selObj2.get_sentences(), nquestions ,pickTopk = 3,pruneSmall = 4)
-            accepted_questions.append(accepted_questions2[:k])
+            accepted["fancy"], rejected["fancy"] = run_pipeline(selObj2.get_sentences(), nquestions)
+            accepted_questions.extend(accepted["fancy"][:k])
+
+        print "ACCEPTED"
+        pprint.pprint(accepted)
+
+        print "REJECTED"
+        pprint.pprint(rejected)
         with open("generated_questions.txt", "w") as file:
             file.write("\n".join(accepted_questions))
         return 

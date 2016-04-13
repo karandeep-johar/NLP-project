@@ -13,7 +13,8 @@ def checkDifference(answer):
 
 negationCutoff = 5
 exceptionSet=set(['also','like'])
-negationSet=set(['no','not'])
+# maybe neither, nor, never
+negationSet=set(['no','not', "n't"])
 def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSet=set()):
     if 'BOOLEAN' in QPObj.answer_type:
         answers = []

@@ -54,7 +54,6 @@ class Question_parser:
                 return
             i = wh_words.index(wh_word)
             wh_wordL = wh_word.lower()
-            print "wh_words", wh_words
             if wh_wordL in AUX_QWORDS:
                 self.qtype = 'BOOLEAN'
                 self.difficulty = 'easy'

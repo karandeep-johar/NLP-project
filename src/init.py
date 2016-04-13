@@ -33,6 +33,11 @@ def formGrammaticalSentence(sentence):
         return ""
     charType=[]
     if type(sentence) is str:
+        sentence =  sentence.strip()
+        ls = list(sentence)
+        while ls[-2] in puncTags and ls[-1] == "?":
+            del ls[-2]
+        sentence = "".join(ls)
         sentence=proc2.parse_doc(sentence)['sentences'][0]['tokens']
     sentence = map(str, sentence)
     if sentence[-1]=='?':
@@ -70,7 +75,7 @@ def formGrammaticalSentence(sentence):
     if formedSent[-1]!='.' and formedSent[-1]!='?' and formedSent[-1]!='!':
         formedSent+='.'
     return str(formedSent)
-    
+
 # print formGrammaticalSentence('was The film shot in various locations around California and Utah ?')
 def removeHeadings(article):
     data = article.read()
