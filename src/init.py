@@ -142,6 +142,6 @@ def removeHeadings(article, ask = False):
             parts = tL.split('_')
             if len(parts)>1:
                 titleLemmasSet|=set(parts)
-        return data,titleLemmasSet
+        return data,titleLemmasSet, most_common
     except:
-        return data0,set()
+        return data0,set(),""

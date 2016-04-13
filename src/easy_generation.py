@@ -25,7 +25,7 @@ def easy_generation(sentence):
 if __name__ == '__main__':
     logger.critical(easy_generation("A second sequel, Star Trek Beyond, is scheduled to be released on July 22, 2016."))
     with open("wiki.txt","r") as file:
-        data,_ = removeHeadings(file)
+        data,_,_ = removeHeadings(file)
         for sentence in sent_tokenize(data):
             ques = easy_generation(sentence)
             if ques:

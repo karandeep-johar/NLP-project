@@ -160,7 +160,9 @@ def count_parent_verb_by_person(doc, ents):
     # merge_spans(doc.noun_chunks, doc)
     for ent in doc.ents:
         if ent.label_:
-            ents[ent.orth_].append(ent.label_)
+            s = ent.orth_.replace("'s","")
+            s = s.replace("s'","")
+            ents[s].append(ent.label_)
         # if ent.label_ in ['PERSON']:
         #     ents.append(ent)
             # counts[ent.orth_][ent.root.head.lemma_] += 1
@@ -232,10 +234,13 @@ def extract_entities_relations(paragraph):
 
 def format_type(date):
     date_str = str(date)
+    for x in puncTags:
+        date_str = date_str.replace(x, " ")
     date_list = date_str.split()
     hash_kjo = map(lambda x: str(x.isalpha())+" "+str(x.isdigit()) +" "+ str(x.isalnum()), date_list)
     
     return str(hash_kjo)
+
 def make_hard_questions(question,  entities, relations):
     questions =[]
     for relation in relations:
@@ -249,6 +254,9 @@ def make_hard_questions(question,  entities, relations):
                 if relation[2] in question:
                     questions.append(question.replace(relation[2], relation[1]))
         if relation[0].lower() == "as":
+            q  = nlp(unicode(question))
+            if "play" in q.lemma_:
+                continue
             if relation[1].lower() in question.lower() and relation[2].lower() in question.lower():
                 continue
             else:
@@ -257,8 +265,31 @@ def make_hard_questions(question,  entities, relations):
     qp =  Question_parser(question)
     if qp.qtype == "BOOLEAN":
         questions.extend(change_dates(question, entities, relations))
+        questions.extend(change_names(question, entities))
     return questions
-
+def change_names(question, entities):
+    q = nlp(unicode(question))
+    people = {k:"PEOPLE"  for k in entities if set(entities[k]) == set(["PERSON"])}
+    print "PEOPLE"
+    print people
+    questions = []
+    found = ""
+    for new_person in people:
+        print "241", str(new_person), question
+        if str(new_person) in question:
+            found = str(new_person)
+            break
+    if found:
+        for new_person in people:
+            questions.append(question.replace(found, new_person))
+    # for person in q.ents:
+    #     print "240 person",  person.orth_
+    #     for new_person in people:
+    #         if new_person == person.orth_ or person.orth_ not in people:
+    #             continue
+    #         print "new_person", new_person
+    #         questions.append(question[:person.idx] + str(new_person) +" "+ question[person.idx+len(str(person)):] )
+    return questions
 def change_dates(question, entities, relations):
     questions = []
     dates = defaultdict(list)

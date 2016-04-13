@@ -1,5 +1,4 @@
-
-__author__ = 'kjohar'
+#!/usr/bin/env python
 # The asking program: ./ask article.txt nquestions
 # where article.txt is a text file containing a Wikipedia article and nquestions is an integer
 # > 0 telling how many questions to generate. Output is a sequence of nquestions English
@@ -16,6 +15,7 @@ from sentence_transformation import *
 from sentence_selection import *
 from link_grammar import is_grammatical
 from collections import defaultdict
+from itertools import permutations
 PICKTOPK = 3
 PRUNESMALL = 4
 
@@ -80,7 +80,19 @@ def main(args):
     if len(args)!=2:
         return
     with open(args[0], "r") as file:
-        data,_ = removeHeadings(file, True)
+        data,heading, pronoun = removeHeadings(file, True)
+        headingSet = set()
+        for s in heading:
+            headingSet.add(s)
+            headingSet.add(s[0].upper()+s[1:])
+        heading = headingSet
+        headings = []
+        for L in range(0, len(heading)+1):
+            for subset in permutations(heading, L):
+                headings.append(" ".join(subset))
+        person_article = False
+        if pronoun.lower() in ["he", "she"]:
+            person_article = True
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
         accepted = defaultdict(list)
@@ -89,6 +101,11 @@ def main(args):
         accepted_questions = []
         t0 = time.time()
         entities, relations = extract_entities_relations(data)
+        print "heading is", headings, person_article
+        if person_article:
+            for x in headings:
+                if x in entities:
+                    entities[x] = ["PERSON"]
         spacy_questions = make_questions_relations(relations, entities)
         spacy_questions = [q.encode('utf-8') for q in spacy_questions]
         logger.critical( "TIME spacyQuestions took"+str(time.time()-t0))
