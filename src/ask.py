@@ -137,7 +137,7 @@ def main(args):
         logger.critical(dict(rejected))
         with open("generated_questions.txt", "w") as file:
             file.write("\n".join(accepted_questions))
-            print "\n".join(accepted_questions)
+        print "\n".join(accepted_questions)#[:nquestions]
         return 
 if __name__ == '__main__':
     main(sys.argv[1:])

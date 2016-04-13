@@ -1,5 +1,6 @@
 import init
 import nltk
+from init import logger
 # from easy_generation import *
 
 class generateQuestions:

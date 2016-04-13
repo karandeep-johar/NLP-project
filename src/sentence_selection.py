@@ -1,6 +1,6 @@
 import init
 import nltk
-
+from init import logger
 class sentenceSelector:
 
     def __init__(self, data,k):

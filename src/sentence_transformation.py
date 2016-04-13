@@ -4,7 +4,6 @@ from subprocess import *
 #os.environ['PATH'] = os.environ['PATH'] + os.pathsep + "/Users/varshaa/Dropbox/Backups/CMU/Acads/11611/Project/NLP-project/FactualStatementExtractor"
 #jnius_config.set_classpath('.', '/Users/varshaa/Dropbox/Backups/CMU/Acads/11611/Project/NLP-project/FactualStatementExtractor/src/*')
 #os.environ['CLASSPATH'] = "../FactualStatementExtractor/factual-statement-extractor.jar:../FactualStatementExtractor/lib/jwnl.jar:../FactualStatementExtractor/lib/stanford-parser-2008-10-26.jar:../FactualStatementExtractor/lib/commons-logging.jar:../FactualStatementExtractor/lib/commons-lang.jar"
-from jnius import autoclass
 # system for extracting simplified factual statements from complex sentences. 
 # The system utilizes a set of Tregex tree searching rules to identify, 
 # in phrase structure trees for input sentences, 
