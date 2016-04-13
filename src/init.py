@@ -34,6 +34,7 @@ def formGrammaticalSentence(sentence):
     charType=[]
     if type(sentence) is str:
         sentence=proc2.parse_doc(sentence)['sentences'][0]['tokens']
+    sentence = map(str, sentence)
     if sentence[-1]=='?':
         if sentence[1]==',':
             del sentence[1]
