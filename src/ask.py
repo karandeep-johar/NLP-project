@@ -33,11 +33,11 @@ def prune_questions(questions):
 
     t0 = time.time()
     questions = map(transform_question, questions)
-    print "TIME transform_question took",time.time()-t0
+    logger.critical( "TIME transform_question took"+str(time.time()-t0))
 
     t0 = time.time()
     questions = map(formGrammaticalSentence, questions)
-    print "TIME formGrammaticalSentence took",time.time()-t0
+    logger.critical( "TIME formGrammaticalSentence took"+str(time.time()-t0))
     
     #pprint.pprint([questions[i] for i in range(len(questions))])
     questions = filter(lambda question: len(question.split())>PRUNESMALL, questions)
@@ -46,16 +46,16 @@ def prune_questions(questions):
     
     t0 = time.time()
     valid_questions = filter(is_grammatical, questions)
-    print "TIME is_grammatical took",time.time()-t0
+    logger.critical( "TIME is_grammatical took"+str(time.time()-t0))
     
     #TODO Also print the original sentence from which the Question was made
-    print "ACCEPTED"
+    logger.critical( "ACCEPTED")
     accepted_questions = valid_questions
-    pprint.pprint(accepted_questions)
-    print "REJECTED"
+    logger.critical(accepted_questions)
+    logger.critical("REJECTED")
     valid_questions_set = set(valid_questions)
     rejected_questions = filter(lambda question: question not in valid_questions_set, questions)
-    pprint.pprint(rejected_questions)
+    logger.critical(rejected_questions)
 
     return accepted_questions, rejected_questions
 
@@ -63,12 +63,12 @@ def run_pipeline(sentences, nquestions ):
     
     t0 = time.time()
     qobj = generateQuestions(sentences,nquestions)
-    print "TIME generateQuestions took",time.time()-t0
+    logger.critical("TIME generateQuestions took"+str(time.time()-t0))
 
     t0 = time.time()
     questions = qobj.get_questions()
     questions.extend(qobj.get_easy_questions())
-    print "TIME transform_question took",time.time()-t0
+    logger.critical( "TIME transform_question took"+str(time.time()-t0))
 
     return prune_questions(questions)
 
@@ -91,10 +91,10 @@ def main(args):
         entities, relations = extract_entities_relations(data)
         spacy_questions = make_questions_relations(relations, entities)
         spacy_questions = [q.encode('utf-8') for q in spacy_questions]
-        print "TIME spacyQuestions took",time.time()-t0
+        logger.critical( "TIME spacyQuestions took"+str(time.time()-t0))
 
-        print "SPACY ORIGINAL"
-        print spacy_questions
+        logger.critical( "SPACY ORIGINAL")
+        logger.critical(spacy_questions)
 
         accepted["spacy"], rejected["spacy"] = prune_questions(spacy_questions)
         accepted_questions.extend(accepted["spacy"])
@@ -102,41 +102,42 @@ def main(args):
         # TODO: Select questions
         t0 = time.time()
         selObj1 = sentenceSelector(data,3)
-        print "TIME sentenceSelector took",time.time()-t0
+        logger.critical("TIME sentenceSelector took"+str(time.time()-t0))
         accepted["normal"], rejected["normal"] = run_pipeline(selObj1.get_sentences(),nquestions)
         accepted_questions.extend(accepted["normal"])
 
-        print "HARD HARD HARD"
+        logger.critical("HARD HARD HARD")
         for question in accepted_questions:
             hqs =  make_hard_questions(question, entities, relations)        
-            print question, hqs
+            logger.critical(question)
+            logger.critical(hqs)
             accepted["hard spacy"].extend(hqs)
         accepted_questions.extend(accepted["hard spacy"])
-        print "HARD HARD HARD END"
+        logger.critical("HARD HARD HARD END")
         k = nquestions - len(accepted_questions)
         if k > 0:
-
             t0 = time.time()
             # corpus = transformSentences(data)
             corpus = transformSentences(selObj1.get_needTransform())
-            print "TIME transformSentences took",time.time()-t0
+            logger.critical("TIME transformSentences took"+str(time.time()-t0))
         
             t0 = time.time()
             corpus = [q.encode('utf-8') for q in corpus]
             selObj2 = sentenceSelector(corpus,3)
-            print "TIME sentenceSelector took",time.time()-t0
+            logger.critical("TIME sentenceSelector took"+str(time.time()-t0))
         
             #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
             accepted["fancy"], rejected["fancy"] = run_pipeline(selObj2.get_sentences(), nquestions)
             accepted_questions.extend(accepted["fancy"][:k])
 
-        print "ACCEPTED"
-        pprint.pprint(dict(accepted))
+        logger.critical("ACCEPTED")
+        logger.critical(dict(accepted))
 
-        print "REJECTED"
-        pprint.pprint(dict(rejected))
+        logger.critical("REJECTED")
+        logger.critical(dict(rejected))
         with open("generated_questions.txt", "w") as file:
             file.write("\n".join(accepted_questions))
+            print "\n".join(accepted_questions)
         return 
 if __name__ == '__main__':
     main(sys.argv[1:])

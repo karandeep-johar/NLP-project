@@ -49,12 +49,12 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 		    question_keywords.append(question_lemmas[i])
 
 	scored_answers = []
-	print "No. of sentences=" + str(len(Interesting_Text))
+	logger.critical( "No. of sentences=" + str(len(Interesting_Text)))
 	for i in range(len(Interesting_Text)):
 		s = Interesting_Text[i]
 		candidate_sentence = s[1]['tokens']
 		candidate_sentence = " ".join(candidate_sentence)
-		print candidate_sentence
+		logger.critical(candidate_sentence)
 	for i in range(len(Interesting_Text)):
 		s = Interesting_Text[i]
 		candidate_sentence = s[1]['tokens']
@@ -74,9 +74,9 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 			break;
 	if sentence_found == False:
 		return None
-	print "Selected sentence is"
-	print candidate_sentence 
-	print Input_tag
+	logger.critical("Selected sentence is")
+	logger.critical(candidate_sentence )
+	logger.critical(Input_tag)
 	#print "Person" in Input_tag
 	results=[]
 	candidate_token=[]
@@ -106,7 +106,7 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 	for candidate_token in candidate_tokens:
 		#print candidate_token
 		result=find_phrase(parse_tree,candidate_token)
-		print result
+		logger.critical(result)
 		#Exclude phrases that are included in the question
 		#scored_answers.append((score,filtered_answers))
 		results.append(result)
@@ -115,7 +115,7 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 	#print results
 	filtered_answers = map(lambda x: str(x),results)
 	filtered_answers = filter(lambda x: x not in question.split() and x not in question_lemmas, filtered_answers)
-	print filtered_answers
+	logger.critical(filtered_answers)
 	#scored_answers.append((score,filtered_answers[0]))
 	#print scored_answers
 	if len(filtered_answers) > 0:
@@ -138,22 +138,23 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	question_pos = question_parsed['sentences'][0]['pos']
 	question_keywords = []
 	pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
-	print question_pos
+	logger.critical(question_pos)
 	for i in range(len(question_pos)):
 		if question_pos[i] in pos_list and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
 		    question_keywords.append(question_lemmas[i])
-	print question_keywords            
+	logger.critical(question_keywords)
 	scored_answers = []
-	print Input_tag
+	logger.critical(Input_tag)
 	#print "Person" in Input_tag
 	results=[]
 	candidate_sentence = Interesting_Text
 	candidate_sentence = preprocess_text(candidate_sentence)
 	parsed=proc1.parse_doc(candidate_sentence)
-	print "Candidate sentence " , candidate_sentence
+	logger.critical( "Candidate sentence " )
+	logger.critical(candidate_sentence)
 	# print parsed
 	ner=parsed['sentences'][0]['ner']
-	print ner
+	logger.critical(ner)
 	tokens=parsed['sentences'][0]['tokens']
 	candidate_pos=parsed['sentences'][0]['pos']
 	candidate_lemmas=parsed['sentences'][0]['lemmas']
@@ -161,15 +162,15 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	for i in range(len(candidate_pos)):
 		if candidate_pos[i] in pos_list and candidate_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
 		    candidate_keywords.append(candidate_lemmas[i])
-	print candidate_keywords
+	logger.critical(candidate_keywords)
 	if(len(set(candidate_keywords)&set(question_keywords)) < 2):
-		print "Wrong TFIDF sentence"
+		logger.critical( "Wrong TFIDF sentence")
 		return []
 	candidate_token=[]
 	candidate_tokens=[]
 
 
-	print question_lemmas
+	logger.critical(question_lemmas)
 	i=0;
 	while i < len(ner):
 		tag = ner[i]
@@ -195,7 +196,7 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	for candidate_token in candidate_tokens:
 		#print candidate_token
 		result=find_phrase(parse_tree,candidate_token)
-		print result
+		logger.critical(result)
 		#Exclude phrases that are included in the question
 		#scored_answers.append((score,filtered_answers))
 		results.append(result)
@@ -204,7 +205,7 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	#print results
 	filtered_answers = map(lambda x: str(x),results)
 	filtered_answers = filter(lambda x: x not in question.split() and x not in question_lemmas , filtered_answers)
-	print filtered_answers
+	logger.critical(filtered_answers)
 	#scored_answers.append((score,filtered_answers[0]))
 	#print scored_answers
 	if len(filtered_answers) > 0:
@@ -235,11 +236,11 @@ if __name__ == '__main__':
 	Int_text = preprocess_text(Int_text)
 	questionParseObj = Question_parser(question,parseFlag = True)
 	res=NER_phrase_utest(Int_text,questionParseObj)
-	print type(res)
+	logger.critical(type(res))
 	if res and res != 'None':
-	    print "NER accepted"
-	    print "NER answer: "
-	    print res
+	    logger.critical( "NER accepted")
+	    logger.critical( "NER answer: ")
+	    logger.critical(res)
 	else:
-		print "NER failed: Fallback to Set-diff"
-	print res
+		logger.critical( "NER failed: Fallback to Set-diff")
+	logger.critical(res)

@@ -13,7 +13,8 @@ def easy_generation(sentence):
             tokens = proc3.parse_doc(ques)['sentences'][0]['tokens']
             #TODO improve capitalization
             tokens[-1] = "?"
-            print "easy_generation", tokens
+            logger.critical("easy_generation")
+            logger.critical(tokens)
             if tokens[1] in ["A", "An", "The"]:
                 tokens[1] = tokens[1].lower()
             return " ".join(tokens)
@@ -22,12 +23,12 @@ def easy_generation(sentence):
     except Exception, e:
         return None
 if __name__ == '__main__':
-    print easy_generation("A second sequel, Star Trek Beyond, is scheduled to be released on July 22, 2016.")
+    logger.critical(easy_generation("A second sequel, Star Trek Beyond, is scheduled to be released on July 22, 2016."))
     with open("wiki.txt","r") as file:
         data,_ = removeHeadings(file)
         for sentence in sent_tokenize(data):
             ques = easy_generation(sentence)
             if ques:
-                print sentence
-                print ques
+                logger.critical(sentence)
+                logger.critical(ques)
         # print sentences

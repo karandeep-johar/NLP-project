@@ -46,7 +46,7 @@ class sentenceSelector:
                     self.withPronouns.append(sentence)
                 elif any(token in self.implications for token in tokens):
                     self.whyQues.append(sentence)
-                    print sentence
+                    logger.critical(sentence)
                 elif len(tokens) > 20:
                     self.needTransform.append(sentence)
                 else:

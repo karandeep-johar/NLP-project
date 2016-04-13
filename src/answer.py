@@ -72,17 +72,17 @@ def answerFactoid(question,interestingText,questionParseObj,objTfidf):
     if(questionParseObj.answer_type != set(['UNKNOWN'])):
         answer = NER_phrase_answer(interestingText,questionParseObj)
         if answer and answer != 'None':
-            print "NER accepted"
-            print "NER answer: "
-            print answer
+            logger.critical( "NER accepted")
+            logger.critical( "NER answer: ")
+            logger.critical(answer)
             answers.append(answer)
             return answers[0]
         else:
-            print "NER failed: Fallback to Set-diff"
+            logger.critical("NER failed: Fallback to Set-diff")
     # If NER approach fails or NER tag is not avaialable, resort to set difference method
     answerlist=objTfidf.getAnswer(question, interestingText,questionParseObj)
     answer_processed = Refine_TFIDF_answer(answerlist[0],interestingText[0][1])
-    print "Set diff answer: " + str(answer_processed)
+    logger.critical("Set diff answer: " + str(answer_processed))
     answers.append(answer_processed)  
     return answers[0]
 
@@ -106,7 +106,7 @@ def main(args):
         for question in questionsList:
             #fluency check
             #interestingText can be a list of tuples of (sentence,score)
-            print 'Q: '+question
+            logger.critical( 'Q: '+question)
             questionParseObj = Question_parser(question)
             interestingText = objTfidf.getInterestingText(question)
             if "BOOLEAN" in questionParseObj.answer_type:

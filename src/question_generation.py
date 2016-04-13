@@ -152,5 +152,5 @@ class generateQuestions:
             ques = self.getQues()
             for q in ques:
                 self.questions.append(q)
-        print "GENERATION"
-        print self.questions
+        logger.critical( "GENERATION")
+        logger.critical(self.questions)

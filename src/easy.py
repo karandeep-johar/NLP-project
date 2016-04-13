@@ -42,7 +42,7 @@ def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSe
             #         answer.append(s[1]['tokens'][j])
             #     else:# Heuristic for score
             #         pass
-            print "candidate Sentence:",s, "\nanswer:", answer
+            logger.critical("candidate Sentence:"+s+"\nanswer:"+answer)
             if checkDifference(answer):
                 answers.append('No')
             else:
@@ -56,7 +56,7 @@ def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSe
                         break
                 if not negFound:
                     answers.append('Yes')
-        print answers
+        logger.critical(answers)
         if 'No Sure' in answers[:negationCutoff]:
             return 'No.'
         elif 'Yes' in answers:
