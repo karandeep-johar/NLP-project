@@ -4,7 +4,6 @@ import itertools
 import unicodedata
 import chardet
 from init import *
-
 from collections import defaultdict
 with open("../src/pronouns.txt","r") as pro:
     pronouns = set(map(lambda x:x.strip(), pro.read().split("\n")))
@@ -158,7 +157,7 @@ def extract_relations_entities(paragraph):
 
     # paragraphs_unicode = change_called_to_known(paragraphs)
     # paragraph,_ = removeHeadings(f)
-    paragraphs_unicode = unicode(paragraph)
+    paragraphs_unicode = change_called_to_known(paragraph)
     paragraphs =  paragraphs_unicode.split("\n")
 
     relations=[]
@@ -200,23 +199,37 @@ def make_questions_relations(relations):
         relation = [str(relation[0].orth_),str( relation[1].orth_), str(relation[2].orth_)]
         relation[0] = relation[0][0].upper() +relation[0][1:]
         if relation[0].lower() in ("is", "was"):
-            questions.append(" ".join(relation)+"?")
-        elif relation[0].lower() ==  "had":
+            if relation[1] in ["a", "an", "the"]:
+                relation[1] = relation[1][0].lower()+relation[1][1:]
+            questions.append(" ".join(relation)+" ?")
+        elif relation[0].lower() in  ["had","has"]:
             questions.append("Did "+ relation[1] + " have " + relation[2] +" ?")
         elif relation[0].lower() == "been":
             questions.append("Has " + relation[1] + " been " + relation[2] +" ?")
+        elif relation[0].lower() == "as":
+            #make harder question this
+            questions.append("Who character was played by "+ relation[1] + " in the film ?")
+            questions.append("Did "+ relation[1] + " play the character of "+ relation[2] +" in the film ?")
+            questions.append("Who plays "+ relation[2] +" in the film ?")
+        elif relation[0].lower() == "known":
+            #make harder questions using this
+            questions.append("Is "+ relation[1] +" also known as "+ relation[2]+" ?")
+            questions.append("Is "+ relation[1] +" also called "+ relation[2]+" ?")
+            questions.append("What is another name for "+ relation[1]+" ?")
+            questions.append("What is another name for "+ relation[2]+" ?")
         if relation[0].lower() == "is":
             questions.append("Who/What is "+ relation[1]+" ?")
     return questions
 #TODO remove punctuation errors, look at why 2014-15 becomes 201415 and make tougher questions?
 # choose one of who/what/where etc.
 # make questions by replacing people, dates
-'''
-with open("../data/set4/a3.txt","r") as f:
-    x = extract_relations_entities(f)
-    pprint(x[1])
-    pprint(make_questions_relations(x[1]))
-'''
+
+# with open("../data/set4/a3.txt","r") as f:
+#     paragraph,_ = removeHeadings(f)
+#     x = extract_relations_entities(paragraph)
+#     pprint.pprint(x[1])
+#     pprint.pprint(make_questions_relations(x[1]))
+
     # doc =nlp(u"Min Nan, part of the Min group, is widely spoken in Southeast Asia ( also known as Hokkien in the Philippines, Singapore, and Malaysia).")
     # doc = nlp(u"At magnitude 3.9 is Delta Cancri, also known as Asellus Australis. ")
     # doc = nlp(u"Rigel, which is also known as Beta Orionis, is a B-type blue supergiant that is the sixth brightest star in the night sky.")
