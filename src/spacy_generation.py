@@ -5,6 +5,7 @@ import unicodedata
 import chardet
 from init import *
 from collections import defaultdict
+from question_processing import *
 with open("../src/pronouns.txt","r") as pro:
     pronouns = set(map(lambda x:x.strip(), pro.read().split("\n")))
 # print pronouns
@@ -193,6 +194,12 @@ def extract_entities_relations(paragraph):
 
     return dict(ents), relations
 
+def format_type(date):
+    date_str = str(date)
+    date_list = date_str.split()
+    hash_kjo = map(lambda x: str(x.isalpha())+" "+str(x.isdigit()) +" "+ str(x.isalnum()), date_list)
+    
+    return str(hash_kjo)
 def make_hard_questions(question,  entities, relations):
     questions =[]
     for relation in relations:
@@ -211,12 +218,26 @@ def make_hard_questions(question,  entities, relations):
             else:
                 if relation[2] in question:
                     questions.append(question.replace(relation[2], relation[1]+"'s character"))
-    # q = nlp(unicode(question))
-    
+    qp =  Question_parser(question)
+    if qp.qtype == "BOOLEAN":
+        questions.extend(change_dates(question, entities, relations))
     return questions
 
-
-
+def change_dates(question, entities, relations):
+    questions = []
+    dates = defaultdict(list)
+    for entity in entities:
+        if "DATE" in entities[entity]:
+            if format_type(entities[entity]):
+                dates[format_type(entity)].append( entity   )
+    q = nlp(unicode(question))
+    for date in filter(lambda x: x.ent_type_=="DATE", q):
+        fd = format_type(date)
+        if fd:
+            for possible_date in dates[fd]:
+                if str(possible_date) not in question and  nlp(unicode(str(possible_date))).similarity(nlp(unicode(str(date))))>0.9:
+                    questions.append(question[:date.idx]+str(possible_date) + " "+ question[date.idx+len(str(date)):])
+    return questions
 
 def make_questions_relations(relations):
     questions = []
@@ -251,12 +272,13 @@ def make_questions_relations(relations):
 #TODO remove punctuation errors, look at why 2014-15 becomes 201415 and make tougher questions?
 # choose one of who/what/where etc.
 # make questions by replacing people, dates
-# if __name__ == '__main__':
-#     with open("../data/set2/a2.txt","r") as f:
-#         paragraph,_ = removeHeadings(f)
-#         x = extract_entities_relations(paragraph)
-#         pprint.pprint(x[1])
-#         pprint.pprint(make_questions_relations(x[1]))
+if __name__ == '__main__':
+    with open("../data/set1/a8.txt","r") as f:
+        paragraph,_ = removeHeadings(f)
+        x = extract_entities_relations(paragraph)
+        pprint.pprint( x[0])
+        # pprint.pprint(x[1])
+        # pprint.pprint(make_questions_relations(x[1]))
 
     # doc =nlp(u"Min Nan, part of the Min group, is widely spoken in Southeast Asia ( also known as Hokkien in the Philippines, Singapore, and Malaysia).")
     # doc = nlp(u"At magnitude 3.9 is Delta Cancri, also known as Asellus Australis. ")

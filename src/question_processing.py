@@ -1,5 +1,5 @@
 import init
-from pprint import pprint
+import pprint
 
 class Question_parser:
 
