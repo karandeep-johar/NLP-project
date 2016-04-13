@@ -15,6 +15,7 @@ from spacy_generation import *
 from sentence_transformation import *
 from sentence_selection import *
 from link_grammar import is_grammatical
+from collections import defaultdict
 PICKTOPK = 3
 PRUNESMALL = 4
 
@@ -82,8 +83,8 @@ def main(args):
         data,_ = removeHeadings(file)
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
-        accepted = {}
-        rejected = {}
+        accepted = defaultdict(list)
+        rejected = defaultdict(list)
 
         accepted_questions = []
         t0 = time.time()
@@ -102,12 +103,15 @@ def main(args):
         t0 = time.time()
         selObj1 = sentenceSelector(data,3)
         print "TIME sentenceSelector took",time.time()-t0
-        accepted["normal"], rejected ["normal"] = run_pipeline(selObj1.get_sentences(),nquestions)
+        accepted["normal"], rejected["normal"] = run_pipeline(selObj1.get_sentences(),nquestions)
         accepted_questions.extend(accepted["normal"])
 
         print "HARD HARD HARD"
         for question in accepted_questions:
-            print question, make_hard_questions(question, entities, relations)        
+            hqs =  make_hard_questions(question, entities, relations)        
+            print question, hqs
+            accepted["hard spacy"].extend(hqs)
+        accepted_questions.extend(accepted["hard spacy"])
         print "HARD HARD HARD END"
         k = nquestions - len(accepted_questions)
         if k > 0:

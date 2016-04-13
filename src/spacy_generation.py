@@ -273,7 +273,7 @@ def make_questions_relations(relations):
 # choose one of who/what/where etc.
 # make questions by replacing people, dates
 if __name__ == '__main__':
-    with open("../data/set1/a8.txt","r") as f:
+    with open("../data/set1/a7.txt","r") as f:
         paragraph,_ = removeHeadings(f)
         x = extract_entities_relations(paragraph)
         pprint.pprint( x[0])
