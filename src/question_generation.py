@@ -125,9 +125,7 @@ class generateQuestions:
             tokens[-1] ="?"
             i = 0
             tag = pos[i]
-            if tokens[i] == "It":
-                questions.append('What '+' '.join(tokens[1:]))
-            elif tag[0:2] == 'NN':
+            if tag[0:2] == 'NN':
                 # TODO make this inverse of Question processing Even Organization should be mapped to Who 
                 # TODO: Check for What questions first
                 if ner[i] == 'PERSON' or ner[i] == 'ORGANIZATION':

@@ -238,7 +238,18 @@ def change_dates(question, entities, relations):
                     questions.append(question[:date.idx]+str(possible_date) + " "+ question[date.idx+len(str(date)):])
     return questions
 
-def make_questions_relations(relations):
+def check_who_what(rel, entities):
+    try:
+        ner_list = entities[rel.encode('utf-8')]
+        ner = max(set(ner_list), key=ner_list.count)
+        if ner == 'PERSON' or ner == 'ORG':
+            return "Who"
+        else:
+            return "What"
+    except:
+        return None
+
+def make_questions_relations(relations,entities):
     questions = []
     for relation in relations:
         relation = [str(relation[0].orth_),str( relation[1].orth_), str(relation[2].orth_)]
@@ -256,7 +267,7 @@ def make_questions_relations(relations):
             questions.append("Has " + relation[1] + " been " + relation[2] +"?")
         elif relation[0].lower() == "as":
             #make harder question this
-            questions.append("Who character was played by "+ relation[1] + " in the film ?")
+            questions.append("Which character was played by "+ relation[1] + " in the film ?")
             questions.append("Did "+ relation[1] + " play the character of "+ relation[2] +" in the film ?")
             questions.append("Who plays "+ relation[2] +" in the film ?")
         elif relation[0].lower() == "known":
@@ -266,7 +277,9 @@ def make_questions_relations(relations):
             questions.append("What is another name for "+ relation[1]+" ?")
             questions.append("What is another name for "+ relation[2]+" ?")
         if relation[0].lower() == "is":
-            questions.append("Who/What is "+ relation[1]+" ?")
+            q_word = check_who_what(relation[1], entities)
+            if not q_word is None:
+                questions.append(q_word+" is "+ relation[1]+" ?")
     return questions
 #TODO remove punctuation errors, look at why 2014-15 becomes 201415 and make tougher questions?
 # choose one of who/what/where etc.
@@ -275,7 +288,8 @@ if __name__ == '__main__':
     with open("../data/set1/a7.txt","r") as f:
         paragraph,_ = removeHeadings(f)
         x = extract_entities_relations(paragraph)
-        pprint.pprint( x[0])
+        # pprint.pprint(x[0])
+        pprint.pprint(make_questions_relations(x[1],x[0]))
         # pprint.pprint(x[1])
         # pprint.pprint(make_questions_relations(x[1]))
 

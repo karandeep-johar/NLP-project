@@ -89,7 +89,7 @@ def main(args):
         accepted_questions = []
         t0 = time.time()
         entities, relations = extract_entities_relations(data)
-        spacy_questions = make_questions_relations(relations)
+        spacy_questions = make_questions_relations(relations, entities)
         spacy_questions = [q.encode('utf-8') for q in spacy_questions]
         print "TIME spacyQuestions took",time.time()-t0
 
