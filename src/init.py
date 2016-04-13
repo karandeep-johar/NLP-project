@@ -78,7 +78,7 @@ def formGrammaticalSentence(sentence):
     return str(formedSent)
 
 # print formGrammaticalSentence('was The film shot in various locations around California and Utah ?')
-def removeHeadings(article):
+def removeHeadings(article, ask = False):
     data = article.read()
     code = chardet.detect(data)
     paragraphs = data.decode(code['encoding'], errors="ignore")
@@ -118,7 +118,10 @@ def removeHeadings(article):
         para = splitData[i]
         if len(para.split())>MIN_PARA_SIZE:
             finalParas.append(para)
-    data = '.\n '.join(finalParas)
+    if ask:
+        data = '\n '.join(finalParas)
+    else:
+        data = '.\n '.join(finalParas)
     titleLemmas = [w.lower() for w in proc2.parse_doc(title)['sentences'][0]['lemmas']]
     titleLemmasSet = set(titleLemmas)
     for tL in titleLemmas:

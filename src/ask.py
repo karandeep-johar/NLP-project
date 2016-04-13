@@ -80,7 +80,7 @@ def main(args):
     if len(args)!=2:
         return
     with open(args[0], "r") as file:
-        data,_ = removeHeadings(file)
+        data,_ = removeHeadings(file, True)
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
         accepted = defaultdict(list)

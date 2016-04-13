@@ -34,6 +34,8 @@ class sentenceSelector:
                 if (len(set(s[u'lemmas'])-set(init.puncTags))<3):
                     continue
                 tokens = s[u'tokens']
+                if tokens[-1] != '.':
+                    continue
                 sentence = ' '.join(tokens)
                 if any(token in self.pronouns for token in tokens):
                     self.withPronouns.append(sentence)
