@@ -8,6 +8,8 @@ class sentenceSelector:
         self.sentences = []
         self.needTransform = []
         self.withPronouns = []
+        self.whyQues = []
+        self.implications = set(['because','as','hence','therefore','since'])
         with open("pronouns.txt","r") as f:
             self.pronouns = set(f.read().split())
         self.pickTopk(k)
@@ -24,6 +26,9 @@ class sentenceSelector:
     def get_needTransform(self):
         return self.needTransform
 
+    def get_whyQues(self):
+        return self.whyQues
+
     def pickTopk(self,k):
         paras = self.corpus.split('\n')
         for p in paras:
@@ -39,6 +44,9 @@ class sentenceSelector:
                 sentence = ' '.join(tokens)
                 if any(token in self.pronouns for token in tokens):
                     self.withPronouns.append(sentence)
+                elif any(token in self.implications for token in tokens):
+                    self.whyQues.append(sentence)
+                    print sentence
                 elif len(tokens) > 20:
                     self.needTransform.append(sentence)
                 else:
