@@ -82,7 +82,10 @@ def removeHeadings(article, ask = False):
     data = article.read()
     code = chardet.detect(data)
     paragraphs = data.decode(code['encoding'], errors="ignore")
-    data = unicodedata.normalize('NFKD', paragraphs).encode('ascii','ignore')
+    data = unicodedata.normalize('NFKD', paragraphs).replace(u"\u2013", "-").encode('utf-8','ignore')
+    # data = data.replace(u'\\u0xe2',"-")
+    logger.critical("DATA DATA DATA")
+    logger.critical(data)
     data = str(unicode(data, errors='ignore'))
     splitData = data.split('\n')
     splitData = [para for para in splitData if para]

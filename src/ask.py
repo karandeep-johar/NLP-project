@@ -131,10 +131,10 @@ def main(args):
             accepted_questions.extend(accepted["fancy"][:k])
 
         print "ACCEPTED"
-        pprint.pprint(accepted)
+        pprint.pprint(dict(accepted))
 
         print "REJECTED"
-        pprint.pprint(rejected)
+        pprint.pprint(dict(rejected))
         with open("generated_questions.txt", "w") as file:
             file.write("\n".join(accepted_questions))
         return 
