@@ -145,7 +145,7 @@ def change_called_to_known(paragraphs):
 def check_pronoun(ent):
     return not reduce(lambda a,b: a or b , map(lambda a: a in pronouns, ent))
 
-def extract_relations_entities(paragraph):
+def extract_entities_relations(paragraph):
     
     # curlinkname = f.read()
     # code = chardet.detect(curlinkname)
@@ -193,19 +193,47 @@ def extract_relations_entities(paragraph):
 
     return dict(ents), relations
 
+def make_hard_questions(question,  entities, relations):
+    questions =[]
+    for relation in relations:
+        relation = [str(relation[0].orth_),str( relation[1].orth_), str(relation[2].orth_)]
+        if relation[0].lower() == "known":
+            if relation[1].lower() in question.lower() and relation[2].lower() in question.lower():
+                continue
+            else:
+                if relation[1] in question:
+                    questions.append(question.replace(relation[1], relation[2]))
+                if relation[2] in question:
+                    questions.append(question.replace(relation[2], relation[1]))
+        if relation[0].lower() == "as":
+            if relation[1].lower() in question.lower() and relation[2].lower() in question.lower():
+                continue
+            else:
+                if relation[2] in question:
+                    questions.append(question.replace(relation[2], relation[1]+"'s character"))
+    # q = nlp(unicode(question))
+    
+    return questions
+
+
+
+
 def make_questions_relations(relations):
     questions = []
     for relation in relations:
         relation = [str(relation[0].orth_),str( relation[1].orth_), str(relation[2].orth_)]
         relation[0] = relation[0][0].upper() +relation[0][1:]
         if relation[0].lower() in ("is", "was"):
-            if relation[1] in ["a", "an", "the"]:
-                relation[1] = relation[1][0].lower()+relation[1][1:]
-            questions.append(" ".join(relation)+" ?")
+            first_four = relation[1][:4]
+            first_four = first_four.replace("A ","a ")
+            first_four = first_four.replace("An ","an ")
+            first_four = first_four.replace("The ","the ")
+            relation[1] = first_four+relation[1][4:]
+            questions.append(" ".join(relation)+"?")
         elif relation[0].lower() in  ["had","has"]:
-            questions.append("Did "+ relation[1] + " have " + relation[2] +" ?")
+            questions.append("Did "+ relation[1] + " have " + relation[2] +"?")
         elif relation[0].lower() == "been":
-            questions.append("Has " + relation[1] + " been " + relation[2] +" ?")
+            questions.append("Has " + relation[1] + " been " + relation[2] +"?")
         elif relation[0].lower() == "as":
             #make harder question this
             questions.append("Who character was played by "+ relation[1] + " in the film ?")
@@ -223,12 +251,12 @@ def make_questions_relations(relations):
 #TODO remove punctuation errors, look at why 2014-15 becomes 201415 and make tougher questions?
 # choose one of who/what/where etc.
 # make questions by replacing people, dates
-
-# with open("../data/set4/a3.txt","r") as f:
-#     paragraph,_ = removeHeadings(f)
-#     x = extract_relations_entities(paragraph)
-#     pprint.pprint(x[1])
-#     pprint.pprint(make_questions_relations(x[1]))
+# if __name__ == '__main__':
+#     with open("../data/set2/a2.txt","r") as f:
+#         paragraph,_ = removeHeadings(f)
+#         x = extract_entities_relations(paragraph)
+#         pprint.pprint(x[1])
+#         pprint.pprint(make_questions_relations(x[1]))
 
     # doc =nlp(u"Min Nan, part of the Min group, is widely spoken in Southeast Asia ( also known as Hokkien in the Philippines, Singapore, and Malaysia).")
     # doc = nlp(u"At magnitude 3.9 is Delta Cancri, also known as Asellus Australis. ")

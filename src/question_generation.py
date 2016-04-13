@@ -137,7 +137,10 @@ class generateQuestions:
                 elif ner[i] == 'DATE' or ner[i] == 'TIME':
                     questions.append('When '+' '.join(tokens[k:]))
                 else:
-                    questions.append('What '+' '.join(tokens[k:]))
+                    if tokens[k] == ":":
+                        questions.append('What is '+' '.join(tokens[k+1:]))
+                    else:
+                        questions.append('What '+' '.join(tokens[k:]))
         return questions
             
     def get_questions(self):

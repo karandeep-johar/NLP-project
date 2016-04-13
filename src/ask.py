@@ -87,10 +87,14 @@ def main(args):
 
         accepted_questions = []
         t0 = time.time()
-        x = extract_relations_entities(data)
-        spacy_questions = make_questions_relations(x[1])
+        entities, relations = extract_entities_relations(data)
+        spacy_questions = make_questions_relations(relations)
         spacy_questions = [str(q) for q in spacy_questions]
         print "TIME spacyQuestions took",time.time()-t0
+
+        print "SPACY ORIGINAL"
+        print spacy_questions
+
         accepted["spacy"], rejected["spacy"] = prune_questions(spacy_questions)
         accepted_questions.extend(accepted["spacy"])
 
@@ -99,7 +103,12 @@ def main(args):
         selObj1 = sentenceSelector(data,3)
         print "TIME sentenceSelector took",time.time()-t0
         accepted["normal"], rejected ["normal"] = run_pipeline(selObj1.get_sentences(),nquestions)
-        accepted_questions.extend(accepted["normal"])        
+        accepted_questions.extend(accepted["normal"])
+
+        print "HARD HARD HARD"
+        for question in accepted_questions:
+            print question, make_hard_questions(question, entities, relations)        
+        print "HARD HARD HARD END"
         k = nquestions - len(accepted_questions)
         if k > 0:
 
