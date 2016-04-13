@@ -40,7 +40,7 @@ def formGrammaticalSentence(sentence):
             del ls[-2]
         sentence = "".join(ls)
         sentence=proc2.parse_doc(sentence)['sentences'][0]['tokens']
-    sentence = map(str, sentence)
+    sentence = [s.encode('utf-8') for s in sentence]
     if sentence[-1]=='?':
         if sentence[1]==',':
             del sentence[1]

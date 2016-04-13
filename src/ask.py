@@ -22,7 +22,7 @@ PRUNESMALL = 4
 def transform_question(ques):
     # TODO lone ' "Who ' company was Bad Robot Productions ."
 
-    ques = str(ques)
+    ques = ques.encode('utf-8')
     ques = ques.replace("``","\"")
     ques = ques.replace("''","\"")
     ques = ques.replace(" 's","'s")
@@ -42,7 +42,7 @@ def prune_questions(questions):
     #pprint.pprint([questions[i] for i in range(len(questions))])
     questions = filter(lambda question: len(question.split())>PRUNESMALL, questions)
     
-    questions = map(str, questions)
+    questions = [q.encode('utf-8') for q in questions]
     
     t0 = time.time()
     valid_questions = filter(is_grammatical, questions)
@@ -90,7 +90,7 @@ def main(args):
         t0 = time.time()
         entities, relations = extract_entities_relations(data)
         spacy_questions = make_questions_relations(relations)
-        spacy_questions = [str(q) for q in spacy_questions]
+        spacy_questions = [q.encode('utf-8') for q in spacy_questions]
         print "TIME spacyQuestions took",time.time()-t0
 
         print "SPACY ORIGINAL"
@@ -122,7 +122,8 @@ def main(args):
             print "TIME transformSentences took",time.time()-t0
         
             t0 = time.time()
-            selObj2 = sentenceSelector(str(corpus),3)
+            corpus = [q.encode('utf-8') for q in corpus]
+            selObj2 = sentenceSelector(corpus,3)
             print "TIME sentenceSelector took",time.time()-t0
         
             #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article

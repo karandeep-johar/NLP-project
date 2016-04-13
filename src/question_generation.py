@@ -13,11 +13,11 @@ class generateQuestions:
         self.generate()
 
     def __str__(self):
-        return str(self.questions)
+        return self.questions.encode('utf-8')
     
     def easy_generation(self, parse_tree):
         sentence = parse_tree[0].leaves()
-        sentence = [str(item) for sublist in sentence for item in sublist]
+        sentence = [item.encode('utf-8') for sublist in sentence for item in sublist]
         sentence = ' '.join(sentence)
         try:
             if parse_tree[0,0].label()=='NP' and parse_tree[0,1].label()=='VP' and (parse_tree[0,1,0,0] in set(['is', 'was','does','has','can','could', 'will', 'would'])):
@@ -83,8 +83,8 @@ class generateQuestions:
             else:
                 s1.append(parse_tree[0,i].leaves())
                 s2.append(parse_tree[0,i].leaves())
-        s1 = [str(item) for sublist in s1 for item in sublist]
-        s2 = [str(item) for sublist in s2 for item in sublist]
+        s1 = [item.encode('utf-8') for sublist in s1 for item in sublist]
+        s2 = [item.encode('utf-8') for sublist in s2 for item in sublist]
         s1 = ' '.join(s1)
         s2 = ' '.join(s2)
         if found != 0:
