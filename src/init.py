@@ -27,6 +27,7 @@ LEVELS = { 'debug':logging.DEBUG,
             'error':logging.ERROR,
             'critical':logging.CRITICAL,
             }
+
 logger = logging.getLogger('NLP')
 #default is append
 fh = logging.FileHandler(LOG_FILENAME, mode='w')

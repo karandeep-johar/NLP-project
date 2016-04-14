@@ -28,7 +28,7 @@ def merge_spans(spans, doc):
     for span_tuple in tuples:
         doc.merge(*span_tuple)
 
-def get_span_doc(doc, grand_children):
+def get_span_doc(doc, grand_children, because = []):
     # start = grand_children[0].idx
     # end = grand_children[-1].idx+len(grand_children[-1])
     # return str(doc)[start:end]
@@ -37,11 +37,45 @@ def get_span_doc(doc, grand_children):
     for w in doc:
         if w==grand_children[0]:
             start = i
-        elif w==grand_children[-1]:
-            end = i
-            break
+        else:
+            if len(because) > 0:
+                if w==because:
+                    end = i-1
+                    break
+            elif w==grand_children[-1]:
+                end = i
+                break
         i+=1
     return doc[start:end+1]
+
+def extract_because_relations(doc):
+    merge_spans(doc.ents, doc)
+    # print doc
+    relations = []
+    for entity in filter(lambda w: w.dep_ == "mark" and w.orth_ == "because", doc):
+        for child in entity.head.children:
+            grand_children = [grand_child for grand_child in child.subtree]
+            ans = get_span_doc(doc, grand_children)
+            ans = ans[1:]
+            #print "ANS----",ans
+            break
+        try:
+            for child in entity.head.head.head.children:
+                grand_children = [grand_child for grand_child in child.subtree]
+                ques = get_span_doc(doc, grand_children,entity)
+                #print "QUES----",ques
+                break
+        except:
+            for child in entity.head.head.children:
+                grand_children = [grand_child for grand_child in child.subtree]
+                ques = get_span_doc(doc, grand_children,entity)
+                #print "QUES----",ques
+                break
+        relation = (entity.orth_,ques,ans)
+        #print relation
+        relations.append(relation)
+    return relations
+
 
 def extract_is_relations(doc):
     merge_spans(doc.ents, doc)
@@ -98,6 +132,7 @@ def extract_also_known_as_relations(doc):
                     # print ent1,known, ent2
                     break  
     return relations
+
 def extract_as_relations(doc):
     merge_spans(doc.ents, doc)
     # merge_spans(doc.noun_chunks, doc)
@@ -142,6 +177,7 @@ def change_called_to_known(paragraphs):
     paragraphs =  paragraphs.replace("also called", "also known as")
     paragraphs =  paragraphs.replace("Also called", "Also known as")
     return unicode( paragraphs)
+
 def check_pronoun(ent):
     return not reduce(lambda a,b: a or b , map(lambda a: a in pronouns, ent))
 
@@ -166,6 +202,7 @@ def extract_entities_relations(paragraph):
         # for sent in doc.sents:
         for sent in nlp(paragraph).sents:
             sent = sent.orth_
+            relations.extend(extract_because_relations(nlp(sent)))
             relations.extend(extract_as_relations(nlp(sent)))
             relations.extend(extract_is_relations(nlp(sent)))
             relations.extend(extract_also_known_as_relations(nlp(sent)))
@@ -285,11 +322,11 @@ def make_questions_relations(relations,entities):
 # choose one of who/what/where etc.
 # make questions by replacing people, dates
 if __name__ == '__main__':
-    with open("../data/set1/a7.txt","r") as f:
+    with open("wiki.txt","r") as f:
         paragraph,_ = removeHeadings(f)
         x = extract_entities_relations(paragraph)
         # pprint.pprint(x[0])
-        pprint.pprint(make_questions_relations(x[1],x[0]))
+        # pprint.pprint(make_questions_relations(x[1],x[0]))
         # pprint.pprint(x[1])
         # pprint.pprint(make_questions_relations(x[1]))
 

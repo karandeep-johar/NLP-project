@@ -95,7 +95,7 @@ class generateQuestions:
 
     def getQues(self):
         proc = init.proc1
-        # pp = init.pprint.PrettyPrinter(indent=2)
+        pp = init.pprint.PrettyPrinter(indent=2)
         parsed = proc.parse_doc(self.corpus)
         questions = []
         for s in parsed[u'sentences']:

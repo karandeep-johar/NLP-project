@@ -59,7 +59,7 @@ def prune_questions(questions):
 
     return accepted_questions, rejected_questions
 
-def run_pipeline(sentences, nquestions ):
+def run_pipeline(sentences, nquestions):
     
     t0 = time.time()
     qobj = generateQuestions(sentences,nquestions)
