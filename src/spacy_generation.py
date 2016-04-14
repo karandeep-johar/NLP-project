@@ -194,7 +194,8 @@ def change_called_to_known(paragraphs):
     return unicode( paragraphs)
 
 def check_pronoun(ent):
-    return not reduce(lambda a,b: a or b , map(lambda a: a.lower() in pronouns, ent))
+    print "check_pronoun184", ent, not reduce(lambda a,b: a or b , map(lambda a: str(a.lower()) in pronouns, ent))
+    return not reduce(lambda a,b: a or b , map(lambda a: str(a.lower()) in pronouns, ent))
 
 def extract_entities_relations(paragraph):
     
@@ -289,13 +290,20 @@ def change_names(question, entities):
     people = {k:"PEOPLE"  for k in entities if set(entities[k]) == set(["PERSON"])}
     # print "PEOPLE"
     # print people
+    merge_spans(q.ents, q)
+    ents = []
+    for ent in q.ents:
+        if ent.label_:
+            ents.append(str(ent.orth_))
     questions = []
     found = ""
-    for new_person in sorted(people, key=len, reverse=True):
-        # print "241", str(new_person), question
-        if str(new_person) in question:
-            found = str(new_person)
-            break
+    for ent in ents:
+        if not found:
+            for new_person in sorted(people, key=len, reverse=True):
+                # print "241", str(new_person), question
+                if str(new_person) == ent:
+                    found = str(new_person)
+                    break
     if found:
         for new_person in sorted(people, key=len, reverse=True):
             if new_person not in question and len(new_person.split()) == len(found.split()):
@@ -316,6 +324,7 @@ def change_dates(question, entities, relations):
             if format_type(entities[entity]):
                 dates[format_type(entity)].append( entity   )
     q = nlp(unicode(question))
+    merge_spans(q.ents, q)
     for date in filter(lambda x: x.ent_type_=="DATE", q):
         fd = format_type(date)
         if fd:

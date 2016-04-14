@@ -17,6 +17,7 @@ import sys
 sys.path.append('../link-grammar-5.3.4/bindings/python')
 sys.path.append('../link-grammar-5.3.4/bindings/python/.libs')
 from linkgrammar import Sentence, ParseOptions, Dictionary
+from spacy_generation import pronouns
 # from linkgrammar import _clinkgrammar as clg
 
 locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
@@ -73,7 +74,7 @@ def is_grammatical(ques):
     # print "LINK_GRAMMAR", ques
     sent = Sentence(ques, dictionary, po)
     linkages = sent.parse()
-    if ";" in ques or sent.num_valid_linkages()==0 or not Evaluate(ques):
+    if ";" in ques or sent.num_valid_linkages()==0 or ques.split()[1] in pronouns or not Evaluate(ques):
         return False
     # look inside linkgrammar.py .You may find gold there. 
     # linkage_stat(sent, 'English')
