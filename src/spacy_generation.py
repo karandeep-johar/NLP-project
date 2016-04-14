@@ -78,68 +78,68 @@ def extract_because_relations(doc):
 
 
 def extract_is_relations(doc):
-    merge_spans(doc.ents, doc)
-    # print doc
-    merge_spans(doc.noun_chunks, doc)
-    # print doc
-    # print doc.ents
-    # for w in doc:
-    #     print w.ent_type_, w
     relations = []
-    for entity in filter(lambda w: w.ent_type_ and w.dep_ =="nsubj" and w.head.orth_ in ("is","was","been","has","have","had") , doc):
+    try:
+        merge_spans(doc.ents, doc)
+        # print doc
+        merge_spans(doc.noun_chunks, doc)
+        for entity in filter(lambda w: w.ent_type_ and w.dep_ =="nsubj" and w.head.orth_ in ("is","was","been","has","have","had") , doc):
         # isWord = entity.head
         # print "entity", entity
-        for child in entity.head.children:
-            # print child, child.dep_
-            if child.dep_ in ("attr","dobj"):
-                grand_children = [grand_child for grand_child in child.subtree]
-                # print grand_children[0].idx, grand_children[0].orth_
-                # print "69", child, grand_children
-                isa = get_span_doc(doc, grand_children)
-                # print entity.head,(entity.head,entity,isa)
-                relation = (entity.head,entity,isa)
-                # print "XXXXXXXXXXXXXXXX"
-                # print entity.head.orth_,entity.head.lemma_
-                relations.append(relation)
-            # if person.dep_ in ("pobj"):
+            for child in entity.head.children:
+                # print child, child.dep_
+                if child.dep_ in ("attr","dobj"):
+                    grand_children = [grand_child for grand_child in child.subtree]
+                    # print grand_children[0].idx, grand_children[0].orth_
+                    # print "69", child, grand_children
+                    isa = get_span_doc(doc, grand_children)
+                    # print entity.head,(entity.head,entity,isa)
+                    relation = (entity.head,entity,isa)
+                    # print "XXXXXXXXXXXXXXXX"
+                    # print entity.head.orth_,entity.head.lemma_
+                    relations.append(relation)
 
-            # print entity, entity.ent_type_, entity.head
-            # for child in entity.head.children:
-            #     print child
-            #     for x in child.subtree:
-            #         print "x",x
-    # print "relations", relations
+    except Exception, e:
+        return relations
+    
     return relations
 
 def extract_also_known_as_relations(doc):
     merge_spans(doc.noun_chunks, doc)
     relations = []
-    for sent in doc.sents:
-        for token in sent:
-            if token.orth_=="known":
-                known = token
-                if known.nbor(-1).orth_=="also" and known.nbor(1).orth_=="as":
-                    ent1 = known.head
-                    ent2 = known.nbor(1).children.next()
-                    relations.append( (known,ent1, ent2))
-                    break
-                elif known.nbor(-1).orth_=="Also" and known.nbor(1).orth_ =="as":
-                    ent2 = known.nbor(1).children.next()
-                    comma = ent2.nbor(1)
-                    if comma.is_punct:
-                        ent1 = comma.nbor(1)
-                        relations.append((known,ent1, ent2))
-                    # print ent1,known, ent2
-                    break  
+    try:
+        for sent in doc.sents:
+            for token in sent:
+                if token.orth_=="known":
+                    known = token
+                    if known.nbor(-1).orth_=="also" and known.nbor(1).orth_=="as":
+                        ent1 = known.head
+                        ent2 = known.nbor(1).children.next()
+                        relations.append( (known,ent1, ent2))
+                        break
+                    elif known.nbor(-1).orth_=="Also" and known.nbor(1).orth_ =="as":
+                        ent2 = known.nbor(1).children.next()
+                        comma = ent2.nbor(1)
+                        if comma.is_punct:
+                            ent1 = comma.nbor(1)
+                            relations.append((known,ent1, ent2))
+                        # print ent1,known, ent2
+                        break  
+    except Exception, e:
+        return relations
     return relations
 
 def extract_as_relations(doc):
     merge_spans(doc.ents, doc)
     # merge_spans(doc.noun_chunks, doc)
     relations = []
-    for person in filter(lambda w: w.ent_type_ == 'PERSON', doc):
-        if person.dep_ in ("pobj") and person.head.dep_ in ("prep") and person.head.orth_ == "as" and person.head.head.ent_type_=="PERSON":
-            relations.append((person.head,  person.head.head,person))
+    try:
+        for person in filter(lambda w: w.ent_type_ == 'PERSON', doc):
+               if person.dep_ in ("pobj") and person.head.dep_ in ("prep") and person.head.orth_ == "as" and person.head.head.ent_type_=="PERSON":
+                   relations.append((person.head,  person.head.head,person))
+    except Exception, e:
+        return relations
+   
     #     if money.dep_ in ('attr', 'dobj'):
     #         subject = [w for w in money.head.lefts if w.dep_ == 'nsubj']
     #         if subject:
@@ -181,7 +181,7 @@ def change_called_to_known(paragraphs):
     return unicode( paragraphs)
 
 def check_pronoun(ent):
-    return not reduce(lambda a,b: a or b , map(lambda a: a in pronouns, ent))
+    return not reduce(lambda a,b: a or b , map(lambda a: a.lower() in pronouns, ent))
 
 def extract_entities_relations(paragraph):
     
@@ -270,18 +270,19 @@ def make_hard_questions(question,  entities, relations):
 def change_names(question, entities):
     q = nlp(unicode(question))
     people = {k:"PEOPLE"  for k in entities if set(entities[k]) == set(["PERSON"])}
-    print "PEOPLE"
-    print people
+    # print "PEOPLE"
+    # print people
     questions = []
     found = ""
-    for new_person in people:
-        print "241", str(new_person), question
+    for new_person in sorted(people, key=len, reverse=True):
+        # print "241", str(new_person), question
         if str(new_person) in question:
             found = str(new_person)
             break
     if found:
-        for new_person in people:
-            questions.append(question.replace(found, new_person))
+        for new_person in sorted(people, key=len, reverse=True):
+            if new_person not in question and len(new_person.split()) == len(found.split()):
+                questions.append(question.replace(found, new_person))
     # for person in q.ents:
     #     print "240 person",  person.orth_
     #     for new_person in people:
@@ -322,12 +323,12 @@ def make_questions_relations(relations,entities):
     for relation in relations:
         relation = [str(relation[0].orth_),str( relation[1].orth_), str(relation[2].orth_)]
         relation[0] = relation[0][0].upper() +relation[0][1:]
+        start = relation[1].split(" ",1)
+        # print "290", start, relation[1]
+        if str(start[0]).lower() in stopwords:
+            start[0] = start[0].lower()
+        relation[1] = " ".join(start)
         if relation[0].lower() in ("is", "was"):
-            first_four = relation[1][:4]
-            first_four = first_four.replace("A ","a ")
-            first_four = first_four.replace("An ","an ")
-            first_four = first_four.replace("The ","the ")
-            relation[1] = first_four+relation[1][4:]
             questions.append(" ".join(relation)+"?")
         elif relation[0].lower() in  ["had","has"]:
             questions.append("Did "+ relation[1] + " have " + relation[2] +"?")

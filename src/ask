@@ -81,6 +81,7 @@ def main(args):
         return
     with open(args[0], "r") as file:
         data,heading, pronoun = removeHeadings(file, True)
+        # print "pronoun",pronoun
         headingSet = set()
         for s in heading:
             headingSet.add(s)
@@ -101,13 +102,13 @@ def main(args):
         accepted_questions = []
         t0 = time.time()
         entities, relations = extract_entities_relations(data)
-        print "heading is", headings, person_article
+        logger.critical(  "heading is", headings, person_article)
         if person_article:
             for x in headings:
                 if x in entities:
                     entities[x] = ["PERSON"]
         spacy_questions = make_questions_relations(relations, entities)
-        spacy_questions = [q.encode('utf-8') for q in spacy_questions]
+        spacy_questions = [q.encode('utf-8', errors="ignore") for q in spacy_questions]
         logger.critical( "TIME spacyQuestions took"+str(time.time()-t0))
 
         logger.critical( "SPACY ORIGINAL")
@@ -125,10 +126,10 @@ def main(args):
 
         logger.critical("HARD HARD HARD")
         for question in accepted_questions:
-            hqs =  make_hard_questions(question, entities, relations)        
+            hqs =  filter(is_grammatical, make_hard_questions(question, entities, relations))
             logger.critical(question)
             logger.critical(hqs)
-            accepted["hard spacy"].extend(hqs)
+            accepted["hard spacy"].extend(hqs )
         accepted_questions.extend(accepted["hard spacy"])
         logger.critical("HARD HARD HARD END")
         k = nquestions - len(accepted_questions)

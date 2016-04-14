@@ -17,6 +17,9 @@ configFileLoc = os.path.join(dir, 'config.ini')
 proc1 = CoreNLP(configfile=configFileLoc, corenlp_jars=[filename])
 proc2 = CoreNLP(configfile=os.path.join(dir, 'simple.ini'), corenlp_jars=[filename])
 proc3 = CoreNLP(configfile=os.path.join(dir, 'mid.ini'), corenlp_jars=[filename])
+with open("stopwords.txt", "r") as r:
+    stopwords = r.read().split()
+# print "stopwords", stopwords
 puncTags = ['.',',','IN','#','$','CC','SYM','-LRB-','-RRB-',"''",'``',"'","`",'"',':',';','[',']','{','}','-','_','!','?','~','&','*','%',')']
 specialPuncTags = [".","?","?","!", ","]
 MIN_PARA_SIZE = 4
@@ -71,6 +74,10 @@ def formGrammaticalSentence(sentence):
             word = sentence[i]
             word=word.replace("-LRB-","(")
             word=word.replace("-RRB-",")")
+            word=word.replace("-LSB-","[")
+            word=word.replace("-RSB-","]")
+            word=word.replace("-LCB-","{")
+            word=word.replace("-RCB-","}")
             word=word.replace("``",'"')
             word=word.replace("''",'"')
             if charType[i]=='PUNC' or charType[i]=='APO' or charType[i]=='APOS':

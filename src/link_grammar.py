@@ -34,6 +34,25 @@ def desc(lkg):
 
 def s(q):
     return '' if q == 1 else 's'
+def Evaluate(str1):
+    pushChars, popChars = '<({["', '>)}]"'
+    str1 = "".join([ c if c in pushChars or c in popChars else "" for c in str1 ])
+    stack = []
+    
+    for c in str1 :
+        if c in pushChars :
+            stack.append(c)
+        elif c in popChars :
+            if not len(stack) :
+                return False
+            else :
+                stackTop = stack.pop()
+                balancingBracket = pushChars[popChars.index(c)]
+            if stackTop != balancingBracket :
+                return False
+        else :
+            return False
+    return not len(stack)
 
 def linkage_stat(psent, lang):
     """
@@ -50,9 +69,11 @@ def linkage_stat(psent, lang):
 
 dictionary = Dictionary()
 def is_grammatical(ques):
+    ques = str(ques)
+    # print "LINK_GRAMMAR", ques
     sent = Sentence(ques, dictionary, po)
     linkages = sent.parse()
-    if sent.num_valid_linkages()==0:
+    if ";" in ques or sent.num_valid_linkages()==0 or not Evaluate(ques):
         return False
     # look inside linkgrammar.py .You may find gold there. 
     # linkage_stat(sent, 'English')

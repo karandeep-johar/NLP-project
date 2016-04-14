@@ -1,0 +1,76 @@
+Is Python a widely used general-purpose, high-level programming language?
+Is Van Rossum Python's principal author, and his continuing central role in deciding the direction of Python?
+Is Python a multi-paradigm programming language: object-oriented programming and structured programming?
+Did the standard library have two modules( itertools and functools) that implement functional tools borrowed from Haskell and Standard ML?
+Is Perl more than one way to do it?
+Is a name a generic reference holder it is not reasonable to associate a fixed data type with it?
+Did Python have various kinds of string literals?
+Is each element a shallow copy?
+Is the syntax the same?
+Did Python have extensive built-in support for arbitrary precision arithmetic?
+Did Python have a large standard library, commonly cited as one of Python's greatest strengths, providing tools suited to many tasks?
+Is PyPy a fast, compliant interpreter of Python 2.7 and 3.2?
+Is Stackless Python a significant fork of CPython that implements microthreads?
+Did PyPy have a stackless version?
+Is the PEP process the primary mechanism for proposing major new features, for collecting community input on an issue, and for documenting the design decisions that have gone into Python?
+Is mailing list the primary forum for discussion about the language's development?
+Is Python Scripting Provider a core feature since Version 4.0 from 7 February 2013?
+Is CoffeeScript a programming language that cross-compiles to JavaScript?
+Is Swift a programming language invented by Apple?
+Who is a widely used general-purpose, high-level programming language?
+Who supports multiple programming paradigms, including object-oriented, imperative and functional programming or procedural styles?
+What is managed by the non-profit Python Software Foundation?
+Who uses dynamic typing and a combination of reference counting and a cycle-detecting garbage collector for memory management?
+Who is intended to be a highly readable language?
+Who has a type of expression termed a list comprehension?
+Who extended list comprehensions into a more general expression termed a generator expression?
+Who makes a distinction between lists and tuples?
+What delimited by single or double quotation marks?
+Who uses duck typing and has typed objects but untyped variable names?
+Who provides a round function for rounding a float to the nearest integer?
+Who has extensive built-in support for arbitrary precision arithmetic?
+What omits most of the standard library?
+What is distributed with a large standard library written in a mixture of C and Python?
+What is a fast, compliant interpreter of Python 2.7 and 3.2?
+What also has a stackless version?
+What compiles Python to JavaScript?
+What goes along with development of the CPython reference implementation?
+What takes place on a self-hosted source code repository running Mercurial?
+What are also patched in bugfix releases?
+What can be used to develop the client-side of Ajax-based applications?
+Who has also been used in artificial intelligence tasks?
+Who includes Python and intends to replace Java with Python?
+What borrowed iterators, generators, and list comprehensions from Python?
+What was motivated by the desire to bring the Python design philosophy to Java?
+Who have also been emulated by other languages?
+Is Python a widely used general-purpose, high-level programming language?
+Is CPython managed by the non-profit Python Software Foundation?
+Is an important goal of the Python developers making Python fun to use?
+Is Python intended to be a highly readable language?
+Is it designed to have an uncluttered visual layout, frequently using English keywords where other languages use punctuation?
+Is it syntactically needed to create an empty code block?
+Is this form used to implement coroutines?
+Was the print statement changed to the print() function in Python 3?
+Is each element of a slice a shallow copy?
+Is the standard library not essential to run Python or embed Python within an application?
+Is CPython distributed with a large standard library written in a mixture of C and Python?
+Is PyPy a fast, compliant interpreter of Python 2.7 and 3.2?
+Is a version taking advantage of multi-core processors using software transactional memory being created?
+Is the first part of the version number incremented?
+Is the second part of the version number incremented?
+Is the major academic conference on Python named PyCon?
+Can Pyjamas and IronPython be used to develop the client-side of Ajax-based applications?
+Has Python also been used in artificial intelligence tasks?
+Was Groovy motivated by the desire to bring the Python design philosophy to Java?
+Is Yukihiro Matsumoto Python's principal author, and his continuing central role in deciding the direction of Python?
+Is Alex Martelli Python's principal author, and his continuing central role in deciding the direction of Python?
+Was Matplotlib motivated by the desire to bring the Python design philosophy to Java?
+Was Pyladies motivated by the desire to bring the Python design philosophy to Java?
+Was Pygame motivated by the desire to bring the Python design philosophy to Java?
+Was Julia motivated by the desire to bring the Python design philosophy to Java?
+Was Naomi motivated by the desire to bring the Python design philosophy to Java?
+Was Monty motivated by the desire to bring the Python design philosophy to Java?
+Was Sage motivated by the desire to bring the Python design philosophy to Java?
+Was Maya motivated by the desire to bring the Python design philosophy to Java?
+Was Esri motivated by the desire to bring the Python design philosophy to Java?
+Was Qt motivated by the desire to bring the Python design philosophy to Java?

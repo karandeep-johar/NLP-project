@@ -15,7 +15,7 @@ def easy_generation(sentence):
             tokens[-1] = "?"
             logger.critical("easy_generation")
             logger.critical(tokens)
-            if tokens[1] in ["A", "An", "The"]:
+            if str(tokens[1]).lower() in init.stopwords:
                 tokens[1] = tokens[1].lower()
             return " ".join(tokens)
             
