@@ -71,7 +71,7 @@ def extract_because_relations(doc):
                 ques = get_span_doc(doc, grand_children,entity)
                 #print "QUES----",ques
                 break
-        relation = (entity.orth_,ques,ans)
+        relation = (entity,ques,ans)
         #print relation
         relations.append(relation)
     return relations

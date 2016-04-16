@@ -1,76 +1,430 @@
-Is Python a widely used general-purpose, high-level programming language?
-Is Van Rossum Python's principal author, and his continuing central role in deciding the direction of Python?
-Is Python a multi-paradigm programming language: object-oriented programming and structured programming?
-Did the standard library have two modules( itertools and functools) that implement functional tools borrowed from Haskell and Standard ML?
-Is Perl more than one way to do it?
-Is a name a generic reference holder it is not reasonable to associate a fixed data type with it?
-Did Python have various kinds of string literals?
-Is each element a shallow copy?
-Is the syntax the same?
-Did Python have extensive built-in support for arbitrary precision arithmetic?
-Did Python have a large standard library, commonly cited as one of Python's greatest strengths, providing tools suited to many tasks?
-Is PyPy a fast, compliant interpreter of Python 2.7 and 3.2?
-Is Stackless Python a significant fork of CPython that implements microthreads?
-Did PyPy have a stackless version?
-Is the PEP process the primary mechanism for proposing major new features, for collecting community input on an issue, and for documenting the design decisions that have gone into Python?
-Is mailing list the primary forum for discussion about the language's development?
-Is Python Scripting Provider a core feature since Version 4.0 from 7 February 2013?
-Is CoffeeScript a programming language that cross-compiles to JavaScript?
-Is Swift a programming language invented by Apple?
-Who is a widely used general-purpose, high-level programming language?
-Who supports multiple programming paradigms, including object-oriented, imperative and functional programming or procedural styles?
-What is managed by the non-profit Python Software Foundation?
-Who uses dynamic typing and a combination of reference counting and a cycle-detecting garbage collector for memory management?
-Who is intended to be a highly readable language?
-Who has a type of expression termed a list comprehension?
-Who extended list comprehensions into a more general expression termed a generator expression?
-Who makes a distinction between lists and tuples?
-What delimited by single or double quotation marks?
-Who uses duck typing and has typed objects but untyped variable names?
-Who provides a round function for rounding a float to the nearest integer?
-Who has extensive built-in support for arbitrary precision arithmetic?
-What omits most of the standard library?
-What is distributed with a large standard library written in a mixture of C and Python?
-What is a fast, compliant interpreter of Python 2.7 and 3.2?
-What also has a stackless version?
-What compiles Python to JavaScript?
-What goes along with development of the CPython reference implementation?
-What takes place on a self-hosted source code repository running Mercurial?
-What are also patched in bugfix releases?
-What can be used to develop the client-side of Ajax-based applications?
-Who has also been used in artificial intelligence tasks?
-Who includes Python and intends to replace Java with Python?
-What borrowed iterators, generators, and list comprehensions from Python?
-What was motivated by the desire to bring the Python design philosophy to Java?
-Who have also been emulated by other languages?
-Is Python a widely used general-purpose, high-level programming language?
-Is CPython managed by the non-profit Python Software Foundation?
-Is an important goal of the Python developers making Python fun to use?
-Is Python intended to be a highly readable language?
-Is it designed to have an uncluttered visual layout, frequently using English keywords where other languages use punctuation?
-Is it syntactically needed to create an empty code block?
-Is this form used to implement coroutines?
-Was the print statement changed to the print() function in Python 3?
-Is each element of a slice a shallow copy?
-Is the standard library not essential to run Python or embed Python within an application?
-Is CPython distributed with a large standard library written in a mixture of C and Python?
-Is PyPy a fast, compliant interpreter of Python 2.7 and 3.2?
-Is a version taking advantage of multi-core processors using software transactional memory being created?
-Is the first part of the version number incremented?
-Is the second part of the version number incremented?
-Is the major academic conference on Python named PyCon?
-Can Pyjamas and IronPython be used to develop the client-side of Ajax-based applications?
-Has Python also been used in artificial intelligence tasks?
-Was Groovy motivated by the desire to bring the Python design philosophy to Java?
-Is Yukihiro Matsumoto Python's principal author, and his continuing central role in deciding the direction of Python?
-Is Alex Martelli Python's principal author, and his continuing central role in deciding the direction of Python?
-Was Matplotlib motivated by the desire to bring the Python design philosophy to Java?
-Was Pyladies motivated by the desire to bring the Python design philosophy to Java?
-Was Pygame motivated by the desire to bring the Python design philosophy to Java?
-Was Julia motivated by the desire to bring the Python design philosophy to Java?
-Was Naomi motivated by the desire to bring the Python design philosophy to Java?
-Was Monty motivated by the desire to bring the Python design philosophy to Java?
-Was Sage motivated by the desire to bring the Python design philosophy to Java?
-Was Maya motivated by the desire to bring the Python design philosophy to Java?
-Was Esri motivated by the desire to bring the Python design philosophy to Java?
-Was Qt motivated by the desire to bring the Python design philosophy to Java?
+Is Messi the only football player in history to win?
+Was Lionel Messi's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Did the Messi family have relatives in Catalonia?
+Was Messi one of several youth players?
+Was Messi the subject of far harsher judgement?
+Did Messi have a lower centre of gravity than taller players, which gives him greater agility?
+Is Messi the only player that runs faster with the ball than he does?
+Is Messi Maradona every day?
+Has Messi been the Maradona of the World Cup in Mexico?
+Is Messi the antithesis of his predecessor:?
+Was Maradona an extroverted, controversial character who rose to greatness from the slums?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Ooredoo, and Tata Motors, among other companies?
+Was a 2013 Turkish Airlines advertisement the most-watched ad on YouTube in the year of its release?
+Was the goal later named one of the three final nominees for the 2015 FIFA Puskas Award?
+Was he named the best young player of the tournament by CONMEBOL?
+Is his main sponsor since 2006 the sportswear company Adidas?
+Is Saint-Germain the only football player in history to win?
+Is Guardiolaone the only football player in history to win?
+Is Maximiliano the only football player in history to win?
+Is Albiceleste the only football player in history to win?
+Is Mascherano the only football player in history to win?
+Is Sarmiento the only football player in history to win?
+Is Guardiola the only football player in history to win?
+Is Albacete the only football player in history to win?
+Is Vilanova the only football player in history to win?
+Is Fabregas the only football player in history to win?
+Is Pekerman the only football player in history to win?
+Is Roccuzzo the only football player in history to win?
+Is Grandoli the only football player in history to win?
+Is Rodrigo the only football player in history to win?
+Is Capello the only football player in history to win?
+Is Ooredoo the only football player in history to win?
+Is Sabella the only football player in history to win?
+Is Levante the only football player in history to win?
+Is Santos the only football player in history to win?
+Is Matias the only football player in history to win?
+Is Muller the only football player in history to win?
+Is Neymar the only football player in history to win?
+Is Konami the only football player in history to win?
+Is Mateo the only football player in history to win?
+Is Celia the only football player in history to win?
+Is Tevez the only football player in history to win?
+Is Jorge the only football player in history to win?
+Is Pique the only football player in history to win?
+Is Roma the only football player in history to win?
+Is Pele the only football player in history to win?
+Is Xavi the only football player in history to win?
+Is Raul the only football player in history to win?
+Is Kaka the only football player in history to win?
+Is Leo the only football player in history to win?
+Was Lionel Messi's personal best campaign the 2011-14 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Lionel Messi's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2010 ?
+Was Lionel Messi's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2013 ?
+Was Lionel Messi's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2008 ?
+Was Lionel Messi's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2009 ?
+Was Antonella Roccuzzo's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Emanuel Biancucchi's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Gabriel Batistuta's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Alejandro Sabella's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Javier Mascherano's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Paulino Alcantara's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Francisco Ferraro's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Celia Cuccittini's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Gianluigi Buffon's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Athletic Bilbao's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Luciana Salazar's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Rosario Central's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Osvaldo Ardiles's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Ernesto Vecchio's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Cesar Rodriguez's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Audemars Piguet's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was France Football's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Macarena Lemos's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Sergio Batista's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Diego Maradona's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Rayo Vallecano's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Jerome Boateng's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Josep Samitier's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Andres Iniesta's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Javier Zanetti's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Michel Platini's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Frank Rijkaard's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Cesc Fabregas's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Fabio Capello's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Pep Guardiola's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was David Beckham's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Cesar Menotti's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Jorge Valdano's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Diego Simeone's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Jose Altafini's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Laszlo Kubala's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Arsene Wenger's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Lucas Scaglia's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Jose Mourinho's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Charly Rexach's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Jose Pekerman's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Thierry Henry's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Tito Vilanova's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Manuel Neuer's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Carles Puyol's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Gerard Pique's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Tata Martino's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Joan Laporta's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Sepp Blatter's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Sergio Ramos's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Johan Cruyff's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Carlos Tevez's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Luis Enrique's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Joan Gamper's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Jorge Messi's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Ballon d'Or's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was River Plate's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Pablo Aimar's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Mario Gotze's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Coco Basile's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Luis Suarez's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Kobe Bryant's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Alain Prost's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Silver Ball's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Gerd Muller's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Maria Sol's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Was Luis Figo's personal best campaign the 2011-12 season, in which he set the La Liga and European records for most goals scored in a single season, while establishing himself as Barcelona's all-time top scorer in official competitions in March 2012?
+Did the Saint-Germain family have relatives in Catalonia?
+Did the Guardiolaone family have relatives in Catalonia?
+Did the Maximiliano family have relatives in Catalonia?
+Did the Albiceleste family have relatives in Catalonia?
+Did the Mascherano family have relatives in Catalonia?
+Did the Sarmiento family have relatives in Catalonia?
+Did the Guardiola family have relatives in Catalonia?
+Did the Albacete family have relatives in Catalonia?
+Did the Vilanova family have relatives in Catalonia?
+Did the Fabregas family have relatives in Catalonia?
+Did the Pekerman family have relatives in Catalonia?
+Did the Roccuzzo family have relatives in Catalonia?
+Did the Grandoli family have relatives in Catalonia?
+Did the Rodrigo family have relatives in Catalonia?
+Did the Capello family have relatives in Catalonia?
+Did the Ooredoo family have relatives in Catalonia?
+Did the Sabella family have relatives in Catalonia?
+Did the Levante family have relatives in Catalonia?
+Did the Santos family have relatives in Catalonia?
+Did the Matias family have relatives in Catalonia?
+Did the Muller family have relatives in Catalonia?
+Did the Neymar family have relatives in Catalonia?
+Did the Konami family have relatives in Catalonia?
+Did the Mateo family have relatives in Catalonia?
+Did the Celia family have relatives in Catalonia?
+Did the Tevez family have relatives in Catalonia?
+Did the Jorge family have relatives in Catalonia?
+Did the Pique family have relatives in Catalonia?
+Did the Roma family have relatives in Catalonia?
+Did the Pele family have relatives in Catalonia?
+Did the Xavi family have relatives in Catalonia?
+Did the Raul family have relatives in Catalonia?
+Did the Kaka family have relatives in Catalonia?
+Did the Leo family have relatives in Catalonia?
+Was Saint-Germain one of several youth players?
+Was Guardiolaone one of several youth players?
+Was Maximiliano one of several youth players?
+Was Albiceleste one of several youth players?
+Was Mascherano one of several youth players?
+Was Sarmiento one of several youth players?
+Was Guardiola one of several youth players?
+Was Albacete one of several youth players?
+Was Vilanova one of several youth players?
+Was Fabregas one of several youth players?
+Was Pekerman one of several youth players?
+Was Roccuzzo one of several youth players?
+Was Grandoli one of several youth players?
+Was Rodrigo one of several youth players?
+Was Capello one of several youth players?
+Was Ooredoo one of several youth players?
+Was Sabella one of several youth players?
+Was Levante one of several youth players?
+Was Santos one of several youth players?
+Was Matias one of several youth players?
+Was Muller one of several youth players?
+Was Neymar one of several youth players?
+Was Konami one of several youth players?
+Was Mateo one of several youth players?
+Was Celia one of several youth players?
+Was Tevez one of several youth players?
+Was Jorge one of several youth players?
+Was Pique one of several youth players?
+Was Roma one of several youth players?
+Was Pele one of several youth players?
+Was Xavi one of several youth players?
+Was Raul one of several youth players?
+Was Kaka one of several youth players?
+Was Leo one of several youth players?
+Was Saint-Germain the subject of far harsher judgement?
+Was Guardiolaone the subject of far harsher judgement?
+Was Maximiliano the subject of far harsher judgement?
+Was Albiceleste the subject of far harsher judgement?
+Was Mascherano the subject of far harsher judgement?
+Was Sarmiento the subject of far harsher judgement?
+Was Guardiola the subject of far harsher judgement?
+Was Albacete the subject of far harsher judgement?
+Was Vilanova the subject of far harsher judgement?
+Was Fabregas the subject of far harsher judgement?
+Was Pekerman the subject of far harsher judgement?
+Was Roccuzzo the subject of far harsher judgement?
+Was Grandoli the subject of far harsher judgement?
+Was Rodrigo the subject of far harsher judgement?
+Was Capello the subject of far harsher judgement?
+Was Ooredoo the subject of far harsher judgement?
+Was Sabella the subject of far harsher judgement?
+Was Levante the subject of far harsher judgement?
+Was Santos the subject of far harsher judgement?
+Was Matias the subject of far harsher judgement?
+Was Muller the subject of far harsher judgement?
+Was Neymar the subject of far harsher judgement?
+Was Konami the subject of far harsher judgement?
+Was Mateo the subject of far harsher judgement?
+Was Celia the subject of far harsher judgement?
+Was Tevez the subject of far harsher judgement?
+Was Jorge the subject of far harsher judgement?
+Was Pique the subject of far harsher judgement?
+Was Roma the subject of far harsher judgement?
+Was Pele the subject of far harsher judgement?
+Was Xavi the subject of far harsher judgement?
+Was Raul the subject of far harsher judgement?
+Was Kaka the subject of far harsher judgement?
+Was Leo the subject of far harsher judgement?
+Did Saint-Germain have a lower centre of gravity than taller players, which gives him greater agility?
+Did Guardiolaone have a lower centre of gravity than taller players, which gives him greater agility?
+Did Maximiliano have a lower centre of gravity than taller players, which gives him greater agility?
+Did Albiceleste have a lower centre of gravity than taller players, which gives him greater agility?
+Did Mascherano have a lower centre of gravity than taller players, which gives him greater agility?
+Did Sarmiento have a lower centre of gravity than taller players, which gives him greater agility?
+Did Guardiola have a lower centre of gravity than taller players, which gives him greater agility?
+Did Albacete have a lower centre of gravity than taller players, which gives him greater agility?
+Did Vilanova have a lower centre of gravity than taller players, which gives him greater agility?
+Did Fabregas have a lower centre of gravity than taller players, which gives him greater agility?
+Did Pekerman have a lower centre of gravity than taller players, which gives him greater agility?
+Did Roccuzzo have a lower centre of gravity than taller players, which gives him greater agility?
+Did Grandoli have a lower centre of gravity than taller players, which gives him greater agility?
+Did Rodrigo have a lower centre of gravity than taller players, which gives him greater agility?
+Did Capello have a lower centre of gravity than taller players, which gives him greater agility?
+Did Ooredoo have a lower centre of gravity than taller players, which gives him greater agility?
+Did Sabella have a lower centre of gravity than taller players, which gives him greater agility?
+Did Levante have a lower centre of gravity than taller players, which gives him greater agility?
+Did Santos have a lower centre of gravity than taller players, which gives him greater agility?
+Did Matias have a lower centre of gravity than taller players, which gives him greater agility?
+Did Muller have a lower centre of gravity than taller players, which gives him greater agility?
+Did Neymar have a lower centre of gravity than taller players, which gives him greater agility?
+Did Konami have a lower centre of gravity than taller players, which gives him greater agility?
+Did Mateo have a lower centre of gravity than taller players, which gives him greater agility?
+Did Celia have a lower centre of gravity than taller players, which gives him greater agility?
+Did Tevez have a lower centre of gravity than taller players, which gives him greater agility?
+Did Jorge have a lower centre of gravity than taller players, which gives him greater agility?
+Did Pique have a lower centre of gravity than taller players, which gives him greater agility?
+Did Roma have a lower centre of gravity than taller players, which gives him greater agility?
+Did Pele have a lower centre of gravity than taller players, which gives him greater agility?
+Did Xavi have a lower centre of gravity than taller players, which gives him greater agility?
+Did Raul have a lower centre of gravity than taller players, which gives him greater agility?
+Did Kaka have a lower centre of gravity than taller players, which gives him greater agility?
+Did Leo have a lower centre of gravity than taller players, which gives him greater agility?
+Is Saint-Germain the only player that runs faster with the ball than he does?
+Is Guardiolaone the only player that runs faster with the ball than he does?
+Is Maximiliano the only player that runs faster with the ball than he does?
+Is Albiceleste the only player that runs faster with the ball than he does?
+Is Mascherano the only player that runs faster with the ball than he does?
+Is Sarmiento the only player that runs faster with the ball than he does?
+Is Guardiola the only player that runs faster with the ball than he does?
+Is Albacete the only player that runs faster with the ball than he does?
+Is Vilanova the only player that runs faster with the ball than he does?
+Is Fabregas the only player that runs faster with the ball than he does?
+Is Pekerman the only player that runs faster with the ball than he does?
+Is Roccuzzo the only player that runs faster with the ball than he does?
+Is Grandoli the only player that runs faster with the ball than he does?
+Is Rodrigo the only player that runs faster with the ball than he does?
+Is Capello the only player that runs faster with the ball than he does?
+Is Ooredoo the only player that runs faster with the ball than he does?
+Is Sabella the only player that runs faster with the ball than he does?
+Is Levante the only player that runs faster with the ball than he does?
+Is Santos the only player that runs faster with the ball than he does?
+Is Matias the only player that runs faster with the ball than he does?
+Is Muller the only player that runs faster with the ball than he does?
+Is Neymar the only player that runs faster with the ball than he does?
+Is Konami the only player that runs faster with the ball than he does?
+Is Mateo the only player that runs faster with the ball than he does?
+Is Celia the only player that runs faster with the ball than he does?
+Is Tevez the only player that runs faster with the ball than he does?
+Is Jorge the only player that runs faster with the ball than he does?
+Is Pique the only player that runs faster with the ball than he does?
+Is Roma the only player that runs faster with the ball than he does?
+Is Pele the only player that runs faster with the ball than he does?
+Is Xavi the only player that runs faster with the ball than he does?
+Is Raul the only player that runs faster with the ball than he does?
+Is Kaka the only player that runs faster with the ball than he does?
+Is Leo the only player that runs faster with the ball than he does?
+Is Saint-Germain Maradona every day?
+Is Guardiolaone Maradona every day?
+Is Maximiliano Maradona every day?
+Is Albiceleste Maradona every day?
+Is Mascherano Maradona every day?
+Is Sarmiento Maradona every day?
+Is Guardiola Maradona every day?
+Is Albacete Maradona every day?
+Is Vilanova Maradona every day?
+Is Fabregas Maradona every day?
+Is Pekerman Maradona every day?
+Is Roccuzzo Maradona every day?
+Is Grandoli Maradona every day?
+Is Rodrigo Maradona every day?
+Is Capello Maradona every day?
+Is Ooredoo Maradona every day?
+Is Sabella Maradona every day?
+Is Levante Maradona every day?
+Is Santos Maradona every day?
+Is Matias Maradona every day?
+Is Muller Maradona every day?
+Is Neymar Maradona every day?
+Is Konami Maradona every day?
+Is Mateo Maradona every day?
+Is Celia Maradona every day?
+Is Tevez Maradona every day?
+Is Jorge Maradona every day?
+Is Pique Maradona every day?
+Is Roma Maradona every day?
+Is Pele Maradona every day?
+Is Xavi Maradona every day?
+Is Raul Maradona every day?
+Is Kaka Maradona every day?
+Is Leo Maradona every day?
+Has Saint-Germain been the Maradona of the World Cup in Mexico?
+Has Guardiolaone been the Maradona of the World Cup in Mexico?
+Has Maximiliano been the Maradona of the World Cup in Mexico?
+Has Albiceleste been the Maradona of the World Cup in Mexico?
+Has Mascherano been the Maradona of the World Cup in Mexico?
+Has Sarmiento been the Maradona of the World Cup in Mexico?
+Has Guardiola been the Maradona of the World Cup in Mexico?
+Has Albacete been the Maradona of the World Cup in Mexico?
+Has Vilanova been the Maradona of the World Cup in Mexico?
+Has Fabregas been the Maradona of the World Cup in Mexico?
+Has Pekerman been the Maradona of the World Cup in Mexico?
+Has Roccuzzo been the Maradona of the World Cup in Mexico?
+Has Grandoli been the Maradona of the World Cup in Mexico?
+Has Rodrigo been the Maradona of the World Cup in Mexico?
+Has Capello been the Maradona of the World Cup in Mexico?
+Has Ooredoo been the Maradona of the World Cup in Mexico?
+Has Sabella been the Maradona of the World Cup in Mexico?
+Has Levante been the Maradona of the World Cup in Mexico?
+Has Santos been the Maradona of the World Cup in Mexico?
+Has Matias been the Maradona of the World Cup in Mexico?
+Has Muller been the Maradona of the World Cup in Mexico?
+Has Neymar been the Maradona of the World Cup in Mexico?
+Has Konami been the Maradona of the World Cup in Mexico?
+Has Mateo been the Maradona of the World Cup in Mexico?
+Has Celia been the Maradona of the World Cup in Mexico?
+Has Tevez been the Maradona of the World Cup in Mexico?
+Has Jorge been the Maradona of the World Cup in Mexico?
+Has Pique been the Maradona of the World Cup in Mexico?
+Has Roma been the Maradona of the World Cup in Mexico?
+Has Pele been the Maradona of the World Cup in Mexico?
+Has Xavi been the Maradona of the World Cup in Mexico?
+Has Raul been the Maradona of the World Cup in Mexico?
+Has Kaka been the Maradona of the World Cup in Mexico?
+Has Leo been the Maradona of the World Cup in Mexico?
+Is Saint-Germain the antithesis of his predecessor:?
+Is Guardiolaone the antithesis of his predecessor:?
+Is Maximiliano the antithesis of his predecessor:?
+Is Albiceleste the antithesis of his predecessor:?
+Is Mascherano the antithesis of his predecessor:?
+Is Sarmiento the antithesis of his predecessor:?
+Is Guardiola the antithesis of his predecessor:?
+Is Albacete the antithesis of his predecessor:?
+Is Vilanova the antithesis of his predecessor:?
+Is Fabregas the antithesis of his predecessor:?
+Is Pekerman the antithesis of his predecessor:?
+Is Roccuzzo the antithesis of his predecessor:?
+Is Grandoli the antithesis of his predecessor:?
+Is Capello the antithesis of his predecessor:?
+Is Ooredoo the antithesis of his predecessor:?
+Is Sabella the antithesis of his predecessor:?
+Is Levante the antithesis of his predecessor:?
+Is Matias the antithesis of his predecessor:?
+Is Muller the antithesis of his predecessor:?
+Is Neymar the antithesis of his predecessor:?
+Is Konami the antithesis of his predecessor:?
+Is Mateo the antithesis of his predecessor:?
+Is Tevez the antithesis of his predecessor:?
+Is Pique the antithesis of his predecessor:?
+Is Pele the antithesis of his predecessor:?
+Is Xavi the antithesis of his predecessor:?
+Is Kaka the antithesis of his predecessor:?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Saint-Germain, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Guardiolaone, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Maximiliano, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Albiceleste, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Mascherano, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Sarmiento, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Guardiola, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Albacete, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Vilanova, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Fabregas, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Pekerman, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Roccuzzo, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Grandoli, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Rodrigo, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Capello, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Sabella, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Levante, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Santos, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Matias, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Muller, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Neymar, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Konami, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Mateo, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Celia, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Tevez, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Jorge, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Pique, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Roma, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Pele, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Xavi, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Raul, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Kaka, and Tata Motors, among other companies?
+Is Messi a global brand ambassador for Gillette, Turkish Airlines, Leo, and Tata Motors, among other companies?
+Was a 2011 Turkish Airlines advertisement the most-watched ad on YouTube in the year of its release?
+Was a 2012 Turkish Airlines advertisement the most-watched ad on YouTube in the year of its release?
+Was the goal later named one of the three final nominees for the 2018 FIFA Puskas Award?
+Was the goal later named one of the three final nominees for the 2014 FIFA Puskas Award?
+Was the goal later named one of the three final nominees for the 2016 FIFA Puskas Award?
+Is his main sponsor since 2010 the sportswear company Adidas?
+Is his main sponsor since 2005 the sportswear company Adidas?
+Is his main sponsor since 2008 the sportswear company Adidas?
+Is his main sponsor since 2007 the sportswear company Adidas?
+Is his main sponsor since 2009 the sportswear company Adidas?
