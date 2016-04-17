@@ -9,6 +9,7 @@ import sys
 import time
 import pprint
 from init import *
+from math import floor
 from question_generation import *
 from spacy_generation import *
 from sentence_transformation import *
@@ -149,21 +150,26 @@ def main(args):
         print "\n".join(dedup[:nquestions])
 
         k = nquestions - len(dedup)
-        if k > 0:
+        while k > 0:
             t0 = time.time()
-            # corpus = transformSentences(data)
-            corpus = transformSentences(selObj1.get_needTransform())
+            data_for_transform = selObj1.get_needTransform()
+            idx = min(k+floor(0.2*k),len(data_for_transform))
+            if idx <= 0:
+                break
+            data_for_transform = data_for_transform[:idx]
+            selObj1.update_transform_sentences(idx)
+            corpus = transformSentences(' '.join(data_for_transform))
             logger.critical("TIME transformSentences took"+str(time.time()-t0))
-        
+            
             t0 = time.time()
-            corpus = [q.encode('utf-8') for q in corpus]
-            selObj2 = sentenceSelector(corpus,3)
+            selObj2 = sentenceSelector(corpus.get_corpus(),3)
             logger.critical("TIME sentenceSelector took"+str(time.time()-t0))
-        
-            #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
+            
             accepted["fancy"], rejected["fancy"] = run_pipeline(selObj2.get_sentences(), nquestions)
             # accepted_questions.extend(accepted["fancy"][:k])
             print '\n'.join(accepted["fancy"])
+            k = k - len(accepted["fancy"])
+
         logger.critical("ACCEPTED")
         logger.critical(dict(accepted))
 

@@ -23,6 +23,9 @@ class sentenceSelector:
 
     def get_needTransform(self):
         return self.needTransform
+    
+    def update_transform_sentences(self,idx):
+        self.needTransform = self.needTransform[idx:]
 
     def pickTopk(self,k):
         paras = self.corpus.split('\n')
@@ -55,6 +58,6 @@ class sentenceSelector:
         f2 = open('sentences.txt','w')
         f3 = open('remaining.txt','w')
         '''
-        self.needTransform = ' '.join(self.needTransform)
+        # self.needTransform = ' '.join(self.needTransform)
         self.sentences = ' '.join(self.sentences)
         self.withPronouns = ' '.join(self.withPronouns)
