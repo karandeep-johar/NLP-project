@@ -192,6 +192,7 @@ def main(args):
             i+=1
         finalQs.extend(nonNerQs)
         with open("generated_questions.txt", "w") as file:
+            file.write("----START----")
             file.write("\n".join(finalQs))
         print "\n".join(finalQs[:nquestions])
         k = nquestions - len(finalQs)

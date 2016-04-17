@@ -12,7 +12,7 @@ from spacy.parts_of_speech import *
 nlp = English()
 # dir = "."
 dir = os.path.dirname(__file__)
-filename = os.path.join(dir, '../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*')
+filename = os.path.join(dir, 'stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*')
 configFileLoc = os.path.join(dir, 'config.ini')
 proc1 = CoreNLP(configfile=configFileLoc, corenlp_jars=[filename])
 proc2 = CoreNLP(configfile=os.path.join(dir, 'simple.ini'), corenlp_jars=[filename])
