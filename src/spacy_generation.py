@@ -262,7 +262,7 @@ def format_type(date):
     for x in puncTags:
         date_str = date_str.replace(x, " ")
     date_list = date_str.split()
-    hash_kjo = map(lambda x: str(x.isalpha())+" "+str(x.isdigit()) +" "+ str(x.isalnum())+" "+str(ismonth(x))+str(lendigit(x)), date_list)
+    hash_kjo = map(lambda x: str(x.isalpha())+" "+str(x.isdigit()) +" "+ str(x.isalnum())+" "+str(ismonth(x))+" "+str(x.isupper())+str(lendigit(x)), date_list)
     
     return str(hash_kjo)
 
