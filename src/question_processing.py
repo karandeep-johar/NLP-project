@@ -39,7 +39,7 @@ class Question_parser:
     def parse(self):
         # What can be followed by a time reference. Like on what/which date/place/person
         AUX_QWORDS = set(['be', 'do','does','have','can','could', 'will', 'would'])
-        OTHER_QWORDS = set(['who','whom','when','where','how', 'what', 'why'])
+        OTHER_QWORDS = set(['who','whom','when','where','how', 'what', 'why','which'])
         proc = init.proc1
         parsed = proc.parse_doc(self.question)
         if parsed['sentences'][0]['tokens'][-1] == '?':
