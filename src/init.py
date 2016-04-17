@@ -28,7 +28,7 @@ LEVELS = { 'debug':logging.DEBUG,
             'info':logging.INFO,
             'warning':logging.WARNING,
             'error':logging.ERROR,
-            'critical':logging.CRITICAL,
+            'critical':logging.INFO,
             }
 
 logger = logging.getLogger('NLP')
@@ -55,7 +55,7 @@ def formGrammaticalSentence(sentence):
         if sentence[-1]=='?':
             if sentence[1]==',':
                 del sentence[1]
-            while len(sentence)>2 and (sentence[-2]=='and' or sentence[-2]==',' or sentence[-2]=='.' or sentence[-2]=='..'):
+            while len(sentence)>2 and (sentence[-2]=='and' or sentence[-2]==',' or sentence[-2]=='.' or sentence[-2]=='..' or sentence[-2]==':'):
                 del sentence[-2]
         for word in sentence:
             if word.isalpha():
