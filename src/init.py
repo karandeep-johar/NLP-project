@@ -94,6 +94,7 @@ def formGrammaticalSentence(sentence):
         formedSent=formedSent.replace('[ ',' [')
         formedSent=formedSent.replace('{ ',' {')
         formedSent=formedSent.replace('( ',' (')
+        formedSent=formedSent.replace('$ ',' $')
         formedSent=formedSent.replace('" ',' "',1)
         return str(formedSent)
     except:

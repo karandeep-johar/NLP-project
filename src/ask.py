@@ -16,6 +16,7 @@ from sentence_selection import *
 from link_grammar import is_grammatical
 from collections import defaultdict
 from itertools import permutations
+from random import shuffle
 PICKTOPK = 3
 PRUNESMALL = 4
 
@@ -115,6 +116,7 @@ def main(args):
         logger.critical(spacy_questions)
 
         accepted["spacy"], rejected["spacy"] = prune_questions(spacy_questions)
+        shuffle(accepted['spacy'])
         accepted_questions.extend(accepted["spacy"])
 
         # TODO: Select questions
@@ -122,6 +124,7 @@ def main(args):
         selObj1 = sentenceSelector(data,3)
         logger.critical("TIME sentenceSelector took"+str(time.time()-t0))
         accepted["normal"], rejected["normal"] = run_pipeline(selObj1.get_sentences(),nquestions)
+        shuffle(accepted['normal'])
         accepted_questions.extend(accepted["normal"])
 
         logger.critical("HARD HARD HARD")
@@ -130,25 +133,69 @@ def main(args):
             logger.critical(question)
             logger.critical(hqs)
             accepted["hard spacy"].extend(hqs )
+            shuffle(accepted['hard spacy'])
         accepted_questions.extend(accepted["hard spacy"])
         for question in accepted_questions:
             hqs =  filter(is_grammatical, map(formGrammaticalSentence,makeHardBooleanQuestions(question, entities, relations)))
             logger.critical(question)
             logger.critical(hqs)
             accepted["hard boolean spacy"].extend(hqs)
+            shuffle(accepted['hard boolean spacy'])
         accepted_questions.extend(accepted["hard boolean spacy"])
         
         logger.critical("HARD HARD HARD END")
         
+        booleanQs=[]
+        factoidQs=[]
         dedup=[]
+        nonNerQs=[]
+        print len(accepted_questions)
         for i in accepted_questions:
             if i not in dedup:
                 dedup.append(i)
+        print len(dedup)
+        for q in dedup:
+            # spacyObj = nlp(unicode(q))
+            if not spacyObj.ents:
+                nonNerQs.append(q)
+            else:
+                qp =  Question_parser(q)
+                if qp.qtype=='BOOLEAN':
+                    booleanQs.append(q)
+                else:
+                    factoidQs.append(q)
+        i=0
+        b=0
+        f=0
+        finalQs=[]
+        bool_type = True
+        totLength = len(booleanQs)+len(factoidQs)
+        while i<totLength:
+            if len(booleanQs)==0:
+                bool_type=False
+            if len(factoidQs)==0:
+                bool_type=True
+            # print i,bool_type
+            if bool_type:        
+                finalQs.append(booleanQs.pop(0))# print boolean
+                b += 1
+                if b == 3:
+                    b = 0
+                bool_type = False
+            else:
+                finalQs.append(factoidQs.pop(0))# print boolean#print factoid
+                f += 1
+                if f == 7:
+                    f = 0
+                if f < 3:
+                    bool_type = True
+            # print finalQs[i]
+            i+=1
+        finalQs.extend(nonNerQs)
         with open("generated_questions.txt", "w") as file:
-            file.write("\n".join(dedup))
-        print "\n".join(dedup[:nquestions])
-
-        k = nquestions - len(dedup)
+            file.write("\n".join(finalQs))
+        print "\n".join(finalQs[:nquestions])
+        k = nquestions - len(finalQs)
         if k > 0:
             t0 = time.time()
             # corpus = transformSentences(data)
@@ -163,6 +210,7 @@ def main(args):
             #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
             accepted["fancy"], rejected["fancy"] = run_pipeline(selObj2.get_sentences(), nquestions)
             # accepted_questions.extend(accepted["fancy"][:k])
+            shuffle(accepted['fancy'])
             print '\n'.join(accepted["fancy"])
         logger.critical("ACCEPTED")
         logger.critical(dict(accepted))
