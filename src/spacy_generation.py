@@ -194,7 +194,7 @@ def change_called_to_known(paragraphs):
     return unicode( paragraphs)
 
 def check_pronoun(ent):
-    print "check_pronoun184", ent, not reduce(lambda a,b: a or b , map(lambda a: str(a.lower()) in pronouns, ent))
+    # print "check_pronoun184", ent, not reduce(lambda a,b: a or b , map(lambda a: str(a.lower()) in pronouns, ent))
     return not reduce(lambda a,b: a or b , map(lambda a: str(a.lower()) in pronouns, ent))
 
 def extract_entities_relations(paragraph):
@@ -273,7 +273,7 @@ def make_hard_questions(question,  entities, relations):
                     questions.append(question.replace(relation[2], relation[1]))
         if relation[0].lower() == "as":
             q  = nlp(unicode(question))
-            if "play" in q.lemma_:
+            if "play" in q[:].lemma_:
                 continue
             if relation[1].lower() in question.lower() and relation[2].lower() in question.lower():
                 continue
@@ -329,7 +329,7 @@ def change_dates(question, entities, relations):
         fd = format_type(date)
         if fd:
             for possible_date in dates[fd]:
-                if str(possible_date) not in question and  nlp(unicode(str(possible_date))).similarity(nlp(unicode(str(date))))>0.9:
+                if str(possible_date) not in question : #and  nlp(unicode(str(possible_date))).similarity(nlp(unicode(str(date))))>0.85:
                     questions.append(question[:date.idx]+str(possible_date) + " "+ question[date.idx+len(str(date)):])
     return questions
 
