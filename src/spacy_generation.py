@@ -249,13 +249,20 @@ def extract_entities_relations(paragraph):
     #         print x
 
     return dict(ents), relations
+def ismonth(x):
+    return x in set(["January","February","March","April","May","June","July","August","September","October","November","December"]) or x in set(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])
+
+def lendigit(x):
+    if not x.isdigit():
+        return ""
+    return " "+str(len(x))
 
 def format_type(date):
     date_str = str(date)
     for x in puncTags:
         date_str = date_str.replace(x, " ")
     date_list = date_str.split()
-    hash_kjo = map(lambda x: str(x.isalpha())+" "+str(x.isdigit()) +" "+ str(x.isalnum()), date_list)
+    hash_kjo = map(lambda x: str(x.isalpha())+" "+str(x.isdigit()) +" "+ str(x.isalnum())+" "+str(ismonth(x))+str(lendigit(x)), date_list)
     
     return str(hash_kjo)
 
@@ -309,8 +316,9 @@ def change_names(question, entities):
                     found = str(new_person)
                     break
     if found:
+        # print question, people
         for new_person in sorted(people, key=len, reverse=True):
-            if new_person not in question and len(new_person.split()) == len(found.split()) and new_person.isalpha() and found.isalpha():
+            if new_person not in question and format_type(new_person) == format_type(found):
                 questions.append(question.replace(found, new_person))
     # for person in q.ents:
     #     print "240 person",  person.orth_
@@ -319,6 +327,7 @@ def change_names(question, entities):
     #             continue
     #         print "new_person", new_person
     #         questions.append(question[:person.idx] + str(new_person) +" "+ question[person.idx+len(str(person)):] )
+    # print questions
     return questions
 def change_dates(question, entities, relations):
     questions = []
