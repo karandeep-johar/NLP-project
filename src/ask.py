@@ -103,7 +103,7 @@ def main(args):
         accepted_questions = []
         t0 = time.time()
         entities, relations = extract_entities_relations(data)
-        logger.critical(  "heading is", headings, person_article)
+        # logger.critical(  "heading is", headings +person_article)
         if person_article:
             for x in headings:
                 if x in entities:
@@ -133,10 +133,16 @@ def main(args):
             accepted["hard spacy"].extend(hqs )
         accepted_questions.extend(accepted["hard spacy"])
         for question in accepted_questions:
-            hqs =  filter(is_grammatical, map(formGrammaticalSentence,makeHardBooleanQuestions(question, entities, relations)))
+            hqs =  filter(is_grammatical, map(lambda q: formGrammaticalSentence(str(q)),makeHardBooleanQuestions(question, entities, relations)))
+            # if hqs:
+            #     print "YYYYYYYYYYYY", question, hqs
             logger.critical(question)
             logger.critical(hqs)
             accepted["hard boolean spacy"].extend(hqs)
+        # print "XXXXXXXXXXXXXXXXXXXXXXXX start"
+
+        # print accepted["hard boolean spacy"]
+        # print "XXXXXXXXXXXXXXXXXXXXXXXX end"
         accepted_questions.extend(accepted["hard boolean spacy"])
         
         logger.critical("HARD HARD HARD END")
@@ -147,7 +153,7 @@ def main(args):
                 dedup.append(i)
         with open("generated_questions.txt", "w") as file:
             file.write("\n".join(dedup))
-        print "\n".join(dedup[:nquestions])
+        print "\n".join(dedup[:])
 
         k = nquestions - len(dedup)
         while k > 0:

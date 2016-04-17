@@ -316,8 +316,9 @@ def change_names(question, entities):
                     found = str(new_person)
                     break
     if found:
+        # print question, people
         for new_person in sorted(people, key=len, reverse=True):
-            if new_person not in question and len(new_person.split()) == len(found.split()) and new_person.isalpha() and found.isalpha():
+            if new_person not in question and format_type(new_person) == format_type(found):
                 questions.append(question.replace(found, new_person))
     # for person in q.ents:
     #     print "240 person",  person.orth_
@@ -326,6 +327,7 @@ def change_names(question, entities):
     #             continue
     #         print "new_person", new_person
     #         questions.append(question[:person.idx] + str(new_person) +" "+ question[person.idx+len(str(person)):] )
+    # print questions
     return questions
 def change_dates(question, entities, relations):
     questions = []
