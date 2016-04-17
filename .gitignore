@@ -7,3 +7,4 @@ stat_parser/
 .cache/
 tests/.cache/v/cache/lastfailed
 src/generated_questions.txt
+src/transformed.txt
