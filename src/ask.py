@@ -143,14 +143,7 @@ def main(args):
             logger.critical(question)
             logger.critical(hqs)
             accepted["hard boolean spacy"].extend(hqs)
-<<<<<<< HEAD
             shuffle(accepted['hard boolean spacy'])
-=======
-        # print "XXXXXXXXXXXXXXXXXXXXXXXX start"
-
-        # print accepted["hard boolean spacy"]
-        # print "XXXXXXXXXXXXXXXXXXXXXXXX end"
->>>>>>> origin/master
         accepted_questions.extend(accepted["hard boolean spacy"])
         
         logger.critical("HARD HARD HARD END")
