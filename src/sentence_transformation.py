@@ -17,11 +17,13 @@ class transformSentences:
         self.transform()
 
     def __str__(self):
-        return ' '.join(self.sentences)
+        return " ".join(self.sentences)
+    
+    def get_corpus(self):
+        return str(" ".join(self.sentences))
 
 
     def transform(self):
-        f = open('transformed.txt','w')
         dir = "../FactualStatementExtractor/"
         op = Popen(["java", "-Xmx1500m", "-cp", "factual-statement-extractor.jar:lib/jwnl.jar:lib/stanford-parser-2008-10-26.jar:lib/commons-logging.jar:lib/commons-lang.jar","edu/cmu/ark/SentenceSimplifier"],
         cwd = dir,
@@ -33,9 +35,7 @@ class transformSentences:
         for s in self.sentences:
             if s.find("parsing") == 0:
                 self.sentences.remove(s)
-            else:
-                f.write(s+'\n')
-        f.close()
+        self.sentences = [s.encode('utf-8') for s in self.sentences]
     
     '''
 
