@@ -59,20 +59,33 @@ def extract_because_relations(doc):
             ans = ans[1:]
             #print "ANS----",ans
             break
-        try:
+        if entity.head.head.head.tag_ == 'VERB':
+            #       try:
             for child in entity.head.head.head.children:
                 grand_children = [grand_child for grand_child in child.subtree]
                 ques = get_span_doc(doc, grand_children,entity)
                 #print "QUES----",ques
                 break
-        except:
+        elif entity.head.head.tag_ == 'VERB':
             for child in entity.head.head.children:
                 grand_children = [grand_child for grand_child in child.subtree]
                 ques = get_span_doc(doc, grand_children,entity)
                 #print "QUES----",ques
                 break
+        else:
+            try:
+                for child in entity.head.head.head.children:
+                    grand_children = [grand_child for grand_child in child.subtree]
+                    ques = get_span_doc(doc, grand_children,entity)
+                    #print "QUES----",ques
+                    break
+            except:
+                for child in entity.head.head.children:
+                    grand_children = [grand_child for grand_child in child.subtree]
+                    ques = get_span_doc(doc, grand_children,entity)
+                    #print "QUES----",ques
+                    break
         relation = (entity,ques,ans)
-        #print relation
         relations.append(relation)
     return relations
 
@@ -199,12 +212,13 @@ def extract_entities_relations(paragraph):
     paragraphs =  paragraphs_unicode.split("\n")
 
     relations=[]
+    because_relations = []
     ents = defaultdict(list)
     for paragraph in paragraphs:
         # for sent in doc.sents:
         for sent in nlp(paragraph).sents:
             sent = sent.orth_
-            relations.extend(extract_because_relations(nlp(sent)))
+            because_relations.extend(extract_because_relations(nlp(sent)))
             relations.extend(extract_as_relations(nlp(sent)))
             relations.extend(extract_is_relations(nlp(sent)))
             relations.extend(extract_also_known_as_relations(nlp(sent)))
@@ -216,7 +230,10 @@ def extract_entities_relations(paragraph):
         #         print dependency_labels_to_root(token)
     # for relation in relations:
     #     print relation[1].lemma_, relation[1].lemma_.lower() in pronouns
+    
     relations = filter(lambda relation:check_pronoun( relation[1].lemma_.lower().split()) and check_pronoun([relation[2].lemma_.lower().split()[0]]), relations)
+    because_relations = filter(lambda relation:check_pronoun( relation[1].lemma_.lower().split()), because_relations)
+    relations.extend(because_relations)
     # for relation in relations:
     #     print relation, relation[1].ent_type_
     # pprint(relations)
@@ -318,6 +335,34 @@ def check_who_what(rel, entities):
     except:
         return None
 
+def make_because_question(rel):
+    proc = init.proc2
+    parsed = proc.parse_doc(rel[1])
+    pos = parsed[u'sentences'][0][u'pos']
+    q = str(rel[1])
+    q = q.split()
+    if pos[1][0:2] == 'VB':
+        verb_root = parsed[u'sentences'][0][u'lemmas'][1]
+        if verb_root == 'be':
+            q_word = "Why " + parsed[u'sentences'][0][u'tokens'][1] + " "
+            prefix = str(q_word)+str(q[0])+str(" ")
+        elif verb_root == 'have' and pos[2][0:2] == 'VB':
+            q_word = "Why " + parsed[u'sentences'][0][u'tokens'][1] + " "
+            prefix = str(q_word)+str(q[0])+str(" ")
+        elif pos[1] == 'VBD' or pos[1] == 'VBN':
+            q_word = "Why did "
+            prefix = str(q_word)+str(q[0])+str(" ")+str(verb_root)+str(" ")
+        elif pos[1] == 'VBP' or pos[1] == 'VBG' or pos[1] == 'VBZ':
+            q_word = "Why does "
+            prefix = str(q_word)+str(q[0])+str(" ")+str(verb_root)+str(" ")
+        if not str(q[-1]).isalnum():
+            q.remove(q[-1])
+        q = ' '.join(q[2:])
+        q = prefix+q+"?"
+        return q
+    else:
+        return None
+
 def make_questions_relations(relations,entities):
     questions = []
     for relation in relations:
@@ -345,6 +390,10 @@ def make_questions_relations(relations,entities):
             questions.append("Is "+ relation[1] +" also called "+ relation[2]+" ?")
             questions.append("What is another name for "+ relation[1]+" ?")
             questions.append("What is another name for "+ relation[2]+" ?")
+        elif relation[0].lower() == "because":
+            q = make_because_question(relation)
+            if not q is None:
+                questions.append(q)
         if relation[0].lower() == "is":
             q_word = check_who_what(relation[1], entities)
             if not q_word is None:
@@ -355,10 +404,10 @@ def make_questions_relations(relations,entities):
 # make questions by replacing people, dates
 if __name__ == '__main__':
     with open("wiki.txt","r") as f:
-        paragraph,_ = removeHeadings(f)
+        paragraph,_,_ = removeHeadings(f)
         x = extract_entities_relations(paragraph)
-        # pprint.pprint(x[0])
-        # pprint.pprint(make_questions_relations(x[1],x[0]))
+        pprint.pprint(x[1])
+        pprint.pprint(make_questions_relations(x[1],x[0]))
         # pprint.pprint(x[1])
         # pprint.pprint(make_questions_relations(x[1]))
 
