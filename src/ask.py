@@ -152,13 +152,11 @@ def main(args):
         factoidQs=[]
         dedup=[]
         nonNerQs=[]
-        print len(accepted_questions)
         for i in accepted_questions:
             if i not in dedup:
                 dedup.append(i)
-        print len(dedup)
         for q in dedup:
-            # spacyObj = nlp(unicode(q))
+            spacyObj = nlp(unicode(q))
             if not spacyObj.ents:
                 nonNerQs.append(q)
             else:
@@ -178,7 +176,6 @@ def main(args):
                 bool_type=False
             if len(factoidQs)==0:
                 bool_type=True
-            # print i,bool_type
             if bool_type:        
                 finalQs.append(booleanQs.pop(0))# print boolean
                 b += 1
@@ -192,7 +189,6 @@ def main(args):
                     f = 0
                 if f < 3:
                     bool_type = True
-            # print finalQs[i]
             i+=1
         finalQs.extend(nonNerQs)
         with open("generated_questions.txt", "w") as file:
