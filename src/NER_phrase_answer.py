@@ -43,10 +43,14 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 	question_lemmas = question_parsed['sentences'][0]['lemmas']
 	question_pos = question_parsed['sentences'][0]['pos']
 	question_keywords = []
+	question_keywords_no_noun = []
 	pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+	pos_list_no_noun = ['CD','CC','JJ','JJR','JJS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
 	for i in range(len(question_pos)):
 		if question_pos[i] in pos_list and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
 		    question_keywords.append(question_lemmas[i])
+		if question_pos[i] in pos_list_no_noun and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+			question_keywords_no_noun.append(question_lemmas[i])
 
 	scored_answers = []
 	logger.critical( "No. of sentences=" + str(len(Interesting_Text)))
@@ -55,6 +59,7 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 		candidate_sentence = s[1]['tokens']
 		candidate_sentence = " ".join(candidate_sentence)
 		logger.critical(candidate_sentence)
+	sentence_found = False
 	for i in range(len(Interesting_Text)):
 		s = Interesting_Text[i]
 		candidate_sentence = s[1]['tokens']
@@ -66,9 +71,9 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 		candidate_pos=parsed['sentences'][0]['pos']
 		candidate_lemmas=parsed['sentences'][0]['lemmas']
 		candidate_keywords = []
-		for i in range(len(candidate_pos)):
-			if candidate_pos[i] in pos_list and candidate_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
-			    candidate_keywords.append(candidate_lemmas[i])
+		for j in range(len(candidate_pos)):
+			if candidate_pos[j] in pos_list and candidate_lemmas[j] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+			    candidate_keywords.append(candidate_lemmas[j])
 		if(len(set(candidate_keywords)&set(question_keywords)) >=1):
 			sentence_found = True
 			break;
@@ -86,6 +91,9 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 		tag = ner[i]
 		if tag in Input_tag:
 			candidate_token.append(tokens[i])
+			if i == (len(ner) -1):
+				candidate_tokens.append(candidate_token)
+				break
 			for j in range(i+1,len(ner)):
 				if ner[j] in Input_tag:
 					candidate_token.append(tokens[j])
@@ -114,18 +122,34 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 		#scored_answers.append((score,results))
 	#print results
 	filtered_answers = map(lambda x: str(x),results)
-	filtered_answers = filter(lambda x: x not in question.split() and x not in question_lemmas, filtered_answers)
+	filtered_answers = filter(lambda x: x not in question.split() and x.split()[0] not in question_lemmas and x != 'None', filtered_answers)
 	logger.critical(filtered_answers)
 	#scored_answers.append((score,filtered_answers[0]))
 	#print scored_answers
-	if len(filtered_answers) > 0:
-		return filtered_answers[0]
-	else: 
+	if len(filtered_answers) == 0:
 		return None
+	n_candidates = len(filtered_answers)
+	candidate_start_words=['']*n_candidates
+	candidate_start_indices=[0]*n_candidates
+	candidate_distances=[0]*n_candidates
+	for i in range(n_candidates):
+		candidate_start_words[i] = filtered_answers[i].split()[0]
+		candidate_start_indices[i] = tokens.index(candidate_start_words[i])
+	question_keywords = question_keywords_no_noun	
+	for i in range(len(question_keywords)):
+		if question_keywords[i] not in candidate_lemmas:
+			question_keywords.remove(question_keywords[i])
+	for i in range(len(question_keywords)):
+		for j in range(n_candidates):
+			candidate_distances[j] = candidate_distances[j]+ abs((candidate_lemmas.index(question_keywords[i])-candidate_start_indices[j]))
+	best_candidate_index = candidate_distances.index(min(candidate_distances))
+	return filtered_answers[best_candidate_index]
 
 def preprocess_text(text):
 	text=text.replace("-LRB-","(")
 	text=text.replace("-RRB-",")")
+	text=text.replace("-lrb-","(")
+	text=text.replace("-rrb-",")")
 	return text
 
 # Returns all depth 3 NP's encompassing Input_tags as a list
@@ -137,11 +161,16 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	question_lemmas = question_parsed['sentences'][0]['lemmas']
 	question_pos = question_parsed['sentences'][0]['pos']
 	question_keywords = []
-	pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+	question_keywords_no_noun = []
+	#pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+	pos_list_no_noun = ['CD','CC','JJ','JJR','JJS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+	pos_list = pos_list_no_noun
 	logger.critical(question_pos)
 	for i in range(len(question_pos)):
 		if question_pos[i] in pos_list and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
 		    question_keywords.append(question_lemmas[i])
+		if question_pos[i] in pos_list_no_noun and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+			question_keywords_no_noun.append(question_lemmas[i])
 	logger.critical(question_keywords)
 	scored_answers = []
 	logger.critical(Input_tag)
@@ -168,20 +197,23 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 		return []
 	candidate_token=[]
 	candidate_tokens=[]
-
-
 	logger.critical(question_lemmas)
 	i=0;
+	print "Checking all named entities"
 	while i < len(ner):
 		tag = ner[i]
 		if tag in Input_tag:
 			candidate_token.append(tokens[i])
+			if i == (len(ner) -1):
+				candidate_tokens.append(candidate_token)
+				break
 			for j in range(i+1,len(ner)):
 				if ner[j] in Input_tag:
 					candidate_token.append(tokens[j])
 				else:
 					break
 			candidate_tokens.append(candidate_token)
+			print candidate_token
 			candidate_token = []
 			i=j
 			if(j==len(ner)-1):
@@ -204,14 +236,34 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 		#scored_answers.append((score,results))
 	#print results
 	filtered_answers = map(lambda x: str(x),results)
-	filtered_answers = filter(lambda x: x not in question.split() and x not in question_lemmas , filtered_answers)
+	filtered_answers = filter(lambda x: x.split()[0] not in question.split() and x.split()[0] not in question_lemmas and x != 'None', filtered_answers)
 	logger.critical(filtered_answers)
 	#scored_answers.append((score,filtered_answers[0]))
 	#print scored_answers
-	if len(filtered_answers) > 0:
-		return filtered_answers[0]
-	else: 
+	print "Filtered answers"
+	print filtered_answers
+	if len(filtered_answers) == 0:
 		return None
+	n_candidates = len(filtered_answers)
+	candidate_start_words=['']*n_candidates
+	candidate_start_indices=[0]*n_candidates
+	candidate_distances=[0]*n_candidates
+	for i in range(n_candidates):
+		candidate_start_words[i] = filtered_answers[i].split()[0]
+		candidate_start_indices[i] = tokens.index(candidate_start_words[i])
+	question_keywords = question_keywords_no_noun	
+	for i in range(len(question_keywords)):
+		if question_keywords[i] not in candidate_lemmas:
+			question_keywords.remove(question_keywords[i])
+	for i in range(len(question_keywords)):
+		for j in range(n_candidates):
+			candidate_distances[j] = candidate_distances[j]+ abs((candidate_lemmas.index(question_keywords[i])-candidate_start_indices[j]))
+	best_candidate_index = candidate_distances.index(min(candidate_distances))
+	#for i in range(n_candidates):
+	print question_keywords
+	print candidate_start_words
+	print candidate_distances
+	return filtered_answers[best_candidate_index]
 
 
 #Unit test
@@ -231,8 +283,16 @@ if __name__ == '__main__':
 	#Int_text1 = "The copper does not react , functioning as an electrode for the reaction ."
 	#Int_text1 = "In 1794 , Volta married Teresa Peregrini , with whom he raised three sons , Giovanni , Flaminio and Zanino ."
 	#question = "Who did Alessandro Volta marry?"
-	question = "When did Alessandro Volta improve  and popularize the electrophorus?"
-	Int_text = "A year later , he improved and popularized the electrophorus , a device that produces a static electric charge ."
+	#question = "When did Alessandro Volta improve  and popularize the electrophorus?"
+	#Int_text = "A year later , he improved and popularized the electrophorus , a device that produces a static electric charge ."
+	#question = "When did Volta retire?"
+	#Int_text = "Volta retired in 1819 in his estate in Camnago , a frazione of Como now called Camnago Volta after him , where he died on March 5 , 1827"
+	#question = "Who did Mark dance with?"
+	#Int_text = "Mark killed Jose while he danced with Michelle"
+	#question = "Who showed that Avogadro's theory held in dilute solutions?"
+	#Int_text = "Jacobus Henricus van ' t Hoff showed that Avogadro 's theory also held in dilute solutions ."
+	question = "What does Avogadro's Law state?"
+	Int_text = "Avogadro 's Law states that the relationship between the masses of the same volume of different gases -LRB- at the same temperature and pressure -RRB- corresponds to the relationship between their respective molecular weights ."
 	Int_text = preprocess_text(Int_text)
 	questionParseObj = Question_parser(question,parseFlag = True)
 	res=NER_phrase_utest(Int_text,questionParseObj)

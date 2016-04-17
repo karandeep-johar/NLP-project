@@ -58,6 +58,7 @@ def Refine_TFIDF_answer(diff_answer,candidate_sentence_struct):
             diff_keywords.append(diff_tokens[i])
     #print "Diff keywords"
     #print diff_keywords
+    candidate_sentence = preprocess_text(candidate_sentence)
     parsed_candidate = proc1.parse_doc(candidate_sentence)
     syn_tree=parsed_candidate[u'sentences'][0][u'parse']
     parse_tree=nltk.Tree.fromstring(syn_tree)
@@ -67,6 +68,46 @@ def Refine_TFIDF_answer(diff_answer,candidate_sentence_struct):
     # Find all nouns/verbs/adjs in the 
     # Parse the diff to find Noun?
     return refined_answer
+
+def SelectCandidateSentence(Interesting_Text,questionParseObj):
+    question = questionParseObj.question
+    question = preprocess_text(question)
+    question_parsed=proc1.parse_doc(question)
+    question_lemmas = question_parsed['sentences'][0]['lemmas']
+    question_pos = question_parsed['sentences'][0]['pos']
+    question_keywords = []
+    pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+    #pos_list = ['CD','CC','JJ','JJR','JJS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+    for i in range(len(question_pos)):
+        if question_pos[i] in pos_list and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+            question_keywords.append(question_lemmas[i])
+    logger.critical( "No. of sentences=" + str(len(Interesting_Text)))
+    for i in range(len(Interesting_Text)):
+        s = Interesting_Text[i]
+        candidate_sentence = s[1]['tokens']
+        candidate_sentence = " ".join(candidate_sentence)
+        logger.critical(candidate_sentence)
+    sentence_found = False
+    logger.critical("Selected sentence:")
+    for i in range(len(Interesting_Text)):
+        s = Interesting_Text[i]
+        candidate_sentence = s[1]['tokens']
+        candidate_sentence = " ".join(candidate_sentence)
+        candidate_sentence = preprocess_text(candidate_sentence)
+        parsed=proc1.parse_doc(candidate_sentence)
+        ner=parsed['sentences'][0]['ner']
+        tokens=parsed['sentences'][0]['tokens']
+        candidate_pos=parsed['sentences'][0]['pos']
+        candidate_lemmas=parsed['sentences'][0]['lemmas']
+        candidate_keywords = []
+        for j in range(len(candidate_pos)):
+            if candidate_pos[j] in pos_list and candidate_lemmas[j] not in ['be', 'do','does',"have","can","could", "will", "would"]:
+                candidate_keywords.append(candidate_lemmas[j])
+        if(len(set(candidate_keywords)&set(question_keywords)) >=1):
+            sentence_found = True
+            return i
+    return 0
+
 
 def answerFactoid(question,interestingText,questionParseObj,objTfidf):
     answers=[]
@@ -82,7 +123,8 @@ def answerFactoid(question,interestingText,questionParseObj,objTfidf):
             logger.critical("NER failed: Fallback to Set-diff")
     # If NER approach fails or NER tag is not avaialable, resort to set difference method
     answerlist=objTfidf.getAnswer(question, interestingText,questionParseObj)
-    answer_processed = Refine_TFIDF_answer(answerlist[0],interestingText[0][1])
+    sentence_index = SelectCandidateSentence(interestingText,questionParseObj)
+    answer_processed = Refine_TFIDF_answer(answerlist[sentence_index],interestingText[sentence_index][1])
     logger.critical("Set diff answer: " + str(answer_processed))
     answers.append(answer_processed)  
     return answers[0]
