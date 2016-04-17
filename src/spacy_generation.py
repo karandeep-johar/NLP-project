@@ -249,13 +249,20 @@ def extract_entities_relations(paragraph):
     #         print x
 
     return dict(ents), relations
+def ismonth(x):
+    return x in set(["January","February","March","April","May","June","July","August","September","October","November","December"]) or x in set(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])
+
+def lendigit(x):
+    if not x.isdigit():
+        return ""
+    return " "+str(len(x))
 
 def format_type(date):
     date_str = str(date)
     for x in puncTags:
         date_str = date_str.replace(x, " ")
     date_list = date_str.split()
-    hash_kjo = map(lambda x: str(x.isalpha())+" "+str(x.isdigit()) +" "+ str(x.isalnum()), date_list)
+    hash_kjo = map(lambda x: str(x.isalpha())+" "+str(x.isdigit()) +" "+ str(x.isalnum())+" "+str(ismonth(x))+str(lendigit(x)), date_list)
     
     return str(hash_kjo)
 
