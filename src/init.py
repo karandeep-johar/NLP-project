@@ -90,6 +90,11 @@ def formGrammaticalSentence(sentence):
         formedSent = formedSent.strip()
         if formedSent[-1]!='.' and formedSent[-1]!='?' and formedSent[-1]!='!':
             formedSent+='.'
+        formedSent=formedSent.replace('( ',' (')
+        formedSent=formedSent.replace('[ ',' [')
+        formedSent=formedSent.replace('{ ',' {')
+        formedSent=formedSent.replace('( ',' (')
+        formedSent=formedSent.replace('" ',' "',1)
         return str(formedSent)
     except:
         return str(sentence)
