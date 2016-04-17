@@ -126,13 +126,29 @@ def main(args):
 
         logger.critical("HARD HARD HARD")
         for question in accepted_questions:
-            hqs =  filter(is_grammatical, make_hard_questions(question, entities, relations))
+            hqs =  filter(is_grammatical, map(formGrammaticalSentence,make_hard_questions(question, entities, relations)))
             logger.critical(question)
             logger.critical(hqs)
             accepted["hard spacy"].extend(hqs )
         accepted_questions.extend(accepted["hard spacy"])
+        for question in accepted_questions:
+            hqs =  filter(is_grammatical, map(formGrammaticalSentence,makeHardBooleanQuestions(question, entities, relations)))
+            logger.critical(question)
+            logger.critical(hqs)
+            accepted["hard boolean spacy"].extend(hqs)
+        accepted_questions.extend(accepted["hard boolean spacy"])
+        
         logger.critical("HARD HARD HARD END")
-        k = nquestions - len(accepted_questions)
+        
+        dedup=[]
+        for i in accepted_questions:
+            if i not in dedup:
+                dedup.append(i)
+        with open("generated_questions.txt", "w") as file:
+            file.write("\n".join(dedup))
+        print "\n".join(dedup[:nquestions])
+
+        k = nquestions - len(dedup)
         if k > 0:
             t0 = time.time()
             # corpus = transformSentences(data)
@@ -146,16 +162,14 @@ def main(args):
         
             #because there may be sentences in the original corpus that are fine with our scheme we should also pass in the original article
             accepted["fancy"], rejected["fancy"] = run_pipeline(selObj2.get_sentences(), nquestions)
-            accepted_questions.extend(accepted["fancy"][:k])
-
+            # accepted_questions.extend(accepted["fancy"][:k])
+            print '\n'.join(accepted["fancy"])
         logger.critical("ACCEPTED")
         logger.critical(dict(accepted))
 
         logger.critical("REJECTED")
         logger.critical(dict(rejected))
-        with open("generated_questions.txt", "w") as file:
-            file.write("\n".join(accepted_questions))
-        print "\n".join(accepted_questions)#[:nquestions]
+
         return 
 if __name__ == '__main__':
     main(sys.argv[1:])

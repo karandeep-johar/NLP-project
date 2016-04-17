@@ -280,11 +280,15 @@ def make_hard_questions(question,  entities, relations):
             else:
                 if relation[2] in question:
                     questions.append(question.replace(relation[2], relation[1]+"'s character"))
+    return questions
+def makeHardBooleanQuestions(question,entities,relations):
+    questions =[]
     qp =  Question_parser(question)
     if qp.qtype == "BOOLEAN":
         questions.extend(change_dates(question, entities, relations))
         questions.extend(change_names(question, entities))
     return questions
+    
 def change_names(question, entities):
     q = nlp(unicode(question))
     people = {k:"PEOPLE"  for k in entities if set(entities[k]) == set(["PERSON"])}
