@@ -1,2 +1,2 @@
 #!/bin/bash
-python answer.py "$1" "$2" 2>/dev/null
+python answer.py "$1" "$2" 2>errfileAnswer

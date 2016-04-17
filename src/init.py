@@ -44,7 +44,7 @@ def formGrammaticalSentence(sentence):
         if not sentence:
             return ""
         charType=[]
-        if type(sentence) is str:
+        if type(sentence) is str or type(sentence) is unicode:
             sentence =  sentence.strip()
             ls = list(sentence)
             while len(ls)>2 and ls[-2] in specialPuncTags and ls[-1] == "?":
@@ -86,7 +86,6 @@ def formGrammaticalSentence(sentence):
                 formedSent+=' '+word
             elif charType[i]=='OTHER':
                 formedSent+=' '+word
-
         formedSent = formedSent.strip()
         if formedSent[-1]!='.' and formedSent[-1]!='?' and formedSent[-1]!='!':
             formedSent+='.'
@@ -97,7 +96,7 @@ def formGrammaticalSentence(sentence):
         formedSent=formedSent.replace('$ ',' $')
         formedSent=formedSent.replace('" ',' "',1)
         return str(formedSent)
-    except:
+    except Exception, e:
         return str(sentence)
 # print formGrammaticalSentence('was The film shot in various locations around California and Utah ?')
 def removeHeadings(article, ask = False):

@@ -42,7 +42,10 @@ def answerYesNo(question,answerSentences,QPObj,titleLemmasSet=set(),stopLemmasSe
             #         answer.append(s[1]['tokens'][j])
             #     else:# Heuristic for score
             #         pass
-            logger.critical("candidate Sentence:"+s+"\nanswer:"+answer)
+            logger.critical("candidate Sentence:")
+            logger.critical(s)
+            logger.critical("\nanswer:")
+            logger.critical(answer)
             if checkDifference(answer):
                 answers.append('No')
             else:

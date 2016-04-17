@@ -1,2 +1,2 @@
 #!/bin/bash
-python ask.py "$1" "$2" 2>/dev/null
+python ask.py "$1" "$2" 2>errfileAsk

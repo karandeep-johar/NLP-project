@@ -1,0 +1,169 @@
+INFO:CoreNLP_PyWrapper:Starting java subprocess, and waiting for signal it's ready, with command: exec java -Xmx4g -XX:ParallelGCThreads=1 -cp '/usr/local/lib/python2.7/site-packages/stanford_corenlp_pywrapper/lib/*:/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*'      corenlp.SocketServer --outpipe /tmp/corenlp_pywrap_pipe_pypid=22142_time=1460930277.67  --configfile /Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/config.ini
+INFO:CoreNLP_JavaServer: Using CoreNLP configuration file: /Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/config.ini
+Adding annotator tokenize
+TokenizerAnnotator: No tokenizer type provided. Defaulting to PTBTokenizer.
+Adding annotator ssplit
+edu.stanford.nlp.pipeline.AnnotatorImplementations:
+Adding annotator pos
+Reading POS tagger model from edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger ... done [2.2 sec].
+Adding annotator lemma
+Adding annotator parse
+Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...done [1.8 sec].
+Adding annotator ner
+Loading classifier from edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz ... done [9.7 sec].
+Loading classifier from edu/stanford/nlp/models/ner/english.muc.7class.distsim.crf.ser.gz ... done [10.5 sec].
+Loading classifier from edu/stanford/nlp/models/ner/english.conll.4class.distsim.crf.ser.gz ... done [9.8 sec].
+sutime.binder.1.
+Initializing JollyDayHoliday for sutime with classpath:edu/stanford/nlp/models/sutime/jollyday/Holidays_sutime.xml
+Reading TokensRegex rules from edu/stanford/nlp/models/sutime/defs.sutime.txt
+Reading TokensRegex rules from edu/stanford/nlp/models/sutime/english.sutime.txt
+Apr 17, 2016 5:58:34 PM edu.stanford.nlp.ling.tokensregex.CoreMapExpressionExtractor appendRules
+INFO: Ignoring inactive rule: null
+Apr 17, 2016 5:58:34 PM edu.stanford.nlp.ling.tokensregex.CoreMapExpressionExtractor appendRules
+INFO: Ignoring inactive rule: temporal-composite-8:ranges
+Reading TokensRegex rules from edu/stanford/nlp/models/sutime/english.holidays.sutime.txt
+INFO:CoreNLP_JavaServer: CoreNLP pipeline initialized.
+INFO:CoreNLP_JavaServer: Waiting for commands on stdin
+INFO:CoreNLP_PyWrapper:Successful ping. The server has started.
+INFO:CoreNLP_PyWrapper:Subprocess is ready.
+INFO:CoreNLP_PyWrapper:Starting java subprocess, and waiting for signal it's ready, with command: exec java -Xmx4g -XX:ParallelGCThreads=1 -cp '/usr/local/lib/python2.7/site-packages/stanford_corenlp_pywrapper/lib/*:/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*'      corenlp.SocketServer --outpipe /tmp/corenlp_pywrap_pipe_pypid=22142_time=1460930317.55  --configfile /Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/simple.ini
+INFO:CoreNLP_JavaServer: Using CoreNLP configuration file: /Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/simple.ini
+Adding annotator tokenize
+TokenizerAnnotator: No tokenizer type provided. Defaulting to PTBTokenizer.
+Adding annotator ssplit
+edu.stanford.nlp.pipeline.AnnotatorImplementations:
+Adding annotator pos
+Reading POS tagger model from edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger ... done [2.2 sec].
+Adding annotator lemma
+INFO:CoreNLP_JavaServer: CoreNLP pipeline initialized.
+INFO:CoreNLP_JavaServer: Waiting for commands on stdin
+INFO:CoreNLP_PyWrapper:Successful ping. The server has started.
+INFO:CoreNLP_PyWrapper:Subprocess is ready.
+INFO:CoreNLP_PyWrapper:Starting java subprocess, and waiting for signal it's ready, with command: exec java -Xmx4g -XX:ParallelGCThreads=1 -cp '/usr/local/lib/python2.7/site-packages/stanford_corenlp_pywrapper/lib/*:/Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/../stanford-corenlp-python/stanford-corenlp-full-2014-08-27/*'      corenlp.SocketServer --outpipe /tmp/corenlp_pywrap_pipe_pypid=22142_time=1460930320.48  --configfile /Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/mid.ini
+INFO:CoreNLP_JavaServer: Using CoreNLP configuration file: /Users/dhruv/Documents/Acads/sem2/nlp/NLP-project/src/mid.ini
+Adding annotator tokenize
+TokenizerAnnotator: No tokenizer type provided. Defaulting to PTBTokenizer.
+Adding annotator ssplit
+edu.stanford.nlp.pipeline.AnnotatorImplementations:
+Adding annotator pos
+Reading POS tagger model from edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger ... done [1.9 sec].
+Adding annotator lemma
+Adding annotator parse
+Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ...done [1.8 sec].
+INFO:CoreNLP_JavaServer: CoreNLP pipeline initialized.
+INFO:CoreNLP_JavaServer: Waiting for commands on stdin
+INFO:CoreNLP_PyWrapper:Successful ping. The server has started.
+INFO:CoreNLP_PyWrapper:Subprocess is ready.
+CRITICAL:NLP:This message should go to the log file
+INFO:CoreNLP_JavaServer: INPUT: 1 documents, 9 characters, 2 tokens, 9.0 char/doc, 2.0 tok/doc RATES: 6.623 doc/sec, 13.2 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 2 documents, 60596 characters, 11758 tokens, 30298.0 char/doc, 5879.0 tok/doc RATES: 1.036 doc/sec, 6092.2 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 3 documents, 60619 characters, 11763 tokens, 20206.3 char/doc, 3921.0 tok/doc RATES: 1.535 doc/sec, 6016.9 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 4 documents, 60677 characters, 11774 tokens, 15169.3 char/doc, 2943.5 tok/doc RATES: 2.043 doc/sec, 6013.3 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 5 documents, 60707 characters, 11781 tokens, 12141.4 char/doc, 2356.2 tok/doc RATES: 2.551 doc/sec, 6010.7 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 6 documents, 60758 characters, 11792 tokens, 10126.3 char/doc, 1965.3 tok/doc RATES: 3.058 doc/sec, 6010.2 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 7 documents, 60810 characters, 11803 tokens, 8687.1 char/doc, 1686.1 tok/doc RATES: 3.566 doc/sec, 6012.7 tok/sec
+
+CRITICAL:NLP:Q: Who directed Star Trek?
+INFO:CoreNLP_JavaServer: INPUT: 1 documents, 23 characters, 5 tokens, 23.0 char/doc, 5.0 tok/doc RATES: 1.176 doc/sec, 5.9 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 8 documents, 60833 characters, 11808 tokens, 7604.1 char/doc, 1476.0 tok/doc RATES: 2.712 doc/sec, 4002.7 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 2 documents, 46 characters, 10 tokens, 23.0 char/doc, 5.0 tok/doc RATES: 2.191 doc/sec, 11.0 tok/sec
+
+CRITICAL:NLP:No. of sentences=10
+CRITICAL:NLP:Abrams said `` it was surreal to direct him as Spock , because what the hell am I doing there ?
+CRITICAL:NLP:Orci and Kurtzman , both fans of the Star Trek series , were approached to write the film and Abrams was approached to direct it .
+CRITICAL:NLP:Abrams and the writers met Nimoy at his house ; writer Roberto Orci recalled the actor gave a '' ` Who are you guys and what are you up to ? '
+CRITICAL:NLP:But how do you make legitimate those near-primary color costumes ? ''
+CRITICAL:NLP:He explained that he had decided to direct the film because , after reading the script , he realized that he `` would be so agonizingly envious of whoever stepped in and directed the movie . ''
+CRITICAL:NLP:A week later , it was announced that Lin will direct the film .
+CRITICAL:NLP:Star Trek at Memory Alpha -LRB- a Star Trek wiki -RRB-
+CRITICAL:NLP:On May 13 , 2014 , it was announced that Roberto Orci , the writer of the first and second film , would direct the third film , but in December 2014 , it was reported that Roberto Orci would no longer direct .
+CRITICAL:NLP:Star Trek is the 11th film of the Star Trek film franchise and is also a reboot that features the main characters of the original Star Trek television series , portrayed by a new cast and the first in the reboot series .
+CRITICAL:NLP:A few minutes into Khan , the film appeared to melt and Nimoy appeared on stage with Orci , Kurtzman and Lindelof , asking the audience , `` would n't you rather see the new movie ? ''
+CRITICAL:NLP:Selected sentence is
+INFO:CoreNLP_JavaServer: INPUT: 3 documents, 141 characters, 31 tokens, 47.0 char/doc, 10.3 tok/doc RATES: 2.196 doc/sec, 22.7 tok/sec
+
+CRITICAL:NLP:Abrams said `` it was surreal to direct him as Spock , because what the hell am I doing there ?
+CRITICAL:NLP:set(['PERSON', 'ORGANIZATION'])
+CRITICAL:NLP:Abrams
+CRITICAL:NLP:Spock
+CRITICAL:NLP:['Abrams', 'Spock']
+CRITICAL:NLP:NER accepted
+CRITICAL:NLP:NER answer: 
+CRITICAL:NLP:Abrams
+CRITICAL:NLP:Q: Which character was played by Bruce Greenwood in the film?
+INFO:CoreNLP_JavaServer: INPUT: 9 documents, 60839 characters, 11809 tokens, 6759.9 char/doc, 1312.1 tok/doc RATES: 2.595 doc/sec, 3405.1 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 4 documents, 199 characters, 42 tokens, 49.8 char/doc, 10.5 tok/doc RATES: 2.601 doc/sec, 27.3 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 10 documents, 60897 characters, 11820 tokens, 6089.7 char/doc, 1182.0 tok/doc RATES: 2.749 doc/sec, 3249.0 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 100 documents, 66117 characters, 12810 tokens, 661.2 char/doc, 128.1 tok/doc RATES: 26.660 doc/sec, 3415.1 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 200 documents, 71917 characters, 13910 tokens, 359.6 char/doc, 69.6 tok/doc RATES: 50.955 doc/sec, 3543.9 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 5 documents, 245 characters, 51 tokens, 49.0 char/doc, 10.2 tok/doc RATES: 2.473 doc/sec, 25.2 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 6 documents, 314 characters, 63 tokens, 52.3 char/doc, 10.5 tok/doc RATES: 2.808 doc/sec, 29.5 tok/sec
+
+CRITICAL:NLP:Set diff answer: Bruce Greenwood as Christopher Pike , the captain of the Enterprise .
+CRITICAL:NLP:Q: Who plays Keenser in the film?
+INFO:CoreNLP_JavaServer: INPUT: 7 documents, 344 characters, 70 tokens, 49.1 char/doc, 10.0 tok/doc RATES: 3.152 doc/sec, 31.5 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 8 documents, 374 characters, 77 tokens, 46.8 char/doc, 9.6 tok/doc RATES: 3.503 doc/sec, 33.7 tok/sec
+
+CRITICAL:NLP:No. of sentences=10
+CRITICAL:NLP:Abrams said `` it was surreal to direct him as Spock , because what the hell am I doing there ?
+CRITICAL:NLP:Abrams and the writers met Nimoy at his house ; writer Roberto Orci recalled the actor gave a '' ` Who are you guys and what are you up to ? '
+CRITICAL:NLP:But how do you make legitimate those near-primary color costumes ? ''
+CRITICAL:NLP:Master Replicas , Mattel , Hasbro and Fundex Games will promote the film via playing cards , Monopoly , UNO , Scrabble , Magic 8-Ball , Hot Wheels , Tyco R/C , 20Q , Scene It ?
+CRITICAL:NLP:Greg Ellis plays Chief Engineer Olson , the redshirt who is killed during the space jump .
+CRITICAL:NLP:Victor Garber plays a Klingon interrogator who tortures Nero during his time on Rura Penthe .
+CRITICAL:NLP:A few minutes into Khan , the film appeared to melt and Nimoy appeared on stage with Orci , Kurtzman and Lindelof , asking the audience , `` would n't you rather see the new movie ? ''
+CRITICAL:NLP:Although Quinto watched some episodes of the show during breaks in filming , Nimoy was his main resource in playing Spock .
+CRITICAL:NLP:Saldana had never seen the original series , though she had played a Trekkie in The Terminal -LRB- 2004 -RRB- , but agreed to play the role after Abrams complimented her .
+CRITICAL:NLP:W. Morgan Sheppard , who played a Klingon in Star Trek VI : The Undiscovered Country , as well as Data 's allegorical grandfather in the TNG episode `` The Schizoid Man '' , appears in this film as the head of the Vulcan Science Council .
+INFO:CoreNLP_JavaServer: INPUT: 9 documents, 469 characters, 98 tokens, 52.1 char/doc, 10.9 tok/doc RATES: 3.636 doc/sec, 39.6 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 10 documents, 611 characters, 130 tokens, 61.1 char/doc, 13.0 tok/doc RATES: 3.596 doc/sec, 46.7 tok/sec
+
+CRITICAL:NLP:Selected sentence is
+CRITICAL:NLP:Master Replicas , Mattel , Hasbro and Fundex Games will promote the film via playing cards , Monopoly , UNO , Scrabble , Magic 8-Ball , Hot Wheels , Tyco R/C , 20Q , Scene It ?
+CRITICAL:NLP:set(['PERSON', 'ORGANIZATION'])
+CRITICAL:NLP:Master Replicas , Mattel
+CRITICAL:NLP:Hasbro
+CRITICAL:NLP:Monopoly , UNO , Scrabble , Magic 8-Ball
+CRITICAL:NLP:Tyco R/C
+CRITICAL:NLP:['Master Replicas , Mattel', 'Hasbro', 'Monopoly , UNO , Scrabble , Magic 8-Ball', 'Tyco R/C']
+CRITICAL:NLP:NER accepted
+CRITICAL:NLP:NER answer: 
+CRITICAL:NLP:Master Replicas , Mattel
+CRITICAL:NLP:Q: Which character was played by Deep Roy in the film?
+INFO:CoreNLP_JavaServer: INPUT: 300 documents, 77561 characters, 15000 tokens, 258.5 char/doc, 50.0 tok/doc RATES: 39.288 doc/sec, 1964.4 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 400 documents, 82661 characters, 16100 tokens, 206.7 char/doc, 40.3 tok/doc RATES: 51.526 doc/sec, 2073.9 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 500 documents, 87761 characters, 17200 tokens, 175.5 char/doc, 34.4 tok/doc RATES: 63.930 doc/sec, 2199.2 tok/sec
+
+CRITICAL:NLP:Set diff answer: Additional minor roles include Rachel Nichols as Gaila , an Orion Starfleet cadet ; Deep Roy as Scotty 's assistant Keenser ; and Paul McGillion as a Starfleet barracks leader .
+CRITICAL:NLP:Q: Which character was played by Ben Cross in the film?
+INFO:CoreNLP_JavaServer: INPUT: 600 documents, 93009 characters, 18320 tokens, 155.0 char/doc, 30.5 tok/doc RATES: 70.241 doc/sec, 2144.7 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 700 documents, 98209 characters, 19420 tokens, 140.3 char/doc, 27.7 tok/doc RATES: 81.367 doc/sec, 2257.4 tok/sec
+
+INFO:CoreNLP_JavaServer: INPUT: 800 documents, 103409 characters, 20520 tokens, 129.3 char/doc, 25.7 tok/doc RATES: 92.198 doc/sec, 2364.9 tok/sec
+
+CRITICAL:NLP:Set diff answer: Sarek , Spock 's father
+WARNING:CoreNLP_PyWrapper:Killing subprocess 22188
+WARNING:CoreNLP_PyWrapper:Killing subprocess 22184
+WARNING:CoreNLP_PyWrapper:Killing subprocess 22156
+Exception AttributeError: "'NoneType' object has no attribute 'info'" in <bound method CoreNLP.__del__ of <stanford_corenlp_pywrapper.sockwrap.CoreNLP instance at 0x101fbc830>> ignored
+Exception AttributeError: "'NoneType' object has no attribute 'info'" in <bound method CoreNLP.__del__ of <stanford_corenlp_pywrapper.sockwrap.CoreNLP instance at 0x101b2e680>> ignored
+Exception AttributeError: "'NoneType' object has no attribute 'info'" in <bound method CoreNLP.__del__ of <stanford_corenlp_pywrapper.sockwrap.CoreNLP instance at 0x1019f3b48>> ignored
