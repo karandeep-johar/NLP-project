@@ -306,7 +306,7 @@ def change_names(question, entities):
                     break
     if found:
         for new_person in sorted(people, key=len, reverse=True):
-            if new_person not in question and len(new_person.split()) == len(found.split()):
+            if new_person not in question and len(new_person.split()) == len(found.split()) and new_person.isalpha() and found.isalpha():
                 questions.append(question.replace(found, new_person))
     # for person in q.ents:
     #     print "240 person",  person.orth_
