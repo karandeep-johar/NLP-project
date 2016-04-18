@@ -194,7 +194,6 @@ def main(args):
         finalQs = map(lambda q: q.encode('utf-8', errors="ignore"), finalQs)
         print "\n".join(finalQs[:nquestions])
         with open("generated_questions.txt", "w") as file:
-            file.write("----START----")
             file.write("\n".join(finalQs))
         k = nquestions - len(finalQs)
         while k > 0:
