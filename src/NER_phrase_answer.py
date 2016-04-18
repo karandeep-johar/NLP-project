@@ -122,7 +122,7 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 		#scored_answers.append((score,results))
 	#print results
 	filtered_answers = map(lambda x: str(x),results)
-	filtered_answers = filter(lambda x: x not in question.split() and x.split()[0] not in question_lemmas and x != 'None', filtered_answers)
+	filtered_answers = filter(lambda x: x.split()[0] not in question.split() and x.split()[0] not in question_lemmas and x != 'None', filtered_answers)
 	logger.critical(filtered_answers)
 	#scored_answers.append((score,filtered_answers[0]))
 	#print scored_answers
@@ -298,12 +298,14 @@ if __name__ == '__main__':
 	#Int_text = "A year later , he improved and popularized the electrophorus , a device that produces a static electric charge ."
 	#question = "When did Volta retire?"
 	#Int_text = "Volta retired in 1819 in his estate in Camnago , a frazione of Como now called Camnago Volta after him , where he died on March 5 , 1827"
-	Int_text = "In 1905 Einstein published a paper that explained the PhotoElectric effect for which he won the Nobel Prize in 1921"
-	question = "When did Einstein win the Nobel prize?"
+	#Int_text = "In 1905 Einstein published a paper that explained the PhotoElectric effect for which he won the Nobel Prize in 1921"
+	#question = "When did Einstein win the Nobel prize?"
 	#question = "Who showed that Avogadro's theory held in dilute solutions?"
 	#Int_text = "Jacobus Henricus van ' t Hoff showed that Avogadro 's theory also held in dilute solutions ."
 	#question = "What does Avogadro's Law state?"
 	#Int_text = "Avogadro 's Law states that the relationship between the masses of the same volume of different gases -LRB- at the same temperature and pressure -RRB- corresponds to the relationship between their respective molecular weights ."
+	question = "Who is friends with Australian snooker player Neil Robertson?"
+	Int_text = "Terry is friends with Australian snooker player Neil Robertson"
 	Int_text = preprocess_text(Int_text)
 	questionParseObj = Question_parser(question,parseFlag = True)
 	res=NER_phrase_utest(Int_text,questionParseObj)
