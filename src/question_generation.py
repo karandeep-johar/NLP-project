@@ -126,7 +126,9 @@ class generateQuestions:
             tokens[-1] ="?"
             i = 0
             tag = pos[i]
-            if tag[0:2] == 'NN':
+            #print tokens
+            #print ner
+            if tag[0:2] == 'NN' and ner[i] != u'O':
                 # TODO make this inverse of Question processing Even Organization should be mapped to Who 
                 # TODO: Check for What questions first
                 if ner[i] == 'PERSON' or ner[i] == 'ORGANIZATION':
