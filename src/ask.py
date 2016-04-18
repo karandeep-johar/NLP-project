@@ -179,15 +179,15 @@ def main(args):
             if bool_type:        
                 finalQs.append(booleanQs.pop(0))# print boolean
                 b += 1
-                if b == 3:
+                if b == 4:
                     b = 0
                 bool_type = False
             else:
                 finalQs.append(factoidQs.pop(0))# print boolean#print factoid
                 f += 1
-                if f == 7:
+                if f == 6:
                     f = 0
-                if f < 3:
+                if f < 4:
                     bool_type = True
             i+=1
         finalQs.extend(nonNerQs)
