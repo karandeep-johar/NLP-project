@@ -191,7 +191,7 @@ def dependency_labels_to_root(token):
 def change_called_to_known(paragraphs):
     paragraphs =  paragraphs.replace("also called", "also known as")
     paragraphs =  paragraphs.replace("Also called", "Also known as")
-    return unicode( paragraphs)
+    return unicode( paragraphs, errors="ignore")
 
 def check_pronoun(ent):
     # print "check_pronoun184", ent, not reduce(lambda a,b: a or b , map(lambda a: str(a.lower()) in pronouns, ent))
@@ -377,6 +377,8 @@ def make_because_question(rel):
         elif pos[1] == 'VBP' or pos[1] == 'VBG' or pos[1] == 'VBZ':
             q_word = "Why does "
             prefix = str(q_word)+str(q[0])+str(" ")+str(verb_root)+str(" ")
+        else:
+            return None
         if not str(q[-1]).isalnum():
             q.remove(q[-1])
         q = ' '.join(q[2:])

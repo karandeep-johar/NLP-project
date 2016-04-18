@@ -24,7 +24,7 @@ PRUNESMALL = 4
 def transform_question(ques):
     # TODO lone ' "Who ' company was Bad Robot Productions ."
 
-    ques = ques.encode('utf-8')
+    ques = ques.encode('utf-8', errors="ignore")
     ques = ques.replace("``","\"")
     ques = ques.replace("''","\"")
     ques = ques.replace(" 's","'s")
@@ -43,8 +43,8 @@ def prune_questions(questions):
     
     #pprint.pprint([questions[i] for i in range(len(questions))])
     questions = filter(lambda question: len(question.split())>PRUNESMALL, questions)
-    
-    questions = [q.encode('utf-8') for q in questions]
+    # print "46", type(questions[0])
+    questions = [q.decode('utf-8', errors="ignore") for q in questions]
     
     t0 = time.time()
     valid_questions = filter(is_grammatical, questions)
@@ -191,10 +191,11 @@ def main(args):
                     bool_type = True
             i+=1
         finalQs.extend(nonNerQs)
+        finalQs = map(lambda q: q.encode('utf-8', errors="ignore"), finalQs)
+        print "\n".join(finalQs[:nquestions])
         with open("generated_questions.txt", "w") as file:
             file.write("----START----")
             file.write("\n".join(finalQs))
-        print "\n".join(finalQs[:nquestions])
         k = nquestions - len(finalQs)
         while k > 0:
             t0 = time.time()

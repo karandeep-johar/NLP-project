@@ -70,11 +70,11 @@ def linkage_stat(psent, lang):
 
 dictionary = Dictionary()
 def is_grammatical(ques):
-    ques = str(ques)
+    ques = ques.encode('utf-8', errors = "ignore")
     # print "LINK_GRAMMAR", ques
     sent = Sentence(ques, dictionary, po)
     linkages = sent.parse()
-    if ";" in ques or sent.num_valid_linkages()==0 or ques.split()[1] in pronouns or not Evaluate(ques):
+    if ";" in ques or sent.num_valid_linkages()==0 or ques.split()[1] in pronouns or not Evaluate(ques) or ques.split()[0][-1]==":":
         return False
     # look inside linkgrammar.py .You may find gold there. 
     # linkage_stat(sent, 'English')
