@@ -8,4 +8,6 @@ stat_parser/
 tests/.cache/v/cache/lastfailed
 src/generated_questions.txt
 src/transformed.txt
-src/errfileanswer
+src/errfileAnswer
+src/errfileAsk
+
