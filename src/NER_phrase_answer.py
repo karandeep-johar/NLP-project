@@ -135,10 +135,15 @@ def NER_phrase_answer(Interesting_Text,questionParseObj):
 	for i in range(n_candidates):
 		candidate_start_words[i] = filtered_answers[i].split()[0]
 		candidate_start_indices[i] = tokens.index(candidate_start_words[i])
+	remove_list = []
 	question_keywords = question_keywords_no_noun	
 	for i in range(len(question_keywords)):
 		if question_keywords[i] not in candidate_lemmas:
-			question_keywords.remove(question_keywords[i])
+			remove_list.append(question_keywords[i])
+	for remove_elem in remove_list:
+		question_keywords.remove(remove_elem)
+	if(len(question_keywords) ==0):
+		return filtered_answers[0]
 	for i in range(len(question_keywords)):
 		for j in range(n_candidates):
 			candidate_distances[j] = candidate_distances[j]+ abs((candidate_lemmas.index(question_keywords[i])-candidate_start_indices[j]))
@@ -162,9 +167,9 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	question_pos = question_parsed['sentences'][0]['pos']
 	question_keywords = []
 	question_keywords_no_noun = []
-	#pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
+	pos_list = ['CD','CC','JJ','JJR','JJS','NN','NNS','NNP','NNPS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
 	pos_list_no_noun = ['CD','CC','JJ','JJR','JJS','RB','RBR','RBS','VB','VBD','VBG','VBN', 'VBP', 'VBZ']
-	pos_list = pos_list_no_noun
+	#pos_list = pos_list_no_noun
 	logger.critical(question_pos)
 	for i in range(len(question_pos)):
 		if question_pos[i] in pos_list and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
@@ -183,6 +188,7 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	logger.critical(candidate_sentence)
 	# print parsed
 	ner=parsed['sentences'][0]['ner']
+	print ner
 	logger.critical(ner)
 	tokens=parsed['sentences'][0]['tokens']
 	candidate_pos=parsed['sentences'][0]['pos']
@@ -251,10 +257,15 @@ def NER_phrase_utest(Interesting_Text,questionParseObj):
 	for i in range(n_candidates):
 		candidate_start_words[i] = filtered_answers[i].split()[0]
 		candidate_start_indices[i] = tokens.index(candidate_start_words[i])
+	remove_list = []
 	question_keywords = question_keywords_no_noun	
 	for i in range(len(question_keywords)):
 		if question_keywords[i] not in candidate_lemmas:
-			question_keywords.remove(question_keywords[i])
+			remove_list.append(question_keywords[i])
+	for remove_elem in remove_list:
+		question_keywords.remove(remove_elem)
+	if(len(question_keywords) ==0):
+		return filtered_answers[0]
 	for i in range(len(question_keywords)):
 		for j in range(n_candidates):
 			candidate_distances[j] = candidate_distances[j]+ abs((candidate_lemmas.index(question_keywords[i])-candidate_start_indices[j]))
@@ -287,12 +298,12 @@ if __name__ == '__main__':
 	#Int_text = "A year later , he improved and popularized the electrophorus , a device that produces a static electric charge ."
 	#question = "When did Volta retire?"
 	#Int_text = "Volta retired in 1819 in his estate in Camnago , a frazione of Como now called Camnago Volta after him , where he died on March 5 , 1827"
-	#question = "Who did Mark dance with?"
-	#Int_text = "Mark killed Jose while he danced with Michelle"
+	Int_text = "In 1905 Einstein published a paper that explained the PhotoElectric effect for which he won the Nobel Prize in 1921"
+	question = "When did Einstein win the Nobel prize?"
 	#question = "Who showed that Avogadro's theory held in dilute solutions?"
 	#Int_text = "Jacobus Henricus van ' t Hoff showed that Avogadro 's theory also held in dilute solutions ."
-	question = "What does Avogadro's Law state?"
-	Int_text = "Avogadro 's Law states that the relationship between the masses of the same volume of different gases -LRB- at the same temperature and pressure -RRB- corresponds to the relationship between their respective molecular weights ."
+	#question = "What does Avogadro's Law state?"
+	#Int_text = "Avogadro 's Law states that the relationship between the masses of the same volume of different gases -LRB- at the same temperature and pressure -RRB- corresponds to the relationship between their respective molecular weights ."
 	Int_text = preprocess_text(Int_text)
 	questionParseObj = Question_parser(question,parseFlag = True)
 	res=NER_phrase_utest(Int_text,questionParseObj)

@@ -81,14 +81,15 @@ def SelectCandidateSentence(Interesting_Text,questionParseObj):
     for i in range(len(question_pos)):
         if question_pos[i] in pos_list and question_lemmas[i] not in ['be', 'do','does',"have","can","could", "will", "would"]:
             question_keywords.append(question_lemmas[i])
-    logger.critical( "No. of sentences=" + str(len(Interesting_Text)))
+    logger.critical( "No. of sentences=")
+    logger.critical(str(len(Interesting_Text)))
     for i in range(len(Interesting_Text)):
         s = Interesting_Text[i]
         candidate_sentence = s[1]['tokens']
         candidate_sentence = " ".join(candidate_sentence)
         logger.critical(candidate_sentence)
     sentence_found = False
-    logger.critical("Selected sentence:")
+    #logger.critical("Selected sentence:")
     for i in range(len(Interesting_Text)):
         s = Interesting_Text[i]
         candidate_sentence = s[1]['tokens']
@@ -125,7 +126,8 @@ def answerFactoid(question,interestingText,questionParseObj,objTfidf):
     answerlist=objTfidf.getAnswer(question, interestingText,questionParseObj)
     sentence_index = SelectCandidateSentence(interestingText,questionParseObj)
     answer_processed = Refine_TFIDF_answer(answerlist[sentence_index],interestingText[sentence_index][1])
-    logger.critical("Set diff answer: " + str(answer_processed))
+    logger.critical("Set diff answer:")
+    logger.critical(answer_processed)
     answers.append(answer_processed)  
     return answers[0]
 
