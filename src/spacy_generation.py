@@ -418,10 +418,10 @@ def make_questions_relations(relations,entities):
             q = make_because_question(relation)
             if not q is None:
                 questions.append(q)
-        if relation[0].lower() == "is":
-            q_word = check_who_what(relation[1], entities)
-            if not q_word is None:
-                questions.append(q_word+" is "+ relation[1]+" ?")
+        # if relation[0].lower() == "is":
+        #     q_word = check_who_what(relation[1], entities)
+        #     if not q_word is None:
+        #         questions.append(q_word+" is "+ relation[1]+" ?")
     return questions
 #TODO remove punctuation errors, look at why 2014-15 becomes 201415 and make tougher questions?
 # choose one of who/what/where etc.

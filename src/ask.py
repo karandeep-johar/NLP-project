@@ -152,6 +152,7 @@ def main(args):
         factoidQs=[]
         dedup=[]
         nonNerQs=[]
+        hardAKAQs = []
         for i in accepted_questions:
             if i not in dedup:
                 dedup.append(i)
@@ -159,6 +160,8 @@ def main(args):
             spacyObj = nlp(unicode(q))
             if not spacyObj.ents:
                 nonNerQs.append(q)
+            elif q.startswith("What is another name for"):
+                hardAKAQs.append(q)
             else:
                 qp =  Question_parser(q)
                 if qp.qtype=='BOOLEAN':
@@ -190,6 +193,8 @@ def main(args):
                 if f < 4:
                     bool_type = True
             i+=1
+        
+        finalQs.extend(hardAKAQs)
         finalQs.extend(nonNerQs)
         finalQs = map(lambda q: q.encode('utf-8', errors="ignore"), finalQs)
         print "\n".join(finalQs[:nquestions])
