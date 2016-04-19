@@ -126,6 +126,7 @@ def removeHeadings(article, ask = False):
             pronounCount['He'] += para.count('. He')+para.count('. His')
             pronounCount['She'] += para.count('. She')+para.count('. Her')
             pronounCount['It'] += para.count('. It')
+        most_common = "It"
         if i>0 and sum(pronounCount.values())>0:
             most_common,_ = pronounCount.most_common(1)[0]
             for j in range(1,i):

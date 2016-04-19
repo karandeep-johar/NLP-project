@@ -90,17 +90,16 @@ def main(args):
             headingSet.add(s[0].upper()+s[1:])
         heading = headingSet
         headings = []
-        for L in range(0, len(heading)+1):
-            for subset in permutations(heading, L):
-                headings.append(" ".join(subset))
         person_article = False
         if pronoun.lower() in ["he", "she"]:
             person_article = True
+            for L in range(0, len(heading)+1):
+                for subset in permutations(heading, L):
+                    headings.append(" ".join(subset))
         #TODO clean up the file maybe like we do in answer generation
         nquestions = int(args[1])
         accepted = defaultdict(list)
         rejected = defaultdict(list)
-
         accepted_questions = []
         t0 = time.time()
         entities, relations = extract_entities_relations(data)
@@ -204,9 +203,17 @@ def main(args):
         while k > 0:
             t0 = time.time()
             data_for_transform = selObj1.get_needTransform()
-            idx = min(k+floor(0.2*k),len(data_for_transform))
+            idx = int(min(k+floor(0.2*k),len(data_for_transform)))
             if idx <= 0:
+                for x in rejected:
+                    if not rejected[x]:
+                        continue
+                    print '\n'.join(rejected[x][:k])
+                    k = k-len(rejected[x])
+                    if k==0:
+                        break
                 break
+
             data_for_transform = data_for_transform[:idx]
             selObj1.update_transform_sentences(idx)
             corpus = transformSentences(' '.join(data_for_transform))
