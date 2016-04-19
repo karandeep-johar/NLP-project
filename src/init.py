@@ -145,6 +145,9 @@ def removeHeadings(article, ask = False):
             para = splitData[i]
             if len(para.split())>MIN_PARA_SIZE:
                 finalParas.append(para)
+            else:
+                if para in ['See also','Notes','References','External links']:
+                    break
         if ask:
             data = '\n '.join(finalParas)
         else:
