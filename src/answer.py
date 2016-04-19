@@ -161,13 +161,17 @@ def main(args):
         for question in questionsList:
             #fluency check
             #interestingText can be a list of tuples of (sentence,score)
-            logger.critical( 'Q: '+question)
-            questionParseObj = Question_parser(question)
-            interestingText = objTfidf.getInterestingText(question)
-            if "BOOLEAN" in questionParseObj.answer_type:
-                print answerYesNo(question, interestingText, questionParseObj,titleLemmasSet,stopLemmasSet)
-            else:
-                print formGrammaticalSentence(answerFactoid(question,interestingText,questionParseObj,objTfidf))
+            try:
+                logger.critical( 'Q: '+question)
+                questionParseObj = Question_parser(question)
+                interestingText = objTfidf.getInterestingText(question)
+                if "BOOLEAN" in questionParseObj.answer_type:
+                    print answerYesNo(question, interestingText, questionParseObj,titleLemmasSet,stopLemmasSet)
+                else:
+                    print formGrammaticalSentence(answerFactoid(question,interestingText,questionParseObj,objTfidf))
+            except Exception, e:
+                print ""
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])
