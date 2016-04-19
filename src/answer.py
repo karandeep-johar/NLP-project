@@ -112,7 +112,7 @@ def SelectCandidateSentence(Interesting_Text,questionParseObj):
 
 def answerFactoid(question,interestingText,questionParseObj,objTfidf):
     answers=[]
-    if(questionParseObj.answer_type != set(['UNKNOWN'])):
+    if(questionParseObj.answer_type != set(['UNKNOWN','NA'])):
         answer = NER_phrase_answer(interestingText,questionParseObj)
         if answer and answer != 'None':
             logger.critical( "NER accepted")
@@ -125,10 +125,20 @@ def answerFactoid(question,interestingText,questionParseObj,objTfidf):
     # If NER approach fails or NER tag is not avaialable, resort to set difference method
     answerlist=objTfidf.getAnswer(question, interestingText,questionParseObj)
     sentence_index = SelectCandidateSentence(interestingText,questionParseObj)
-    answer_processed = Refine_TFIDF_answer(answerlist[sentence_index],interestingText[sentence_index][1])
-    logger.critical("Set diff answer:")
-    logger.critical(answer_processed)
-    answers.append(answer_processed)  
+    answer_ready = False
+    while not answer_ready and (sentence_index < len(answerlist)):
+        answer_processed = Refine_TFIDF_answer(answerlist[sentence_index],interestingText[sentence_index][1])
+        logger.critical("Set diff answer:")
+        logger.critical(answer_processed)
+        if answer_processed is not None:
+            answers.append(answer_processed)
+            answer_ready = True
+        else:
+            sentence_index += 1
+    if not answer_ready:
+        s = Interesting_Text[0]
+        candidate_sentence = s[1]['tokens']
+        return " ".join(candidate_sentence)
     return answers[0]
 
 def getStopLemmas():

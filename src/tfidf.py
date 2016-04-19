@@ -54,7 +54,7 @@ class TF_IDF(object):
         answerSentences = self.index[self.tfidf[newQBOW]]
         answerSentences = sorted(answerSentences, key=lambda tup: tup[1], reverse=True)
         for x in answerSentences:
-            if (len(set(self.tokenized['sentences'][x[0]]['lemmas'])-set(puncTags))<3):
+            if (len(set(self.tokenized['sentences'][x[0]]['lemmas'])-set(puncTags))<3) or (self.tokenized['sentences'][x[0]]['tokens'][-1]=='?'):
                 answerSentences.remove(x)
         answerSentences = [(x[1], self.tokenized['sentences'][x[0]]) for x in answerSentences]
         return answerSentences

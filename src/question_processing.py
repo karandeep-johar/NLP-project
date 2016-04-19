@@ -42,7 +42,7 @@ class Question_parser:
         OTHER_QWORDS = set(['who','whom','when','where','how', 'what', 'why','which'])
         proc = init.proc1
         parsed = proc.parse_doc(self.question)
-        if parsed['sentences'][0]['tokens'][-1] == '?':
+        if True:#parsed['sentences'][0]['tokens'][-1] == '?':
             self.valid = True
             # pprint(parsed)
             wh_word=''
